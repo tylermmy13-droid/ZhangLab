@@ -5,12 +5,10 @@ import GlobeMap from '../components/GlobeMap.astro';
 import NewsCard from '../components/NewsCard.astro';
 import PublicationCard from '../components/PublicationCard.astro';
 import CollectionCard from '../components/CollectionCard.astro';
-import BlogCard from '../components/BlogCard.astro';
 
 const newsItems = (await getCollection('news')).filter((item) => !item.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
 const publications = (await getCollection('publications')).filter((item) => !item.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
 const collectionItems = (await getCollection('collections')).filter((item) => !item.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
-const blogItems = (await getCollection('blogs')).filter((item) => !item.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
 ---
 <BaseLayout title="Zhang Lab" description="Cardiovascular medicine, vascular regeneration, organoid-chip platforms, and AI-enabled active health at Xinhua Hospital." headerMode="glass" bodyClass="space-theme">
   <main>
@@ -52,19 +50,6 @@ const blogItems = (await getCollection('blogs')).filter((item) => !item.data.dra
           <p class="section-copy" data-en="Selected work spanning interventional cardiology, vascular repair, organoids, and cardiovascular AI." data-zh="涵盖冠心病介入、血管修复、类器官平台与心血管人工智能的代表性工作。">Selected work spanning interventional cardiology, vascular repair, organoids, and cardiovascular AI.</p>
         </div>
         <div class="card-grid">{publications.map((item) => <PublicationCard item={item} />)}</div>
-      </div>
-    </section>
-
-    <section class="section" id="blogs">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-head-top">
-            <h2 class="section-title" data-en="Research &lt;em&gt;Notes&lt;/em&gt;" data-zh="研究&lt;em&gt;笔记&lt;/em&gt;">Research <em>Notes</em></h2>
-            <a class="button section-cta" href="/blogs/" data-en="All Notes" data-zh="全部笔记">All Notes <span aria-hidden="true">&rarr;</span></a>
-          </div>
-          <p class="section-copy" data-en="Short notes for research ideas, platform updates, and translational observations." data-zh="记录研究思路、平台进展与转化观察。">Short notes for research ideas, platform updates, and translational observations.</p>
-        </div>
-        <div class="card-grid">{blogItems.map((item) => <BlogCard item={item} />)}</div>
       </div>
     </section>
   </main>
