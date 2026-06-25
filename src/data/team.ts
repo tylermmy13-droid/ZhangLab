@@ -28,7 +28,7 @@ export const team: TeamMember[] = [
   // ════════════════════════════════════════════
   {
     slug: 'zhang-li',
-    name: '张力 / Li Zhang',
+    name: '张力 / ZHANG Li',
     nameZh: '张力',
     role: 'Principal Investigator',
     roleZh: '课题组长',
@@ -40,7 +40,7 @@ export const team: TeamMember[] = [
     publications: [
       {
         title: 'Nrf3-Mediated Mitochondrial Superoxide Promotes Cardiomyocyte Apoptosis and Impairs Cardiac Functions by Suppressing Pitx2',
-        authors: 'Qishan Chen, Ancheng Zheng, Xiaolei Xu, Zhenning Shi, Mei Yang, Shasha Sun, Leyu Wang, Yumeng Wang, Haige Zhao, Qingzhong Xiao, Li Zhang',
+        authors: 'CHEN Qishan, Ancheng Zheng, Xiaolei Xu, Zhenning Shi, YANG Mei, Shasha Sun, Leyu Wang, Yumeng Wang, Haige Zhao, Qingzhong Xiao, ZHANG Li',
         venue: 'Circulation (2025)',
         img: '/assets/cards/nrf3-cover.png',
         links: [{ label: 'Circulation', url: 'https://doi.org/10.1161/CIRCULATIONAHA.124.070286' }],
@@ -70,7 +70,7 @@ export const team: TeamMember[] = [
   // ════════════════════════════════════════════
   {
     slug: 'chen-qishan',
-    name: '陈齐山 / Qishan Chen',
+    name: '陈齐山 / CHEN Qishan',
     nameZh: '陈齐山',
     role: 'Associate Chief Physician, Professor',
     roleZh: '副主任医师 / 教授',
@@ -82,7 +82,7 @@ export const team: TeamMember[] = [
     publications: [
       {
         title: 'Nrf3-Mediated Mitochondrial Superoxide Promotes Cardiomyocyte Apoptosis and Impairs Cardiac Functions by Suppressing Pitx2',
-        authors: 'Qishan Chen, Ancheng Zheng, Xiaolei Xu, Zhenning Shi, Mei Yang, Shasha Sun, Leyu Wang, Yumeng Wang, Haige Zhao, Qingzhong Xiao, Li Zhang',
+        authors: 'CHEN Qishan, Ancheng Zheng, Xiaolei Xu, Zhenning Shi, YANG Mei, Shasha Sun, Leyu Wang, Yumeng Wang, Haige Zhao, Qingzhong Xiao, ZHANG Li',
         venue: 'Circulation (2025)',
         img: '/assets/cards/nrf3-cover.png',
         links: [{ label: 'Circulation', url: 'https://doi.org/10.1161/CIRCULATIONAHA.124.070286' }],
@@ -103,7 +103,7 @@ export const team: TeamMember[] = [
   // ════════════════════════════════════════════
   {
     slug: 'dai-bing',
-    name: '戴兵 / Bing Dai',
+    name: '戴兵 / DAI Bing',
     nameZh: '戴兵',
     role: 'Attending Physician',
     roleZh: '主治医师',
@@ -118,7 +118,7 @@ export const team: TeamMember[] = [
   },
   {
     slug: 'sun-yuxi',
-    name: '孙玉玺 / Yuxi Sun',
+    name: '孙玉玺 / SUN Yuxi',
     nameZh: '孙玉玺',
     role: 'Attending Physician',
     roleZh: '主治医师',
@@ -133,7 +133,7 @@ export const team: TeamMember[] = [
   },
   {
     slug: 'yang-mei',
-    name: '杨眉 / Mei Yang',
+    name: '杨眉 / YANG Mei',
     nameZh: '杨眉',
     role: 'Assistant Researcher',
     roleZh: '助理研究员',
@@ -152,7 +152,7 @@ export const team: TeamMember[] = [
   // ════════════════════════════════════════════
   {
     slug: 'xu-xiaolei',
-    name: '徐肖磊 / Xiaolei Xu',
+    name: '徐肖磊 / XU Xiaolei',
     nameZh: '徐肖磊',
     role: 'Resident Physician',
     roleZh: '住院医师',
@@ -167,7 +167,7 @@ export const team: TeamMember[] = [
   },
   {
     slug: 'sun-shasha',
-    name: '孙厦厦 / Shasha Sun',
+    name: '孙厦厦 / SUN Shasha',
     nameZh: '孙厦厦',
     role: 'Resident Physician',
     roleZh: '住院医师',
@@ -182,7 +182,7 @@ export const team: TeamMember[] = [
   },
   {
     slug: 'shi-zhenning',
-    name: '石镇宁 / Zhenning Shi',
+    name: '石镇宁 / SHI Zhenning',
     nameZh: '石镇宁',
     role: 'Resident Physician',
     roleZh: '住院医师',
