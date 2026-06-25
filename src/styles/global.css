@@ -151,7 +151,7 @@ img { max-width: 100%; display: block; }
   box-shadow: none;
   backdrop-filter: blur(0) saturate(1);
   -webkit-backdrop-filter: blur(0) saturate(1);
-  color: #fbfbfb;
+  color: #fff;
   font-size: clamp(20px, 1.42vw, 28px);
   font-weight: 520;
   letter-spacing: -0.02em;
@@ -173,7 +173,7 @@ img { max-width: 100%; display: block; }
 }
 
 .site-header.is-visible .nav {
-  color: #fbfbfb;
+  color: #fff;
 }
 
 .brand {
@@ -1916,7 +1916,7 @@ img { max-width: 100%; display: block; }
   backdrop-filter: blur(24px) saturate(1.2);
   -webkit-backdrop-filter: blur(24px) saturate(1.2);
   border-radius: 30px;
-  color: #fbfbfb;
+  color: #fff;
   font-size: clamp(19px, 1.5vw, 26px);
   font-weight: 520;
   letter-spacing: -0.015em;
@@ -1927,7 +1927,7 @@ img { max-width: 100%; display: block; }
   border-color: rgba(255, 255, 255, 0.15);
   background: rgba(255, 255, 255, 0.09);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  color: #fbfbfb;
+  color: #fff;
 }
 
 .space-theme .nav a:hover,
