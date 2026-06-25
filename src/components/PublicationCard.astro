@@ -14,10 +14,12 @@ if (paperUrl) {
   <span class="card-media">
     <img class="card-image" src={item.data.image} alt="" loading="lazy" />
   </span>
-  <span class="tag-pill">{pubDate}</span>
-  <h3 class="publication-card-title">{item.data.title}</h3>
-  <p>{item.data.description}</p>
-  <span class="card-meta">{item.data.venue}</span>
+  <div class="publication-card-body">
+    <span class="tag-pill">{pubDate}</span>
+    <h3 class="publication-card-title">{item.data.title}</h3>
+    <p>{item.data.description}</p>
+    <span class="card-meta">{item.data.venue}</span>
+  </div>
 </Tag>
 
 <style>
@@ -37,12 +39,22 @@ if (paperUrl) {
     box-shadow: 0 8px 32px rgba(217, 119, 87, 0.08);
     transform: translateY(-3px);
   }
+
+  /* Image spans full width, body has padding */
+  .publication-card :global(.card-media) {
+    margin: 0;
+  }
   .publication-card :global(.card-image) {
     transition: transform 0.4s ease;
   }
   .publication-card:hover :global(.card-image) {
     transform: scale(1.07);
   }
+
+  .publication-card-body {
+    padding: 20px 22px 24px;
+  }
+
   .publication-card :global(h3) {
     font-family: "DM Serif Display", "Noto Serif SC", Georgia, "Times New Roman", serif;
     font-weight: 400;
@@ -50,11 +62,13 @@ if (paperUrl) {
     line-height: 1.35;
     letter-spacing: -0.01em;
     color: #faf9f5;
+    margin: 0 0 10px;
   }
   .publication-card :global(.tag-pill) {
     background: rgba(217, 119, 87, 0.12);
     color: #d97757;
     border: 1px solid rgba(217, 119, 87, 0.15);
+    margin: 0 0 14px;
   }
   .publication-card :global(.card-meta) {
     color: rgba(255, 255, 255, 0.35);
@@ -64,5 +78,6 @@ if (paperUrl) {
     color: rgba(255, 255, 255, 0.55);
     font-size: 14px;
     line-height: 1.55;
+    margin: 0 0 10px;
   }
 </style>
