@@ -4,16 +4,17 @@ import path from 'node:path';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const publications = (await getCollection('publications')).filter((item) => !item.data.draft);
+  const publications = (await getCollection('publications'))
+    .filter((item) => !item.data.draft && item.data.paperSite);
   return publications.map((item) => ({ params: { slug: item.id }, props: { item } }));
 }
 
 const { item } = Astro.props;
-const paperSite = item.data.paperSite;
+const paperSite = item.data.paperSite!;
 const safePaperSite = paperSite.replace(/[^a-zA-Z0-9_-]/g, '');
 const publicBase = `/paper-sites/${safePaperSite}/`;
-const templatePath = path.join(process.cwd(), 'public', 'paper-sites', safePaperSite, 'index.html');
 
+const templatePath = path.join(process.cwd(), 'public', 'paper-sites', safePaperSite, 'index.html');
 if (!fs.existsSync(templatePath)) {
   throw new Error(`Missing publication paper site template: ${templatePath}`);
 }
