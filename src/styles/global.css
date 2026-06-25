@@ -1916,7 +1916,7 @@ img { max-width: 100%; display: block; }
   backdrop-filter: blur(24px) saturate(1.2);
   -webkit-backdrop-filter: blur(24px) saturate(1.2);
   border-radius: 30px;
-  color: rgba(255, 255, 255, 0.9);
+  color: #fbfbfb;
   font-size: clamp(19px, 1.5vw, 26px);
   font-weight: 520;
   letter-spacing: -0.015em;
