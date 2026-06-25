@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Contact | Zhang Lab" description="Contact Zhang Lab at Xinhua Hospital." headerMode="glass" bodyClass="space-theme">
+  <main class="publication-archive">
+    <section class="publication-hero">
+      <div class="container publication-hero-inner">
+        <h1 class="publication-title" data-en="Contact Us" data-zh="联系我们">Contact Us</h1>
+        <p class="publication-lede" data-en="For clinical research collaboration, student inquiries, or translational partnership, contact the group by email." data-zh="临床研究合作、学生培养与转化合作，请通过邮箱联系课题组。">For clinical research collaboration, student inquiries, or translational partnership, contact the group by email.</p>
+      </div>
+    </section>
+
+    <section class="section contact-section">
+      <div class="container contact-grid">
+        <a class="contact-card contact-text-card" href="mailto:li.zhang@shsmu.edu.cn" aria-label="Email li.zhang@shsmu.edu.cn" title="li.zhang@shsmu.edu.cn">
+          <img class="contact-icon" src="/assets/icons/gmail.svg" alt="Email" />
+          <span>li.zhang@shsmu.edu.cn</span>
+        </a>
+        <a class="contact-card contact-text-card" href="mailto:chenqishan@shsmu.edu.cn" aria-label="Email chenqishan@shsmu.edu.cn" title="chenqishan@shsmu.edu.cn">
+          <img class="contact-icon" src="/assets/icons/gmail.svg" alt="Email" />
+          <span>chenqishan@shsmu.edu.cn</span>
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .contact-section { padding-top: 0; }
+  .contact-grid { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  .contact-card { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 18px 24px; border-radius: 999px; background: #fff; color: #111827; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+  .contact-card:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(255,255,255,0.15); }
+  .contact-icon { width: 28px; height: 28px; }
+  .contact-text-card span { font-size: 15px; font-weight: 600; }
+</style>

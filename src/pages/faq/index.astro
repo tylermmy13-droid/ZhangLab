@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  { q: 'What research areas does Zhang Lab focus on?', qZh: '张力课题组主要研究哪些方向？', a: 'The lab focuses on coronary intervention, cardiovascular regeneration and remodeling, vascular organoids and organoid chips, and AI-enabled cardiovascular active health.', aZh: '课题组聚焦冠心病精准介入诊疗、心血管再生修复与重构机制、血管类器官和类器官芯片，以及人工智能赋能的心血管主动健康。' },
+  { q: 'Where is the lab based?', qZh: '课题组在哪里？', a: 'The group is based in the Department of Cardiology at Xinhua Hospital affiliated to Shanghai Jiao Tong University School of Medicine.', aZh: '课题组依托上海交通大学医学院附属新华医院心血管内科。' },
+  { q: 'Can students or collaborators contact the lab?', qZh: '学生或合作方可以联系课题组吗？', a: 'Yes. Please contact the group by email with a short introduction, research interests, and relevant background.', aZh: '可以。请通过邮箱发送简要介绍、研究兴趣和相关背景。' },
+  { q: 'What platforms does the lab maintain?', qZh: '课题组有哪些平台？', a: 'The group develops clinical research programs, vascular organoid and organ-on-chip models, bioinformatics pipelines, and AI-enabled cardiovascular health tools.', aZh: '课题组建设临床研究、血管类器官与类器官芯片、生物信息学分析和 AI 心血管主动健康工具等平台。' },
+];
+---
+<BaseLayout title="FAQ | Zhang Lab" description="Frequently asked questions about Zhang Lab." headerMode="glass" bodyClass="space-theme">
+  <main class="publication-archive">
+    <section class="publication-hero">
+      <div class="container publication-hero-inner">
+        <h1 class="publication-title" data-en="FAQ" data-zh="常见问题">FAQ</h1>
+        <p class="publication-lede" data-en="Frequently asked questions about Zhang Lab" data-zh="关于张力课题组的常见问题">Frequently asked questions about Zhang Lab</p>
+      </div>
+    </section>
+
+    <section class="section faq-section">
+      <div class="container faq-list">
+        {faqs.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question" data-en={item.q} data-zh={item.qZh}>{item.q}</summary>
+            <p class="faq-answer" data-en={item.a} data-zh={item.aZh}>{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .faq-list { display: flex; flex-direction: column; gap: 0; max-width: 800px; }
+  .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 24px 0; }
+  .faq-item:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+  .faq-question { font-size: clamp(16px, 1.05vw, 20px); line-height: 1.35; color: var(--space-text-muted, rgba(232,232,240,0.6)); cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::after { content: '+'; font-size: 20px; flex-shrink: 0; color: rgba(255,255,255,0.3); transition: transform 0.2s ease; }
+  .faq-item[open] .faq-question::after { content: '−'; }
+  .faq-answer { margin: 14px 0 0; color: rgba(255,255,255,0.5); font-size: 15px; line-height: 1.65; }
+</style>
