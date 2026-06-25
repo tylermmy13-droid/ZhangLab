@@ -1,5 +1,5 @@
 (function () {
-  let currentLang = localStorage.getItem('lang') || 'en';
+  let currentLang = localStorage.getItem('lang') || 'zh';
 
   function applyLanguage(lang) {
     document.querySelectorAll('[data-en][data-zh]').forEach(el => {
