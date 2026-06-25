@@ -20,11 +20,11 @@ const getInitials = (name: string) => {
 };
 ---
 <BaseLayout title="Team | Zhang Lab" description="Meet the Zhang Lab team." headerMode="glass" bodyClass="space-theme">
-  <main class="team-archive">
-    <section class="team-hero">
-      <div class="container team-hero-inner">
-        <h1 class="team-title" data-en="Our Team" data-zh="团队成员">Our Team</h1>
-        <p class="team-lede" data-en="A collaborative hierarchy of clinical and translational researchers" data-zh="临床与转化研究团队的协作梯队">A collaborative hierarchy of clinical and translational researchers</p>
+  <main class="publication-archive">
+    <section class="publication-hero">
+      <div class="container publication-hero-inner">
+        <h1 class="publication-title" data-en="Our Team" data-zh="团队成员">Our Team</h1>
+        <p class="publication-lede" data-en="A collaborative hierarchy of clinical and translational researchers" data-zh="临床与转化研究团队的协作梯队">A collaborative hierarchy of clinical and translational researchers</p>
       </div>
     </section>
 
@@ -73,26 +73,6 @@ const getInitials = (name: string) => {
 </BaseLayout>
 
 <style>
-  /* ─── Hero ─── */
-  .team-hero {
-    padding: 160px 0 60px;
-    text-align: center;
-  }
-  .team-title {
-    margin: 0 0 12px;
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 600;
-    color: #faf9f5;
-    letter-spacing: -0.02em;
-  }
-  .team-lede {
-    margin: 0 auto;
-    max-width: 600px;
-    font-size: clamp(15px, 1.2vw, 18px);
-    color: rgba(255, 255, 255, 0.55);
-    line-height: 1.6;
-  }
-
   /* ─── Tree Layout ─── */
   .team-tree {
     display: flex;
@@ -293,7 +273,6 @@ const getInitials = (name: string) => {
   }
 
   @media (max-width: 640px) {
-    .team-hero { padding: 120px 0 40px; }
     .level-cards { gap: 10px; }
     [data-level="1"] .member-card,
     [data-level="2"] .member-card,
