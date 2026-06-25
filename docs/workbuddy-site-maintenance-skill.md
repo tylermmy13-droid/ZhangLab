@@ -117,11 +117,12 @@ The GitHub Actions workflow should build the Astro site and deploy the generated
 
 If deployment fails, check in this order:
 
-1. GitHub repository settings: Pages should use GitHub Actions as the source.
-2. GitHub Actions logs: identify whether failure is in dependency install, build, or deploy.
-3. `package.json`: make sure the build script still runs the post-build base-path fix.
-4. `scripts/fix-github-pages-base.mjs`: make sure it still targets the correct base path, `/SpaceLab`.
-5. `dist/`: generated files should include corrected asset paths for GitHub Pages.
+1. Node version: Astro currently requires Node >=22.12.0, so the workflow should use Node 24 or newer.
+2. GitHub repository settings: Pages should use GitHub Actions as the source.
+3. GitHub Actions logs: identify whether failure is in dependency install, build, or deploy.
+4. `package.json`: make sure the build script still runs the post-build base-path fix.
+5. `scripts/fix-github-pages-base.mjs`: make sure it still targets the correct base path, `/SpaceLab`.
+6. `dist/`: generated files should include corrected asset paths for GitHub Pages.
 
 Do not delete the deployment workflow or post-build script unless replacing them with a tested equivalent.
 
