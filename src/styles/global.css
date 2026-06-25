@@ -791,10 +791,10 @@ img { max-width: 100%; display: block; }
 .publication-lede {
   max-width: 880px;
   margin: 18px 0 0;
-  color: rgba(30, 31, 30, 0.78);
-  font-size: clamp(16px, 1.05vw, 20px);
+  color: rgba(30, 31, 30, 0.88);
+  font-size: clamp(24px, 1.55vw, 30px);
   line-height: 1.35;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.025em;
 }
 
 .collection-cloud,
@@ -1790,7 +1790,7 @@ img { max-width: 100%; display: block; }
   .collection-title,
   .publication-title { font-size: clamp(40px, 9vw, 60px); }
   .collection-lede,
-  .publication-lede { font-size: 16px; }
+  .publication-lede { font-size: 20px; }
   .collection-cloud-left { top: -42px; left: -58vw; width: 96vw; }
   .collection-cloud-right { top: -82px; right: -46vw; width: 72vw; }
   .publication-cloud-left { top: -88px; left: -44vw; width: 70vw; }
@@ -2117,7 +2117,7 @@ img { max-width: 100%; display: block; }
 .space-theme .publication-lede,
 .space-theme .collection-lede,
 .space-theme .blog-lede {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 /* Detail pages — space theme */
