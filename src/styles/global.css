@@ -14,10 +14,18 @@
 }
 
 @font-face {
-  font-family: "Faire Octave";
-  src: url("/assets/fonts/faire-octave.woff2") format("woff2");
+  font-family: "DM Serif Display";
+  src: url("/assets/fonts/dm-serif-display-latin-400-normal.ttf") format("truetype");
   font-display: swap;
   font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "DM Serif Display";
+  src: url("/assets/fonts/dm-serif-display-latin-400-italic.ttf") format("truetype");
+  font-display: swap;
+  font-style: italic;
   font-weight: 400;
 }
 
@@ -247,7 +255,7 @@ img { max-width: 100%; display: block; }
 .hero-title,
 .section-title {
   margin: 0;
-  font-family: "Faire Octave", Georgia, "Times New Roman", serif;
+  font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
   font-weight: 400;
   letter-spacing: -0.012em;
 }
@@ -694,7 +702,7 @@ img { max-width: 100%; display: block; }
   max-width: 980px;
   margin: 0;
   color: #07395f;
-  font-family: "Faire Octave", Georgia, "Times New Roman", serif;
+  font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
   font-size: clamp(30px, 3.25vw, 52px);
   font-weight: 400;
   line-height: 1.05;
@@ -973,7 +981,7 @@ img { max-width: 100%; display: block; }
   max-width: 920px;
   margin: 0;
   color: #07395f;
-  font-family: "Faire Octave", Georgia, "Times New Roman", serif;
+  font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
   font-size: clamp(40px, 4.25vw, 76px);
   font-weight: 400;
   line-height: 1.03;
@@ -1148,7 +1156,7 @@ img { max-width: 100%; display: block; }
 .prose h3,
 .prose h4 {
   color: #07395f;
-  font-family: "Faire Octave", Georgia, "Times New Roman", serif;
+  font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
   font-weight: 400;
   letter-spacing: -0.02em;
 }
@@ -1218,7 +1226,7 @@ img { max-width: 100%; display: block; }
 .prose blockquote p {
   margin: 0;
   color: #07395f;
-  font-family: "Faire Octave", Georgia, "Times New Roman", serif;
+  font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
   font-size: clamp(24px, 2vw, 34px);
   line-height: 1.28;
 }
@@ -1259,7 +1267,7 @@ img { max-width: 100%; display: block; }
   color: #07395f;
   background: rgba(255, 255, 255, 0.62);
   box-shadow: 0 18px 48px rgba(30, 31, 30, 0.06);
-  font-family: "Faire Octave", Georgia, "Times New Roman", serif;
+  font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
   font-size: clamp(22px, 2.1vw, 34px);
   line-height: 1.15;
   text-align: center;
@@ -1414,7 +1422,7 @@ img { max-width: 100%; display: block; }
 
 .about-label {
   margin: 0;
-  font-family: "Faire Octave", Georgia, "Times New Roman", serif;
+  font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
   font-size: clamp(34px, 3.5vw, 60px);
   font-weight: 400;
   line-height: 0.95;
@@ -1429,7 +1437,7 @@ img { max-width: 100%; display: block; }
 .about-copy h1 {
   max-width: 980px;
   margin: 0;
-  font-family: "Faire Octave", Georgia, "Times New Roman", serif;
+  font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
   font-size: clamp(20px, 1.75vw, 31px);
   font-weight: 400;
   line-height: 1.12;

@@ -20,7 +20,7 @@ const markers = (await getCollection('markers'))
   <div class="globe-welcome-overlay" id="globe-welcome-overlay"></div>
   <div class="globe-welcome" id="globe-welcome">
     <div class="globe-welcome-title" data-en="Welcome to Zhang Lab" data-zh="欢迎来到张力课题组">Welcome to Zhang Lab</div>
-    <div class="globe-welcome-sub" data-en="Cardiovascular medicine, regeneration, organoids, and AI" data-zh="心血管医学、再生修复、类器官与人工智能">Cardiovascular medicine, regeneration, organoids, and AI</div>
+    <div class="globe-welcome-sub" data-en="Cardiovascular intervention, vascular regeneration, organoid-chip platforms, and AI-enabled active health." data-zh="冠心病介入、血管再生修复、类器官芯片平台与 AI 赋能主动健康">Cardiovascular intervention, vascular regeneration, organoid-chip platforms, and AI-enabled active health.</div>
   </div>
   <div class="globe-search-bar" id="globe-search-bar">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -101,7 +101,7 @@ const markers = (await getCollection('markers'))
   const MAPBOX_TOKEN = 'YOUR_MAPBOX_ACCESS_TOKEN';
   const container = document.getElementById('globe-container');
   if (MAPBOX_TOKEN === 'YOUR_MAPBOX_ACCESS_TOKEN' && container) {
-    container.innerHTML = '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:white;background:radial-gradient(circle at 50% 40%, rgba(66,153,225,.22), transparent 46%);"><div><strong style="font-size:clamp(28px,5vw,64px);">Zhang Lab</strong><p style="max-width:760px;margin:18px auto 0;color:rgba(255,255,255,.72);line-height:1.7;">Cardiovascular intervention, vascular regeneration, organoid-chip platforms, and AI-enabled active health.</p></div></div>';
+    container.innerHTML = '';
   }
   mapboxgl.accessToken = MAPBOX_TOKEN;
 
@@ -414,19 +414,9 @@ const markers = (await getCollection('markers'))
     });
   }
 
-  // Welcome title — click to dismiss, auto-dismiss after 3s
-  const welcome = document.getElementById('globe-welcome');
+  // Keep the welcome title visible as the permanent homepage hero.
   const welcomeOverlay = document.getElementById('globe-welcome-overlay');
-  function dismissWelcome() {
-    if (!welcome || welcome.classList.contains('fade-out')) return;
-    welcome.classList.add('fade-out');
-    if (welcomeOverlay) welcomeOverlay.hidden = true;
-    welcome.addEventListener('animationend', () => {
-      if (welcome) welcome.hidden = true;
-    }, { once: true });
-  }
-  welcomeOverlay?.addEventListener('click', dismissWelcome);
-  setTimeout(dismissWelcome, 3000);
+  if (welcomeOverlay) welcomeOverlay.hidden = true;
 
   // Fade out scroll hint on scroll
   const hint = document.querySelector('[data-galaxy-hint]');
@@ -869,12 +859,9 @@ const markers = (await getCollection('markers'))
     animation: welcomeFadeIn 1.5s ease-out both;
   }
 
-  .globe-welcome.fade-out {
-    animation: welcomeFadeOut 1.5s ease-in forwards;
-  }
 
   .globe-welcome-title {
-    font-family: "Faire Octave", Georgia, "Times New Roman", serif;
+    font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
     font-size: clamp(48px, 8vw, 100px);
     font-weight: 400;
     color: #fff;
@@ -896,10 +883,6 @@ const markers = (await getCollection('markers'))
     to { opacity: 1; transform: translateY(0); }
   }
 
-  @keyframes welcomeFadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-  }
 
   /* Globe search trigger bar */
   .globe-search-bar {
