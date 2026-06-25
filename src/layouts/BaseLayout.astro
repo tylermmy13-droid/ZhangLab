@@ -45,12 +45,12 @@ const isSpaceTheme = bodyClass.includes('space-theme');
     <header class={`site-header ${headerMode === 'glass' ? 'is-visible' : ''}`} data-scroll-header data-header-mode={headerMode}>
       <nav class="nav" aria-label="主导航" role="navigation">
         <div class="nav-links">
-          <a href="/" data-en="Home" data-zh="首页">Home</a>
-          <a href="/news/" data-en="News" data-zh="动态">News</a>
-          <a href="/collections/" data-en="Research" data-zh="研究方向">Research</a>
-          <a href="/our-team/" data-en="Team" data-zh="团队">Team</a>
-          <a href="/publications/" data-en="Publications" data-zh="论文">Publications</a>
-          <a href="/contact/" data-en="Contact" data-zh="联系我们">Contact</a>
+          <a href="/" data-route="home" data-en="Home" data-zh="首页">Home</a>
+          <a href="/news/" data-route="news" data-en="News" data-zh="动态">News</a>
+          <a href="/collections/" data-route="collections" data-en="Research" data-zh="研究方向">Research</a>
+          <a href="/our-team/" data-route="our-team" data-en="Team" data-zh="团队">Team</a>
+          <a href="/publications/" data-route="publications" data-en="Publications" data-zh="论文">Publications</a>
+          <a href="/contact/" data-route="contact" data-en="Contact" data-zh="联系我们">Contact</a>
         </div>
         <LangSwitch />
       </nav>
@@ -74,23 +74,11 @@ const isSpaceTheme = bodyClass.includes('space-theme');
       </div>
     </footer>
     <script>
-      /* ---- 当前页面 active 下划线（兼容 GitHub Pages 子路径） ---- */
-      const path = window.location.pathname.replace(/\/$/, '');
-      const navAs = document.querySelectorAll('.nav-links a');
-      navAs.forEach(a => {
-        const rawHref = a.getAttribute('href') || '';
-        const href = rawHref.replace(/\/$/, '');
-        if (href === '/') {
-          /* Home: path 仅含 base path，无子路径段 */
-          if (path === '/' || path === '' || path.split('/').filter(Boolean).length <= 1) {
-            a.classList.add('active');
-          }
-        } else {
-          /* 精确页面匹配 或 子页面（如 /news/launch） */
-          if (path.endsWith(href) || path.includes(href + '/')) {
-            a.classList.add('active');
-          }
-        }
+      /* ---- 当前页面 active 下划线（基于路径段，免疫 base path 改写） ---- */
+      const segs = window.location.pathname.split('/').filter(Boolean);
+      const pageSeg = segs.length <= 1 ? 'home' : segs[1];
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        if ((a.dataset.route || '') === pageSeg) a.classList.add('active');
       });
 
       /* ---- 原有滚动/header 逻辑 ---- */
