@@ -759,8 +759,8 @@ img { max-width: 100%; display: block; }
 .collection-hero,
 .publication-hero {
   position: relative;
-  min-height: 320px;
-  padding: 120px 0 0;
+  min-height: 420px;
+  padding: 128px 0 56px;
   overflow: hidden;
   background: transparent;
 }
@@ -1784,7 +1784,7 @@ img { max-width: 100%; display: block; }
   .button.section-cta { margin-top: 18px; }
   .card-grid { grid-template-columns: 1fr; }
   .collection-hero,
-  .publication-hero { min-height: 280px; padding-top: 100px; }
+  .publication-hero { min-height: 360px; padding-top: 100px; padding-bottom: 32px; }
   .collection-hero-inner,
   .publication-hero-inner { padding-top: 20px; }
   .collection-title,
