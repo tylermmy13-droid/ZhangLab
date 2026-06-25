@@ -10,6 +10,14 @@ const slug = Astro.params.slug;
 const member = team.find((m) => m.slug === slug)!;
 const pubs = member.publications;
 const honors = member.honors;
+
+const getInitials = (name: string) => {
+  const parts = name.split('/');
+  const zh = parts[0]?.trim() || '';
+  if (zh.length >= 2) return zh.slice(0, 1);
+  const en = parts[1]?.trim() || '';
+  return en.charAt(0).toUpperCase();
+};
 ---
 <BaseLayout title={`${member.name} | Zhang Lab`} description={`Zhang Lab profile page of ${member.name}.`} headerMode="glass" bodyClass="space-theme">
   <main class="publication-archive">
@@ -19,95 +27,51 @@ const honors = member.honors;
 
         <div class="member-header">
           <div class="member-photo">
-            <img src={member.img} alt={member.name} loading="lazy" />
+            {member.img ? (
+              <img src={member.img} alt={member.nameZh} loading="lazy" />
+            ) : (
+              <div class="member-photo-initial">{getInitials(member.name)}</div>
+            )}
           </div>
           <div class="member-info">
             <h1 class="member-name">{member.name}</h1>
             <p class="member-role" data-en={member.role} data-zh={member.roleZh}>{member.role}</p>
             <p class="member-desc" data-en={member.desc} data-zh={member.descZh}>{member.desc}</p>
-            <div class="member-social">
-              {member.email && (
+            {member.email && (
+              <div class="member-social">
                 <a class="member-social-link" href={`mailto:${member.email}`} aria-label="Email" title={member.email}>
                   <img src="/assets/icons/gmail.svg" alt="Email" />
                 </a>
-              )}
-              {member.x && (
-                <a class="member-social-link" href={member.x} target="_blank" rel="noreferrer" aria-label="X" title="X">
-                  <img src="/assets/icons/x.svg" alt="X" />
-                </a>
-              )}
-              {member.github && (
-                <a class="member-social-link" href={member.github} target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
-                  <img src="/assets/icons/github.svg" alt="GitHub" />
-                </a>
-              )}
-              {member.scholar && (
-                <a class="member-social-link" href={member.scholar} target="_blank" rel="noreferrer" aria-label="Google Scholar" title="Google Scholar">
-                  <svg class="member-social-svg" viewBox="0 0 24 24" fill="#4285F4"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
-                </a>
-              )}
-              {member.huggingface && (
-                <a class="member-social-link" href={member.huggingface} target="_blank" rel="noreferrer" aria-label="Hugging Face" title="Hugging Face">
-                  <img src="/assets/icons/huggingface.svg" alt="Hugging Face" />
-                </a>
-              )}
-              {member.linkedin && (
-                <a class="member-social-link" href={member.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
-                  <img src="/assets/icons/linkedin.svg" alt="LinkedIn" />
-                </a>
-              )}
-              {member.facebook && (
-                <a class="member-social-link" href={member.facebook} target="_blank" rel="noreferrer" aria-label="Facebook" title="Facebook">
-                  <img src="/assets/icons/facebook.svg" alt="Facebook" />
-                </a>
-              )}
-              {member.instagram && (
-                <a class="member-social-link" href={member.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram">
-                  <img src="/assets/icons/instagram.svg" alt="Instagram" />
-                </a>
-              )}
-              {member.wechat && (
-                <a class="member-social-link" href={`weixin://dl/chat?${member.wechat}`} aria-label="WeChat" title={`WeChat: ${member.wechat}`}>
-                  <img src="/assets/icons/wechat.svg" alt="WeChat" />
-                </a>
-              )}
-              {member.weibo && (
-                <a class="member-social-link" href={member.weibo} target="_blank" rel="noreferrer" aria-label="Weibo" title="Weibo">
-                  <img src="/assets/icons/weibo.svg" alt="Weibo" />
-                </a>
-              )}
-              {member.bilibili && (
-                <a class="member-social-link" href={member.bilibili} target="_blank" rel="noreferrer" aria-label="Bilibili" title="Bilibili">
-                  <img src="/assets/icons/bilibili.svg" alt="Bilibili" />
-                </a>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
 
         <!-- Publications -->
-        <div class="member-section">
-          <h2 class="member-section-title" data-en="Publications" data-zh="论文">Publications <span class="pub-count">{pubs.length}</span></h2>
-          <div class="pub-list">
-            {pubs.map((pub) => (
-              <div class="pub-item">
-                <div class="pub-thumb">
-                  <img src={pub.img} alt={pub.title} loading="lazy" />
-                </div>
-                <div class="pub-info">
-                  <p class="pub-title">{pub.title}</p>
-                  <p class="pub-authors">{pub.authors}</p>
-                  <p class="pub-venue">{pub.venue}</p>
-                  <div class="pub-links">
-                    {pub.links.map((link) => (
-                      <a class="pub-link" href={link.url} target="_blank" rel="noreferrer">{link.label}</a>
-                    ))}
+        {pubs.length > 0 && (
+          <div class="member-section">
+            <h2 class="member-section-title" data-en="Publications" data-zh="论文">Publications <span class="pub-count">{pubs.length}</span></h2>
+            <div class="pub-list">
+              {pubs.map((pub) => (
+                <div class="pub-item">
+                  <div class="pub-thumb">
+                    <img src={pub.img} alt={pub.title} loading="lazy" />
+                  </div>
+                  <div class="pub-info">
+                    <p class="pub-title">{pub.title}</p>
+                    <p class="pub-authors">{pub.authors}</p>
+                    <p class="pub-venue">{pub.venue}</p>
+                    <div class="pub-links">
+                      {pub.links.map((link) => (
+                        <a class="pub-link" href={link.url} target="_blank" rel="noreferrer">{link.label}</a>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         <!-- Honors & Awards -->
         {honors.length > 0 && (
@@ -116,14 +80,6 @@ const honors = member.honors;
             <ul class="member-list">
               {honors.map((h, i) => <li data-en={h} data-zh={member.honorsZh[i] || h}>{h}</li>)}
             </ul>
-          </div>
-        )}
-
-        <!-- Personal -->
-        {member.personal && (
-          <div class="member-section">
-            <h2 class="member-section-title" data-en="Personal" data-zh="个人">Personal</h2>
-            <p class="member-text" data-en={member.personal} data-zh={member.personalZh}>{member.personal}</p>
           </div>
         )}
       </div>
@@ -159,16 +115,33 @@ const honors = member.honors;
 
   .member-photo {
     flex-shrink: 0;
-    width: 320px;
+    width: 280px;
     border-radius: 16px;
     overflow: hidden;
     border: 4px solid rgba(255, 255, 255, 0.85);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    aspect-ratio: 1;
   }
 
   .member-photo img {
     width: 100%;
+    height: 100%;
     display: block;
+    object-fit: cover;
+  }
+
+  .member-photo-initial {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 72px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    font-family: "Inter", sans-serif;
+    user-select: none;
   }
 
   .member-info {
@@ -225,11 +198,6 @@ const honors = member.honors;
   .member-social-link img {
     width: 24px;
     height: 24px;
-  }
-
-  .member-social-svg {
-    width: 20px;
-    height: 20px;
   }
 
   .member-section {
@@ -356,13 +324,6 @@ const honors = member.honors;
     color: rgba(255, 255, 255, 0.55);
     font-size: 15px;
     line-height: 1.6;
-  }
-
-  .member-text {
-    color: rgba(255, 255, 255, 0.55);
-    font-size: 15px;
-    line-height: 1.7;
-    margin: 0;
   }
 
   @media (max-width: 640px) {
