@@ -13,7 +13,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <section class="section contact-section">
       <div class="container contact-list">
         <a class="contact-pill" href="mailto:li.zhang@shsmu.edu.cn" aria-label="Email li.zhang@shsmu.edu.cn">
-          <span class="contact-pill-label" data-en="Principal Investigator" data-zh="课题组长">Principal Investigator</span>
           <span class="contact-pill-name">张力 / ZHANG Li</span>
           <span class="contact-pill-email">
             <svg class="contact-pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -25,7 +24,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </a>
 
         <a class="contact-pill" href="mailto:chenqishan@shsmu.edu.cn" aria-label="Email chenqishan@shsmu.edu.cn">
-          <span class="contact-pill-label" data-en="Associate Chief Physician" data-zh="副主任医师">Associate Chief Physician</span>
           <span class="contact-pill-name">陈齐山 / CHEN Qishan</span>
           <span class="contact-pill-email">
             <svg class="contact-pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -97,17 +95,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     transform: translateY(-2px);
   }
 
-  .contact-pill-label {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #d97757;
-    margin-bottom: 2px;
-  }
-
   .contact-pill-name {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     color: #faf9f5;
     letter-spacing: -0.01em;
@@ -117,14 +106,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-top: 4px;
+    margin-top: 6px;
     padding: 8px 20px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.06);
     color: rgba(255, 255, 255, 0.6);
-    font-size: 14px;
-    font-weight: 500;
+    font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-weight: 400;
     transition: all 0.2s ease;
   }
   .contact-pill:hover .contact-pill-email {
@@ -148,7 +138,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   @media (max-width: 640px) {
     .contact-hero { padding: 120px 0 32px; }
     .contact-pill { padding: 20px 20px 24px; }
-    .contact-pill-name { font-size: 16px; }
-    .contact-pill-email { font-size: 13px; padding: 6px 16px; }
+    .contact-pill-name { font-size: 17px; }
+    .contact-pill-email { font-size: 14px; padding: 6px 16px; }
   }
 </style>
