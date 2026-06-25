@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import LangSwitch from './LangSwitch.astro';
 
 const markers = (await getCollection('markers'))
   .filter(m => !m.data.draft)
@@ -22,34 +23,8 @@ const markers = (await getCollection('markers'))
     <div class="globe-welcome-title" data-en="Welcome to Zhang Lab" data-zh="欢迎来到张力课题组">Welcome to Zhang Lab</div>
     <div class="globe-welcome-sub" data-en="Cardiovascular intervention, vascular regeneration, organoid-chip platforms, and AI-enabled active health." data-zh="冠心病介入、血管再生修复、类器官芯片平台与 AI 赋能主动健康">Cardiovascular intervention, vascular regeneration, organoid-chip platforms, and AI-enabled active health.</div>
   </div>
-  <div class="globe-search-bar" id="globe-search-bar">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
-    </svg>
-    <span class="globe-search-bar-text" data-en="Search place or coordinates" data-zh="搜索地点或坐标">Search place or coordinates</span>
-  </div>
-  <div class="globe-search-overlay" id="globe-search-overlay" hidden>
-    <div class="globe-search-panel">
-      <div class="globe-search-input-wrap">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        <input type="text" id="globe-search-input"
-          placeholder="Search place or coordinates..."
-          data-i18n-placeholder-en="Search place or coordinates..."
-          data-i18n-placeholder-zh="搜索地点或坐标..."
-          autocomplete="off" />
-        <button class="globe-search-close" id="globe-search-close">&times;</button>
-      </div>
-      <div class="globe-search-options">
-        <div class="globe-search-hint" data-en="latitude, longitude (e.g. 37.87, -117.54)" data-zh="纬度, 经度 (如 37.87, -117.54)" data-resolved-en="✓ Location resolved — select zoom, press Enter to go" data-resolved-zh="✓ 已定位 — 选择缩放级别后按回车跳转">latitude, longitude (e.g. 37.87, -117.54)</div>
-        <div class="globe-zoom-legends" id="globe-zoom-legends">
-          <button data-zoom="10" data-en="10km" data-zh="10公里">10km</button>
-          <button data-zoom="12" data-en="5km" data-zh="5公里">5km</button>
-          <button data-zoom="13" data-en="1km" data-zh="1公里">1km</button>
-          <button data-zoom="16" data-en="100m" data-zh="100米">100m</button>
-          <button data-zoom="19" data-en="10m" data-zh="10米">10m</button>
-        </div>
-      </div>
-    </div>
+  <div class="globe-lang-switch">
+    <LangSwitch />
   </div>
   <div class="globe-scroll-hint" data-galaxy-hint onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})">
     <span data-en="Scroll to explore" data-zh="滚动探索">Scroll to explore</span>
@@ -163,113 +138,6 @@ const markers = (await getCollection('markers'))
     });
 
     spinGlobe();
-
-    // Globe search overlay
-    const globeSearchOverlay = document.getElementById('globe-search-overlay');
-    const globeSearchInput = document.getElementById('globe-search-input') as HTMLInputElement;
-    const globeSearchHint = document.querySelector('.globe-search-hint');
-
-    let selectedZoom = 10;
-    let resolvedCenter: [number, number] | null = null;
-
-    // Open overlay
-    document.getElementById('globe-search-bar')?.addEventListener('click', () => {
-      if (globeSearchOverlay) globeSearchOverlay.hidden = false;
-      if (globeSearchInput) {
-        globeSearchInput.value = '';
-        resolvedCenter = null;
-        setTimeout(() => globeSearchInput.focus(), 50);
-      }
-    });
-
-    // Close overlay
-    document.getElementById('globe-search-close')?.addEventListener('click', () => {
-      if (globeSearchOverlay) globeSearchOverlay.hidden = true;
-    });
-    globeSearchOverlay?.addEventListener('click', (e) => {
-      if (e.target === e.currentTarget) globeSearchOverlay.hidden = true;
-    });
-
-    // Search on Enter — step 1: resolve location; step 2: fly
-    globeSearchInput?.addEventListener('keydown', async (e) => {
-      if (e.key !== 'Enter') return;
-      const q = globeSearchInput.value.trim();
-      if (!q) return;
-
-      // If we already resolved a center, fly there
-      if (resolvedCenter) {
-        globeSearchOverlay!.hidden = true;
-        userInteracting = true;
-        map.flyTo({ center: resolvedCenter, zoom: selectedZoom, duration: 2000 });
-        setTimeout(() => { userInteracting = false; }, 2100);
-        resolvedCenter = null;
-        return;
-      }
-
-      const lang = document.documentElement.lang === 'zh-CN' ? 'zh' : 'en';
-
-      // Try parsing as coordinates (lat, lng)
-      const coordMatch = q.match(/^(-?\d+\.?\d*)\s*[,\s]\s*(-?\d+\.?\d*)$/);
-      if (coordMatch) {
-        const lat = parseFloat(coordMatch[1]);
-        const lng = parseFloat(coordMatch[2]);
-        if (Math.abs(lat) <= 90 && Math.abs(lng) <= 180) {
-          resolvedCenter = [lng, lat];
-          if (globeSearchHint) {
-            const label = globeSearchHint.getAttribute(`data-resolved-${lang}`) || '✓ Location resolved — select zoom, press Enter to go';
-            globeSearchHint.textContent = label;
-            globeSearchHint.classList.add('resolved');
-          }
-          return;
-        }
-      }
-
-      // Geocode via Mapbox
-      try {
-        const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(q)}.json?access_token=${MAPBOX_TOKEN}&limit=1`;
-        const res = await fetch(url);
-        const data = await res.json();
-        if (data.features?.length > 0) {
-          const [lng, lat] = data.features[0].center;
-          resolvedCenter = [lng, lat];
-          if (globeSearchHint) {
-            const name = data.features[0].place_name || q;
-            globeSearchHint.textContent = `✓ ${name}`;
-            globeSearchHint.classList.add('resolved');
-          }
-        } else {
-          if (globeSearchHint) {
-            const noResult = lang === 'zh' ? '未找到结果' : 'No results found';
-            globeSearchHint.textContent = noResult;
-            globeSearchHint.classList.remove('resolved');
-          }
-        }
-      } catch (err) {
-        console.error('Geocoding failed:', err);
-      }
-    });
-
-    // Reset hint when input changes
-    globeSearchInput?.addEventListener('input', () => {
-      resolvedCenter = null;
-      if (globeSearchHint) {
-        const defaultText = globeSearchHint.getAttribute(
-          `data-${document.documentElement.lang === 'zh-CN' ? 'zh' : 'en'}`
-        ) || globeSearchHint.getAttribute('data-en') || '';
-        globeSearchHint.textContent = defaultText;
-        globeSearchHint.classList.remove('resolved');
-      }
-    });
-
-    // Zoom legend buttons — just select, don't fly
-    const zoomLegends = document.getElementById('globe-zoom-legends');
-    zoomLegends?.addEventListener('click', (e) => {
-      const btn = (e.target as HTMLElement).closest('button') as HTMLButtonElement;
-      if (!btn) return;
-      selectedZoom = parseInt(btn.dataset.zoom || '10');
-      zoomLegends.querySelectorAll('button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
   }
 
   // Popup logic
@@ -884,192 +752,18 @@ const markers = (await getCollection('markers'))
   }
 
 
-  /* Globe search trigger bar */
-  .globe-search-bar {
+  /* Language switch — bottom-right floating on globe */
+  .globe-lang-switch {
     position: absolute;
-    bottom: 20px;
+    bottom: 24px;
     right: 24px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    height:45px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.07);
-    backdrop-filter: blur(24px) saturate(1.2);
-    -webkit-backdrop-filter: blur(24px) saturate(1.2);
     z-index: 12;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .globe-search-bar:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.25);
-  }
-
-  .globe-search-bar svg {
-    width: 14px;
-    height: 14px;
-    color: rgba(255, 255, 255, 0.5);
-    flex-shrink: 0;
-  }
-
-  .globe-search-bar-text {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 13px;
-    letter-spacing: -0.02em;
-    white-space: nowrap;
-  }
-
-  /* Globe search overlay */
-  .globe-search-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 200;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    animation: fadeIn 0.2s ease-out;
-  }
-
-  .globe-search-overlay[hidden] {
-    display: none !important;
-  }
-
-  .globe-search-panel {
-    width: min(640px, 90vw);
-    display: flex;
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 18px;
-    backdrop-filter: blur(24px) saturate(1.2);
-    -webkit-backdrop-filter: blur(24px) saturate(1.2);
-    overflow: hidden;
-    animation: popIn 0.25s ease-out;
-  }
-
-  .globe-search-input-wrap {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 18px 22px;
-  }
-
-  .globe-search-input-wrap svg {
-    width: 22px;
-    height: 22px;
-    flex-shrink: 0;
-    color: rgba(255, 255, 255, 0.4);
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2.3;
-  }
-
-  .globe-search-input-wrap input {
-    flex: 1;
-    border: 0;
-    outline: 0;
-    background: transparent;
-    color: #fff;
-    font-size: clamp(16px, 1.2vw, 20px);
-    letter-spacing: -0.03em;
-  }
-
-  .globe-search-input-wrap input::placeholder {
-    color: rgba(255, 255, 255, 0.35);
-  }
-
-  .globe-search-close {
-    width: 32px;
-    height: 32px;
-    border: none;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: background 0.2s;
-  }
-
-  .globe-search-close:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
-
-  .globe-search-options {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 12px 22px 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .globe-search-hint {
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.35);
-    white-space: nowrap;
-    transition: color 0.2s;
-  }
-
-  .globe-search-hint.resolved {
-    color: rgba(100, 220, 150, 0.8);
-  }
-
-  .globe-zoom-legends {
-    display: flex;
-    gap: 6px;
-    flex-shrink: 0;
-  }
-
-  .globe-zoom-legends button {
-    padding: 5px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.06);
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-
-  .globe-zoom-legends button:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-  }
-
-  .globe-zoom-legends button.active {
-    color: #000;
-    background: #fff;
-    border-color: transparent;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
   }
 
   @media (max-width: 640px) {
-    .globe-search-bar {
-      bottom: 70px;
+    .globe-lang-switch {
+      bottom: 72px;
       right: 12px;
-    }
-    .globe-search-options {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .globe-zoom-legends {
-      flex-wrap: wrap;
     }
   }
 </style>

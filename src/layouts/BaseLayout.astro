@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import LangSwitch from '../components/LangSwitch.astro';
 import StarsCanvas from '../components/StarsCanvas.astro';
 
 const {
@@ -44,15 +43,12 @@ const isSpaceTheme = bodyClass.includes('space-theme');
 
     <header class={`site-header ${headerMode === 'glass' ? 'is-visible' : ''}`} data-scroll-header data-header-mode={headerMode}>
       <nav class="nav" aria-label="主导航" role="navigation">
-        <div class="nav-links">
-          <a href="/" data-route="home" data-en="Home" data-zh="首页">Home</a>
-          <a href="/news/" data-route="news" data-en="News" data-zh="动态">News</a>
-          <a href="/collections/" data-route="collections" data-en="Research" data-zh="研究方向">Research</a>
-          <a href="/our-team/" data-route="our-team" data-en="Team" data-zh="团队">Team</a>
-          <a href="/publications/" data-route="publications" data-en="Publications" data-zh="论文">Publications</a>
-          <a href="/contact/" data-route="contact" data-en="Contact" data-zh="联系我们">Contact</a>
-        </div>
-        <LangSwitch />
+        <a href="/" data-route="home" data-en="Home" data-zh="首页">Home</a>
+        <a href="/news/" data-route="news" data-en="News" data-zh="动态">News</a>
+        <a href="/collections/" data-route="collections" data-en="Research" data-zh="研究方向">Research</a>
+        <a href="/our-team/" data-route="our-team" data-en="Team" data-zh="团队">Team</a>
+        <a href="/publications/" data-route="publications" data-en="Publications" data-zh="论文">Publications</a>
+        <a href="/contact/" data-route="contact" data-en="Contact" data-zh="联系我们">Contact</a>
       </nav>
     </header>
     {isSpaceTheme && <StarsCanvas />}
@@ -77,7 +73,7 @@ const isSpaceTheme = bodyClass.includes('space-theme');
       /* ---- 当前页面 active 下划线（基于路径段，免疫 base path 改写） ---- */
       const segs = window.location.pathname.split('/').filter(Boolean);
       const pageSeg = segs.length <= 1 ? 'home' : segs[1];
-      document.querySelectorAll('.nav-links a').forEach(a => {
+      document.querySelectorAll('.nav a').forEach(a => {
         if ((a.dataset.route || '') === pageSeg) a.classList.add('active');
       });
 
