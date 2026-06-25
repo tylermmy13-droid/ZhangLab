@@ -74,13 +74,22 @@ const isSpaceTheme = bodyClass.includes('space-theme');
       </div>
     </footer>
     <script>
-      /* ---- 当前页面 active 下划线 ---- */
-      const path = window.location.pathname.replace(/\/$/, '') || '/';
+      /* ---- 当前页面 active 下划线（兼容 GitHub Pages 子路径） ---- */
+      const path = window.location.pathname.replace(/\/$/, '');
       const navAs = document.querySelectorAll('.nav-links a');
       navAs.forEach(a => {
-        const href = (a.getAttribute('href') || '').replace(/\/$/, '') || '/';
-        if (path === href || (href !== '/' && path.startsWith(href + '/'))) {
-          a.classList.add('active');
+        const rawHref = a.getAttribute('href') || '';
+        const href = rawHref.replace(/\/$/, '');
+        if (href === '/') {
+          /* Home: path 仅含 base path，无子路径段 */
+          if (path === '/' || path === '' || path.split('/').filter(Boolean).length <= 1) {
+            a.classList.add('active');
+          }
+        } else {
+          /* 精确页面匹配 或 子页面（如 /news/launch） */
+          if (path.endsWith(href) || path.includes(href + '/')) {
+            a.classList.add('active');
+          }
         }
       });
 
