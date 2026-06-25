@@ -19,8 +19,8 @@ const markers = (await getCollection('markers'))
   <div class="globe-overlay"></div>
   <div class="globe-welcome-overlay" id="globe-welcome-overlay"></div>
   <div class="globe-welcome" id="globe-welcome">
-    <div class="globe-welcome-title" data-en="Welcome to Space Lab" data-zh="欢迎来到 Space Lab">Welcome to Space Lab</div>
-    <div class="globe-welcome-sub" data-en="Exploring the frontiers of science" data-zh="探索科学前沿">Exploring the frontiers of science</div>
+    <div class="globe-welcome-title" data-en="Welcome to Zhang Lab" data-zh="欢迎来到张力课题组">Welcome to Zhang Lab</div>
+    <div class="globe-welcome-sub" data-en="Cardiovascular medicine, regeneration, organoids, and AI" data-zh="心血管医学、再生修复、类器官与人工智能">Cardiovascular medicine, regeneration, organoids, and AI</div>
   </div>
   <div class="globe-search-bar" id="globe-search-bar">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -99,14 +99,17 @@ const markers = (await getCollection('markers'))
   import mapboxgl from 'mapbox-gl';
 
   const MAPBOX_TOKEN = 'YOUR_MAPBOX_ACCESS_TOKEN';
+  const container = document.getElementById('globe-container');
+  if (MAPBOX_TOKEN === 'YOUR_MAPBOX_ACCESS_TOKEN' && container) {
+    container.innerHTML = '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:white;background:radial-gradient(circle at 50% 40%, rgba(66,153,225,.22), transparent 46%);"><div><strong style="font-size:clamp(28px,5vw,64px);">Zhang Lab</strong><p style="max-width:760px;margin:18px auto 0;color:rgba(255,255,255,.72);line-height:1.7;">Cardiovascular intervention, vascular regeneration, organoid-chip platforms, and AI-enabled active health.</p></div></div>';
+  }
   mapboxgl.accessToken = MAPBOX_TOKEN;
 
-  const container = document.getElementById('globe-container');
   const markersData = JSON.parse(container?.getAttribute('data-markers') || '[]');
 
   let mapRef: any = null;
 
-  if (container) {
+  if (container && MAPBOX_TOKEN !== 'YOUR_MAPBOX_ACCESS_TOKEN') {
     const map = new mapboxgl.Map({
       container,
       style: 'mapbox://styles/onethree/cmhlxuxs1002n01pj28o0hhx6',

@@ -7,27 +7,12 @@ import PublicationCard from '../components/PublicationCard.astro';
 import CollectionCard from '../components/CollectionCard.astro';
 import BlogCard from '../components/BlogCard.astro';
 
-const newsItems = (await getCollection('news'))
-  .filter((item) => !item.data.draft)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
-
-const publications = (await getCollection('publications'))
-  .filter((item) => !item.data.draft)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
-
-const collectionItems = (await getCollection('collections'))
-  .filter((item) => !item.data.draft)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
-
-const blogItems = (await getCollection('blogs'))
-  .filter((item) => !item.data.draft)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+const newsItems = (await getCollection('news')).filter((item) => !item.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
+const publications = (await getCollection('publications')).filter((item) => !item.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
+const collectionItems = (await getCollection('collections')).filter((item) => !item.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
+const blogItems = (await getCollection('blogs')).filter((item) => !item.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
 ---
-<BaseLayout title="Space Lab" description="Space Lab - Exploring the frontiers of science." headerMode="glass" bodyClass="space-theme">
+<BaseLayout title="Zhang Lab" description="Cardiovascular medicine, vascular regeneration, organoid-chip platforms, and AI-enabled active health at Xinhua Hospital." headerMode="glass" bodyClass="space-theme">
   <main>
     <GlobeMap />
 
@@ -35,14 +20,12 @@ const blogItems = (await getCollection('blogs'))
       <div class="container">
         <div class="section-head">
           <div class="section-head-top">
-            <h2 class="section-title" data-en="Latest &lt;em&gt;News&lt;/em&gt;" data-zh="最新&lt;em&gt;新闻&lt;/em&gt;">Latest <em>News</em></h2>
-            <a class="button section-cta" href="/news/" data-en="All News" data-zh="全部新闻">All News <span aria-hidden="true">&rarr;</span></a>
+            <h2 class="section-title" data-en="Latest &lt;em&gt;News&lt;/em&gt;" data-zh="最新&lt;em&gt;动态&lt;/em&gt;">Latest <em>News</em></h2>
+            <a class="button section-cta" href="/news/" data-en="All News" data-zh="全部动态">All News <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="section-copy" data-en="Stay updated with the latest happenings at Space Lab." data-zh="了解 Space Lab 的最新动态。">Stay updated with the latest happenings at Space Lab.</p>
+          <p class="section-copy" data-en="Updates from cardiovascular clinical research, translational platforms, and academic activities." data-zh="关注心血管临床研究、转化平台与课题组学术动态。">Updates from cardiovascular clinical research, translational platforms, and academic activities.</p>
         </div>
-        <div class="card-grid">
-          {newsItems.map((item) => <NewsCard item={item} />)}
-        </div>
+        <div class="card-grid">{newsItems.map((item) => <NewsCard item={item} />)}</div>
       </div>
     </section>
 
@@ -50,14 +33,12 @@ const blogItems = (await getCollection('blogs'))
       <div class="container">
         <div class="section-head">
           <div class="section-head-top">
-            <h2 class="section-title" data-en="Latest &lt;em&gt;Publications&lt;/em&gt;" data-zh="最新&lt;em&gt;论文&lt;/em&gt;">Latest <em>Publications</em></h2>
+            <h2 class="section-title" data-en="Representative &lt;em&gt;Publications&lt;/em&gt;" data-zh="代表性&lt;em&gt;论文&lt;/em&gt;">Representative <em>Publications</em></h2>
             <a class="button section-cta" href="/publications/" data-en="All Publications" data-zh="全部论文">All Publications <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="section-copy" data-en="Research papers accepted by international conferences and journals." data-zh="在国际会议和期刊上发表的研究论文。">Research papers accepted by international conferences and journals.</p>
+          <p class="section-copy" data-en="Selected work spanning interventional cardiology, vascular repair, organoids, and cardiovascular AI." data-zh="涵盖冠心病介入、血管修复、类器官平台与心血管人工智能的代表性工作。">Selected work spanning interventional cardiology, vascular repair, organoids, and cardiovascular AI.</p>
         </div>
-        <div class="card-grid">
-          {publications.map((item) => <PublicationCard item={item} />)}
-        </div>
+        <div class="card-grid">{publications.map((item) => <PublicationCard item={item} />)}</div>
       </div>
     </section>
 
@@ -65,14 +46,12 @@ const blogItems = (await getCollection('blogs'))
       <div class="container">
         <div class="section-head">
           <div class="section-head-top">
-            <h2 class="section-title" data-en="Latest &lt;em&gt;Collections&lt;/em&gt;" data-zh="最新&lt;em&gt;开源&lt;/em&gt;">Latest <em>Collections</em></h2>
-            <a class="button section-cta" href="/collections/" data-en="All Collections" data-zh="全部开源">All Collections <span aria-hidden="true">&rarr;</span></a>
+            <h2 class="section-title" data-en="Research &lt;em&gt;Platforms&lt;/em&gt;" data-zh="研究&lt;em&gt;平台&lt;/em&gt;">Research <em>Platforms</em></h2>
+            <a class="button section-cta" href="/collections/" data-en="All Research" data-zh="全部方向">All Research <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="section-copy" data-en="Projects, datasets, and resources open-sourced on GitHub and Hugging Face." data-zh="在 GitHub 和 Hugging Face 上开源的项目、数据集和资源。">Projects, datasets, and resources open-sourced on GitHub and Hugging Face.</p>
+          <p class="section-copy" data-en="Core directions include vascular regeneration, organoid chips, complex cardiovascular intervention, and AI-enabled active health." data-zh="核心方向包括血管再生修复、类器官芯片、复杂心血管介入和 AI 主动健康。">Core directions include vascular regeneration, organoid chips, complex cardiovascular intervention, and AI-enabled active health.</p>
         </div>
-        <div class="card-grid">
-          {collectionItems.map((item) => <CollectionCard item={item} />)}
-        </div>
+        <div class="card-grid">{collectionItems.map((item) => <CollectionCard item={item} />)}</div>
       </div>
     </section>
 
@@ -80,14 +59,12 @@ const blogItems = (await getCollection('blogs'))
       <div class="container">
         <div class="section-head">
           <div class="section-head-top">
-            <h2 class="section-title" data-en="Latest &lt;em&gt;Blogs&lt;/em&gt;" data-zh="最新&lt;em&gt;博客&lt;/em&gt;">Latest <em>Blogs</em></h2>
-            <a class="button section-cta" href="/blogs/" data-en="All Blogs" data-zh="全部博客">All Blogs <span aria-hidden="true">&rarr;</span></a>
+            <h2 class="section-title" data-en="Research &lt;em&gt;Notes&lt;/em&gt;" data-zh="研究&lt;em&gt;笔记&lt;/em&gt;">Research <em>Notes</em></h2>
+            <a class="button section-cta" href="/blogs/" data-en="All Notes" data-zh="全部笔记">All Notes <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="section-copy" data-en="Notes on research, technology, and scientific exploration." data-zh="关于研究、技术和科学探索的笔记。">Notes on research, technology, and scientific exploration.</p>
+          <p class="section-copy" data-en="Short notes for research ideas, platform updates, and translational observations." data-zh="记录研究思路、平台进展与转化观察。">Short notes for research ideas, platform updates, and translational observations.</p>
         </div>
-        <div class="card-grid">
-          {blogItems.map((item) => <BlogCard item={item} />)}
-        </div>
+        <div class="card-grid">{blogItems.map((item) => <BlogCard item={item} />)}</div>
       </div>
     </section>
   </main>

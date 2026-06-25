@@ -4,8 +4,8 @@ import LangSwitch from '../components/LangSwitch.astro';
 import StarsCanvas from '../components/StarsCanvas.astro';
 
 const {
-  title = 'Space Lab',
-  description = 'Space Lab - Exploring the frontiers of science.',
+  title = 'Zhang Lab',
+  description = 'Zhang Lab at Xinhua Hospital, Shanghai Jiao Tong University School of Medicine.',
   headerMode = 'auto',
   bodyClass = ''
 } = Astro.props;
@@ -25,14 +25,14 @@ const isSpaceTheme = bodyClass.includes('space-theme');
     <header class={`site-header ${headerMode === 'glass' ? 'is-visible' : ''}`} data-scroll-header data-header-mode={headerMode}>
       <nav class="nav" aria-label="Main navigation">
         <a class="brand" href="/">
-          <img class="brand-logo" src="/assets/logo/spacelab.svg" alt="Space Lab" />
+          <img class="brand-logo" src="/assets/logo/spacelab.svg" alt="Zhang Lab" />
         </a>
         <div class="nav-links">
-          <a href="/our-team/" data-en="Our Team" data-zh="团队">Our Team</a>
-          <a href="/news/" data-en="News" data-zh="新闻">News</a>
+          <a href="/our-team/" data-en="Team" data-zh="团队">Team</a>
+          <a href="/news/" data-en="News" data-zh="动态">News</a>
           <a href="/publications/" data-en="Publications" data-zh="论文">Publications</a>
-          <a href="/collections/" data-en="Collections" data-zh="开源">Collections</a>
-          <a href="/blogs/" data-en="Blogs" data-zh="博客">Blogs</a>
+          <a href="/collections/" data-en="Research" data-zh="研究方向">Research</a>
+          <a href="/blogs/" data-en="Notes" data-zh="学术笔记">Notes</a>
           <a href="/faq/" data-en="FAQ" data-zh="常见问题">FAQ</a>
           <a href="/contact/" data-en="Contact" data-zh="联系我们">Contact</a>
         </div>
@@ -46,50 +46,38 @@ const isSpaceTheme = bodyClass.includes('space-theme');
         <img class="footer-illustration-image" src="/assets/footer/footer.png" alt="" loading="lazy" />
       </div>
       <div class="container footer-inner">
-        <span>@2026 Space Lab</span>
-        <span class="footer-note" data-en="Exploring the frontiers of science." data-zh="探索科学前沿。">
-          Exploring the frontiers of science.
+        <span>@2026 Zhang Lab</span>
+        <span class="footer-note" data-en="Cardiovascular medicine, regeneration, organoids, and AI." data-zh="心血管医学、再生修复、类器官与人工智能。">
+          Cardiovascular medicine, regeneration, organoids, and AI.
         </span>
         <span class="footer-credit">
-          Template by <a href="https://github.com/choucisan/SpaceLab" target="_blank" rel="noreferrer">choucisan</a>
+          Template by <a href="https://github.com/choucisan/SpaceLab" target="_blank" rel="noreferrer">SpaceLab</a>
         </span>
       </div>
     </footer>
     <script>
       const header = document.querySelector('[data-scroll-header]');
       const hero = document.querySelector('.hero');
-
       const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
-
       const updateScene = () => {
         const fixedGlass = header?.dataset.headerMode === 'glass';
         header?.classList.toggle('is-visible', fixedGlass || window.scrollY > 80);
-
         if (!hero) return;
-
         const progress = clamp(window.scrollY / Math.min(hero.clientHeight * 0.34, 420), 0, 1);
-        const cloudDriftX = -progress * Math.min(window.innerWidth * 0.22, 360);
-        const cloudDriftY = -progress * Math.min(window.innerHeight * 0.18, 150);
-        const geeseDriftX = progress * Math.min(window.innerWidth * 0.16, 260);
-        const geeseDriftY = -progress * Math.min(window.innerHeight * 0.06, 54);
-
-        hero.style.setProperty('--hero-cloud-drift-x', `${cloudDriftX}px`);
-        hero.style.setProperty('--hero-cloud-drift-y', `${cloudDriftY}px`);
-        hero.style.setProperty('--hero-geese-drift-x', `${geeseDriftX}px`);
-        hero.style.setProperty('--hero-geese-drift-y', `${geeseDriftY}px`);
+        hero.style.setProperty('--hero-cloud-drift-x', `${-progress * Math.min(window.innerWidth * 0.22, 360)}px`);
+        hero.style.setProperty('--hero-cloud-drift-y', `${-progress * Math.min(window.innerHeight * 0.18, 150)}px`);
+        hero.style.setProperty('--hero-geese-drift-x', `${progress * Math.min(window.innerWidth * 0.16, 260)}px`);
+        hero.style.setProperty('--hero-geese-drift-y', `${-progress * Math.min(window.innerHeight * 0.06, 54)}px`);
       };
-
       updateScene();
       window.addEventListener('scroll', updateScene, { passive: true });
       window.addEventListener('resize', updateScene);
-
       const revealScenes = document.querySelectorAll('[data-reveal-scene]');
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) entry.target.classList.add('is-visible');
         });
       }, { threshold: 0.28 });
-
       revealScenes.forEach((scene) => revealObserver.observe(scene));
     </script>
   </body>

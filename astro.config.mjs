@@ -3,6 +3,6 @@ import mdx from '@astrojs/mdx';
 
 export default defineConfig({
   integrations: [mdx()],
-  site: 'https://choucisan.github.io',
+  site: 'https://tylermmy13-droid.github.io/SpaceLab',
   output: 'static'
 });
