@@ -44,10 +44,8 @@ const isSpaceTheme = bodyClass.includes('space-theme');
 
     <header class={`site-header ${headerMode === 'glass' ? 'is-visible' : ''}`} data-scroll-header data-header-mode={headerMode}>
       <nav class="nav" aria-label="主导航" role="navigation">
-        <a class="brand" href="/" aria-label="张力课题组首页">
-          <img class="brand-logo" src="/assets/logo/spacelab.svg" alt="Zhang Lab" fetchpriority="high" />
-        </a>
         <div class="nav-links">
+          <a href="/" data-en="Home" data-zh="首页">Home</a>
           <a href="/news/" data-en="News" data-zh="动态">News</a>
           <a href="/collections/" data-en="Research" data-zh="研究方向">Research</a>
           <a href="/our-team/" data-en="Team" data-zh="团队">Team</a>
