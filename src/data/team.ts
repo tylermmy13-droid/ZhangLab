@@ -10,6 +10,13 @@ export const team = [
     email: 'li.zhang@shsmu.edu.cn',
     publications: [
       {
+        title: 'Nrf3-Mediated Mitochondrial Superoxide Promotes Cardiomyocyte Apoptosis and Impairs Cardiac Functions by Suppressing Pitx2',
+        authors: 'Qishan Chen, Ancheng Zheng, Xiaolei Xu, Zhenning Shi, Mei Yang, Shasha Sun, Leyu Wang, Yumeng Wang, Haige Zhao, Qingzhong Xiao, Li Zhang',
+        venue: 'Circulation (2025)',
+        img: '/assets/cards/publication-blue.png',
+        links: [{ label: 'Circulation', url: 'https://doi.org/10.1161/CIRCULATIONAHA.124.070286' }],
+      },
+      {
         title: 'Representative work in cardiovascular regeneration and remodeling',
         authors: 'Zhang Lab and collaborators',
         venue: 'Circulation / Circulation Research / Cell Stem Cell',
@@ -39,7 +46,15 @@ export const team = [
     desc: 'Professor, Associate Chief Physician, and Doctoral Supervisor. His work bridges coronary heart disease care, clinical research, and cardiovascular translational medicine.',
     descZh: '教授、副主任医师、博士生导师。长期致力于冠心病诊治、临床研究与心血管转化医学研究。',
     email: 'chenqishan@shsmu.edu.cn',
-    publications: [],
+    publications: [
+      {
+        title: 'Nrf3-Mediated Mitochondrial Superoxide Promotes Cardiomyocyte Apoptosis and Impairs Cardiac Functions by Suppressing Pitx2',
+        authors: 'Qishan Chen, Ancheng Zheng, Xiaolei Xu, Zhenning Shi, Mei Yang, Shasha Sun, Leyu Wang, Yumeng Wang, Haige Zhao, Qingzhong Xiao, Li Zhang',
+        venue: 'Circulation (2025)',
+        img: '/assets/cards/publication-blue.png',
+        links: [{ label: 'Circulation', url: 'https://doi.org/10.1161/CIRCULATIONAHA.124.070286' }],
+      },
+    ],
     honors: [
       'Young Top-Notch Talent Program',
       'Shanghai Oriental Talent Program',

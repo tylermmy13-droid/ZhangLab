@@ -6,6 +6,7 @@ venue: "Circulation / Circulation Research"
 authors: ["Zhang Lab and collaborators"]
 tags: ["Cardiovascular Medicine"]
 image: "/assets/cards/publication-blue.png"
+paperUrl: "https://doi.org/10.1161/CIRCULATIONAHA.124.070286"
 draft: false
 ---
 
