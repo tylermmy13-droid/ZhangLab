@@ -28,7 +28,7 @@ const date = item.data.pubDate.toLocaleDateString('en-US', {
           {item.data.tags.map((tag) => <span>{tag}</span>)}
         </div>
         <div class="detail-cover detail-cover-wide">
-          <img src={item.data.image} alt="" />
+          <img src={item.data.image} alt="" loading="lazy" />
         </div>
       </div>
     </section>

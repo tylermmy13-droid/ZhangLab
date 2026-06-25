@@ -19,7 +19,7 @@ const honors = member.honors;
 
         <div class="member-header">
           <div class="member-photo">
-            <img src={member.img} alt={member.name} />
+            <img src={member.img} alt={member.name} loading="lazy" />
           </div>
           <div class="member-info">
             <h1 class="member-name">{member.name}</h1>
@@ -92,7 +92,7 @@ const honors = member.honors;
             {pubs.map((pub) => (
               <div class="pub-item">
                 <div class="pub-thumb">
-                  <img src={pub.img} alt={pub.title} />
+                  <img src={pub.img} alt={pub.title} loading="lazy" />
                 </div>
                 <div class="pub-info">
                   <p class="pub-title">{pub.title}</p>

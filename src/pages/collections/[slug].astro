@@ -30,7 +30,7 @@ const date = item.data.pubDate.toLocaleDateString('en-US', {
           {item.data.huggingfaceUrl && <a class="detail-meta-link is-huggingface" href={item.data.huggingfaceUrl} target="_blank" rel="noreferrer">Hugging Face</a>}
         </div>
         <div class="detail-cover detail-cover-wide">
-          <img src={item.data.image} alt="" />
+          <img src={item.data.image} alt="" loading="lazy" />
         </div>
       </div>
     </section>

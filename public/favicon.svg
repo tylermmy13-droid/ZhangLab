@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 160" width="760" height="160" role="img" aria-label="Zhang Lab">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#a7d8ff"/>
+    </linearGradient>
+  </defs>
+  <text x="7" y="110" fill="url(#g)" font-family="Futura, Avenir Next, Arial, sans-serif" font-size="88" font-weight="700">Zhang Lab</text>
+</svg>

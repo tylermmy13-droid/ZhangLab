@@ -19,13 +19,33 @@ const isSpaceTheme = bodyClass.includes('space-theme');
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- DNS prefetch & preconnect for Google Fonts (CJK subset delivery) -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts: Noto Serif SC (titles) + Noto Sans SC (body) — Chinese subset -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Preload critical Latin font -->
+    <link rel="preload" href="/assets/fonts/dm-serif-display-latin-400-normal.ttf" as="font" type="font/ttf" crossorigin />
+
     <script src="/assets/js/i18n.js" defer></script>
   </head>
   <body class={bodyClass}>
+    <!-- Skip-to-content for keyboard accessibility -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
     <header class={`site-header ${headerMode === 'glass' ? 'is-visible' : ''}`} data-scroll-header data-header-mode={headerMode}>
-      <nav class="nav" aria-label="Main navigation">
-        <a class="brand" href="/">
-          <img class="brand-logo" src="/assets/logo/spacelab.svg" alt="Zhang Lab" />
+      <nav class="nav" aria-label="主导航" role="navigation">
+        <a class="brand" href="/" aria-label="张力课题组首页">
+          <img class="brand-logo" src="/assets/logo/spacelab.svg" alt="Zhang Lab" fetchpriority="high" />
         </a>
         <div class="nav-links">
           <a href="/our-team/" data-en="Team" data-zh="团队">Team</a>
@@ -40,8 +60,10 @@ const isSpaceTheme = bodyClass.includes('space-theme');
       </nav>
     </header>
     {isSpaceTheme && <StarsCanvas />}
-    <slot />
-    <footer class="footer">
+    <main id="main-content">
+      <slot />
+    </main>
+    <footer class="footer" role="contentinfo">
       <div class="footer-illustration" aria-hidden="true">
         <img class="footer-illustration-image" src="/assets/footer/footer.png" alt="" loading="lazy" />
       </div>
