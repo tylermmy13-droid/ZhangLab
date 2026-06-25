@@ -6,6 +6,5 @@
       <stop offset="1" stop-color="#a7d8ff"/>
     </linearGradient>
   </defs>
-  <text x="0" y="92" fill="url(#g)" font-family="Futura, Avenir Next, Arial, sans-serif" font-size="74" font-weight="700">Zhang Lab</text>
-  <text x="4" y="135" fill="rgba(255,255,255,0.78)" font-family="Avenir Next, Arial, sans-serif" font-size="26">Cardiovascular Medicine · Xinhua Hospital</text>
+  <text x="7" y="110" fill="url(#g)" font-family="Futura, Avenir Next, Arial, sans-serif" font-size="88" font-weight="700">Zhang Lab</text>
 </svg>
