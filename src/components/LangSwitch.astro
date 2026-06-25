@@ -22,11 +22,7 @@
   }
 
   .lang-option {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 16px;
+    padding: 0 14px;
     font-size: clamp(14px, 0.9vw, 16px);
     font-weight: 600;
     color: rgba(0, 0, 0, 0.35);
@@ -34,8 +30,14 @@
     position: relative;
     transition: color 0.3s ease;
     line-height: 30px;
-    text-align: center;
-    min-width: 48px;
+  }
+
+  .lang-option[data-lang="zh"] {
+    margin-right: 4px;
+  }
+
+  .lang-option[data-lang="en"] {
+    margin-left: 4px;
   }
 
   .lang-option.active {
