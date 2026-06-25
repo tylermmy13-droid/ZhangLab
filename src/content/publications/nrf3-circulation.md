@@ -21,7 +21,7 @@ tags:
   - "Cardiomyocyte Apoptosis"
   - "Nrf3"
   - "Pitx2"
-image: "/assets/cards/publication-blue.png"
+image: "/assets/cards/nrf3-cover.png"
 paperUrl: "https://doi.org/10.1161/CIRCULATIONAHA.124.070286"
 paperSite: "nrf3-circulation"
 draft: false

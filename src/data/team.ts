@@ -13,7 +13,7 @@ export const team = [
         title: 'Nrf3-Mediated Mitochondrial Superoxide Promotes Cardiomyocyte Apoptosis and Impairs Cardiac Functions by Suppressing Pitx2',
         authors: 'Qishan Chen, Ancheng Zheng, Xiaolei Xu, Zhenning Shi, Mei Yang, Shasha Sun, Leyu Wang, Yumeng Wang, Haige Zhao, Qingzhong Xiao, Li Zhang',
         venue: 'Circulation (2025)',
-        img: '/assets/cards/publication-blue.png',
+        img: '/assets/cards/nrf3-cover.png',
         links: [{ label: 'Circulation', url: 'https://doi.org/10.1161/CIRCULATIONAHA.124.070286' }],
       },
       {
@@ -51,7 +51,7 @@ export const team = [
         title: 'Nrf3-Mediated Mitochondrial Superoxide Promotes Cardiomyocyte Apoptosis and Impairs Cardiac Functions by Suppressing Pitx2',
         authors: 'Qishan Chen, Ancheng Zheng, Xiaolei Xu, Zhenning Shi, Mei Yang, Shasha Sun, Leyu Wang, Yumeng Wang, Haige Zhao, Qingzhong Xiao, Li Zhang',
         venue: 'Circulation (2025)',
-        img: '/assets/cards/publication-blue.png',
+        img: '/assets/cards/nrf3-cover.png',
         links: [{ label: 'Circulation', url: 'https://doi.org/10.1161/CIRCULATIONAHA.124.070286' }],
       },
     ],
