@@ -74,6 +74,17 @@ const isSpaceTheme = bodyClass.includes('space-theme');
       </div>
     </footer>
     <script>
+      /* ---- 当前页面 active 下划线 ---- */
+      const path = window.location.pathname.replace(/\/$/, '') || '/';
+      const navAs = document.querySelectorAll('.nav-links a');
+      navAs.forEach(a => {
+        const href = (a.getAttribute('href') || '').replace(/\/$/, '') || '/';
+        if (path === href || (href !== '/' && path.startsWith(href + '/'))) {
+          a.classList.add('active');
+        }
+      });
+
+      /* ---- 原有滚动/header 逻辑 ---- */
       const header = document.querySelector('[data-scroll-header]');
       const hero = document.querySelector('.hero');
       const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
