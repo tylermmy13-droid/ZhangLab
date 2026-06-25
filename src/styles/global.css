@@ -151,7 +151,7 @@ img { max-width: 100%; display: block; }
   box-shadow: none;
   backdrop-filter: blur(0) saturate(1);
   -webkit-backdrop-filter: blur(0) saturate(1);
-  color: rgba(250, 249, 241, 0.94);
+  color: #fbfbfb;
   font-size: clamp(20px, 1.42vw, 28px);
   font-weight: 520;
   letter-spacing: -0.02em;
@@ -2291,4 +2291,21 @@ img { max-width: 100%; display: block; }
 
 .space-theme .placeholder-page .section {
   background: transparent;
+}
+
+/* ============================================================
+   Floating Language Switch — fixed bottom-right on all pages
+   ============================================================ */
+.floating-lang {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+}
+
+@media (max-width: 640px) {
+  .floating-lang {
+    bottom: 16px;
+    right: 12px;
+  }
 }

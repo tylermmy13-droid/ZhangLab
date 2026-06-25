@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import LangSwitch from '../components/LangSwitch.astro';
 import StarsCanvas from '../components/StarsCanvas.astro';
 
 const {
@@ -55,6 +56,9 @@ const isSpaceTheme = bodyClass.includes('space-theme');
     <main id="main-content">
       <slot />
     </main>
+    <div class="floating-lang">
+      <LangSwitch />
+    </div>
     <footer class="footer" role="contentinfo">
       <div class="footer-illustration" aria-hidden="true">
         <img class="footer-illustration-image" src="/assets/footer/footer.png" alt="" loading="lazy" />

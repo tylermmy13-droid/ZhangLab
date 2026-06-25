@@ -1,6 +1,5 @@
 ---
 import { getCollection } from 'astro:content';
-import LangSwitch from './LangSwitch.astro';
 
 const markers = (await getCollection('markers'))
   .filter(m => !m.data.draft)
@@ -22,9 +21,6 @@ const markers = (await getCollection('markers'))
   <div class="globe-welcome" id="globe-welcome">
     <div class="globe-welcome-title" data-en="Welcome to Zhang Lab" data-zh="欢迎来到张力课题组">Welcome to Zhang Lab</div>
     <div class="globe-welcome-sub" data-en="Cardiovascular intervention, vascular regeneration, organoid-chip platforms, and AI-enabled active health." data-zh="冠心病介入、血管再生修复、类器官芯片平台与 AI 赋能主动健康">Cardiovascular intervention, vascular regeneration, organoid-chip platforms, and AI-enabled active health.</div>
-  </div>
-  <div class="globe-lang-switch">
-    <LangSwitch />
   </div>
   <div class="globe-scroll-hint" data-galaxy-hint onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})">
     <span data-en="Scroll to explore" data-zh="滚动探索">Scroll to explore</span>
@@ -752,18 +748,4 @@ const markers = (await getCollection('markers'))
   }
 
 
-  /* Language switch — bottom-right floating on globe */
-  .globe-lang-switch {
-    position: absolute;
-    bottom: 24px;
-    right: 24px;
-    z-index: 12;
-  }
-
-  @media (max-width: 640px) {
-    .globe-lang-switch {
-      bottom: 72px;
-      right: 12px;
-    }
-  }
 </style>
