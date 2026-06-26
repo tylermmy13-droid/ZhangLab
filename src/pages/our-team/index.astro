@@ -59,6 +59,7 @@ const getInitials = (name: string) => {
                         <p class="member-card-name">{member.nameZh}</p>
                         <p class="member-card-name-en">{member.name.split('/')[1]?.trim()}</p>
                         <span class="member-card-role" style={`background: ${cfg.accent}18; color: ${cfg.accent}`}>{member.roleZh}</span>
+                        {member.descZh && <p class="member-card-desc">{member.descZh}</p>}
                       </div>
                     </a>
                   ))}
@@ -245,6 +246,19 @@ const getInitials = (name: string) => {
     font-size: 11px;
     font-weight: 500;
     letter-spacing: 0.02em;
+  }
+
+  .member-card-desc {
+    margin: 8px 0 0;
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 12px;
+    line-height: 1.45;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-width: 100%;
   }
 
   /* ─── Responsive ─── */
