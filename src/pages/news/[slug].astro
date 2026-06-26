@@ -9,31 +9,68 @@ export async function getStaticPaths() {
 
 const { item } = Astro.props;
 const { Content } = await render(item);
-const date = item.data.pubDate.toLocaleDateString('en-US', {
+const pubDate = item.data.pubDate.toISOString().split('T')[0];
+const displayDate = item.data.pubDate.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric'
 });
 ---
 <BaseLayout title={`${item.data.title} | News`} description={item.data.description} headerMode="glass" bodyClass="space-theme">
-  <main class="collection-detail">
-    <section class="detail-hero">
-      <div class="container detail-hero-stack">
+  <main class="publication-archive">
+    <section class="publication-hero">
+      <div class="container">
         <a class="detail-back" href="/news/" data-en="← News" data-zh="← 新闻">← News</a>
-        <p class="detail-kicker-pill">{item.data.tags?.[0] ?? 'News'}</p>
-        <h1>{item.data.title}</h1>
-        <p class="detail-description">{item.data.description}</p>
-        <div class="detail-meta">
-          <span>{date}</span>
-          {item.data.tags.map((tag) => <span>{tag}</span>)}
-        </div>
-        <div class="detail-cover detail-cover-wide">
-          <img src={item.data.image} alt="" loading="lazy" />
+        <span class="tag-pill" style="background:rgba(106,155,204,0.12);color:#6a9bcc;border:1px solid rgba(106,155,204,0.15);margin:0 0 16px;display:inline-flex">{pubDate}</span>
+        <h1 class="publication-title" style="text-align:left;max-width:800px">{item.data.title}</h1>
+        <p class="publication-lede" style="text-align:left;max-width:700px;margin:12px 0 0">{item.data.description}</p>
+        <div class="detail-meta" style="margin-top:10px">
+          <span>{displayDate}</span>
         </div>
       </div>
     </section>
-    <article class="prose detail-page">
-      <Content />
-    </article>
+    <section class="section">
+      <div class="container">
+        <div class="detail-cover detail-cover-wide" style="margin-bottom:32px">
+          <img src={item.data.image} alt="" loading="lazy" />
+        </div>
+        <article class="prose detail-page">
+          <Content />
+        </article>
+      </div>
+    </section>
   </main>
 </BaseLayout>
+
+<style>
+  .detail-back {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: color 0.2s;
+  }
+  .detail-back:hover {
+    color: #fff;
+  }
+  .detail-meta {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 14px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .detail-cover {
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .detail-cover img {
+    width: 100%;
+    display: block;
+  }
+  .detail-cover-wide img {
+    aspect-ratio: 1.86 / 1;
+    object-fit: cover;
+  }
+</style>
