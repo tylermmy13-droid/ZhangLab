@@ -343,7 +343,15 @@ const markers = (await getCollection('markers'))
     text-transform: uppercase;
     z-index: 2;
     cursor: pointer;
+    text-align: center;
+    width: max-content;
+    max-width: calc(100% - 40px);
     animation: fadeInUp 1.2s ease-out 0.6s both, float 3s ease-in-out infinite 1.8s;
+  }
+
+  .globe-scroll-hint span {
+    display: block;
+    text-align: center;
   }
 
   .globe-scroll-hint:hover {
@@ -721,8 +729,15 @@ const markers = (await getCollection('markers'))
     z-index: 11;
     pointer-events: none;
     animation: welcomeFadeIn 1.5s ease-out both;
+    width: 100%;
+    padding-inline: 20px;
   }
 
+  .globe-welcome-title,
+  .globe-welcome-sub {
+    text-align: center;
+    margin-inline: auto;
+  }
 
   .globe-welcome-title {
     font-family: var(--font-title);
@@ -731,6 +746,7 @@ const markers = (await getCollection('markers'))
     color: #fff;
     letter-spacing: -0.02em;
     text-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+    max-width: 1100px;
   }
 
   .globe-welcome-sub {
@@ -740,11 +756,25 @@ const markers = (await getCollection('markers'))
     color: #fff;
     letter-spacing: -0.03em;
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    max-width: 980px;
+    line-height: 1.25;
   }
 
   @keyframes welcomeFadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 720px) {
+    .globe-welcome-title {
+      font-size: clamp(32px, 10vw, 48px);
+      padding-inline: 10px;
+    }
+    .globe-welcome-sub {
+      font-size: clamp(16px, 3.5vw, 20px);
+      padding-inline: 10px;
+      max-width: 100%;
+    }
   }
 
 
