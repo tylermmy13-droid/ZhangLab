@@ -27,7 +27,7 @@ tags:
   - "Inflammation"
   - "Smooth Muscle Cell"
   - "TBL1x"
-image: "/assets/cards/publication-sky.png"
+image: "/assets/cards/ATVB-cover.png"
 paperUrl: "https://doi.org/10.1161/ATVBAHA.123.319281"
 draft: false
 ---
