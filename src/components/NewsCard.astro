@@ -3,12 +3,74 @@ const { item } = Astro.props;
 const href = `/news/${item.id}/`;
 const pubDate = item.data.pubDate.toISOString().split('T')[0];
 ---
-<a class="card" href={href}>
+<a class="card news-card" href={href}>
   <span class="card-media">
     <img class="card-image" src={item.data.image} alt="" loading="lazy" />
   </span>
-  <span class="tag-pill">{pubDate}</span>
-  <h3>{item.data.title}</h3>
-  <p>{item.data.description}</p>
-  <span class="card-meta">{pubDate}</span>
+  <div class="news-card-body">
+    <span class="tag-pill">{pubDate}</span>
+    <h3 class="news-card-title">{item.data.title}</h3>
+    <p>{item.data.description}</p>
+    <span class="card-meta">{pubDate}</span>
+  </div>
 </a>
+
+<style>
+  .news-card {
+    text-decoration: none;
+    display: block;
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  .news-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(106, 155, 204, 0.3);
+    box-shadow: 0 8px 32px rgba(106, 155, 204, 0.08);
+    transform: translateY(-3px);
+  }
+
+  .news-card :global(.card-media) {
+    margin: 0;
+    border-radius: 0;
+  }
+  .news-card :global(.card-image) {
+    transition: transform 0.4s ease;
+  }
+  .news-card:hover :global(.card-image) {
+    transform: scale(1.07);
+  }
+
+  .news-card-body {
+    padding: 20px 22px 24px;
+  }
+
+  .news-card :global(h3) {
+    font-family: "DM Serif Display", "Source Han Serif CN Bold", Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    font-size: clamp(17px, 1.4vw, 21px);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: #faf9f5;
+    margin: 0 0 10px;
+  }
+  .news-card :global(.tag-pill) {
+    background: rgba(106, 155, 204, 0.12);
+    color: #6a9bcc;
+    border: 1px solid rgba(106, 155, 204, 0.15);
+    margin: 0 0 14px;
+  }
+  .news-card :global(.card-meta) {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 12px;
+  }
+  .news-card :global(p) {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 14px;
+    line-height: 1.55;
+    margin: 0 0 10px;
+  }
+</style>
