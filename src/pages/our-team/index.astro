@@ -4,6 +4,7 @@ import { team } from '../../data/team';
 
 const levels = [1, 2, 3, 4] as const;
 
+// --- Level configuration: each level gets its own accent color and label ---
 const levelConfig: Record<number, { label: string; labelZh: string; accent: string }> = {
   1: { label: 'Principal Investigator', labelZh: '课题组长', accent: '#d97757' },
   2: { label: 'Senior Faculty', labelZh: '高级职称', accent: '#6a9bcc' },
@@ -11,6 +12,7 @@ const levelConfig: Record<number, { label: string; labelZh: string; accent: stri
   4: { label: 'Residents', labelZh: '住院和规培医师', accent: '#b0aea5' },
 };
 
+// --- Generate initials fallback when no photo is provided ---
 const getInitials = (name: string) => {
   const parts = name.split('/');
   const zh = parts[0]?.trim() || '';
@@ -24,7 +26,7 @@ const getInitials = (name: string) => {
     <section class="publication-hero">
       <div class="container publication-hero-inner">
         <h1 class="publication-title" data-en="Our Team" data-zh="团队成员">Our Team</h1>
-        <p class="publication-lede" data-en="Meet our dadicated team in clinical and translational research." data-zh="认识我们的团队成员。">Meet our dadicated team in clinical and translational research.</p>
+        <p class="publication-lede" data-en="Meet our dedicated team in clinical and translational research." data-zh="认识我们的团队成员。">Meet our dedicated team in clinical and translational research.</p>
       </div>
     </section>
 
@@ -38,23 +40,25 @@ const getInitials = (name: string) => {
 
             return (
               <div class="team-level" data-level={level}>
-                {/* Level label */}
+                {/* --- Level label with connector line --- */}
                 <div class="level-label-wrap">
                   {level > 1 && <div class="level-connector" style={`background: ${cfg.accent}33`}></div>}
                   <span class="level-label" style={`color: ${cfg.accent}`} data-en={cfg.label} data-zh={cfg.labelZh}>{cfg.label}</span>
                 </div>
 
-                {/* Member cards */}
+                {/* --- Member cards grid --- */}
                 <div class={`level-cards level-cols-${members.length}`}>
                   {members.map((member) => (
                     <a class="member-card" href={`/our-team/${member.slug}/`} style={`--card-accent: ${cfg.accent}`}>
-                      <div class="member-card-avatar">
+                      {/* Photo area — spans full width at top, matches card corners */}
+                      <div class="member-card-photo">
                         {member.img ? (
                           <img src={member.img} alt={member.nameZh} loading="lazy" />
                         ) : (
                           <span class="member-card-initial">{getInitials(member.name)}</span>
                         )}
                       </div>
+                      {/* Text area — name, English name, role badge */}
                       <div class="member-card-info">
                         <p class="member-card-name">{member.nameZh}</p>
                         <p class="member-card-name-en">{member.name.split('/')[1]?.trim()}</p>
@@ -73,7 +77,9 @@ const getInitials = (name: string) => {
 </BaseLayout>
 
 <style>
-  /* ─── Tree Layout ─── */
+  /* ═══════════════════════════════════════════
+     Team Tree — vertical connector layout
+     ═══════════════════════════════════════════ */
   .team-tree {
     display: flex;
     flex-direction: column;
@@ -82,7 +88,7 @@ const getInitials = (name: string) => {
     padding-bottom: 80px;
   }
 
-  /* ─── Level ─── */
+  /* ─── Level section ─── */
   .team-level {
     display: flex;
     flex-direction: column;
@@ -99,6 +105,7 @@ const getInitials = (name: string) => {
     width: 100%;
   }
 
+  /* Vertical line connecting levels */
   .level-connector {
     position: absolute;
     top: 0;
@@ -125,15 +132,16 @@ const getInitials = (name: string) => {
     width: 100%;
   }
 
-  /* ─── Member Card ─── */
+  /* ═══════════════════════════════════════════
+     Member Card — vertical pill/capsule shape
+     Photo occupies top ~65%; text at bottom ~35%
+     ═══════════════════════════════════════════ */
   .member-card {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    padding: 28px 20px 22px;
-    border-radius: 16px;
+    border-radius: 20px;          /* pill-like rounded corners */
+    overflow: hidden;             /* clips photo to match card radius */
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.06);
     text-decoration: none;
@@ -141,63 +149,35 @@ const getInitials = (name: string) => {
     cursor: pointer;
     flex-shrink: 0;
   }
-
   .member-card:hover {
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.06);
     border-color: var(--card-accent, #6a9bcc);
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
   }
 
-  /* Card sizes by level */
-  [data-level="1"] .member-card {
-    width: 280px;
-    padding: 36px 24px 28px;
-  }
-  [data-level="2"] .member-card {
-    width: 260px;
-    padding: 32px 22px 26px;
-  }
-  [data-level="3"] .member-card {
-    width: 210px;
-    padding: 24px 16px 20px;
-  }
-  [data-level="4"] .member-card {
-    width: 200px;
-    padding: 22px 14px 18px;
-  }
-
-  /* ─── Avatar ─── */
-  .member-card-avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
+  /* ─── Photo area — full width, top portion of the pill ─── */
+  .member-card-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1.1;        /* slightly taller than wide */
     overflow: hidden;
-    border: 3px solid var(--card-accent, rgba(255,255,255,0.2));
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    flex-shrink: 0;
-    transition: border-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.03);
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .member-card:hover .member-card-avatar {
-    border-color: var(--card-accent, #6a9bcc);
-  }
-
-  .member-card-avatar img {
+  .member-card-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.4s ease;
+  }
+  .member-card:hover .member-card-photo img {
+    transform: scale(1.07);
   }
 
-  [data-level="1"] .member-card-avatar { width: 140px; height: 140px; }
-  [data-level="2"] .member-card-avatar { width: 120px; height: 120px; }
-  [data-level="3"] .member-card-avatar { width: 96px; height: 96px; }
-  [data-level="4"] .member-card-avatar { width: 88px; height: 88px; }
-
-  /* ─── Initials placeholder (no photo) ─── */
+  /* ─── Initials fallback (no photo) ─── */
   .member-card-initial {
     font-size: 36px;
     font-weight: 600;
@@ -205,18 +185,15 @@ const getInitials = (name: string) => {
     font-family: "Inter", sans-serif;
     user-select: none;
   }
-  [data-level="1"] .member-card-initial { font-size: 42px; }
-  [data-level="2"] .member-card-initial { font-size: 36px; }
-  [data-level="3"] .member-card-initial { font-size: 30px; }
-  [data-level="4"] .member-card-initial { font-size: 28px; }
 
-  /* ─── Card Info ─── */
+  /* ─── Text area — bottom portion ─── */
   .member-card-info {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
     text-align: center;
+    padding: 18px 16px 24px;
+    gap: 6px;
   }
 
   .member-card-name {
@@ -225,10 +202,6 @@ const getInitials = (name: string) => {
     font-weight: 600;
     line-height: 1.3;
   }
-  [data-level="1"] .member-card-name { font-size: 22px; }
-  [data-level="2"] .member-card-name { font-size: 19px; }
-  [data-level="3"] .member-card-name { font-size: 16px; }
-  [data-level="4"] .member-card-name { font-size: 15px; }
 
   .member-card-name-en {
     margin: 0;
@@ -237,62 +210,73 @@ const getInitials = (name: string) => {
     font-weight: 400;
   }
 
+  /* ─── Role badge pill — 1.5x larger ─── */
   .member-card-role {
     display: inline-block;
     margin-top: 6px;
-    padding: 3px 12px;
-    border-radius: 20px;
-    font-size: 11px;
+    padding: 5px 18px;           /* enlarged from 3px 12px */
+    border-radius: 30px;          /* more pill-like */
+    font-size: 16px;              /* 11px × 1.5 ≈ 16.5px */
     font-weight: 500;
     letter-spacing: 0.02em;
   }
 
-  /* ─── Responsive ─── */
+  /* ═══════════════════════════════════════════
+     Card size variants by level
+     ═══════════════════════════════════════════ */
+  /* Level 1 — PI: largest card */
+  [data-level="1"] .member-card { width: 320px; }
+  [data-level="1"] .member-card-photo { aspect-ratio: 1 / 0.95; }
+  [data-level="1"] .member-card-name { font-size: 24px; }
+  [data-level="1"] .member-card-initial { font-size: 48px; }
+
+  /* Level 2 — Senior faculty */
+  [data-level="2"] .member-card { width: 300px; }
+  [data-level="2"] .member-card-photo { aspect-ratio: 1 / 0.95; }
+  [data-level="2"] .member-card-name { font-size: 22px; }
+  [data-level="2"] .member-card-initial { font-size: 44px; }
+
+  /* Level 3 — Attending / research staff */
+  [data-level="3"] .member-card { width: 260px; }
+  [data-level="3"] .member-card-name { font-size: 18px; }
+  [data-level="3"] .member-card-initial { font-size: 36px; }
+
+  /* Level 4 — Residents */
+  [data-level="4"] .member-card { width: 240px; }
+  [data-level="4"] .member-card-name { font-size: 17px; }
+  [data-level="4"] .member-card-initial { font-size: 32px; }
+
+  /* ═══════════════════════════════════════════
+     Tablet responsive (max-width: 900px)
+     ═══════════════════════════════════════════ */
   @media (max-width: 900px) {
-    .level-cards {
-      gap: 14px;
-    }
-    [data-level="1"] .member-card,
-    [data-level="2"] .member-card,
-    [data-level="3"] .member-card,
-    [data-level="4"] .member-card {
-      width: 180px;
-      padding: 20px 14px 16px;
-    }
-    [data-level="1"] .member-card-avatar,
-    [data-level="2"] .member-card-avatar,
-    [data-level="3"] .member-card-avatar,
-    [data-level="4"] .member-card-avatar {
-      width: 80px;
-      height: 80px;
-    }
-    [data-level="1"] .member-card-name { font-size: 17px; }
+    .level-cards { gap: 14px; }
+    [data-level="1"] .member-card { width: 240px; }
+    [data-level="2"] .member-card { width: 220px; }
+    [data-level="3"] .member-card { width: 200px; }
+    [data-level="4"] .member-card { width: 180px; }
+    [data-level="1"] .member-card-name { font-size: 20px; }
     [data-level="2"] .member-card-name,
     [data-level="3"] .member-card-name,
-    [data-level="4"] .member-card-name { font-size: 14px; }
+    [data-level="4"] .member-card-name { font-size: 16px; }
+    .member-card-role { font-size: 14px; padding: 4px 14px; }
   }
 
+  /* ═══════════════════════════════════════════
+     Mobile responsive (max-width: 640px)
+     ═══════════════════════════════════════════ */
   @media (max-width: 640px) {
     .level-cards { gap: 10px; }
     [data-level="1"] .member-card,
     [data-level="2"] .member-card,
     [data-level="3"] .member-card,
-    [data-level="4"] .member-card {
-      width: 160px;
-      padding: 16px 10px 14px;
-    }
-    [data-level="1"] .member-card-avatar,
-    [data-level="2"] .member-card-avatar,
-    [data-level="3"] .member-card-avatar,
-    [data-level="4"] .member-card-avatar {
-      width: 66px;
-      height: 66px;
-    }
-    [data-level="1"] .member-card-name { font-size: 15px; }
+    [data-level="4"] .member-card { width: 160px; }
+    [data-level="1"] .member-card-name { font-size: 16px; }
     [data-level="2"] .member-card-name,
     [data-level="3"] .member-card-name,
-    [data-level="4"] .member-card-name { font-size: 13px; }
+    [data-level="4"] .member-card-name { font-size: 14px; }
     .member-card-name-en { font-size: 11px; }
+    .member-card-role { font-size: 12px; padding: 3px 10px; }
     .member-card-initial { font-size: 22px !important; }
   }
 </style>
