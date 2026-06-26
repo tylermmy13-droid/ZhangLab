@@ -7,12 +7,12 @@ const collectionItems = (await getCollection('collections'))
   .filter((item) => !item.data.draft)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
-<BaseLayout title="Research | Zhang Lab" description="Research directions, platforms, and translational programs." headerMode="glass" bodyClass="space-theme">
+<BaseLayout title="Research | Zhang Lab" description="Our latest activities." headerMode="glass" bodyClass="space-theme">
   <main class="collection-archive">
     <section class="collection-hero">
       <div class="container collection-hero-inner">
         <h1 class="collection-title" data-en="Research directions" data-zh="研究方向">Research directions</h1>
-        <p class="collection-lede" data-en="Explore the lab's cardiovascular clinical, regenerative, organoid, and AI platforms." data-zh="浏览课题组心血管临床、再生修复、类器官与人工智能平台。">Explore the lab's cardiovascular clinical, regenerative, organoid, and AI platforms.</p>
+        <p class="collection-lede" data-en="Explore our latest  activities." data-zh="浏览我们的最新动态。">Explore our latest  activities.</p>
       </div>
     </section>
 

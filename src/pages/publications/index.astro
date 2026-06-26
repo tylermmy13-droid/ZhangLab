@@ -7,12 +7,12 @@ const publications = (await getCollection('publications'))
   .filter((item) => !item.data.draft)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
-<BaseLayout title="Publications | Zhang Lab" description="Accepted papers, conference publications, and journal articles." headerMode="glass" bodyClass="space-theme">
+<BaseLayout title="Publications | Zhang Lab" description="Our published academic work." headerMode="glass" bodyClass="space-theme">
   <main class="publication-archive">
     <section class="publication-hero">
       <div class="container publication-hero-inner">
         <h1 class="publication-title" data-en="Academic articles" data-zh="学术文章">Academic articles</h1>
-        <p class="publication-lede" data-en="Accepted papers, conference work, and journal articles." data-zh="已发表的会议论文和期刊文章。">Accepted papers, conference work, and journal articles.</p>
+        <p class="publication-lede" data-en="Our published academic work." data-zh="已发表的学术成果。">Our published academic work.</p>
       </div>
     </section>
 

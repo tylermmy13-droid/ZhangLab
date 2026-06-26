@@ -7,8 +7,8 @@ const levels = [1, 2, 3, 4] as const;
 const levelConfig: Record<number, { label: string; labelZh: string; accent: string }> = {
   1: { label: 'Principal Investigator', labelZh: '课题组长', accent: '#d97757' },
   2: { label: 'Senior Faculty', labelZh: '高级职称', accent: '#6a9bcc' },
-  3: { label: 'Attending & Research Staff', labelZh: '主治医师和科研人员', accent: '#788c5d' },
-  4: { label: 'Residents', labelZh: '住院医师和在读学生', accent: '#b0aea5' },
+  3: { label: 'Attending physcians and Research Staff', labelZh: '主治医师和科研人员', accent: '#788c5d' },
+  4: { label: 'Residents', labelZh: '住院和规培医师', accent: '#b0aea5' },
 };
 
 const getInitials = (name: string) => {
@@ -24,7 +24,7 @@ const getInitials = (name: string) => {
     <section class="publication-hero">
       <div class="container publication-hero-inner">
         <h1 class="publication-title" data-en="Our Team" data-zh="团队成员">Our Team</h1>
-        <p class="publication-lede" data-en="A collaborative hierarchy of clinical and translational researchers" data-zh="临床与转化研究团队的协作梯队">A collaborative hierarchy of clinical and translational researchers</p>
+        <p class="publication-lede" data-en="Meet our dadicated team in clinical and translational research." data-zh="认识我们的团队成员。">Meet our dadicated team in clinical and translational research.</p>
       </div>
     </section>
 
