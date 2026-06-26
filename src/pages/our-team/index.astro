@@ -7,8 +7,8 @@ const levels = [1, 2, 3, 4] as const;
 const levelConfig: Record<number, { label: string; labelZh: string; accent: string }> = {
   1: { label: 'Principal Investigator', labelZh: '课题组长', accent: '#d97757' },
   2: { label: 'Senior Faculty', labelZh: '高级职称', accent: '#6a9bcc' },
-  3: { label: 'Attending & Research Staff', labelZh: '主治 & 科研人员', accent: '#788c5d' },
-  4: { label: 'Residents', labelZh: '住院医师', accent: '#b0aea5' },
+  3: { label: 'Attending & Research Staff', labelZh: '主治医师和科研人员', accent: '#788c5d' },
+  4: { label: 'Residents', labelZh: '住院医师和在读学生', accent: '#b0aea5' },
 };
 
 const getInitials = (name: string) => {
