@@ -102,6 +102,21 @@ export const team: TeamMember[] = [
   // Level 3 — 主治医师 / 助理研究员
   // ════════════════════════════════════════════
   {
+    slug: 'yang-mei',
+    name: '杨眉 / YANG Mei',
+    nameZh: '杨眉',
+    role: 'Assistant Researcher',
+    roleZh: '助理研究员',
+    level: 3,
+    img: '',
+    desc: 'Assistant Researcher involved in basic and translational cardiovascular research.',
+    descZh: '助理研究员，从事心血管基础与转化研究。',
+    email: '',
+    publications: [],
+    honors: [],
+    honorsZh: [],
+  },
+  {
     slug: 'dai-bing',
     name: '戴兵 / DAI Bing',
     nameZh: '戴兵',
@@ -131,21 +146,6 @@ export const team: TeamMember[] = [
     honors: [],
     honorsZh: [],
   },
-  {
-    slug: 'yang-mei',
-    name: '杨眉 / YANG Mei',
-    nameZh: '杨眉',
-    role: 'Assistant Researcher',
-    roleZh: '助理研究员',
-    level: 3,
-    img: '',
-    desc: 'Assistant Researcher involved in basic and translational cardiovascular research.',
-    descZh: '助理研究员，从事心血管基础与转化研究。',
-    email: '',
-    publications: [],
-    honors: [],
-    honorsZh: [],
-  },
 
   // ════════════════════════════════════════════
   // Level 4 — 住院医师
@@ -166,9 +166,9 @@ export const team: TeamMember[] = [
     honorsZh: [],
   },
   {
-    slug: 'sun-shasha',
-    name: '孙厦厦 / SUN Shasha',
-    nameZh: '孙厦厦',
+    slug: 'shi-zhenning',
+    name: '石镇宁 / SHI Zhenning',
+    nameZh: '石镇宁',
     role: 'Resident Physician',
     roleZh: '住院医师',
     level: 4,
@@ -181,9 +181,9 @@ export const team: TeamMember[] = [
     honorsZh: [],
   },
   {
-    slug: 'shi-zhenning',
-    name: '石镇宁 / SHI Zhenning',
-    nameZh: '石镇宁',
+    slug: 'sun-shasha',
+    name: '孙厦厦 / SUN Shasha',
+    nameZh: '孙厦厦',
     role: 'Resident Physician',
     roleZh: '住院医师',
     level: 4,
