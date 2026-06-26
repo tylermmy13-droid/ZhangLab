@@ -24,14 +24,14 @@ export interface TeamMember {
 
 export const team: TeamMember[] = [
   // ════════════════════════════════════════════
-  // Level 1 — PI / 课题组长
+  // Level 1 — Senior Faculty / PI
   // ════════════════════════════════════════════
   {
     slug: 'zhang-li',
     name: '张力 / ZHANG Li',
     nameZh: '张力',
-    role: 'Principal Investigator',
-    roleZh: '课题组长',
+    role: 'Chief Physician, Distinguished Professor, Doctoral Supervisor, Vice President',
+    roleZh: '主任医师 / 上海交通大学特聘教授 / 博士生导师 / 新华医院副院长',
     level: 1,
     img: '/assets/team/zhangli.png',
     desc: 'Professor, Chief Physician, Doctoral Supervisor, and Vice President of Xinhua Hospital affiliated to Shanghai Jiao Tong University School of Medicine. The group focuses on interventional cardiology, vascular regeneration, organoid-chip platforms, and AI-enabled cardiovascular health strategies.',
@@ -66,18 +66,18 @@ export const team: TeamMember[] = [
   },
 
   // ════════════════════════════════════════════
-  // Level 2 — 副主任医师
+  // Level 2 — Senior Faculty
   // ════════════════════════════════════════════
   {
     slug: 'chen-qishan',
     name: '陈齐山 / CHEN Qishan',
     nameZh: '陈齐山',
-    role: 'Associate Chief Physician, Professor',
-    roleZh: '副主任医师 / 教授',
+    role: 'Associate Chief Physician, Associate Researcher, Master\'s Supervisor',
+    roleZh: '副主任医师 / 副研究员 / 硕士生导师',
     level: 2,
     img: '/assets/team/chenqishan.jpg',
-    desc: 'Professor, Associate Chief Physician, and Doctoral Supervisor. His work bridges coronary heart disease care, clinical research, and cardiovascular translational medicine.',
-    descZh: '教授、副主任医师、博士生导师。长期致力于冠心病诊治、临床研究与心血管转化医学研究。',
+    desc: 'Associate Chief Physician, Associate Researcher, and Master\'s Supervisor. His work bridges coronary heart disease care, clinical research, and cardiovascular translational medicine.',
+    descZh: '副主任医师、副研究员、硕士生导师。长期致力于冠心病诊治、临床研究与心血管转化医学研究。',
     email: 'chenqishan@shsmu.edu.cn',
     publications: [
       {
