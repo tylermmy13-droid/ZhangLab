@@ -222,43 +222,20 @@ const getInitials = (name: string) => {
   }
 
   /* ═══════════════════════════════════════════
-     Card size variants by level
+     Card — uniform size for all levels
      ═══════════════════════════════════════════ */
-  /* Level 1 — PI: largest card */
-  [data-level="1"] .member-card { width: 320px; }
-  [data-level="1"] .member-card-photo { aspect-ratio: 1 / 0.95; }
-  [data-level="1"] .member-card-name { font-size: 24px; }
-  [data-level="1"] .member-card-initial { font-size: 48px; }
-
-  /* Level 2 — Senior faculty */
-  [data-level="2"] .member-card { width: 300px; }
-  [data-level="2"] .member-card-photo { aspect-ratio: 1 / 0.95; }
-  [data-level="2"] .member-card-name { font-size: 22px; }
-  [data-level="2"] .member-card-initial { font-size: 44px; }
-
-  /* Level 3 — Attending / research staff */
-  [data-level="3"] .member-card { width: 260px; }
-  [data-level="3"] .member-card-name { font-size: 18px; }
-  [data-level="3"] .member-card-initial { font-size: 36px; }
-
-  /* Level 4 — Residents */
-  [data-level="4"] .member-card { width: 240px; }
-  [data-level="4"] .member-card-name { font-size: 17px; }
-  [data-level="4"] .member-card-initial { font-size: 32px; }
+  .member-card { width: 280px; }
+  .member-card-photo { aspect-ratio: 1 / 0.95; }
+  .member-card-name { font-size: 20px; }
+  .member-card-initial { font-size: 42px; }
 
   /* ═══════════════════════════════════════════
      Tablet responsive (max-width: 900px)
      ═══════════════════════════════════════════ */
   @media (max-width: 900px) {
     .level-cards { gap: 14px; }
-    [data-level="1"] .member-card { width: 240px; }
-    [data-level="2"] .member-card { width: 220px; }
-    [data-level="3"] .member-card { width: 200px; }
-    [data-level="4"] .member-card { width: 180px; }
-    [data-level="1"] .member-card-name { font-size: 20px; }
-    [data-level="2"] .member-card-name,
-    [data-level="3"] .member-card-name,
-    [data-level="4"] .member-card-name { font-size: 16px; }
+    .member-card { width: 220px; }
+    .member-card-name { font-size: 17px; }
     .member-card-role { font-size: 14px; padding: 4px 14px; }
   }
 
@@ -267,14 +244,8 @@ const getInitials = (name: string) => {
      ═══════════════════════════════════════════ */
   @media (max-width: 640px) {
     .level-cards { gap: 10px; }
-    [data-level="1"] .member-card,
-    [data-level="2"] .member-card,
-    [data-level="3"] .member-card,
-    [data-level="4"] .member-card { width: 160px; }
-    [data-level="1"] .member-card-name { font-size: 16px; }
-    [data-level="2"] .member-card-name,
-    [data-level="3"] .member-card-name,
-    [data-level="4"] .member-card-name { font-size: 14px; }
+    .member-card { width: 160px; }
+    .member-card-name { font-size: 15px; }
     .member-card-name-en { font-size: 11px; }
     .member-card-role { font-size: 12px; padding: 3px 10px; }
     .member-card-initial { font-size: 22px !important; }
