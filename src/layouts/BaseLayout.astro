@@ -27,14 +27,15 @@ const isSpaceTheme = bodyClass.includes('space-theme');
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Google Fonts: Noto Serif SC (titles) + Noto Sans SC (body) — Chinese subset -->
+    <!-- Google Fonts: Noto Sans SC (body) — Chinese subset -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Preload critical Latin font -->
+    <!-- Preload critical fonts -->
     <link rel="preload" href="/assets/fonts/dm-serif-display-latin-400-normal.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/assets/fonts/SourceHanSerifCN-Bold.otf" as="font" type="font/otf" crossorigin />
 
     <script src="/assets/js/i18n.js" defer></script>
   </head>

@@ -12,15 +12,16 @@
   --max: 1120px;
   --radius: 28px;
   /* Font stacks — driven by html[lang]
-   * Chinese: Google Fonts CDN (Noto Serif/Sans SC) → system fallback
-   * English: Local DM Serif Display → system fallback */
-  --font-title: "Noto Serif SC", "DM Serif Display", "Songti SC", "STSong", "SimSun", Georgia, "Times New Roman", serif;
+   * Chinese titles: Local Source Han Serif CN Bold → system fallback
+   * Chinese body: Google Fonts CDN (Noto Sans SC) → system fallback
+   * English titles: Local DM Serif Display → system fallback */
+  --font-title: "Source Han Serif CN Bold", "DM Serif Display", "Songti SC", "STSong", "SimSun", Georgia, "Times New Roman", serif;
   --font-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Heiti SC", sans-serif;
 }
 
 /* English font overrides */
 html[lang="en"] {
-  --font-title: "DM Serif Display", "Noto Serif SC", Georgia, "Times New Roman", serif;
+  --font-title: "DM Serif Display", "Source Han Serif CN Bold", Georgia, "Times New Roman", serif;
   --font-body: "Noto Sans SC", "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -39,6 +40,14 @@ html[lang="en"] {
   font-display: optional;
   font-style: italic;
   font-weight: 400;
+}
+
+@font-face {
+  font-family: "Source Han Serif CN Bold";
+  src: url("/assets/fonts/SourceHanSerifCN-Bold.otf") format("opentype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
 }
 
 * { box-sizing: border-box; }
