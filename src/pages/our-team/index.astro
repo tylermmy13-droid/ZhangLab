@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { team } from '../../data/team';
+import { students, studentTypeConfig } from '../../data/students';
+import StudentCard from '../../components/StudentCard.astro';
 
 const levels = [1, 2, 3, 4] as const;
 
@@ -11,6 +13,13 @@ const levelConfig: Record<number, { label: string; labelZh: string; accent: stri
   3: { label: 'Attending physcians and Research Staff', labelZh: '主治医师和科研人员', accent: '#788c5d' },
   4: { label: 'Residents', labelZh: '住院和规培医师', accent: '#b0aea5' },
 };
+
+// Student groups in display order
+const studentGroups: Array<{ type: keyof typeof studentTypeConfig }> = [
+  { type: 'phd' },
+  { type: 'academic-master' },
+  { type: 'professional-master' },
+];
 
 // --- Generate initials fallback when no photo is provided ---
 const getInitials = (name: string) => {
@@ -71,6 +80,42 @@ const getInitials = (name: string) => {
             );
           })}
         </div>
+      </div>
+    </section>
+
+    {/* ═══════════════════════════════════════════
+       Current Students section
+       ═══════════════════════════════════════════ */}
+    <section class="section students-section">
+      <div class="container">
+
+        {/* ─── Section title ─── */}
+        <div class="students-section-header">
+          <h2 class="students-section-title" data-en="Current Students" data-zh="在读学生">Current Students</h2>
+        </div>
+
+        {studentGroups.map((group) => {
+          const cfg = studentTypeConfig[group.type];
+          const groupStudents = students.filter((s) => s.type === group.type);
+          if (groupStudents.length === 0) return null;
+
+          return (
+            <div class="student-group">
+              {/* Group heading */}
+              <div class="student-group-label-wrap">
+                <span class="student-group-label" style={`color: ${cfg.accent}`}
+                      data-en={cfg.labelEn} data-zh={cfg.labelZh}>{cfg.labelZh}</span>
+              </div>
+
+              {/* Student cards grid */}
+              <div class="student-grid">
+                {groupStudents.map((s) => (
+                  <StudentCard student={s} accent={cfg.accent} />
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   </main>
@@ -250,5 +295,65 @@ const getInitials = (name: string) => {
     .member-card-name-en { font-size: 11px; }
     .member-card-role { font-size: 12px; padding: 3px 10px; }
     .member-card-initial { font-size: 22px !important; }
+  }
+
+  /* ═══════════════════════════════════════════
+     Current Students section
+     ═══════════════════════════════════════════ */
+  .students-section {
+    padding-top: 0;
+  }
+
+  .students-section-header {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0 12px;
+  }
+
+  .students-section-title {
+    font-family: "DM Serif Display", "Source Han Serif CN Bold", Georgia, "Times New Roman", serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 400;
+    color: #faf9f5;
+    letter-spacing: -0.015em;
+    margin: 0;
+    text-align: center;
+  }
+
+  /* ─── Student group ─── */
+  .student-group {
+    margin-top: 24px;
+  }
+
+  .student-group-label-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 16px 0 14px;
+  }
+
+  .student-group-label {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+  }
+
+  /* ─── Student cards grid — 5 cols desktop ─── */
+  .student-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    width: 100%;
+  }
+
+  /* Tablet: 3 cols */
+  @media (max-width: 900px) {
+    .student-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  }
+
+  /* Mobile: 2 cols */
+  @media (max-width: 640px) {
+    .student-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   }
 </style>
