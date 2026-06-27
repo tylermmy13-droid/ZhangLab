@@ -41,23 +41,6 @@ const collectionItems = defineCollection({
   })
 });
 
-const blogs = defineCollection({
-  loader: glob({
-    pattern: '**/*.{md,mdx}',
-    base: './src/content/blogs',
-    generateId: ({ entry }) => entry.replace(/\.(md|mdx)$/, '')
-  }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    pubDate: z.coerce.date(),
-    category: z.string(),
-    tags: z.array(z.string()).default([]),
-    image: z.string(),
-    draft: z.boolean().default(false)
-  })
-});
-
 const news = defineCollection({
   loader: glob({
     pattern: '**/*.{md,mdx}',
@@ -77,23 +60,4 @@ const news = defineCollection({
   })
 });
 
-const markers = defineCollection({
-  loader: glob({
-    pattern: '**/*.{md,mdx}',
-    base: './src/content/markers',
-    generateId: ({ entry }) => entry.replace(/\.(md|mdx)$/, '')
-  }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    category: z.string(),
-    lng: z.number(),
-    lat: z.number(),
-    images: z.array(z.string()),
-    author: z.string(),
-    date: z.coerce.date(),
-    draft: z.boolean().default(false)
-  })
-});
-
-export const collections = { publications, collections: collectionItems, blogs, news, markers };
+export const collections = { publications, collections: collectionItems, news };

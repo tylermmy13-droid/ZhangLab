@@ -1908,7 +1908,6 @@ img { max-width: 100%; display: block; }
 .space-theme > main,
 .space-theme > .publication-archive,
 .space-theme > .collection-archive,
-.space-theme > .blog-archive,
 .space-theme > .news-archive {
   flex: 1;
 }
@@ -1917,7 +1916,6 @@ img { max-width: 100%; display: block; }
 .space-theme > main > .globe-section,
 .space-theme > .publication-archive > section,
 .space-theme > .collection-archive > section,
-.space-theme > .blog-archive > section,
 .space-theme > .news-archive > section {
   position: relative;
   z-index: 1;
@@ -2078,14 +2076,12 @@ img { max-width: 100%; display: block; }
 
 /* Publications & Collections hero — space theme */
 .space-theme .publication-title,
-.space-theme .collection-title,
-.space-theme .blog-title {
+.space-theme .collection-title {
   color: #fff;
 }
 
 .space-theme .publication-lede,
-.space-theme .collection-lede,
-.space-theme .blog-lede {
+.space-theme .collection-lede {
   color: rgba(255, 255, 255, 0.75);
 }
 
@@ -2208,17 +2204,14 @@ img { max-width: 100%; display: block; }
 
 .space-theme .publication-cloud,
 .space-theme .collection-cloud,
-.space-theme .blog-cloud,
 .space-theme .publication-birds,
-.space-theme .collection-birds,
-.space-theme .blog-birds {
+.space-theme .collection-birds {
   display: none;
 }
 
 /* Search panel — dark glass */
 .space-theme .publication-search,
-.space-theme .collection-search,
-.space-theme .blog-search {
+.space-theme .collection-search {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(16px);
@@ -2226,20 +2219,17 @@ img { max-width: 100%; display: block; }
 }
 
 .space-theme .publication-search svg,
-.space-theme .collection-search svg,
-.space-theme .blog-search svg {
+.space-theme .collection-search svg {
   color: rgba(255, 255, 255, 0.4);
 }
 
 .space-theme .publication-search input,
-.space-theme .collection-search input,
-.space-theme .blog-search input {
+.space-theme .collection-search input {
   color: #fff;
 }
 
 .space-theme .publication-search input::placeholder,
-.space-theme .collection-search input::placeholder,
-.space-theme .blog-search input::placeholder {
+.space-theme .collection-search input::placeholder {
   color: rgba(255, 255, 255, 0.35);
 }
 

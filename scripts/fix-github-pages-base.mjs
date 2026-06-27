@@ -6,7 +6,7 @@ const base = '/SpaceLab';
 const dist = fileURLToPath(new URL('../dist/', import.meta.url));
 const exts = new Set(['.html', '.css', '.js', '.mjs']);
 const roots = [
-  'assets', '_astro', 'paper-sites', 'about', 'blogs', 'collections',
+  'assets', '_astro', 'paper-sites', 'about', 'collections',
   'contact', 'faq', 'news', 'our-team', 'publications'
 ];
 const rootPattern = roots.join('|');

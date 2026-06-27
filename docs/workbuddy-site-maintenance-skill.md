@@ -11,7 +11,7 @@ The expected role is to keep the lab website buildable, publishable on GitHub Pa
 Local repository:
 
 ```text
-/Users/mamingyang/Documents/GitHub/mimic-iv-pipeline/SpaceLab
+/Users/mamingyang/Documents/GitHub/SpaceLab
 ```
 
 Remote repository:
