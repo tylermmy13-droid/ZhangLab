@@ -21,7 +21,7 @@ export const students: StudentMember[] = [
   // ─── Ph.D. Students ───
   { slug: 'zhou-meng',    name: '周萌 / ZHOU Meng',     nameZh: '周萌',   type: 'phd', enrollmentYear: '2022' },
   { slug: 'zhang-run',    name: '章润 / ZHANG Run',     nameZh: '章润',   type: 'phd', enrollmentYear: '2023' },
-  { slug: 'wang-leyu',    name: '王乐禺 / WANG Leyu',    nameZh: '王乐禺',  type: 'phd', enrollmentYear: '2022' },
+  { slug: 'wang-leyu',    name: '王乐禹 / WANG Leyu',    nameZh: '王乐禺',  type: 'phd', enrollmentYear: '2022' },
   { slug: 'li-qianyi',    name: '李千一 / LI Qianyi',   nameZh: '李千一',  type: 'phd', enrollmentYear: '2025' },
   { slug: 'chen-zixuan',  name: '陈子璇 / CHEN Zixuan',  nameZh: '陈子璇',  type: 'phd', enrollmentYear: '2025' },
   { slug: 'zhou-xiaoyue', name: '周晓月 / ZHOU Xiaoyue', nameZh: '周晓月',  type: 'phd', enrollmentYear: '2023' },

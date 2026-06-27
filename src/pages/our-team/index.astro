@@ -238,7 +238,7 @@ const getInitials = (name: string) => {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 18px 16px 24px;
+    padding: 14px 14px 20px;      /* slightly tighter for 4-col layout */
     gap: 6px;
   }
 
@@ -270,7 +270,7 @@ const getInitials = (name: string) => {
   /* ═══════════════════════════════════════════
      Card — uniform size for all levels
      ═══════════════════════════════════════════ */
-  .member-card { width: 280px; }
+  .member-card { width: 250px; }           /* ~4 per row */
   .member-card-photo { aspect-ratio: 1 / 0.95; }
   .member-card-name { font-size: 20px; }
   .member-card-initial { font-size: 42px; }
@@ -280,7 +280,7 @@ const getInitials = (name: string) => {
      ═══════════════════════════════════════════ */
   @media (max-width: 900px) {
     .level-cards { gap: 14px; }
-    .member-card { width: 220px; }
+    .member-card { width: 200px; }
     .member-card-name { font-size: 17px; }
     .member-card-role { font-size: 14px; padding: 4px 14px; }
   }
