@@ -77,7 +77,9 @@ const isSpaceTheme = bodyClass.includes('space-theme');
     <script>
       /* ---- 当前页面 active 胶囊（基于路径段，免疫 base path 改写） ---- */
       const segs = window.location.pathname.split('/').filter(Boolean);
-      const pageSeg = segs.length <= 1 ? 'home' : segs[1];
+      const pageSeg = segs[0] === 'SpaceLab'
+        ? (segs[1] || 'home')
+        : (segs[0] || 'home');
       document.querySelectorAll('.nav a').forEach(a => {
         if ((a.dataset.route || '') === pageSeg) a.classList.add('active');
       });
