@@ -201,6 +201,21 @@ export const team: TeamMember[] = [
     honors: [],
     honorsZh: [],
   },
+  {
+    slug: 'li-jinyan',
+    name: '李金燕 / LI Jinyan',
+    nameZh: '李金燕',
+    role: 'Research Assistant',
+    roleZh: '科研助理',
+    level: 3,
+    img: '',
+    desc: 'Research assistant, assisting in the operation of the laboratory and participating in basic and translational cardiovascular research.',
+    descZh: '科研助理，协助运营实验室，参与心血管基础与转化研究。',
+    email: '',
+    publications: [],
+    honors: [],
+    honorsZh: [],
+  },
 
   // ════════════════════════════════════════════
   // Level 4 — 住院医师

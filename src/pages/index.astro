@@ -21,7 +21,7 @@ const collectionItems = (await getCollection('collections')).filter((item) => !i
             <h2 class="section-title" data-en="Latest &lt;em&gt;News&lt;/em&gt;" data-zh="最新&lt;em&gt;动态&lt;/em&gt;">Latest <em>News</em></h2>
             <a class="button section-cta" href="/news/" data-en="All News" data-zh="全部动态">All News <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="section-copy" data-en="Updates from cardiovascular clinical research, translational platforms, and academic activities." data-zh="关注心血管临床研究、转化平台与课题组学术动态。">Updates from cardiovascular clinical research, translational platforms, and academic activities.</p>
+          <p class="section-copy" data-en="Updates from Zhang Lab." data-zh="关注张力课题组学术动态。">Updates from Zhang Lab.</p>
         </div>
         <div class="card-grid">{newsItems.map((item) => <NewsCard item={item} />)}</div>
       </div>
@@ -34,7 +34,7 @@ const collectionItems = (await getCollection('collections')).filter((item) => !i
             <h2 class="section-title" data-en="Research &lt;em&gt;Directions&lt;/em&gt;" data-zh="研究&lt;em&gt;方向&lt;/em&gt;">Research <em>Directions</em></h2>
             <a class="button section-cta" href="/collections/" data-en="All Research" data-zh="全部方向">All Research <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="section-copy" data-en="Exploring vascular regeneration, organoid chips, complex cardiovascular intervention, and AI-enabled active health." data-zh="聚焦血管再生修复、类器官芯片、复杂心血管介入和 AI 主动健康。">Exploring vascular regeneration, organoid chips, complex cardiovascular intervention, and AI-enabled active health.</p>
+          <p class="section-copy" data-en="Our research focuses on precision cardiovascular care, interventional innovation and basic translational science." data-zh="我们聚焦心血管疾病精准诊疗、介入创新与基础转化研究。">Our research focuses on precision cardiovascular care, interventional innovation and basic translational science.</p>
         </div>
         <div class="card-grid">{collectionItems.map((item) => <CollectionCard item={item} />)}</div>
       </div>
@@ -47,7 +47,7 @@ const collectionItems = (await getCollection('collections')).filter((item) => !i
             <h2 class="section-title" data-en="Representative &lt;em&gt;Publications&lt;/em&gt;" data-zh="代表性&lt;em&gt;论文&lt;/em&gt;">Representative <em>Publications</em></h2>
             <a class="button section-cta" href="/publications/" data-en="All Publications" data-zh="全部论文">All Publications <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="section-copy" data-en="Selected work spanning interventional cardiology, vascular repair, organoids, and cardiovascular AI." data-zh="涵盖冠心病介入、血管修复、类器官平台与心血管人工智能的代表性工作。">Selected work spanning interventional cardiology, vascular repair, organoids, and cardiovascular AI.</p>
+          <p class="section-copy" data-en="Explore our representative research works." data-zh="了解我们的代表性工作。">Explore our representative research works.</p>
         </div>
         <div class="card-grid">{publications.map((item) => <PublicationCard item={item} />)}</div>
       </div>
