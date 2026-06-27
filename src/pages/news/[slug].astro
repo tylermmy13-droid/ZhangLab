@@ -22,8 +22,8 @@ const displayDate = item.data.pubDate.toLocaleDateString('en-US', {
       <div class="container">
         <a class="detail-back" href="/news/" data-en="← News" data-zh="← 新闻">← News</a>
         <span class="tag-pill" style="background:rgba(106,155,204,0.12);color:#6a9bcc;border:1px solid rgba(106,155,204,0.15);margin:0 0 16px;display:inline-flex">{pubDate}</span>
-        <h1 class="publication-title" style="text-align:left;max-width:800px">{item.data.title}</h1>
-        <p class="publication-lede" style="text-align:left;max-width:700px;margin:12px 0 0">{item.data.description}</p>
+        <h1 class="publication-title" style="text-align:left;max-width:800px" data-en={item.data.titleEn} data-zh={item.data.title}>{item.data.title}</h1>
+        <p class="publication-lede" style="text-align:left;max-width:700px;margin:12px 0 0" data-en={item.data.descEn} data-zh={item.data.description}>{item.data.description}</p>
         <div class="detail-meta" style="margin-top:10px">
           <span>{displayDate}</span>
         </div>

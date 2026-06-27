@@ -5,6 +5,8 @@ pubDate: 2026-06-27
 tags: ["招聘", "Recruitment"]
 image: "/assets/cards/publication-blue.png"
 linkUrl: "https://mp.weixin.qq.com/s/53_cjQFNvQ2ma8bA4NC28A"
+titleEn: "Postdoctoral and Research Staff Recruitment"
+descEn: "Zhang Li / Chen Qishan Lab at Xinhua Hospital, Shanghai Jiao Tong University School of Medicine is recruiting postdoctoral fellows and research assistants in vascular regeneration, myocardial infarction & heart failure, multi-organ crosstalk, wearable devices, and AI in cardiovascular medicine."
 draft: false
 ---
 
