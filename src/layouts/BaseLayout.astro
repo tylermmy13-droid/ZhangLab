@@ -75,15 +75,44 @@ const isSpaceTheme = bodyClass.includes('space-theme');
       </div>
     </footer>
     <script>
-      /* ---- 当前页面 active 下划线（基于路径段，免疫 base path 改写） ---- */
+      /* ---- 当前页面 active 胶囊（基于路径段，免疫 base path 改写） ---- */
       const segs = window.location.pathname.split('/').filter(Boolean);
       const pageSeg = segs.length <= 1 ? 'home' : segs[1];
       document.querySelectorAll('.nav a').forEach(a => {
         if ((a.dataset.route || '') === pageSeg) a.classList.add('active');
       });
 
-      /* ---- 原有滚动/header 逻辑 ---- */
+      /* ---- 导航栏液态玻璃：根据背景自动切换 dark/light ---- */
       const header = document.querySelector('[data-scroll-header]');
+      const isSpaceTheme = document.body.classList.contains('space-theme');
+
+      // 如果整个页面是深色主题，直接固定为 on-dark
+      if (isSpaceTheme) {
+        header.classList.add('on-dark');
+      } else {
+        // 浅色主题下，检测是否覆盖深色 hero 区域
+        const darkHeroes = [
+          document.querySelector('.globe-welcome, .globe-section'),
+          document.querySelector('.publication-hero'),
+          document.querySelector('.detail-hero'),
+          document.querySelector('.collection-hero'),
+          document.querySelector('.team-hero'),
+        ].filter(Boolean);
+
+        const updateNavMode = () => {
+          if (window.scrollY < 120 && darkHeroes.length > 0) {
+            header.classList.add('on-dark');
+            header.classList.remove('on-light');
+          } else {
+            header.classList.remove('on-dark');
+            header.classList.add('on-light');
+          }
+        };
+        updateNavMode();
+        window.addEventListener('scroll', updateNavMode, { passive: true });
+      }
+
+      /* ---- 原有滚动/header 显示逻辑 ---- */
       const hero = document.querySelector('.hero');
       const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
       const updateScene = () => {
