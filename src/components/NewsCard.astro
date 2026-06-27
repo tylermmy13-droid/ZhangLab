@@ -1,9 +1,18 @@
 ---
 const { item } = Astro.props;
-const href = `/news/${item.id}/`;
 const pubDate = item.data.pubDate.toISOString().split('T')[0];
+const linkUrl = item.data.linkUrl;
+// If linkUrl exists → card opens external link in new tab (same logic as PublicationCard)
+// If no linkUrl → card links to internal detail page
+const href = linkUrl ?? `/news/${item.id}/`;
+const isExternal = !!linkUrl;
 ---
-<a class="card news-card" href={href}>
+<a
+  class="card news-card"
+  href={href}
+  target={isExternal ? '_blank' : undefined}
+  rel={isExternal ? 'noreferrer' : undefined}
+>
   <span class="card-media">
     <img class="card-image" src={item.data.image} alt="" loading="lazy" />
   </span>

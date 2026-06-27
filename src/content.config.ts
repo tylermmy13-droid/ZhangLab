@@ -70,6 +70,7 @@ const news = defineCollection({
     pubDate: z.coerce.date(),
     tags: z.array(z.string()).default([]),
     image: z.string(),
+    linkUrl: z.string().url().optional(),
     draft: z.boolean().default(false)
   })
 });
