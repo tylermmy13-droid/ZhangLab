@@ -341,25 +341,34 @@ const getInitials = (name: string) => {
 
   /* ─── Student cards grid — 5 per row, group-centered ─── */
   .student-grid {
-    display: flex;
-    flex-wrap: wrap;
+    --student-card-width: 200px;
+    --student-card-gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, var(--student-card-width));
     justify-content: center;
-    gap: 16px;
+    gap: var(--student-card-gap);
     width: 100%;
-    max-width: 1100px;
+    max-width: calc((var(--student-card-width) * 5) + (var(--student-card-gap) * 4));
     margin: 0 auto;
   }
-  .student-grid > * { width: 200px; max-width: 200px; }  /* 5 per row at ~1100px */
 
   /* Tablet */
   @media (max-width: 900px) {
-    .student-grid { gap: 12px; }
-    .student-grid > * { width: 160px; max-width: 160px; }
+    .student-grid {
+      --student-card-width: 160px;
+      --student-card-gap: 12px;
+      gap: var(--student-card-gap);
+    }
   }
 
   /* Mobile: 2 cols */
   @media (max-width: 640px) {
-    .student-grid { gap: 10px; max-width: 430px; }
-    .student-grid > * { width: 42%; min-width: 130px; max-width: 200px; }
+    .student-grid {
+      --student-card-width: minmax(130px, 1fr);
+      --student-card-gap: 10px;
+      grid-template-columns: repeat(2, minmax(130px, 1fr));
+      max-width: 430px;
+      gap: var(--student-card-gap);
+    }
   }
 </style>
