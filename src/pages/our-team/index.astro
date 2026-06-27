@@ -343,13 +343,18 @@ const getInitials = (name: string) => {
   .student-grid {
     --student-card-width: 200px;
     --student-card-gap: 16px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, var(--student-card-width));
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: var(--student-card-gap);
     width: 100%;
     max-width: calc((var(--student-card-width) * 5) + (var(--student-card-gap) * 4));
     margin: 0 auto;
+  }
+
+  .student-grid :global(.student-card) {
+    flex: 0 0 var(--student-card-width);
+    max-width: var(--student-card-width);
   }
 
   /* Tablet */
@@ -364,11 +369,14 @@ const getInitials = (name: string) => {
   /* Mobile: 2 cols */
   @media (max-width: 640px) {
     .student-grid {
-      --student-card-width: minmax(130px, 1fr);
+      --student-card-width: calc((100% - var(--student-card-gap)) / 2);
       --student-card-gap: 10px;
-      grid-template-columns: repeat(2, minmax(130px, 1fr));
       max-width: 430px;
       gap: var(--student-card-gap);
+    }
+
+    .student-grid :global(.student-card) {
+      min-width: 130px;
     }
   }
 </style>
