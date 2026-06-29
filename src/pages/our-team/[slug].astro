@@ -58,7 +58,12 @@ const getInitials = (name: string) => {
                     <img src={pub.img} alt={pub.title} loading="lazy" />
                   </div>
                   <div class="pub-info">
-                    <p class="pub-title">{pub.title}</p>
+                    <p class="pub-title">
+                      {pub.title}
+                      {pub.roles?.includes('first') && <span class="pub-role-badge pub-role-first" data-en="First Author" data-zh="第一作者">First Author</span>}
+                      {pub.roles?.includes('cofirst') && <span class="pub-role-badge pub-role-cofirst" data-en="Co-first Author" data-zh="共同第一作者">Co-first Author</span>}
+                      {pub.roles?.includes('corresponding') && <span class="pub-role-badge pub-role-corresponding" data-en="Corresponding Author" data-zh="通讯作者">Corresponding Author</span>}
+                    </p>
                     <p class="pub-authors">{pub.authors}</p>
                     <p class="pub-venue">{pub.venue}</p>
                     <div class="pub-links">
@@ -279,6 +284,41 @@ const getInitials = (name: string) => {
     font-size: 16px;
     font-weight: 600;
     line-height: 1.4;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pub-role-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .pub-role-first {
+    background: rgba(255, 200, 50, 0.15);
+    color: #ffd84d;
+    border: 1px solid rgba(255, 200, 50, 0.3);
+  }
+
+  .pub-role-cofirst {
+    background: rgba(100, 200, 255, 0.12);
+    color: #64c8ff;
+    border: 1px solid rgba(100, 200, 255, 0.3);
+  }
+
+  .pub-role-corresponding {
+    background: rgba(80, 220, 160, 0.12);
+    color: #50dca0;
+    border: 1px solid rgba(80, 220, 160, 0.3);
   }
 
   .pub-authors {

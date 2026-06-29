@@ -17,6 +17,7 @@ export interface TeamMember {
     venue: string;
     img: string;
     links: Array<{ label: string; url: string }>;
+    roles?: Array<'first' | 'cofirst' | 'corresponding'>;
   }>;
   honors: string[];
   honorsZh: string[];
@@ -44,6 +45,7 @@ export const team: TeamMember[] = [
         venue: 'Circulation (2025)',
         img: '/assets/cards/nrf3-cover.png',
         links: [{ label: 'Circulation', url: 'https://doi.org/10.1161/CIRCULATIONAHA.124.070286' }],
+        roles: ['corresponding'],
       },
       {
         title: 'Causal Role for Neutrophil Elastase in Thoracic Aortic Dissection in Mice',
@@ -51,6 +53,53 @@ export const team: TeamMember[] = [
         venue: 'ATVB (2023)',
         img: '/assets/cards/ATVB-cover.png',
         links: [{ label: 'ATVB', url: 'https://doi.org/10.1161/ATVBAHA.123.319281' }],
+        roles: ['corresponding'],
+      },
+      {
+        title: 'Relationship of Subendocardial Perfusion to Myocardial Injury, Cardiac Structure, and Clinical Outcomes Among Patients With Hypertension',
+        authors: 'XU Xiaolei, Sanjay Divakaran, Brittany N Weber, Jon Hainer, Shelby S Laychak, Benjamin Auer, Marie Foley Kijewski, Ron Blankstein, Sharmila Dorbala, Ludovic Trinquart, Piotr J Slomka, ZHANG Li, Jenifer M Brown, Marcelo F Di Carli',
+        venue: 'Circulation (2024)',
+        img: '/assets/cards/publication-blue.png',
+        links: [{ label: 'Circulation', url: 'https://doi.org/10.1161/CIRCULATIONAHA.123.067083' }],
+      },
+      {
+        title: 'Chronic Kidney Disease Is Associated with Increased Risk of Sudden Cardiac Death',
+        authors: 'LI Yalan, Ruchao Jiang, Chenxi Ouyang, Jie Wang, Qingwei Yu, Jingjing Cai, ZHANG Li, Yao Lu',
+        venue: 'Nature Communications (2025)',
+        img: '/assets/cards/publication-sky.png',
+        links: [{ label: 'Nature Communications', url: 'https://doi.org/10.1038/s41467-025-64254-9' }],
+        roles: ['corresponding'],
+      },
+      {
+        title: 'Circulating CD34+ Fibroblast Progenitors Engaged in Heart Fibrosis of Allograft',
+        authors: 'SUN Xiaotong, WANG Ting, GONG Hui, QIU Yichao, ZHANG Yuesheng, CHEN Mengjia, XUE Jianing, YE Guoguo, MOU Rong, TENG Peng, LI Weidong, CHEN Ting, ZHANG Li, GUO Xiaogang, MAO Wei, ZHAO Haige, MA Liang, XU Qingbo',
+        venue: 'Circulation Research (2026)',
+        img: '/assets/cards/publication-blue.png',
+        links: [{ label: 'Circulation Research', url: 'https://doi.org/10.1161/CIRCRESAHA.125.326502' }],
+      },
+      {
+        title: 'Inhibition of Fap Promotes Cardiac Repair by Stabilizing BNP',
+        authors: 'SUN Yuxi, Mengqiu Ma, Dandan Cao, Ancheng Zheng, Yiying Zhang, Yang Su, Jianfang Wang, Yanhua Xu, Mi Zhou, Yansong Tang, Yifan Liu, Teng Ma, Aoyuan Fan, Xiaoying Zhang, Qiaoling Zhu, Jiachen Qin, Chunyang Mo, Yawei Xu, ZHANG Li, Dachun Xu, Rui Yue',
+        venue: 'Circulation Research (2023)',
+        img: '/assets/cards/publication-sky.png',
+        links: [{ label: 'Circulation Research', url: 'https://doi.org/10.1161/CIRCRESAHA.122.320933' }],
+        roles: ['corresponding'],
+      },
+      {
+        title: 'Nonbone Marrow CD34+ Cells Are Crucial for Endothelial Repair of Injured Artery',
+        authors: 'JIANG Liujun, CHEN Ting, SUN Shasha, WANG Ruilin, DENG Jiacheng, LYU Lingxia, WU Hong, YANG Mei, PU Xiangyuan, DU Luping, CHEN Qishan, HU Yanhua, HU Xiaosheng, ZHOU Yijiang, XU Qingbo, ZHANG Li',
+        venue: 'Circulation Research (2021)',
+        img: '/assets/cards/publication-blue.png',
+        links: [{ label: 'Circulation Research', url: 'https://doi.org/10.1161/CIRCRESAHA.121.319494' }],
+        roles: ['corresponding'],
+      },
+      {
+        title: 'CD34+ PI16+ Fibroblast Progenitors Aggravate Neointimal Lesions of Allograft Arteries via CCL11/CCR3-PI3K/AKT Pathway',
+        authors: 'XU Xiaodong, ZHU Pengwei, WANG Han, CHEN Kai, LIU Liang, DU Luping, JIANG Liujun, HU Yanhua, ZHOU Xuhao, ZHANG Bohuan, PU Xiangyuan, HU Xiaosheng, XU Qingbo, ZHANG Li, LI Weidong',
+        venue: 'Theranostics (2025)',
+        img: '/assets/cards/publication-sky.png',
+        links: [{ label: 'Theranostics', url: 'https://doi.org/10.7150/thno.104153' }],
+        roles: ['corresponding'],
       },
     ],
     honors: [
@@ -94,7 +143,7 @@ export const team: TeamMember[] = [
     level: 2,
     img: '/assets/team/chenqishan.jpg',
     desc: 'Professor **Qishan Chen**, M.D., Ph.D., is Acting Director of the Department of Cardiology at Xinhua Hospital Affiliated to Shanghai Jiao Tong University School of Medicine, Associate Chief Physician, Associate Researcher, and Doctoral Supervisor.\n\nHe is a recipient of the National High-Level Talent Special Support Program for Young Top-Notch Talents. He also serves as a Young Committee Member of the Shanghai Society of Cardiology, a Young Committee Member of the Cardiovascular Committee of the Chinese Association of Pathophysiology, and a Young Committee Member of the Cardiovascular Metabolism Alliance.\n\nHis clinical and research interests focus on the diagnosis and treatment of common cardiovascular diseases, critically ill cardiovascular patients, and cardiometabolic diseases, as well as their basic and translational research.\n\nHe has served as Principal Investigator for three grants from the National Natural Science Foundation of China, the Shanghai Original Exploration Program, the Zhejiang Provincial Distinguished Young Scholars Program, among others, and has participated as a key investigator in the National Key Research and Development Program of China.\n\nAs first or corresponding author, he has published more than twenty papers in leading international journals, including *Circulation* and *Hepatology*. He has been selected for the Shanghai Oriental Talent Program and the Shanghai High-Level Local University Innovation Team. As a major contributor, he received the Second Prize of the Chinese Medical Science and Technology Award, the Second Prize of the Ministry of Education Science and Technology Progress Award, and the Third Prize of the Huaxia Medical Science and Technology Award.',
-    descZh: '陈齐山，上海交通大学医学院附属新华医院心血管内科副主任（主持工作），副主任医师、副研究员，博士生导师。国家高层次人才特殊支持计划“青年拔尖人才”。兼任上海医学会心血管病分会青年委员、中国病理生理学会心血管专业委员会青年委员、心血管代谢联盟青年委员等。主要从事心血管常见病、危急重症及心血管代谢疾病的临床诊治和基础转化研究。主持国家自然科学基金3项、上海市原创探索项目、浙江省杰青项目等，作为骨干参与科技部国家重点研发计划。以第一或通讯作者在Circulation、Hepatology等国际学术期刊上发表论文二十余篇。入选上海市“东方英才”、上海市高水平地方高校创新团队等。作为主要完成人获中华医学科技奖二等奖、教育部科技进步奖二等奖、华夏医学科技奖三等奖各1项。',
+    descZh: '陈齐山，上海交通大学医学院附属新华医院心血管内科副主任（主持工作），副主任医师、副研究员，博士生导师。国家高层次人才特殊支持计划"青年拔尖人才"。兼任上海医学会心血管病分会青年委员、中国病理生理学会心血管专业委员会青年委员、心血管代谢联盟青年委员等。主要从事心血管常见病、危急重症及心血管代谢疾病的临床诊治和基础转化研究。主持国家自然科学基金3项、上海市原创探索项目、浙江省杰青项目等，作为骨干参与科技部国家重点研发计划。以第一或通讯作者在Circulation、Hepatology等国际学术期刊上发表论文二十余篇。入选上海市"东方英才"、上海市高水平地方高校创新团队等。作为主要完成人获中华医学科技奖二等奖、教育部科技进步奖二等奖、华夏医学科技奖三等奖各1项。',
     email: 'lastufo@hotmail.com',
     publications: [
       {
@@ -103,6 +152,7 @@ export const team: TeamMember[] = [
         venue: 'Circulation (2025)',
         img: '/assets/cards/nrf3-cover.png',
         links: [{ label: 'Circulation', url: 'https://doi.org/10.1161/CIRCULATIONAHA.124.070286' }],
+        roles: ['first'],
       },
       {
         title: 'Causal Role for Neutrophil Elastase in Thoracic Aortic Dissection in Mice',
@@ -110,6 +160,13 @@ export const team: TeamMember[] = [
         venue: 'ATVB (2023)',
         img: '/assets/cards/ATVB-cover.png',
         links: [{ label: 'ATVB', url: 'https://doi.org/10.1161/ATVBAHA.123.319281' }],
+      },
+      {
+        title: 'Nonbone Marrow CD34+ Cells Are Crucial for Endothelial Repair of Injured Artery',
+        authors: 'JIANG Liujun, CHEN Ting, SUN Shasha, WANG Ruilin, DENG Jiacheng, LYU Lingxia, WU Hong, YANG Mei, PU Xiangyuan, DU Luping, CHEN Qishan, HU Yanhua, HU Xiaosheng, ZHOU Yijiang, XU Qingbo, ZHANG Li',
+        venue: 'Circulation Research (2021)',
+        img: '/assets/cards/publication-blue.png',
+        links: [{ label: 'Circulation Research', url: 'https://doi.org/10.1161/CIRCRESAHA.121.319494' }],
       },
     ],
     honors: [
@@ -125,11 +182,11 @@ export const team: TeamMember[] = [
       'Third Prize of the Huaxia Medical Science and Technology Award (Major Contributor)',
     ],
     honorsZh: [
-      '国家高层次人才特殊支持计划“青年拔尖人才”',
+      '国家高层次人才特殊支持计划"青年拔尖人才"',
       '上海医学会心血管病分会青年委员',
       '中国病理生理学会心血管专业委员会青年委员',
       '心血管代谢联盟青年委员',
-      '上海市“东方英才”',
+      '上海市"东方英才"',
       '上海市高水平地方高校创新团队成员',
       '浙江省杰出青年科学基金获得者',
       '中华医学科技奖二等奖（主要完成人）',
@@ -166,6 +223,14 @@ export const team: TeamMember[] = [
         venue: 'ATVB (2023)',
         img: '/assets/cards/ATVB-cover.png',
         links: [{ label: 'ATVB', url: 'https://doi.org/10.1161/ATVBAHA.123.319281' }],
+        roles: ['first'],
+      },
+      {
+        title: 'Nonbone Marrow CD34+ Cells Are Crucial for Endothelial Repair of Injured Artery',
+        authors: 'JIANG Liujun, CHEN Ting, SUN Shasha, WANG Ruilin, DENG Jiacheng, LYU Lingxia, WU Hong, YANG Mei, PU Xiangyuan, DU Luping, CHEN Qishan, HU Yanhua, HU Xiaosheng, ZHOU Yijiang, XU Qingbo, ZHANG Li',
+        venue: 'Circulation Research (2021)',
+        img: '/assets/cards/publication-blue.png',
+        links: [{ label: 'Circulation Research', url: 'https://doi.org/10.1161/CIRCRESAHA.121.319494' }],
       },
     ],
     honors: [],
@@ -182,7 +247,16 @@ export const team: TeamMember[] = [
     desc: 'Attending Physician focusing on clinical management of cardiovascular diseases.',
     descZh: '主治医师，致力于心血管医学研究和临床工作。',
     email: '',
-    publications: [],
+    publications: [
+      {
+        title: 'Inhibition of Fap Promotes Cardiac Repair by Stabilizing BNP',
+        authors: 'SUN Yuxi, Mengqiu Ma, Dandan Cao, Ancheng Zheng, Yiying Zhang, Yang Su, Jianfang Wang, Yanhua Xu, Mi Zhou, Yansong Tang, Yifan Liu, Teng Ma, Aoyuan Fan, Xiaoying Zhang, Qiaoling Zhu, Jiachen Qin, Chunyang Mo, Yawei Xu, ZHANG Li, Dachun Xu, Rui Yue',
+        venue: 'Circulation Research (2023)',
+        img: '/assets/cards/publication-sky.png',
+        links: [{ label: 'Circulation Research', url: 'https://doi.org/10.1161/CIRCRESAHA.122.320933' }],
+        roles: ['first'],
+      },
+    ],
     honors: [],
     honorsZh: [],
   },
@@ -239,6 +313,14 @@ export const team: TeamMember[] = [
         img: '/assets/cards/nrf3-cover.png',
         links: [{ label: 'Circulation', url: 'https://doi.org/10.1161/CIRCULATIONAHA.124.070286' }],
       },
+      {
+        title: 'Relationship of Subendocardial Perfusion to Myocardial Injury, Cardiac Structure, and Clinical Outcomes Among Patients With Hypertension',
+        authors: 'XU Xiaolei, Sanjay Divakaran, Brittany N Weber, Jon Hainer, Shelby S Laychak, Benjamin Auer, Marie Foley Kijewski, Ron Blankstein, Sharmila Dorbala, Ludovic Trinquart, Piotr J Slomka, ZHANG Li, Jenifer M Brown, Marcelo F Di Carli',
+        venue: 'Circulation (2024)',
+        img: '/assets/cards/publication-blue.png',
+        links: [{ label: 'Circulation', url: 'https://doi.org/10.1161/CIRCULATIONAHA.123.067083' }],
+        roles: ['first'],
+      },
     ],
     honors: [],
     honorsZh: [],
@@ -284,6 +366,13 @@ export const team: TeamMember[] = [
         venue: 'Circulation (2025)',
         img: '/assets/cards/nrf3-cover.png',
         links: [{ label: 'Circulation', url: 'https://doi.org/10.1161/CIRCULATIONAHA.124.070286' }],
+      },
+      {
+        title: 'Nonbone Marrow CD34+ Cells Are Crucial for Endothelial Repair of Injured Artery',
+        authors: 'JIANG Liujun, CHEN Ting, SUN Shasha, WANG Ruilin, DENG Jiacheng, LYU Lingxia, WU Hong, YANG Mei, PU Xiangyuan, DU Luping, CHEN Qishan, HU Yanhua, HU Xiaosheng, ZHOU Yijiang, XU Qingbo, ZHANG Li',
+        venue: 'Circulation Research (2021)',
+        img: '/assets/cards/publication-blue.png',
+        links: [{ label: 'Circulation Research', url: 'https://doi.org/10.1161/CIRCRESAHA.121.319494' }],
       },
     ],
     honors: [],
