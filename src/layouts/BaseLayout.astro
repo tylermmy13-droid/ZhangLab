@@ -84,56 +84,34 @@ const isSpaceTheme = bodyClass.includes('space-theme');
         if ((a.dataset.route || '') === pageSeg) a.classList.add('active');
       });
 
-      /* ---- 导航栏：根据背后背景亮度自动切换深/浅文字 ---- */
+      /* ---- 导航栏模式：深色主题固定白字，浅色主题按 hero 区域切换 ---- */
       const header = document.querySelector('[data-scroll-header]');
-      const parseRgb = (value) => {
-        const match = value.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
-        if (!match) return null;
-        return {
-          r: Number(match[1]),
-          g: Number(match[2]),
-          b: Number(match[3]),
-          a: match[4] === undefined ? 1 : Number(match[4]),
-        };
-      };
+      const isSpaceTheme = document.body.classList.contains('space-theme');
 
-      const backgroundColorAt = (x, y) => {
-        if (!header) return null;
-        const previousPointerEvents = header.style.pointerEvents;
-        header.style.pointerEvents = 'none';
-        const elements = document.elementsFromPoint(x, y);
-        header.style.pointerEvents = previousPointerEvents;
+      if (isSpaceTheme) {
+        header?.classList.add('on-dark');
+      } else {
+        const darkHeroes = [
+          document.querySelector('.globe-welcome, .globe-section'),
+          document.querySelector('.publication-hero'),
+          document.querySelector('.detail-hero'),
+          document.querySelector('.collection-hero'),
+          document.querySelector('.team-hero'),
+        ].filter(Boolean);
 
-        for (const element of elements) {
-          let current = element;
-          while (current && current !== document.documentElement) {
-            const color = parseRgb(getComputedStyle(current).backgroundColor);
-            if (color && color.a > 0.4) return color;
-            current = current.parentElement;
+        const updateNavMode = () => {
+          if (!header) return;
+          if (window.scrollY < 120 && darkHeroes.length > 0) {
+            header.classList.add('on-dark');
+            header.classList.remove('on-light');
+          } else {
+            header.classList.remove('on-dark');
+            header.classList.add('on-light');
           }
-        }
-
-        return parseRgb(getComputedStyle(document.body).backgroundColor);
-      };
-
-      const updateNavMode = () => {
-        if (!header) return;
-        const rect = header.getBoundingClientRect();
-        const x = Math.min(window.innerWidth - 1, Math.max(0, rect.left + rect.width / 2));
-        const y = Math.min(window.innerHeight - 1, Math.max(0, rect.top + rect.height / 2));
-        const color = backgroundColorAt(x, y);
-        const luminance = color
-          ? (0.2126 * color.r + 0.7152 * color.g + 0.0722 * color.b) / 255
-          : 0;
-        const isLightBackground = luminance > 0.58;
-
-        header.classList.toggle('on-light', isLightBackground);
-        header.classList.toggle('on-dark', !isLightBackground);
-      };
-
-      updateNavMode();
-      window.addEventListener('scroll', updateNavMode, { passive: true });
-      window.addEventListener('resize', updateNavMode);
+        };
+        updateNavMode();
+        window.addEventListener('scroll', updateNavMode, { passive: true });
+      }
 
       /* ---- 原有滚动/header 显示逻辑 ---- */
       const hero = document.querySelector('.hero');
