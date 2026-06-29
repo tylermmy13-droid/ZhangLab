@@ -58,7 +58,7 @@ const getInitials = (name: string) => {
                 {/* --- Member cards grid --- */}
                 <div class={`level-cards level-cols-${members.length}`}>
                   {members.map((member) => (
-                    <a class="member-card" href={`/our-team/${member.slug}/`} style={`--card-accent: ${cfg.accent}`}>
+                    <a class="member-card" href={`/our-team/${member.slug}/`} style={`--card-accent: ${cfg.accent}`} data-slug={member.slug}>
                       {/* Photo area — spans full width at top, matches card corners */}
                       <div class="member-card-photo">
                         {member.img ? (
@@ -71,7 +71,7 @@ const getInitials = (name: string) => {
                       <div class="member-card-info">
                         <p class="member-card-name">{member.nameZh}</p>
                         <p class="member-card-name-en">{member.name.split('/')[1]?.trim()}</p>
-                        <span class="member-card-role" style={`background: ${cfg.accent}18; color: ${cfg.accent}`}>{member.roleZh}</span>
+                        <span class="member-card-role" style={`background: ${cfg.accent}18; color: ${cfg.accent}`} data-en={member.role} data-zh={member.roleZh}>{member.role}</span>
                       </div>
                     </a>
                   ))}
@@ -273,6 +273,8 @@ const getInitials = (name: string) => {
      Card — uniform size for all levels
      ═══════════════════════════════════════════ */
   .member-card { width: 250px; }           /* ~4 per row */
+  .member-card[data-slug="zhang-li"],
+  .member-card[data-slug="chen-qishan"] { width: 300px; }  /* wider for multi-line role text */
   .member-card-photo { aspect-ratio: 1 / 0.95; }
   .member-card-name { font-size: 20px; }
   .member-card-initial { font-size: 42px; }
