@@ -835,6 +835,7 @@ img { max-width: 100%; display: block; }
   font-size: clamp(24px, 1.55vw, 30px);
   line-height: 1.35;
   letter-spacing: -0.025em;
+  white-space: pre-line;
 }
 
 .collection-cloud,
