@@ -17,7 +17,7 @@
   --nav-text-dark: rgba(255, 255, 255, 0.92);
   --nav-bg-dark: rgba(255, 255, 255, 0.05);
   --nav-border-dark: rgba(255, 255, 255, 0.16);
-  --nav-shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  --nav-shadow-dark: 0 8px 28px rgba(0, 0, 0, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.16);
   --nav-hover-bg-dark: rgba(255, 255, 255, 0.14);
 
   /* on-light (over light background) */
