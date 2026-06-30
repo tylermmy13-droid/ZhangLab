@@ -301,18 +301,18 @@ export const team: TeamMember[] = [
   },
 
   // ════════════════════════════════════════════
-  // Level 4 — 住院医师
+  // Level 3 — 主治医师 / 助理研究员 (continued)
   // ════════════════════════════════════════════
   {
     slug: 'xu-xiaolei',
     name: '徐肖磊 / XU Xiaolei',
     nameZh: '徐肖磊',
-    role: 'Resident Physician',
-    roleZh: '住院医师',
-    level: 4,
+    role: 'Attending Physician',
+    roleZh: '主治医师',
+    level: 3,
     img: '',
-    desc: 'Resident Physician engaged in clinical cardiology training and research.',
-    descZh: '住院医师，致力于心血管医学研究和临床工作。',
+    desc: 'Attending Physician focusing on clinical management of cardiovascular diseases.',
+    descZh: '主治医师，致力于心血管医学研究和临床工作。',
     email: '',
     publications: [
       {
@@ -337,12 +337,12 @@ export const team: TeamMember[] = [
     slug: 'shi-zhenning',
     name: '石镇宁 / SHI Zhenning',
     nameZh: '石镇宁',
-    role: 'Resident Physician',
-    roleZh: '住院医师',
-    level: 4,
+    role: 'Attending Physician',
+    roleZh: '主治医师',
+    level: 3,
     img: '',
-    desc: 'Resident Physician engaged in clinical cardiology training and research.',
-    descZh: '住院医师，致力于心血管医学研究和临床工作。',
+    desc: 'Attending Physician focusing on clinical management of cardiovascular diseases.',
+    descZh: '主治医师，致力于心血管医学研究和临床工作。',
     email: '',
     publications: [
       {
@@ -363,6 +363,10 @@ export const team: TeamMember[] = [
     honors: [],
     honorsZh: [],
   },
+
+  // ════════════════════════════════════════════
+  // Level 4 — 住院医师
+  // ════════════════════════════════════════════
   {
     slug: 'sun-shasha',
     name: '孙厦厦 / SUN Shasha',
@@ -388,6 +392,43 @@ export const team: TeamMember[] = [
         venue: 'Circulation Research (2021)',
         img: '/assets/cards/publication-blue.png',
         links: [{ label: 'Circulation Research', url: 'https://doi.org/10.1161/CIRCRESAHA.121.319494' }],
+      },
+      {
+        title: 'Novel Roles of Nrf3-Trim5 Axis in Vascular Smooth Muscle Cell Dysfunctions and Neointimal Hyperplasia',
+        authors: 'CHEN Qishan, SUN Shasha, SHI Zhenning, WANG Leyu, WANG Yumeng, ZHENG Ancheng, XU Xiaolei, YANG Mei, SUN Kun, XIAO Qingzhong, ZHANG Li',
+        venue: 'Cardiovascular Research (2025)',
+        img: '/assets/cards/publication-sky.png',
+        links: [{ label: 'Cardiovascular Research', url: 'https://doi.org/10.1093/cvr/cvaf084' }],
+      },
+    ],
+    honors: [],
+    honorsZh: [],
+  },
+  {
+    slug: 'zheng-ancheng',
+    name: '郑安成 / ZHENG Ancheng',
+    nameZh: '郑安成',
+    role: 'Resident Physician',
+    roleZh: '住院医师',
+    level: 4,
+    img: '',
+    desc: 'Resident Physician engaged in clinical cardiology training and research.',
+    descZh: '住院医师，致力于心血管医学研究和临床工作。',
+    email: '',
+    publications: [
+      {
+        title: 'Nrf3-Mediated Mitochondrial Superoxide Promotes Cardiomyocyte Apoptosis and Impairs Cardiac Functions by Suppressing Pitx2',
+        authors: 'CHEN Qishan, Ancheng Zheng, Xiaolei Xu, Zhenning Shi, YANG Mei, Shasha Sun, Leyu Wang, Yumeng Wang, Haige Zhao, Qingzhong Xiao, ZHANG Li',
+        venue: 'Circulation (2025)',
+        img: '/assets/cards/nrf3-cover.png',
+        links: [{ label: 'Circulation', url: 'https://doi.org/10.1161/CIRCULATIONAHA.124.070286' }],
+      },
+      {
+        title: 'Inhibition of Fap Promotes Cardiac Repair by Stabilizing BNP',
+        authors: 'SUN Yuxi, Mengqiu Ma, Dandan Cao, Ancheng Zheng, Yiying Zhang, Yang Su, Jianfang Wang, Yanhua Xu, Mi Zhou, Yansong Tang, Yifan Liu, Teng Ma, Aoyuan Fan, Xiaoying Zhang, Qiaoling Zhu, Jiachen Qin, Chunyang Mo, Yawei Xu, ZHANG Li, Dachun Xu, Rui Yue',
+        venue: 'Circulation Research (2023)',
+        img: '/assets/cards/publication-sky.png',
+        links: [{ label: 'Circulation Research', url: 'https://doi.org/10.1161/CIRCRESAHA.122.320933' }],
       },
       {
         title: 'Novel Roles of Nrf3-Trim5 Axis in Vascular Smooth Muscle Cell Dysfunctions and Neointimal Hyperplasia',
