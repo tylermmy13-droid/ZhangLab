@@ -11,6 +11,7 @@ const {
 } = Astro.props;
 
 const isSpaceTheme = bodyClass.includes('space-theme');
+const isWarmTheme = bodyClass.includes('home-warm');
 ---
 <!doctype html>
 <html lang="zh-CN">
@@ -53,7 +54,7 @@ const isSpaceTheme = bodyClass.includes('space-theme');
         <a href="/contact/" data-route="contact" data-en="Contact" data-zh="联系我们">Contact</a>
       </nav>
     </header>
-    {isSpaceTheme && <StarsCanvas />}
+    {isSpaceTheme && !isWarmTheme && <StarsCanvas />}
     <main id="main-content">
       <slot />
     </main>
@@ -87,9 +88,29 @@ const isSpaceTheme = bodyClass.includes('space-theme');
       /* ---- 导航栏模式：深色主题固定白字，浅色主题按 hero 区域切换 ---- */
       const header = document.querySelector('[data-scroll-header]');
       const isSpaceTheme = document.body.classList.contains('space-theme');
+      const isWarmTheme = document.body.classList.contains('home-warm');
 
       if (isSpaceTheme) {
         header?.classList.add('on-dark');
+      } else if (isWarmTheme) {
+        // About page has dark gradient hero → scroll-based switching
+        const aboutPage = document.querySelector('[data-about-page]');
+        if (aboutPage) {
+          const updateNavAbout = () => {
+            if (!header) return;
+            if (window.scrollY < 120) {
+              header.classList.add('on-dark');
+              header.classList.remove('on-light');
+            } else {
+              header.classList.remove('on-dark');
+              header.classList.add('on-light');
+            }
+          };
+          updateNavAbout();
+          window.addEventListener('scroll', updateNavAbout, { passive: true });
+        } else {
+          header?.classList.add('on-light');
+        }
       } else {
         const darkHeroes = [
           document.querySelector('.globe-welcome, .globe-section'),

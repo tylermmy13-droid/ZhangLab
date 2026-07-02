@@ -7,7 +7,7 @@ const collectionItems = (await getCollection('collections'))
   .filter((item) => !item.data.draft)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
-<BaseLayout title="Research | Zhang Lab" description="Our latest activities." headerMode="glass" bodyClass="space-theme">
+<BaseLayout title="Research | Zhang Lab" description="Our latest activities." headerMode="glass" bodyClass="home-warm">
   <main class="collection-archive">
     <section class="collection-hero">
       <div class="container collection-hero-inner">

@@ -2332,3 +2332,389 @@ img { max-width: 100%; display: block; }
     right: 12px;
   }
 }
+
+
+/* ============================================================
+   HOME WARM THEME — #E8E0D8 background with Anthropic palette
+   Primary: deep #141413, light #AF9F15
+   Secondary: mid-gray #b0aea5, light-gray #e8e6dc
+   Accent: orange #d97757, blue #6a9bcc, green #788c5d
+   ============================================================ */
+
+/* ---- Body ---- */
+.home-warm {
+  color: #141413;
+  background: #E8E0D8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-warm > main,
+.home-warm > .publication-archive,
+.home-warm > .collection-archive,
+.home-warm > .news-archive {
+  flex: 1;
+}
+
+.home-warm > main {
+  overflow: hidden;
+}
+
+.home-warm > main > section,
+.home-warm > main > .globe-section {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Globe / Hero section - dark backdrop so white welcome text is legible ---- */
+.home-warm .globe-section {
+  background: linear-gradient(135deg, #141413 0%, #2a2a28 100%);
+}
+
+/* ---- Brand logo on light bg ---- */
+.home-warm .brand {
+  color: #141413;
+}
+
+.home-warm .site-header.is-visible .brand-logo {
+  filter: none;
+  opacity: 1;
+}
+
+/* ---- Nav button - dark on warm bg ---- */
+.home-warm .nav-button {
+  color: #E8E0D8;
+  background: #141413;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  font-weight: 600;
+  border-radius: 14px;
+  padding: 0 16px;
+  min-height: 40px;
+  font-size: clamp(14px, 0.9vw, 16px);
+}
+
+.home-warm .nav-button:hover {
+  background: #2a2a28;
+}
+
+/* ---- Sections ---- */
+.home-warm .section {
+  background: transparent;
+  color: #141413;
+}
+
+.home-warm .section-title {
+  color: #141413;
+  font-size: clamp(38px, 4.2vw, 66px);
+}
+
+.home-warm .section-title em {
+  color: #d97757;
+  font-style: italic;
+}
+
+.home-warm .section-copy {
+  color: #b0aea5;
+}
+
+.home-warm .section-head {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.home-warm .section-head-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-warm .section-head-top .section-title {
+  margin-bottom: 0;
+}
+
+/* ---- CTA Buttons - dark on warm ---- */
+.home-warm .button.section-cta {
+  background: #141413;
+  color: #E8E0D8;
+  border: none;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  font-weight: 600;
+  border-radius: 14px;
+  min-height: 48px;
+  padding: 0 24px;
+  font-size: 15px;
+  margin-top: 0;
+}
+
+.home-warm .button.section-cta:hover {
+  background: #2a2a28;
+}
+
+/* ---- Cards ---- */
+.home-warm .card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.home-warm .card:hover {
+  background: transparent;
+}
+
+.home-warm .card h3 {
+  color: #141413;
+}
+
+.home-warm .card p {
+  color: #b0aea5;
+}
+
+.home-warm .card-meta {
+  color: #b0aea5;
+}
+
+.home-warm .tag-pill {
+  background: rgba(217, 119, 87, 0.12);
+  color: #d97757;
+}
+
+.home-warm .card-media {
+  background: #e8e6dc;
+}
+
+/* ---- Footer ---- */
+.home-warm .footer {
+  background: transparent;
+  color: #b0aea5;
+  border-top: 1px solid rgba(20, 20, 19, 0.08);
+}
+
+.home-warm .footer-illustration {
+  display: none;
+}
+
+.home-warm .footer a {
+  color: #6a9bcc;
+}
+
+/* ---- Academic accent utility classes ---- */
+.home-warm .accent-orange {
+  color: #d97757;
+}
+
+.home-warm .accent-blue {
+  color: #6a9bcc;
+}
+
+.home-warm .accent-green {
+  color: #788c5d;
+}
+
+/* ============================================================
+   HOME WARM — Archive / Detail / Prose page overrides
+   ============================================================ */
+
+/* ---- Hero section headers ---- */
+.home-warm .collection-title,
+.home-warm .publication-title {
+  color: #141413;
+}
+
+.home-warm .collection-lede,
+.home-warm .publication-lede {
+  color: #b0aea5;
+}
+
+.home-warm .collection-hero,
+.home-warm .publication-hero {
+  background: transparent;
+}
+
+/* ---- Hide cloud/bird decorations for a clean warm look ---- */
+.home-warm .collection-cloud,
+.home-warm .publication-cloud,
+.home-warm .collection-birds,
+.home-warm .publication-birds {
+  display: none;
+}
+
+/* ---- Detail pages ---- */
+.home-warm .collection-detail,
+.home-warm .detail-hero {
+  background: transparent;
+}
+
+.home-warm .detail-back {
+  color: #b0aea5;
+}
+.home-warm .detail-back:hover {
+  color: #141413;
+}
+
+.home-warm .detail-kicker-pill {
+  background: rgba(217, 119, 87, 0.12);
+  color: #d97757;
+}
+
+.home-warm .detail-hero h1 {
+  color: #141413;
+}
+
+.home-warm .detail-description {
+  color: #b0aea5;
+}
+
+.home-warm .detail-meta span {
+  color: #b0aea5;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.home-warm .detail-meta-link {
+  background: rgba(217, 119, 87, 0.12);
+  color: #d97757;
+}
+
+.home-warm .detail-meta-link.is-github {
+  background: rgba(217, 119, 87, 0.1);
+  color: #d97757;
+}
+
+.home-warm .detail-meta-link.is-huggingface {
+  background: rgba(255, 255, 255, 0.7);
+  color: #141413;
+  border-color: rgba(20, 20, 19, 0.1);
+}
+
+.home-warm .detail-cover {
+  box-shadow: 0 28px 70px rgba(20, 20, 19, 0.08);
+}
+
+/* ---- Prose content ---- */
+.home-warm .prose {
+  color: #141413;
+}
+
+.home-warm .prose h1,
+.home-warm .prose h2,
+.home-warm .prose h3,
+.home-warm .prose h4 {
+  color: #141413;
+}
+
+.home-warm .prose p,
+.home-warm .prose li {
+  color: #b0aea5;
+}
+
+.home-warm .prose a {
+  color: #6a9bcc;
+}
+
+.home-warm .prose blockquote {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: #d97757;
+  color: #141413;
+}
+
+.home-warm .prose blockquote p {
+  color: #141413;
+}
+
+.home-warm .prose :not(pre) > code {
+  background: rgba(217, 119, 87, 0.08);
+  color: #d97757;
+}
+
+.home-warm .prose pre {
+  border-color: rgba(20, 20, 19, 0.08);
+}
+
+.home-warm .prose table {
+  border-color: rgba(20, 20, 19, 0.08);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.home-warm .prose th {
+  color: #141413;
+  background: rgba(217, 119, 87, 0.08);
+}
+
+.home-warm .prose td {
+  color: #b0aea5;
+  border-color: rgba(20, 20, 19, 0.06);
+}
+
+.home-warm .prose img {
+  box-shadow: 0 24px 70px rgba(20, 20, 19, 0.06);
+}
+
+.home-warm .math-display {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(20, 20, 19, 0.08);
+  color: #141413;
+}
+
+/* ---- Search panels ---- */
+.home-warm .publication-search,
+.home-warm .collection-search {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(20, 20, 19, 0.08);
+}
+
+.home-warm .publication-search svg,
+.home-warm .collection-search svg {
+  color: #b0aea5;
+}
+
+.home-warm .publication-search input,
+.home-warm .collection-search input {
+  color: #141413;
+}
+
+.home-warm .publication-search input::placeholder,
+.home-warm .collection-search input::placeholder {
+  color: #b0aea5;
+}
+
+/* ---- Filter pills ---- */
+.home-warm .filter-pill {
+  color: #b0aea5;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(20, 20, 19, 0.06);
+}
+
+.home-warm .filter-pill.is-active {
+  color: #fff;
+  background: #141413;
+  border-color: transparent;
+}
+
+.home-warm .empty-results {
+  color: #b0aea5;
+}
+
+/* ---- Section backgrounds for archive pages ---- */
+.home-warm .collection-results,
+.home-warm .publication-results {
+  background: transparent;
+}
+
+/* ---- Collection detail gradient override ---- */
+.home-warm .collection-detail {
+  background: transparent;
+}
+
+/* ---- Placeholder pages ---- */
+.home-warm .placeholder-page .section {
+  background: transparent;
+}
+
+/* ---- FAQ ---- */
+.home-warm .faq-section {
+  padding-top: 0;
+}

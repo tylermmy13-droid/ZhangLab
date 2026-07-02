@@ -7,7 +7,7 @@ const newsItems = (await getCollection('news'))
   .filter((item) => !item.data.draft)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
-<BaseLayout title="News | Zhang Lab" description="Latest news and updates from Zhang Lab." headerMode="glass" bodyClass="space-theme">
+<BaseLayout title="News | Zhang Lab" description="Latest news and updates from Zhang Lab." headerMode="glass" bodyClass="home-warm">
   <main class="news-archive publication-archive">
     <section class="publication-hero">
       <div class="container publication-hero-inner">

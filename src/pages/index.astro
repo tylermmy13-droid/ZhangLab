@@ -10,7 +10,7 @@ const newsItems = (await getCollection('news')).filter((item) => !item.data.draf
 const publications = (await getCollection('publications')).filter((item) => !item.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
 const collectionItems = (await getCollection('collections')).filter((item) => !item.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
 ---
-<BaseLayout title="Zhang Lab" description="Cardiovascular medicine, vascular regeneration, organoid-chip platforms, and AI-enabled active health at Xinhua Hospital." headerMode="glass" bodyClass="space-theme">
+<BaseLayout title="Zhang Lab" description="Cardiovascular medicine, vascular regeneration, organoid-chip platforms, and AI-enabled active health at Xinhua Hospital." headerMode="glass" bodyClass="home-warm">
   <main>
     <GlobeMap />
 
