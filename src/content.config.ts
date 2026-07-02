@@ -1,6 +1,10 @@
+// ===== Astro 内容集合配置 =====
+// 定义 publications / collections / news 三个内容集合的 schema 和加载方式
+
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+// ===== 论文集合 =====
 const publications = defineCollection({
   loader: glob({
     pattern: '**/*.{md,mdx}',
@@ -22,6 +26,7 @@ const publications = defineCollection({
   })
 });
 
+// ===== 研究方向集合 =====
 const collectionItems = defineCollection({
   loader: glob({
     pattern: '**/*.{md,mdx}',
@@ -41,6 +46,7 @@ const collectionItems = defineCollection({
   })
 });
 
+// ===== 新闻动态集合 =====
 const news = defineCollection({
   loader: glob({
     pattern: '**/*.{md,mdx}',

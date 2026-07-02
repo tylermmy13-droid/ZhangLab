@@ -19,11 +19,12 @@ const getInitials = (name: string) => {
   return en.charAt(0).toUpperCase();
 };
 ---
+<!-- ===== 团队成员详情页 ===== -->
 <BaseLayout title={`${member.name} | Zhang Lab`} description={`Zhang Lab profile page of ${member.name}.`} headerMode="glass" bodyClass="home-warm">
   <main class="publication-archive">
     <section class="section member-page">
       <div class="container">
-        <a class="member-back" href="/our-team/" data-en="← Back to Our Team" data-zh="← 返回团队">← Back to Our Team</a>
+        <a class="member-back" href="/our-team/">← Back to Our Team</a>
 
         <div class="member-header">
           <div class="member-photo">
@@ -35,8 +36,8 @@ const getInitials = (name: string) => {
           </div>
           <div class="member-info">
             <h1 class="member-name">{member.name}</h1>
-            <p class="member-role" data-en={member.role} data-zh={member.roleZh}>{member.role}</p>
-            <p class="member-desc" data-en={member.desc} data-zh={member.descZh}>{member.desc}</p>
+            <p class="member-role">{member.role}</p>
+            <p class="member-desc">{member.desc}</p>
             {member.email && (
               <div class="member-social">
                 <a class="member-social-link" href={`mailto:${member.email}`} aria-label="Email" title={member.email}>
@@ -50,7 +51,7 @@ const getInitials = (name: string) => {
         <!-- Publications -->
         {pubs.length > 0 && (
           <div class="member-section">
-            <h2 class="member-section-title" data-en="Publications" data-zh="论文">Publications <span class="pub-count">{pubs.length}</span></h2>
+            <h2 class="member-section-title">Publications <span class="pub-count">{pubs.length}</span></h2>
             <div class="pub-list">
               {pubs.map((pub) => (
                 <div class="pub-item">
@@ -60,9 +61,9 @@ const getInitials = (name: string) => {
                   <div class="pub-info">
                     <p class="pub-title">
                       {pub.title}
-                      {pub.roles?.includes('first') && <span class="pub-role-badge pub-role-first" data-en="First Author" data-zh="第一作者">First Author</span>}
-                      {pub.roles?.includes('cofirst') && <span class="pub-role-badge pub-role-cofirst" data-en="Co-first Author" data-zh="共同第一作者">Co-first Author</span>}
-                      {pub.roles?.includes('corresponding') && <span class="pub-role-badge pub-role-corresponding" data-en="Corresponding Author" data-zh="通讯作者">Corresponding Author</span>}
+                      {pub.roles?.includes('first') && <span class="pub-role-badge pub-role-first">First Author</span>}
+                      {pub.roles?.includes('cofirst') && <span class="pub-role-badge pub-role-cofirst">Co-first Author</span>}
+                      {pub.roles?.includes('corresponding') && <span class="pub-role-badge pub-role-corresponding">Corresponding Author</span>}
                     </p>
                     <p class="pub-authors">{pub.authors}</p>
                     <p class="pub-venue">{pub.venue}</p>
@@ -81,9 +82,9 @@ const getInitials = (name: string) => {
         <!-- Honors & Awards -->
         {honors.length > 0 && (
           <div class="member-section">
-            <h2 class="member-section-title" data-en="Honors &amp; Awards" data-zh="荣誉与奖项">Honors & Awards</h2>
+            <h2 class="member-section-title">Honors & Awards</h2>
             <ul class="member-list">
-              {honors.map((h, i) => <li data-en={h} data-zh={member.honorsZh[i] || h}>{h}</li>)}
+              {honors.map((h, i) => <li>{h}</li>)}
             </ul>
           </div>
         )}
@@ -93,11 +94,7 @@ const getInitials = (name: string) => {
 </BaseLayout>
 
 <style>
-  .member-page {
-    padding-top: 120px;
-    min-height: 80vh;
-  }
-
+  .member-page { padding-top: 120px; min-height: 80vh; }
   .member-back {
     display: inline-block;
     color: #b0aea5;
@@ -106,290 +103,106 @@ const getInitials = (name: string) => {
     margin-bottom: 32px;
     transition: color 0.2s;
   }
-
-  .member-back:hover {
-    color: #141413;
-  }
-
+  .member-back:hover { color: #141413; }
   .member-header {
     display: flex;
     gap: 48px;
     align-items: flex-start;
     margin-bottom: 48px;
   }
-
   .member-photo {
-    flex-shrink: 0;
-    width: 280px;
-    border-radius: 16px;
-    overflow: hidden;
+    flex-shrink: 0; width: 280px;
+    border-radius: 16px; overflow: hidden;
     border: 4px solid #e8e6dc;
     box-shadow: 0 4px 20px rgba(20, 20, 19, 0.1);
     aspect-ratio: 1;
   }
-
-  .member-photo img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-  }
-
+  .member-photo img { width: 100%; height: 100%; display: block; object-fit: cover; }
   .member-photo-initial {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 72px;
-    font-weight: 600;
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 72px; font-weight: 600;
     color: rgba(20, 20, 19, 0.12);
     background: #e8e6dc;
-    font-family: "Inter", sans-serif;
-    user-select: none;
+    font-family: "Inter", sans-serif; user-select: none;
   }
-
   .member-info {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding-top: 8px;
-    flex: 1;
+    display: flex; flex-direction: column; gap: 10px;
+    padding-top: 8px; flex: 1;
   }
-
   .member-name {
-    margin: 0;
-    color: #141413;
-    font-size: clamp(30px, 3.5vw, 44px);
-    font-weight: 600;
+    margin: 0; color: #141413;
+    font-size: clamp(30px, 3.5vw, 44px); font-weight: 600;
   }
-
-  .member-role {
-    margin: 0;
-    color: #b0aea5;
-    font-size: 16px;
-    line-height: 1.6;
-    white-space: pre-line;
-  }
-
-  .member-desc {
-    margin: 8px 0 0;
-    color: #b0aea5;
-    font-size: 15px;
-    line-height: 1.7;
-    white-space: pre-line;
-  }
-
-  .member-social {
-    display: flex;
-    gap: 14px;
-    margin-top: 16px;
-  }
-
+  .member-role { margin: 0; color: #b0aea5; font-size: 16px; line-height: 1.6; white-space: pre-line; }
+  .member-desc { margin: 8px 0 0; color: #b0aea5; font-size: 15px; line-height: 1.7; white-space: pre-line; }
+  .member-social { display: flex; gap: 14px; margin-top: 16px; }
   .member-social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(20, 20, 19, 0.06);
+    display: flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: #fff; box-shadow: 0 2px 8px rgba(20, 20, 19, 0.06);
     transition: transform 0.2s, box-shadow 0.2s;
   }
-
-  .member-social-link:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 16px rgba(20, 20, 19, 0.1);
-  }
-
-  .member-social-link img {
-    width: 24px;
-    height: 24px;
-    filter: brightness(0) saturate(100%);
-    opacity: 0.6;
-  }
-
+  .member-social-link:hover { transform: scale(1.1); box-shadow: 0 4px 16px rgba(20, 20, 19, 0.1); }
+  .member-social-link img { width: 24px; height: 24px; filter: brightness(0) saturate(100%); opacity: 0.6; }
   .member-section {
-    margin-bottom: 40px;
-    padding-top: 28px;
+    margin-bottom: 40px; padding-top: 28px;
     border-top: 1px solid rgba(20, 20, 19, 0.08);
   }
-
   .member-section-title {
-    margin: 0 0 24px;
-    color: #141413;
-    font-size: 22px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    margin: 0 0 24px; color: #141413;
+    font-size: 22px; font-weight: 600;
+    display: flex; align-items: center; gap: 10px;
   }
-
   .pub-count {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 24px;
-    height: 24px;
-    padding: 0 8px;
-    border-radius: 12px;
-    background: rgba(20, 20, 19, 0.06);
-    color: #b0aea5;
-    font-size: 13px;
-    font-weight: 500;
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 24px; height: 24px; padding: 0 8px; border-radius: 12px;
+    background: rgba(20, 20, 19, 0.06); color: #b0aea5;
+    font-size: 13px; font-weight: 500;
   }
-
-  .pub-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
+  .pub-list { display: flex; flex-direction: column; gap: 20px; }
   .pub-item {
-    display: flex;
-    gap: 20px;
-    padding: 18px;
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(20, 20, 19, 0.06);
+    display: flex; gap: 20px; padding: 18px; border-radius: 14px;
+    background: rgba(255, 255, 255, 0.6); border: 1px solid rgba(20, 20, 19, 0.06);
     transition: background 0.2s;
   }
-
-  .pub-item:hover {
-    background: rgba(255, 255, 255, 0.8);
-  }
-
-  .pub-thumb {
-    flex-shrink: 0;
-    width: 160px;
-    height: 100px;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #e8e6dc;
-  }
-
-  .pub-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .pub-info {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    justify-content: center;
-    flex: 1;
-  }
-
+  .pub-item:hover { background: rgba(255, 255, 255, 0.8); }
+  .pub-thumb { flex-shrink: 0; width: 160px; height: 100px; border-radius: 8px; overflow: hidden; background: #e8e6dc; }
+  .pub-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .pub-info { display: flex; flex-direction: column; gap: 6px; justify-content: center; flex: 1; }
   .pub-title {
-    margin: 0;
-    color: #141413;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.4;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
+    margin: 0; color: #141413;
+    font-size: 20px; font-weight: 600; line-height: 1.4;
+    display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
     font-family: "DM Serif Display", serif;
   }
-
   .pub-role-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 2px 10px;
-    border-radius: 20px;
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    line-height: 1.6;
-    white-space: nowrap;
-    flex-shrink: 0;
+    display: inline-flex; align-items: center; padding: 2px 10px;
+    border-radius: 20px; font-size: 16px; font-weight: 500;
+    letter-spacing: 0.02em; line-height: 1.6; white-space: nowrap;
   }
-
   .pub-role-first {
-    background: rgba(217, 119, 87, 0.1);
-    color: #d97757;
+    background: rgba(217, 119, 87, 0.1); color: #d97757;
     border: 1px solid rgba(217, 119, 87, 0.25);
   }
-
   .pub-role-cofirst {
-    background: rgba(106, 155, 204, 0.1);
-    color: #6a9bcc;
+    background: rgba(106, 155, 204, 0.1); color: #6a9bcc;
     border: 1px solid rgba(106, 155, 204, 0.25);
   }
-
   .pub-role-corresponding {
-    background: rgba(120, 140, 93, 0.1);
-    color: #788c5d;
+    background: rgba(120, 140, 93, 0.1); color: #788c5d;
     border: 1px solid rgba(120, 140, 93, 0.25);
   }
-
-  .pub-authors {
-    margin: 0;
-    color: #b0aea5;
-    font-size: 13px;
-    line-height: 1.5;
-  }
-
-  .pub-venue {
-    margin: 0;
-    color: #b0aea5;
-    font-size: 13px;
-  }
-
-  .pub-links {
-    display: flex;
-    gap: 12px;
-    margin-top: 4px;
-  }
-
-  .pub-link {
-    color: #6a9bcc;
-    font-size: 13px;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .pub-link:hover {
-    color: #141413;
-  }
-
-  .member-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .member-list li {
-    color: #b0aea5;
-    font-size: 15px;
-    line-height: 1.6;
-  }
-
+  .pub-authors { margin: 0; color: #b0aea5; font-size: 13px; line-height: 1.5; }
+  .pub-venue { margin: 0; color: #b0aea5; font-size: 13px; }
+  .pub-links { display: flex; gap: 12px; margin-top: 4px; }
+  .pub-link { color: #6a9bcc; font-size: 13px; text-decoration: none; transition: color 0.2s; }
+  .pub-link:hover { color: #141413; }
+  .member-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .member-list li { color: #b0aea5; font-size: 15px; line-height: 1.6; }
   @media (max-width: 640px) {
-    .member-header {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .member-photo {
-      width: 220px;
-    }
-    .member-social {
-      justify-content: center;
-    }
-    .pub-item {
-      flex-direction: column;
-    }
-    .pub-thumb {
-      width: 100%;
-      height: 160px;
-    }
+    .member-header { flex-direction: column; align-items: center; text-align: center; }
+    .member-photo { width: 220px; }
+    .member-social { justify-content: center; }
   }
 </style>

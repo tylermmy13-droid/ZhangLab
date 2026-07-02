@@ -7,20 +7,19 @@ const newsItems = (await getCollection('news'))
   .filter((item) => !item.data.draft)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
+<!-- ===== 新闻动态列表页 ===== -->
 <BaseLayout title="News | Zhang Lab" description="Latest news and updates from Zhang Lab." headerMode="glass" bodyClass="home-warm">
   <main class="news-archive publication-archive">
     <section class="publication-hero">
       <div class="container publication-hero-inner">
-        <h1 class="publication-title" data-en="News and Updates" data-zh="新闻与动态">News and Updates</h1>
-        <p class="publication-lede" data-en="Follow our latest updates." data-zh="了解我们的最新动态">Follow our latest updates.</p>
+        <h1 class="publication-title">News and Updates</h1>
+        <p class="publication-lede">Follow our latest updates.</p>
       </div>
     </section>
 
-    <section class="section publication-results">
+    <section class="section">
       <div class="container">
-        <div class="card-grid publication-grid">
-          {newsItems.map((item) => <NewsCard item={item} />)}
-        </div>
+        <div class="card-grid">{newsItems.map((item) => <NewsCard item={item} />)}</div>
       </div>
     </section>
   </main>

@@ -1,4 +1,5 @@
 ---
+// 获取最新新闻、论文、研究方向各3条（排除草稿，按日期倒序）
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GlobeMap from '../components/GlobeMap.astro';
@@ -10,44 +11,49 @@ const newsItems = (await getCollection('news')).filter((item) => !item.data.draf
 const publications = (await getCollection('publications')).filter((item) => !item.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
 const collectionItems = (await getCollection('collections')).filter((item) => !item.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
 ---
+<!-- ===== 首页 ===== -->
+<!-- 展示地球 + 最新三条新闻/研究方向/论文 -->
 <BaseLayout title="Zhang Lab" description="Cardiovascular medicine, vascular regeneration, organoid-chip platforms, and AI-enabled active health at Xinhua Hospital." headerMode="glass" bodyClass="home-warm">
   <main>
     <GlobeMap />
 
+    <!-- ===== 最新动态 ===== -->
     <section class="section" id="news">
       <div class="container">
         <div class="section-head">
           <div class="section-head-top">
-            <h2 class="section-title" data-en="Latest &lt;em&gt;News&lt;/em&gt;" data-zh="最新&lt;em&gt;动态&lt;/em&gt;">Latest <em>News</em></h2>
-            <a class="button section-cta" href="/news/" data-en="All News" data-zh="全部动态">All News <span aria-hidden="true">&rarr;</span></a>
+            <h2 class="section-title">Latest <em>News</em></h2>
+            <a class="button section-cta" href="/news/">All News <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="section-copy" data-en="Updates from Zhang Lab." data-zh="关注张力课题组学术动态。">Updates from Zhang Lab.</p>
+          <p class="section-copy">Updates from Zhang Lab.</p>
         </div>
         <div class="card-grid">{newsItems.map((item) => <NewsCard item={item} />)}</div>
       </div>
     </section>
 
+    <!-- ===== 研究方向 ===== -->
     <section class="section" id="collections">
       <div class="container">
         <div class="section-head">
           <div class="section-head-top">
-            <h2 class="section-title" data-en="Research &lt;em&gt;Directions&lt;/em&gt;" data-zh="研究&lt;em&gt;方向&lt;/em&gt;">Research <em>Directions</em></h2>
-            <a class="button section-cta" href="/collections/" data-en="All Research" data-zh="全部方向">All Research <span aria-hidden="true">&rarr;</span></a>
+            <h2 class="section-title">Research <em>Directions</em></h2>
+            <a class="button section-cta" href="/collections/">All Research <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="section-copy" data-en="Our research focuses on precision cardiovascular care, interventional innovation and basic translational science." data-zh="我们聚焦心血管疾病精准诊疗、介入创新与基础转化研究。">Our research focuses on precision cardiovascular care, interventional innovation and basic translational science.</p>
+          <p class="section-copy">Our research focuses on precision cardiovascular care, interventional innovation and basic translational science.</p>
         </div>
         <div class="card-grid">{collectionItems.map((item) => <CollectionCard item={item} />)}</div>
       </div>
     </section>
 
+    <!-- ===== 代表性论文 ===== -->
     <section class="section" id="publications">
       <div class="container">
         <div class="section-head">
           <div class="section-head-top">
-            <h2 class="section-title" data-en="Representative &lt;em&gt;Publications&lt;/em&gt;" data-zh="代表性&lt;em&gt;论文&lt;/em&gt;">Representative <em>Publications</em></h2>
-            <a class="button section-cta" href="/publications/" data-en="All Publications" data-zh="全部论文">All Publications <span aria-hidden="true">&rarr;</span></a>
+            <h2 class="section-title">Representative <em>Publications</em></h2>
+            <a class="button section-cta" href="/publications/">All Publications <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="section-copy" data-en="Explore our representative research works." data-zh="了解我们的代表性工作。">Explore our representative research works.</p>
+          <p class="section-copy">Explore our representative research works.</p>
         </div>
         <div class="card-grid">{publications.map((item) => <PublicationCard item={item} />)}</div>
       </div>

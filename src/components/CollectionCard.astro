@@ -3,6 +3,7 @@ const { item } = Astro.props;
 const href = `/collections/${item.id}/`;
 const pubDate = item.data.pubDate.toISOString().split('T')[0];
 ---
+<!-- ===== 研究方向卡片组件 ===== -->
 <a class="card" href={href}>
   <span class="card-media">
     <img class="card-image" src={item.data.image} alt="" loading="lazy" />

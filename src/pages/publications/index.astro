@@ -7,20 +7,19 @@ const publications = (await getCollection('publications'))
   .filter((item) => !item.data.draft)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
+<!-- ===== 论文列表页 ===== -->
 <BaseLayout title="Publications | Zhang Lab" description="Our published academic work." headerMode="glass" bodyClass="home-warm">
   <main class="publication-archive">
     <section class="publication-hero">
       <div class="container publication-hero-inner">
-        <h1 class="publication-title" data-en="Academic articles" data-zh="学术文章">Academic articles</h1>
-        <p class="publication-lede" data-en="Our published academic work." data-zh="已发表的学术成果。">Our published academic work.</p>
+        <h1 class="publication-title">Academic articles</h1>
+        <p class="publication-lede">Our published academic work.</p>
       </div>
     </section>
 
-    <section class="section publication-results">
+    <section class="section">
       <div class="container">
-        <div class="card-grid publication-grid">
-          {publications.map((item) => <PublicationCard item={item} />)}
-        </div>
+        <div class="card-grid">{publications.map((item) => <PublicationCard item={item} />)}</div>
       </div>
     </section>
   </main>

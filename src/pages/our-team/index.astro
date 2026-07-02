@@ -7,11 +7,11 @@ import StudentCard from '../../components/StudentCard.astro';
 const levels = [1, 2, 3, 4] as const;
 
 // --- Level configuration: each level gets its own accent color and label ---
-const levelConfig: Record<number, { label: string; labelZh: string; accent: string }> = {
-  1: { label: 'Principal Investigator', labelZh: '课题组长', accent: '#d97757' },
-  2: { label: 'Senior Faculty', labelZh: '高级职称', accent: '#6a9bcc' },
-  3: { label: 'Attending physcians and Research Staff', labelZh: '主治医师和科研人员', accent: '#788c5d' },
-  4: { label: 'Residents', labelZh: '住院和规培医师', accent: '#b0aea5' },
+const levelConfig: Record<number, { label: string; accent: string }> = {
+  1: { label: 'Principal Investigator', accent: '#d97757' },
+  2: { label: 'Senior Faculty', accent: '#6a9bcc' },
+  3: { label: 'Attending Physicians and Research Staff', accent: '#788c5d' },
+  4: { label: 'Residents', accent: '#b0aea5' },
 };
 
 // Student groups in display order
@@ -30,12 +30,14 @@ const getInitials = (name: string) => {
   return en.charAt(0).toUpperCase();
 };
 ---
+<!-- ===== 团队成员列表页 ===== -->
+<!-- 分层次展示 PI、高级职称、主治医师、住院医师及在培学生 -->
 <BaseLayout title="Team | Zhang Lab" description="Meet the Zhang Lab team." headerMode="glass" bodyClass="home-warm">
   <main class="publication-archive">
     <section class="publication-hero">
       <div class="container publication-hero-inner">
-        <h1 class="publication-title" data-en="Our Team" data-zh="团队成员">Our Team</h1>
-        <p class="publication-lede" data-en="Meet our dedicated team in clinical and translational research." data-zh="认识我们的团队成员">Meet our dedicated team in clinical and translational research.</p>
+        <h1 class="publication-title">Our Team</h1>
+        <p class="publication-lede">Meet our dedicated team in clinical and translational research.</p>
       </div>
     </section>
 
@@ -49,17 +51,14 @@ const getInitials = (name: string) => {
 
             return (
               <div class="team-level" data-level={level}>
-                {/* --- Level label with connector line --- */}
                 <div class="level-label-wrap">
                   {level > 1 && <div class="level-connector" style={`background: ${cfg.accent}33`}></div>}
-                  <span class="level-label" style={`color: ${cfg.accent}`} data-en={cfg.label} data-zh={cfg.labelZh}>{cfg.label}</span>
+                  <span class="level-label" style={`color: ${cfg.accent}`}>{cfg.label}</span>
                 </div>
 
-                {/* --- Member cards grid --- */}
                 <div class={`level-cards level-cols-${members.length}`}>
                   {members.map((member) => (
                     <a class="member-card" href={`/our-team/${member.slug}/`} style={`--card-accent: ${cfg.accent}`} data-slug={member.slug}>
-                      {/* Photo area — spans full width at top, matches card corners */}
                       <div class="member-card-photo">
                         {member.img ? (
                           <img src={member.img} alt={member.nameZh} loading="lazy" />
@@ -67,11 +66,10 @@ const getInitials = (name: string) => {
                           <span class="member-card-initial">{getInitials(member.name)}</span>
                         )}
                       </div>
-                      {/* Text area — name, English name, role badge */}
                       <div class="member-card-info">
                         <p class="member-card-name">{member.nameZh}</p>
                         <p class="member-card-name-en">{member.name.split('/')[1]?.trim()}</p>
-                        <span class="member-card-role" style={`background: ${cfg.accent}18; color: ${cfg.accent}`} data-en={member.role} data-zh={member.roleZh}>{member.role}</span>
+                        <span class="member-card-role" style={`background: ${cfg.accent}18; color: ${cfg.accent}`}>{member.role}</span>
                       </div>
                     </a>
                   ))}
@@ -83,15 +81,11 @@ const getInitials = (name: string) => {
       </div>
     </section>
 
-    {/* ═══════════════════════════════════════════
-       Current Students section
-       ═══════════════════════════════════════════ */}
+    <!-- ===== 在培学生 ===== -->
     <section class="section students-section">
       <div class="container">
-
-        {/* ─── Section title ─── */}
         <div class="students-section-header">
-          <h2 class="students-section-title" data-en="Current Students" data-zh="在读学生">Current Students</h2>
+          <h2 class="students-section-title">Current Students</h2>
         </div>
 
         {studentGroups.map((group) => {
@@ -101,13 +95,9 @@ const getInitials = (name: string) => {
 
           return (
             <div class="student-group">
-              {/* Group heading */}
               <div class="student-group-label-wrap">
-                <span class="student-group-label" style={`color: ${cfg.accent}`}
-                      data-en={cfg.labelEn} data-zh={cfg.labelZh}>{cfg.labelZh}</span>
+                <span class="student-group-label" style={`color: ${cfg.accent}`}>{cfg.labelEn}</span>
               </div>
-
-              {/* Student cards grid */}
               <div class="student-grid">
                 {groupStudents.map((s) => (
                   <StudentCard student={s} accent={cfg.accent} />
@@ -122,9 +112,7 @@ const getInitials = (name: string) => {
 </BaseLayout>
 
 <style>
-  /* ═══════════════════════════════════════════
-     Team Tree — vertical connector layout
-     ═══════════════════════════════════════════ */
+  /* ===== 团队层级树 ===== */
   .team-tree {
     display: flex;
     flex-direction: column;
@@ -133,7 +121,6 @@ const getInitials = (name: string) => {
     padding-bottom: 80px;
   }
 
-  /* ─── Level section ─── */
   .team-level {
     display: flex;
     flex-direction: column;
@@ -150,7 +137,6 @@ const getInitials = (name: string) => {
     width: 100%;
   }
 
-  /* Vertical line connecting levels */
   .level-connector {
     position: absolute;
     top: 0;
@@ -168,7 +154,6 @@ const getInitials = (name: string) => {
     opacity: 0.75;
   }
 
-  /* ─── Cards grid ─── */
   .level-cards {
     display: flex;
     justify-content: center;
@@ -177,36 +162,32 @@ const getInitials = (name: string) => {
     width: 100%;
   }
 
-  /* ═══════════════════════════════════════════
-     Member Card — vertical pill/capsule shape
-     Photo occupies top ~65%; text at bottom ~35%
-     ═══════════════════════════════════════════ */
+  /* ===== 成员卡片 — 竖版胶囊形状 ===== */
   .member-card {
     position: relative;
     display: flex;
     flex-direction: column;
-    border-radius: 20px;          /* pill-like rounded corners */
-    overflow: hidden;             /* clips photo to match card radius */
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(20, 20, 19, 0.06);
     text-decoration: none;
     transition: all 0.3s ease;
     cursor: pointer;
     flex-shrink: 0;
   }
   .member-card:hover {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.8);
     border-color: var(--card-accent, #6a9bcc);
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 12px 40px rgba(20, 20, 19, 0.08);
   }
 
-  /* ─── Photo area — full width, top portion of the pill ─── */
   .member-card-photo {
     width: 100%;
-    aspect-ratio: 1 / 1.1;        /* slightly taller than wide */
+    aspect-ratio: 1 / 1.1;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.03);
+    background: #e8e6dc;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -222,65 +203,56 @@ const getInitials = (name: string) => {
     transform: scale(1.07);
   }
 
-  /* ─── Initials fallback (no photo) ─── */
   .member-card-initial {
     font-size: 36px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(20, 20, 19, 0.2);
     font-family: "Inter", sans-serif;
     user-select: none;
   }
 
-  /* ─── Text area — bottom portion ─── */
   .member-card-info {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 14px 14px 20px;      /* slightly tighter for 4-col layout */
+    padding: 14px 14px 20px;
     gap: 6px;
   }
 
   .member-card-name {
     margin: 0;
-    color: #faf9f5;
+    color: #141413;
     font-weight: 600;
     line-height: 1.3;
   }
 
   .member-card-name-en {
     margin: 0;
-    color: rgba(255, 255, 255, 0.35);
+    color: #b0aea5;
     font-size: 14px;
     font-weight: 400;
   }
 
-  /* ─── Role badge pill — 1.5x larger ─── */
   .member-card-role {
     display: inline-block;
     margin-top: 6px;
-    padding: 7px 20px;           /* enlarged from 3px 12px */
-    border-radius: 30px;          /* more pill-like */
-    font-size: 18px;              /* 11px × 1.5 ≈ 16.5px */
+    padding: 7px 20px;
+    border-radius: 30px;
+    font-size: 18px;
     font-weight: 500;
     letter-spacing: 0.02em;
     line-height: 1.5;
     white-space: pre-line;
   }
 
-  /* ═══════════════════════════════════════════
-     Card — uniform size for all levels
-     ═══════════════════════════════════════════ */
-  .member-card { width: 250px; }           /* ~4 per row */
+  .member-card { width: 250px; }
   .member-card[data-slug="zhang-li"],
-  .member-card[data-slug="chen-qishan"] { width: 300px; }  /* wider for multi-line role text */
+  .member-card[data-slug="chen-qishan"] { width: 300px; }
   .member-card-photo { aspect-ratio: 1 / 0.95; }
   .member-card-name { font-size: 20px; }
   .member-card-initial { font-size: 42px; }
 
-  /* ═══════════════════════════════════════════
-     Tablet responsive (max-width: 900px)
-     ═══════════════════════════════════════════ */
   @media (max-width: 900px) {
     .level-cards { gap: 14px; }
     .member-card { width: 200px; }
@@ -288,9 +260,6 @@ const getInitials = (name: string) => {
     .member-card-role { font-size: 14px; padding: 4px 14px; }
   }
 
-  /* ═══════════════════════════════════════════
-     Mobile responsive (max-width: 640px)
-     ═══════════════════════════════════════════ */
   @media (max-width: 640px) {
     .level-cards { gap: 10px; }
     .member-card { width: 160px; }
@@ -300,12 +269,8 @@ const getInitials = (name: string) => {
     .member-card-initial { font-size: 22px !important; }
   }
 
-  /* ═══════════════════════════════════════════
-     Current Students section
-     ═══════════════════════════════════════════ */
-  .students-section {
-    padding-top: 0;
-  }
+  /* ===== 在培学生区域 ===== */
+  .students-section { padding-top: 0; }
 
   .students-section-header {
     display: flex;
@@ -315,72 +280,37 @@ const getInitials = (name: string) => {
 
   .students-section-title {
     font-family: "DM Serif Display", "Source Han Serif CN Bold", Georgia, "Times New Roman", serif;
-    font-size: clamp(36px, 4.5vw, 54px);  /* enlarged from 28-42px */
+    font-size: clamp(36px, 4.5vw, 54px);
     font-weight: 400;
-    color: #faf9f5;
+    color: #141413;
     letter-spacing: -0.015em;
     margin: 0;
     text-align: center;
   }
 
-  /* ─── Student group ─── */
-  .student-group {
-    margin-top: 24px;
-  }
+  .student-group { margin-top: 24px; }
 
   .student-group-label-wrap {
     display: flex;
     justify-content: center;
-    padding: 16px 0 14px;
+    padding: 24px 0 16px;
   }
 
   .student-group-label {
     font-family: "DM Serif Display", "Source Han Serif CN Bold", Georgia, "Times New Roman", serif;
-    font-size: 26px;               /* 2x original 13px */
-    font-weight: 400;
-    text-transform: none;
-    letter-spacing: 0.06em;
+    font-size: 22px;
+    font-weight: 450;
+    letter-spacing: 0.04em;
     opacity: 0.75;
   }
 
-  /* ─── Student cards grid — 5 per row, group-centered ─── */
   .student-grid {
-    --student-card-width: 200px;
-    --student-card-gap: 16px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--student-card-gap);
-    width: 100%;
-    max-width: calc((var(--student-card-width) * 5) + (var(--student-card-gap) * 4));
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
   }
 
-  .student-grid :global(.student-card) {
-    flex: 0 0 var(--student-card-width);
-    max-width: var(--student-card-width);
-  }
-
-  /* Tablet */
-  @media (max-width: 900px) {
-    .student-grid {
-      --student-card-width: 160px;
-      --student-card-gap: 12px;
-      gap: var(--student-card-gap);
-    }
-  }
-
-  /* Mobile: 2 cols */
   @media (max-width: 640px) {
-    .student-grid {
-      --student-card-width: calc((100% - var(--student-card-gap)) / 2);
-      --student-card-gap: 10px;
-      max-width: 430px;
-      gap: var(--student-card-gap);
-    }
-
-    .student-grid :global(.student-card) {
-      min-width: 130px;
-    }
+    .student-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
   }
 </style>
