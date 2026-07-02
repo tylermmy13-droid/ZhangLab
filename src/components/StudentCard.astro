@@ -17,7 +17,7 @@ const enName = student.name.split('/')[1]?.trim() || '';
   <div class="student-card-info">
     <p class="student-card-name">{student.nameZh}</p>
     <p class="student-card-name-en">{enName}</p>
-    <span class="student-card-role" style={`background: ${accent}18; color: ${accent}`}>
+    <span class="student-card-role" style={`background: ${accent}18`}>
       <span>
         {student.type === 'phd' ? 'Ph.D.' : student.type === 'academic-master' ? 'M.A.Sc.' : 'M.Eng.'}
       </span>
@@ -83,7 +83,7 @@ const enName = student.name.split('/')[1]?.trim() || '';
   }
   .student-card-name-en {
     margin: 0;
-    color: #b0aea5;
+    color: #141413;
     font-size: 15px;
     font-weight: 400;
   }
@@ -95,10 +95,11 @@ const enName = student.name.split('/')[1]?.trim() || '';
     font-size: 15px;
     font-weight: 500;
     letter-spacing: 0.02em;
+    color: #141413 !important;
   }
   .student-card-enrollment {
     margin: 2px 0 0;
-    color: #b0aea5;
+    color: #141413;
     font-size: 11px;
   }
 </style>
