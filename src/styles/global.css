@@ -934,7 +934,7 @@ img { max-width: 100%; display: block; }
 }
 
 .home-warm .section-copy {
-  color: #b0aea5;
+  color: #191919;
 }
 
 .home-warm .section-head {
@@ -1043,7 +1043,7 @@ img { max-width: 100%; display: block; }
 
 .home-warm .collection-lede,
 .home-warm .publication-lede {
-  color: #b0aea5;
+  color: #191919;
 }
 
 .home-warm .collection-hero,
@@ -1170,5 +1170,20 @@ img { max-width: 100%; display: block; }
 /* ---- Collection detail gradient override ---- */
 .home-warm .collection-detail {
   background: transparent;
+}
+
+/* ===== 浮动语言切换按钮 ===== */
+.floating-lang {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+}
+
+@media (max-width: 640px) {
+  .floating-lang {
+    bottom: 16px;
+    right: 12px;
+  }
 }
 

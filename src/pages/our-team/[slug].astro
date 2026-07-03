@@ -10,6 +10,7 @@ const slug = Astro.params.slug;
 const member = team.find((m) => m.slug === slug)!;
 const pubs = member.publications;
 const honors = member.honors;
+const honorsZh = member.honorsZh;
 
 const getInitials = (name: string) => {
   const parts = name.split('/');
@@ -24,7 +25,7 @@ const getInitials = (name: string) => {
   <main class="publication-archive">
     <section class="section member-page">
       <div class="container">
-        <a class="member-back" href="/our-team/">← Back to Our Team</a>
+        <a class="member-back" href="/our-team/" data-en="← Back to Our Team" data-zh="← 返回团队">← Back to Our Team</a>
 
         <div class="member-header">
           <div class="member-photo">
@@ -36,8 +37,8 @@ const getInitials = (name: string) => {
           </div>
           <div class="member-info">
             <h1 class="member-name">{member.name}</h1>
-            <p class="member-role">{member.role}</p>
-            <p class="member-desc">{member.desc}</p>
+            <p class="member-role" data-en={member.role} data-zh={member.roleZh}>{member.role}</p>
+            <p class="member-desc" data-en={member.desc} data-zh={member.descZh}>{member.desc}</p>
             {member.email && (
               <div class="member-social">
                 <a class="member-social-link" href={`mailto:${member.email}`} aria-label="Email" title={member.email}>
@@ -51,7 +52,7 @@ const getInitials = (name: string) => {
         <!-- Publications -->
         {pubs.length > 0 && (
           <div class="member-section">
-            <h2 class="member-section-title">Publications <span class="pub-count">{pubs.length}</span></h2>
+            <h2 class="member-section-title" data-en="Publications" data-zh="论文">Publications <span class="pub-count">{pubs.length}</span></h2>
             <div class="pub-list">
               {pubs.map((pub) => (
                 <div class="pub-item">
@@ -82,9 +83,9 @@ const getInitials = (name: string) => {
         <!-- Honors & Awards -->
         {honors.length > 0 && (
           <div class="member-section">
-            <h2 class="member-section-title">Honors & Awards</h2>
+            <h2 class="member-section-title" data-en="Honors &amp; Awards" data-zh="荣誉与奖项">Honors & Awards</h2>
             <ul class="member-list">
-              {honors.map((h, i) => <li>{h}</li>)}
+              {honors.map((h, i) => <li data-en={h} data-zh={honorsZh[i] || h}>{h}</li>)}
             </ul>
           </div>
         )}
@@ -134,8 +135,8 @@ const getInitials = (name: string) => {
     margin: 0; color: #141413;
     font-size: clamp(30px, 3.5vw, 44px); font-weight: 600;
   }
-  .member-role { margin: 0; color: #b0aea5; font-size: 16px; line-height: 1.6; white-space: pre-line; }
-  .member-desc { margin: 8px 0 0; color: #b0aea5; font-size: 15px; line-height: 1.7; white-space: pre-line; }
+  .member-role { margin: 0; color: #191919; font-size: 16px; line-height: 1.6; white-space: pre-line; }
+  .member-desc { margin: 8px 0 0; color: #191919; font-size: 17px; line-height: 1.7; white-space: pre-line; }
   .member-social { display: flex; gap: 14px; margin-top: 16px; }
   .member-social-link {
     display: flex; align-items: center; justify-content: center;

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import LangSwitch from '../components/LangSwitch.astro';
 
 const {
   title = 'Zhang Lab',
@@ -9,9 +10,9 @@ const {
 } = Astro.props;
 ---
 <!-- ===== 全局页面布局 ===== -->
-<!-- 包含 SEO head、导航栏、页脚、JS -->
+<!-- 包含 SEO head、导航栏、语言切换、页脚、JS -->
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -34,6 +35,8 @@ const {
     <!-- Preload critical fonts -->
     <link rel="preload" href="/assets/fonts/dm-serif-display-latin-400-normal.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="preload" href="/assets/fonts/SourceHanSerifCN-Bold.otf" as="font" type="font/otf" crossorigin />
+
+    <script src="/assets/js/i18n.js" defer></script>
   </head>
   <body class={bodyClass}>
     <!-- Skip-to-content for keyboard accessibility -->
@@ -41,24 +44,29 @@ const {
 
     <header class={`site-header ${headerMode === 'glass' ? 'is-visible' : ''}`} data-scroll-header data-header-mode={headerMode}>
       <nav class="nav" aria-label="Main navigation" role="navigation">
-        <a href="/" data-route="home">Home</a>
-        <a href="/news/" data-route="news">News</a>
-        <a href="/collections/" data-route="collections">Research</a>
-        <a href="/our-team/" data-route="our-team">Team</a>
-        <a href="/publications/" data-route="publications">Publications</a>
-        <a href="/contact/" data-route="contact">Contact</a>
+        <a href="/" data-route="home" data-en="Home" data-zh="首页">Home</a>
+        <a href="/news/" data-route="news" data-en="News" data-zh="动态">News</a>
+        <a href="/collections/" data-route="collections" data-en="Research" data-zh="研究方向">Research</a>
+        <a href="/our-team/" data-route="our-team" data-en="Team" data-zh="团队">Team</a>
+        <a href="/publications/" data-route="publications" data-en="Publications" data-zh="论文">Publications</a>
+        <a href="/contact/" data-route="contact" data-en="Contact" data-zh="联系我们">Contact</a>
       </nav>
     </header>
     <main id="main-content">
       <slot />
     </main>
+    <div class="floating-lang">
+      <LangSwitch />
+    </div>
     <footer class="footer" role="contentinfo">
       <div class="footer-illustration" aria-hidden="true">
         <img class="footer-illustration-image" src="/assets/footer/footer.png" alt="" loading="lazy" />
       </div>
       <div class="container footer-inner">
         <span>@2026 Zhang Lab</span>
-        <span class="footer-note">Cardiovascular medicine, regeneration, organoids, and AI.</span>
+        <span class="footer-note" data-en="Cardiovascular medicine, regeneration, organoids, and AI." data-zh="心血管医学、再生修复、类器官与人工智能。">
+          Cardiovascular medicine, regeneration, organoids, and AI.
+        </span>
         <span class="footer-credit">
           Template by <a href="https://github.com/choucisan/SpaceLab" target="_blank" rel="noreferrer">SpaceLab</a>
         </span>

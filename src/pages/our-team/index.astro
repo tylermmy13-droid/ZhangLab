@@ -36,8 +36,8 @@ const getInitials = (name: string) => {
   <main class="publication-archive">
     <section class="publication-hero">
       <div class="container publication-hero-inner">
-        <h1 class="publication-title">Our Team</h1>
-        <p class="publication-lede">Meet our dedicated team in clinical and translational research.</p>
+        <h1 class="publication-title" data-en="Our Team" data-zh="团队成员">Our Team</h1>
+        <p class="publication-lede" data-en="Meet our dedicated team in clinical and translational research." data-zh="认识我们的团队成员">Meet our dedicated team in clinical and translational research.</p>
       </div>
     </section>
 
@@ -69,7 +69,7 @@ const getInitials = (name: string) => {
                       <div class="member-card-info">
                         <p class="member-card-name">{member.nameZh}</p>
                         <p class="member-card-name-en">{member.name.split('/')[1]?.trim()}</p>
-                        <span class="member-card-role" style={`background: ${cfg.accent}18`}>{member.role}</span>
+                        <span class="member-card-role" style={`background: ${cfg.accent}18`} data-en={member.role} data-zh={member.roleZh}>{member.role}</span>
                       </div>
                     </a>
                   ))}
