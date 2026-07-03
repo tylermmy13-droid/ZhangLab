@@ -53,7 +53,7 @@ const getInitials = (name: string) => {
               <div class="team-level" data-level={level}>
                 <div class="level-label-wrap">
                   {level > 1 && <div class="level-connector" style={`background: ${cfg.accent}33`}></div>}
-                  <span class="level-label">{cfg.label}</span>
+                  <span class="level-label" style={`color: ${cfg.accent}`}>{cfg.label}</span>
                 </div>
 
                 <div class={`level-cards level-cols-${members.length}`}>
@@ -148,10 +148,10 @@ const getInitials = (name: string) => {
 
   .level-label {
     font-family: "DM Serif Display", "Source Han Serif CN Bold", Georgia, "Times New Roman", serif;
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 450;
     letter-spacing: 0.06em;
-    color: #141413;
+    opacity: 0.75;
   }
 
   .level-cards {
