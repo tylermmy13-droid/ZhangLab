@@ -2,7 +2,7 @@
 
 [English](#english) | [中文](#chinese)
 
-> :globe_with_meridians: **Website / 网站**：[https://tylermmy13-droid.github.io/SpaceLab](https://tylermmy13-droid.github.io/ZhangLab)
+> :globe_with_meridians: **Website / 网站**：[https://tylermmy13-droid.github.io/ZhangLab](https://tylermmy13-droid.github.io/ZhangLab)
 
 ---
 
