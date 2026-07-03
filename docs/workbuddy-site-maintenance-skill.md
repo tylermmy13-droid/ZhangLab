@@ -23,10 +23,10 @@ https://github.com/tylermmy13-droid/SpaceLab
 The public GitHub Pages path is expected to be:
 
 ```text
-/SpaceLab/
+/ZhangLab/
 ```
 
-Because this is a project page rather than a user root page, root-relative asset paths must work under `/SpaceLab/` after build.
+Because this is a project page rather than a user root page, root-relative asset paths must work under `/ZhangLab/` after build.
 
 ## Current Site State
 
@@ -81,7 +81,7 @@ Typical meaning:
 - `src/data/`: structured content if the template stores people, publications, projects, news, or collections there.
 - `public/assets/`: static images, fonts, and files copied directly into the built site.
 - `.github/workflows/deploy.yml`: GitHub Actions workflow for publishing to GitHub Pages.
-- `scripts/fix-github-pages-base.mjs`: post-build fix for `/SpaceLab` asset paths.
+- `scripts/fix-github-pages-base.mjs`: post-build fix for `/ZhangLab` asset paths.
 
 ## Required Workflow
 
@@ -99,7 +99,7 @@ npm run build
 
 A successful build should finish without errors. A warning about large chunks is acceptable unless it becomes a real load-performance problem.
 
-After building, verify that generated files use the expected `/SpaceLab` base path and that no old font references remain:
+After building, verify that generated files use the expected `/ZhangLab` base path and that no old font references remain:
 
 ```bash
 rg -l "Faire Octave|faire-octave" src public dist
@@ -121,7 +121,7 @@ If deployment fails, check in this order:
 2. GitHub repository settings: Pages should use GitHub Actions as the source.
 3. GitHub Actions logs: identify whether failure is in dependency install, build, or deploy.
 4. `package.json`: make sure the build script still runs the post-build base-path fix.
-5. `scripts/fix-github-pages-base.mjs`: make sure it still targets the correct base path, `/SpaceLab`.
+5. `scripts/fix-github-pages-base.mjs`: make sure it still targets the correct base path, `/ZhangLab`.
 6. `dist/`: generated files should include corrected asset paths for GitHub Pages.
 
 Do not delete the deployment workflow or post-build script unless replacing them with a tested equivalent.
@@ -193,7 +193,7 @@ Optional targeted checks:
 
 ```bash
 rg -n "Zhang Lab|Cardiovascular intervention|DM Serif Display" src public
-rg -n "/SpaceLab|assets/" dist/index.html dist/_astro/*.css
+rg -n "/ZhangLab|assets/" dist/index.html dist/_astro/*.css
 ```
 
 If the user asks to publish:

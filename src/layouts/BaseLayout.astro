@@ -67,7 +67,7 @@ const {
     <script>
       /* ---- Active nav capsule based on path segment ---- */
       const segs = window.location.pathname.split('/').filter(Boolean);
-      const pageSeg = segs[0] === 'SpaceLab'
+      const pageSeg = segs[0] === 'ZhangLab'
         ? (segs[1] || 'home')
         : (segs[0] || 'home');
       document.querySelectorAll('.nav a').forEach(a => {
