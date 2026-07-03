@@ -7,12 +7,6 @@
     <div class="globe-welcome-title" data-en="Welcome to Zhang Lab" data-zh="欢迎来到张力课题组">Welcome to Zhang Lab</div>
     <div class="globe-welcome-sub" data-en="We are committed to medical research, multidisciplinary integration, and translational application in cardiovascular science." data-zh="我们致力于心血管科学的医学研究、多学科交叉和转化应用。">We are committed to medical research, multidisciplinary integration, and translational application in cardiovascular science.</div>
   </div>
-  <div class="globe-scroll-hint" data-galaxy-hint onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})">
-    <span data-en="Scroll to explore" data-zh="滚动探索">Scroll to explore</span>
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M12 5v14M5 12l7 7 7-7" />
-    </svg>
-  </div>
 </section>
 
 <link href="https://api.mapbox.com/mapbox-gl-js/v3.16.0/mapbox-gl.css" rel="stylesheet" />
@@ -65,11 +59,6 @@
     spinGlobe();
   }
 
-  // Fade out scroll hint on scroll
-  const hint = document.querySelector('[data-galaxy-hint]');
-  window.addEventListener('scroll', () => {
-    if (hint) hint.style.opacity = String(Math.max(0, 1 - window.scrollY / 200));
-  }, { passive: true });
 </script>
 
 <style>
@@ -112,45 +101,6 @@
   }
 
   .globe-scroll-hint {
-    position: absolute;
-    bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    color: #191919;
-    font-size: 24px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    z-index: 2;
-    cursor: pointer;
-    text-align: center;
-    width: max-content;
-    max-width: calc(100% - 40px);
-    animation: fadeInUp 1.2s ease-out 0.6s both, float 3s ease-in-out infinite 1.8s;
-  }
-
-  .globe-scroll-hint span {
-    display: block;
-    text-align: center;
-  }
-
-  .globe-scroll-hint:hover {
-    color: #191919;
-  }
-
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(6px); }
-  }
-
   /* Welcome — centered, simple fade */
   .globe-welcome {
     position: absolute;
