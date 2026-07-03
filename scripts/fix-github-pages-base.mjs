@@ -2,7 +2,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const base = '/SpaceLab';
+const base = '/ZhangLab';
 const dist = fileURLToPath(new URL('../dist/', import.meta.url));
 const exts = new Set(['.html', '.css', '.js', '.mjs']);
 const roots = [
@@ -23,10 +23,10 @@ async function walk(dir) {
 function prefixRootPaths(source) {
   let text = source;
   text = text.replace(/href=(["'])\/\1/g, `href=$1${base}/$1`);
-  text = text.replace(new RegExp(`(["'=\\(])\\/(?!SpaceLab\\/)(?:${rootPattern})(?=[\\/"'\\)])`, 'g'), (match, lead) => `${lead}${base}${match.slice(lead.length)}`);
-  text = text.replace(new RegExp(`(&quot;)\\/(?!SpaceLab\\/)(?:${rootPattern})(?=[\\/])`, 'g'), (match, lead) => `${lead}${base}${match.slice(lead.length)}`);
-  text = text.replace(new RegExp(`(&#34;)\\/(?!SpaceLab\\/)(?:${rootPattern})(?=[\\/])`, 'g'), (match, lead) => `${lead}${base}${match.slice(lead.length)}`);
-  text = text.replace(/url\((['"]?)\/(?!SpaceLab\/)(assets|_astro|paper-sites)\//g, `url($1${base}/$2/`);
+  text = text.replace(new RegExp(`(["'=\\(])\\/(?!ZhangLab\\/)(?:${rootPattern})(?=[\\/"'\\)])`, 'g'), (match, lead) => `${lead}${base}${match.slice(lead.length)}`);
+  text = text.replace(new RegExp(`(&quot;)\\/(?!ZhangLab\\/)(?:${rootPattern})(?=[\\/])`, 'g'), (match, lead) => `${lead}${base}${match.slice(lead.length)}`);
+  text = text.replace(new RegExp(`(&#34;)\\/(?!ZhangLab\\/)(?:${rootPattern})(?=[\\/])`, 'g'), (match, lead) => `${lead}${base}${match.slice(lead.length)}`);
+  text = text.replace(/url\((['"]?)\/(?!ZhangLab\/)(assets|_astro|paper-sites)\//g, `url($1${base}/$2/`);
   return text;
 }
 
