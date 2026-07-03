@@ -880,7 +880,7 @@ img { max-width: 100%; display: block; }
 
 
 /* ===== Home Warm 暖色主题 ===== */
-/* HOME WARM THEME — #E8E0D8 background with Anthropic palette
+/* HOME WARM THEME — #f0eee6 background with Anthropic palette
    Primary: deep #141413, light #AF9F15
    Secondary: mid-gray #b0aea5, light-gray #e8e6dc
    Accent: orange #d97757, blue #6a9bcc, green #788c5d
@@ -889,7 +889,7 @@ img { max-width: 100%; display: block; }
 /* ---- Body ---- */
 .home-warm {
   color: #141413;
-  background: #E8E0D8;
+  background: #f0eee6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -957,7 +957,7 @@ img { max-width: 100%; display: block; }
 /* ---- CTA Buttons - dark on warm ---- */
 .home-warm .button.section-cta {
   background: #141413;
-  color: #E8E0D8;
+  color: #f0eee6;
   border: none;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   font-weight: 600;
