@@ -53,7 +53,7 @@ const getInitials = (name: string) => {
               <div class="team-level" data-level={level}>
                 <div class="level-label-wrap">
                   {level > 1 && <div class="level-connector" style={`background: ${cfg.accent}33`}></div>}
-                  <span class="level-label">{cfg.label} / {cfg.labelZh}</span>
+                  <span class="level-label" data-en={cfg.label} data-zh={cfg.labelZh}>{cfg.labelZh}</span>
                 </div>
 
                 <div class={`level-cards level-cols-${members.length}`}>
@@ -85,7 +85,7 @@ const getInitials = (name: string) => {
     <section class="section students-section">
       <div class="container">
         <div class="students-section-header">
-          <h2 class="students-section-title">Current Students</h2>
+          <h2 class="students-section-title" data-en="Current Students" data-zh="在培学生">在培学生</h2>
         </div>
 
         {studentGroups.map((group) => {
@@ -96,7 +96,7 @@ const getInitials = (name: string) => {
           return (
             <div class="student-group">
               <div class="student-group-label-wrap">
-                <span class="student-group-label">{cfg.labelEn}</span>
+                <span class="student-group-label" data-en={cfg.labelEn} data-zh={cfg.labelZh}>{cfg.labelZh}</span>
               </div>
               <div class="student-grid">
                 {groupStudents.map((s) => (
@@ -287,12 +287,12 @@ const getInitials = (name: string) => {
     text-align: center;
   }
 
-  .student-group { margin-top: 24px; }
+  .student-group { margin-top: 36px; }
 
   .student-group-label-wrap {
     display: flex;
     justify-content: center;
-    padding: 24px 0 16px;
+    padding: 24px 0 20px;
   }
 
   .student-group-label {
@@ -302,21 +302,26 @@ const getInitials = (name: string) => {
     letter-spacing: 0.04em;
     color: #141413;
     opacity: 0.75;
-    opacity: 0.75;
   }
 
   .student-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 16px;
-    justify-items: center;
   }
 
-  @media (max-width: 900px) {
-    .student-grid { grid-template-columns: repeat(4, 1fr); }
+  :global(.student-card) {
+    width: 180px;
+  }
+
+  @media (max-width: 1024px) {
+    :global(.student-card) { width: 165px; }
+    .student-grid { gap: 14px; }
   }
 
   @media (max-width: 640px) {
-    .student-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    :global(.student-card) { width: 155px; }
+    .student-grid { gap: 10px; }
   }
 </style>
