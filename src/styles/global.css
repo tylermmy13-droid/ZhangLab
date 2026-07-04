@@ -1,5 +1,5 @@
 :root {
-  --cream: #faf9f1;
+  --cream: #f2f0e9;
   --ink: #1e1f1e;
   --muted: rgba(30, 31, 30, 0.66);
   --blue: #386196;
@@ -466,7 +466,7 @@ img { max-width: 100%; display: block; }
   padding: 0;
   border: 0;
   border-radius: 0;
-  background: transparent;
+  background: #e4dbcd;
   box-shadow: none;
 }
 
@@ -521,7 +521,7 @@ img { max-width: 100%; display: block; }
 
 .card p {
   margin: 0 0 12px;
-  color: var(--muted);
+  color: #171715;
   font-size: 18px;
   line-height: 1.45;
 }
@@ -763,7 +763,7 @@ img { max-width: 100%; display: block; }
       rgb(56, 97, 150) 0%,
       rgb(100, 137, 177) 42%,
       rgb(195, 210, 224) 76%,
-      rgba(250, 249, 241, 0.92) 92%,
+      rgba(242, 240, 233, 0.92) 92%,
       var(--cream) 100%
     );
 }
@@ -889,7 +889,7 @@ img { max-width: 100%; display: block; }
 /* ---- Body ---- */
 .home-warm {
   color: #141413;
-  background: #f0eee6;
+  background: #f2f0e9;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -974,13 +974,13 @@ img { max-width: 100%; display: block; }
 
 /* ---- Cards ---- */
 .home-warm .card {
-  background: transparent;
+  background: #e4dbcd;
   border: none;
   border-radius: 0;
 }
 
 .home-warm .card:hover {
-  background: transparent;
+  background: #f4e5c7;
 }
 
 .home-warm .card h3 {
@@ -988,7 +988,7 @@ img { max-width: 100%; display: block; }
 }
 
 .home-warm .card p {
-  color: #b0aea5;
+  color: #171715;
 }
 
 .home-warm .card-meta {
