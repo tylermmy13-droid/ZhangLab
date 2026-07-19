@@ -1,7 +1,7 @@
 <!-- ===== 首页首屏 ===== -->
 <section class="home-hero">
   <div class="home-hero-content">
-    <h1 class="home-hero-title" data-en="Cardiovascular research,&lt;br /&gt;&lt;em&gt;grounded in clinical questions.&lt;/em&gt;" data-zh="心血管研究，&lt;br /&gt;从临床问题出发。">Cardiovascular research,<br /><em>grounded in clinical questions.</em></h1>
+    <h1 class="home-hero-title" data-en="Cardiovascular research,&lt;br /&gt;grounded in clinical questions." data-zh="心血管研究，&lt;br /&gt;从临床问题出发。">Cardiovascular research,<br />grounded in clinical questions.</h1>
     <p class="home-hero-summary" data-en="Zhang Lab studies vascular injury and repair, myocardial remodeling, multi-organ interactions, wearable monitoring, and data science for cardiovascular medicine. We connect clinical observations, experimental models, and reproducible data analysis to address questions in prevention, diagnosis, and treatment." data-zh="张力课题组围绕血管损伤与修复、心肌重构、多器官互作、可穿戴监测及心血管医学数据科学开展研究。我们结合临床观察、实验模型与可重复的数据分析，探讨疾病预防、诊断与治疗中的问题。">Zhang Lab studies vascular injury and repair, myocardial remodeling, multi-organ interactions, wearable monitoring, and data science for cardiovascular medicine. We connect clinical observations, experimental models, and reproducible data analysis to address questions in prevention, diagnosis, and treatment.</p>
   </div>
   <div class="home-hero-scroll" data-home-scroll onclick="window.scrollTo({top: window.innerHeight, behavior: &quot;smooth&quot;})">
@@ -38,37 +38,35 @@
     max-width: 950px;
     margin: 0;
     color: var(--ink);
-    font-family: var(--font-body);
-    font-size: clamp(58px, 8.2vw, 142px);
-    font-weight: 700;
-    line-height: 0.94;
-    letter-spacing: -0.065em;
+    font-family: var(--font-title);
+    font-size: clamp(48px, 6.2vw, 104px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.04em;
     text-align: left;
-  }
-
-  .home-hero-title em {
-    font-style: normal;
   }
 
   .home-hero-summary {
     max-width: 510px;
     margin: 0 0 8px;
     color: var(--ink);
-    font-family: var(--font-title);
-    font-size: clamp(21px, 2.15vw, 34px);
+    font-family: var(--font-body);
+    font-size: clamp(18px, 1.55vw, 25px);
     font-weight: 400;
-    line-height: 1.32;
-    letter-spacing: -0.025em;
+    line-height: 1.55;
+    letter-spacing: -0.01em;
     text-align: left;
   }
 
   .home-hero-scroll {
     position: absolute;
-    right: 40px;
-    bottom: 28px;
+    left: 50%;
+    bottom: 32px;
+    transform: translateX(-50%);
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     color: var(--ink);
     font-family: var(--font-body);
     font-size: 12px;
@@ -108,12 +106,12 @@
 
     .home-hero-title {
       max-width: 760px;
-      font-size: clamp(52px, 10vw, 96px);
+      font-size: clamp(44px, 8vw, 72px);
     }
 
     .home-hero-summary {
       max-width: 600px;
-      font-size: clamp(20px, 3.4vw, 28px);
+      font-size: clamp(18px, 2.8vw, 23px);
     }
   }
 
@@ -126,18 +124,17 @@
     }
 
     .home-hero-title {
-      font-size: clamp(44px, 13vw, 68px);
-      line-height: 0.98;
-      letter-spacing: -0.06em;
+      font-size: clamp(38px, 10.5vw, 56px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
     }
 
     .home-hero-summary {
-      font-size: 20px;
-      line-height: 1.38;
+      font-size: 18px;
+      line-height: 1.5;
     }
 
     .home-hero-scroll {
-      right: 20px;
       bottom: 22px;
       font-size: 11px;
     }

@@ -953,6 +953,35 @@ img { max-width: 100%; display: block; }
   margin-bottom: 0;
 }
 
+/* ---- Homepage content width ---- */
+.home-page > .section > .container {
+  width: min(calc(100% - 72px), 1440px);
+}
+
+.home-page .card-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 1024px) {
+  .home-page > .section > .container {
+    width: min(calc(100% - 48px), 1440px);
+  }
+
+  .home-page .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .home-page > .section > .container {
+    width: min(calc(100% - 28px), 1440px);
+  }
+
+  .home-page .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---- CTA Buttons - dark on warm ---- */
 .home-warm .button.section-cta {
   background: #141413;
