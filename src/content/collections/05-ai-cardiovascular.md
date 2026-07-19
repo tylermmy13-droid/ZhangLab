@@ -1,22 +1,19 @@
 ---
-title: "AI and cardiovascular disease innovation"
-titleZh: "AI与心血管疾病诊治与创新"
-description: "Artificial intelligence for cardiovascular disease diagnosis, risk assessment, treatment optimization, and translational drug-device development, leveraging computational modeling and machine learning."
-descriptionZh: "基于人工智能的心血管疾病诊断、风险评估、治疗优化及转化药物-器械研发，融合计算建模与机器学习技术创新等方向。"
+title: "Data science and AI for cardiovascular medicine"
+titleZh: "数据科学与人工智能心血管医学"
+description: "Applying computational modeling, machine learning, and statistical methods to cardiovascular imaging, risk prediction, and multi-omics data analysis."
+descriptionZh: "将计算建模、机器学习与统计方法应用于心血管影像、风险预测及多组学数据分析。"
 pubDate: 2026-07-05
-platform: "AI Platform"
-platformZh: "AI平台"
-tags: ["AI", "Machine Learning", "Digital Health"]
+platform: "Research Area"
+platformZh: "研究方向"
+tags: ["Machine Learning", "Imaging", "Multi-omics"]
 image: "/assets/cards/publication-sky.png"
 accentColor: "#8b7ab0"
 ---
 
-## Research Focus
+We use computational methods to extract patterns from cardiovascular imaging, electronic health records, and multi-omics datasets. Projects include automated image analysis, risk stratification models, and integrative approaches that combine clinical and molecular data. The emphasis is on reproducible methods and transparent validation rather than deploying clinical decision-support systems.
 
-We leverage artificial intelligence and computational approaches to advance cardiovascular disease understanding, diagnosis, and treatment, creating intelligent platforms that bridge clinical data with decision support.
-
-### Key Areas:
-- **AI-assisted diagnosis**: Machine learning models for cardiovascular imaging and risk stratification
-- **Computational cardiovascular modeling**: Multi-scale modeling from molecular to organ-level dynamics
-- **Intelligent drug discovery**: AI-driven target identification and therapeutic optimization
-- **Clinical decision support**: Integrating multi-modal data for personalized cardiovascular care
+- **Cardiovascular imaging analysis**: Machine learning for image segmentation and feature extraction
+- **Risk prediction**: Statistical models for cardiovascular event stratification
+- **Multi-omics integration**: Combining genomic, proteomic, and clinical data
+- **Method development**: Reproducible pipelines for data preprocessing and analysis

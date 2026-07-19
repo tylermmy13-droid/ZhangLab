@@ -1,6 +1,6 @@
 ---
 title: "Chronic Kidney Disease Is Associated with Increased Risk of Sudden Cardiac Death"
-description: "This study investigates the association between chronic kidney disease (CKD) and the risk of sudden cardiac death (SCD), providing epidemiological and proteomic evidence for the heart-kidney axis in SCD risk stratification."
+description: "Chronic kidney disease is independently associated with increased sudden cardiac death risk. Proteomic profiling identifies circulating biomarkers that may mediate the heart–kidney axis in risk stratification."
 pubDate: 2025-06-04
 venue: "Nature Communications"
 authors:
@@ -15,7 +15,7 @@ authors:
 tags:
   - "Chronic Kidney Disease"
   - "Sudden Cardiac Death"
-  - "Heart-Kidney Axis"
+  - "Heart–Kidney Axis"
   - "Epidemiology"
   - "Proteomics"
   - "Risk Stratification"
@@ -24,8 +24,6 @@ paperUrl: "https://doi.org/10.1038/s41467-025-64254-9"
 draft: false
 ---
 
-This study published in *Nature Communications* investigates the link between chronic kidney disease and sudden cardiac death. The key findings include:
+Published in *Nature Communications*. This study examines the association between chronic kidney disease and sudden cardiac death risk using epidemiological data and proteomic profiling.
 
-- CKD is independently associated with a significantly increased risk of SCD, after adjusting for traditional cardiovascular risk factors.
-- Proteomic profiling identifies novel biomarkers that mediate the relationship between renal dysfunction and SCD susceptibility.
-- The findings highlight the importance of SCD risk assessment in patients with CKD and suggest potential therapeutic targets at the heart-kidney interface.
+After adjustment for traditional cardiovascular risk factors, CKD remains independently associated with a significantly increased risk of SCD. Proteomic analysis identifies circulating biomarkers that may mediate the relationship between renal dysfunction and SCD susceptibility, supporting targeted risk assessment in the CKD population.

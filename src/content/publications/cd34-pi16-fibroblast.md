@@ -1,6 +1,6 @@
 ---
 title: "CD34+ PI16+ Fibroblast Progenitors Aggravate Neointimal Lesions of Allograft Arteries via CCL11/CCR3-PI3K/AKT Pathway"
-description: "This study identifies CD34+ PI16+ fibroblast progenitors that exacerbate neointimal lesions in allograft arteries through the CCL11/CCR3-PI3K/AKT signaling pathway, providing new insights into the pathogenesis of transplant vasculopathy."
+description: "CD34+ PI16+ fibroblast progenitors are recruited to allograft arteries via CCL11/CCR3 and drive neointimal hyperplasia through PI3K/AKT signaling, suggesting a targetable mechanism in transplant vasculopathy."
 pubDate: 2025-02-01
 venue: "Theranostics"
 authors:
@@ -32,9 +32,6 @@ paperUrl: "https://doi.org/10.7150/thno.104153"
 draft: false
 ---
 
-This study published in *Theranostics* reveals that CD34+ PI16+ fibroblast progenitors aggravate neointimal lesions in allograft arteries. The key findings include:
+Published in *Theranostics*. This study identifies a CD34+ PI16+ fibroblast progenitor subset that contributes to neointimal hyperplasia in allograft arteries.
 
-- A novel subset of CD34+ PI16+ fibroblast progenitors is identified that contributes to neointimal hyperplasia in transplant vasculopathy.
-- These progenitors are recruited to the allograft arterial wall via the CCL11/CCR3 chemokine axis.
-- Activation of the PI3K/AKT signaling pathway drives the differentiation and proliferation of these cells.
-- Targeting the CCL11/CCR3-PI3K/AKT pathway may represent a potential therapeutic strategy for preventing transplant vasculopathy.
+These progenitors are recruited to the arterial wall via the CCL11/CCR3 chemokine axis and undergo differentiation and proliferation driven by PI3K/AKT signaling. Targeting the CCL11/CCR3-PI3K/AKT pathway attenuates neointimal formation in transplant models.

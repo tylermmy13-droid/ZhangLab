@@ -1,6 +1,6 @@
 ---
 title: "Nonbone Marrow CD34+ Cells Are Crucial for Endothelial Repair of Injured Artery"
-description: "This study demonstrates that nonbone marrow-derived CD34+ cells play a crucial role in endothelial repair of injured arteries, identifying a novel source of endothelial progenitor cells that contribute to vascular healing and neointimal formation."
+description: "Nonbone marrow CD34+ cells residing in the vessel wall contribute to endothelial repair after arterial injury. Depletion of these cells impairs re-endothelialization and exacerbates neointimal formation."
 pubDate: 2021-10-01
 venue: "Circulation Research"
 authors:
@@ -32,9 +32,6 @@ paperUrl: "https://doi.org/10.1161/CIRCRESAHA.121.319494"
 draft: false
 ---
 
-This study published in *Circulation Research* reveals that nonbone marrow CD34+ cells are essential for endothelial repair of injured arteries. The key findings include:
+Published in *Circulation Research*. This study demonstrates that a significant proportion of CD34+ cells contributing to endothelial repair after arterial injury originate from nonbone marrow sources, including the vessel wall itself.
 
-- A significant proportion of CD34+ cells contributing to endothelial repair originate from nonbone marrow sources, including the vessel wall.
-- These nonbone marrow CD34+ cells possess endothelial differentiation capacity and actively participate in re-endothelialization.
-- Depletion of nonbone marrow CD34+ cells impairs endothelial healing and exacerbates neointimal formation.
-- MiR-21 and Smad signaling pathways are involved in regulating the endothelial differentiation of these cells.
+These resident CD34+ cells possess endothelial differentiation capacity and actively participate in re-endothelialization. Depletion of this nonbone marrow population impairs endothelial healing and exacerbates neointimal formation. MiR-21 and Smad signaling pathways are involved in regulating their endothelial differentiation.

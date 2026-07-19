@@ -7,35 +7,32 @@ const collectionItems = (await getCollection('collections'))
   .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 ---
 
-<!-- ===== Research Directions — Editorial, thesis-driven ===== -->
+<!-- ===== Research Directions — Warm editorial cards, unified with site ===== -->
 <BaseLayout title="Research | Zhang Lab" description="Our five core research directions in cardiovascular medicine." headerMode="glass" bodyClass="home-warm">
   <main class="collection-archive">
     <section class="collection-hero">
       <div class="container collection-hero-inner">
-        <h1 class="collection-title" data-en="Research <em>Directions</em>" data-zh="研究<em>方向</em>">Research <em>Directions</em></h1>
-        <p class="collection-lede" data-en="Five integrated research programs spanning from basic vascular biology to AI-enabled clinical innovation." data-zh="五大集成研究项目，涵盖从血管基础生物学至AI赋能临床创新的广泛领域。">Five integrated research programs spanning from basic vascular biology to AI-enabled clinical innovation.</p>
-        <div class="hero-rule" aria-hidden="true"></div>
+        <h1 class="collection-title" data-en="Research <em>Areas</em>" data-zh="研究<em>方向</em>">Research <em>Areas</em></h1>
+        <p class="collection-lede" data-en="Five research areas, from vascular biology and cardiac repair to wearable health technologies and data-driven cardiovascular research." data-zh="五个研究领域，涵盖血管生物学、心肌修复、可穿戴健康技术及数据驱动的心血管研究。">Five research areas, from vascular biology and cardiac repair to wearable health technologies and data-driven cardiovascular research.</p>
       </div>
     </section>
 
     <section class="section directions-section">
       <div class="container">
-        <div class="directions-list">
+        <div class="directions-grid">
           {collectionItems.map((item, index) => {
             const num = String(index + 1).padStart(2, '0');
             return (
-              <a class="direction-entry" href={`/collections/${item.id}/`}>
-                <div class="direction-entry-inner">
-                  <span class="direction-number" aria-hidden="true">{num}</span>
-                  <div class="direction-body">
-                    <span class="direction-label" data-en={item.data.platform} data-zh={item.data.platformZh}>{item.data.platform}</span>
-                    <h2 class="direction-title" data-en={item.data.title} data-zh={item.data.titleZh}>{item.data.title}</h2>
-                    <p class="direction-desc" data-en={item.data.description} data-zh={item.data.descriptionZh}>{item.data.description}</p>
-                    <div class="direction-meta" aria-hidden="true">
-                      <span>{item.data.tags?.[0] || 'Research'}</span>
-                      <span>{item.data.pubDate.toLocaleDateString('en-US', { year: 'numeric' })}</span>
-                    </div>
-                  </div>
+              <a class="direction-card" href={`/collections/${item.id}/`}>
+                <div class="direction-card-media">
+                  <img src={item.data.image} alt="" loading="lazy" />
+                  <span class="direction-card-number" aria-hidden="true">{num}</span>
+                </div>
+                <div class="direction-card-body">
+                  <span class="direction-card-label" data-en={item.data.platform} data-zh={item.data.platformZh}>{item.data.platform}</span>
+                  <h2 class="direction-card-title" data-en={item.data.title} data-zh={item.data.titleZh}>{item.data.title}</h2>
+                  <p class="direction-card-desc" data-en={item.data.description} data-zh={item.data.descriptionZh}>{item.data.description}</p>
+                  <span class="direction-card-arrow" aria-hidden="true">→</span>
                 </div>
               </a>
             );
@@ -47,152 +44,176 @@ const collectionItems = (await getCollection('collections'))
 </BaseLayout>
 
 <style>
-  /* ===== Hero — Thesis-driven, typographically bold ===== */
+  /* ===== Hero — Bold, warm, editorial ===== */
   .collection-hero {
-    padding: 140px 0 48px;
+    padding: 140px 0 64px;
   }
   .collection-title {
     font-family: var(--font-title);
-    font-size: clamp(42px, 7vw, 80px);
+    font-size: clamp(48px, 8vw, 96px);
     font-weight: 400;
-    line-height: 1.05;
-    letter-spacing: -0.035em;
+    line-height: 1.0;
+    letter-spacing: -0.04em;
     color: var(--ink);
-    margin: 0 0 24px;
-    max-width: 840px;
+    margin: 0 0 28px;
+    max-width: 900px;
   }
   .collection-title em {
     font-style: italic;
   }
   .collection-lede {
     font-family: var(--font-body);
-    font-size: 18px;
-    line-height: 1.65;
+    font-size: clamp(17px, 1.4vw, 21px);
+    line-height: 1.6;
     color: var(--muted);
-    max-width: 580px;
-    margin: 0 0 40px;
-  }
-  .hero-rule {
-    width: 100%;
-    height: 1px;
-    background: var(--line);
+    max-width: 620px;
+    margin: 0;
   }
 
-  /* ===== Directions — Editorial list, generous spacing ===== */
+  /* ===== Direction Cards — Warm, rounded, unified with site ===== */
   .directions-section {
     padding-top: 0;
     padding-bottom: 120px;
   }
-  .directions-list {
+  .directions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .direction-card {
     display: flex;
     flex-direction: column;
-  }
-
-  .direction-entry {
-    display: block;
     text-decoration: none;
     color: inherit;
-    border-top: 1px solid var(--line);
-    transition: background 0.5s ease;
+    background: #e4dbcd;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: background 0.45s ease, transform 0.45s cubic-bezier(.16, .84, .24, 1), box-shadow 0.45s ease;
   }
-  .direction-entry:last-child {
-    border-bottom: 1px solid var(--line);
-  }
-  .direction-entry:hover {
-    background: rgba(30, 31, 30, 0.012);
-  }
-
-  .direction-entry-inner {
-    display: grid;
-    grid-template-columns: 60px 1fr;
-    gap: 48px;
-    padding: 56px 0;
-    align-items: start;
+  .direction-card:hover {
+    background: #f4e5c7;
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(30, 31, 30, 0.10);
   }
 
-  /* Number — minimal, like a chapter mark in a book */
-  .direction-number {
+  /* Media area */
+  .direction-card-media {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    border-radius: 24px 24px 0 0;
+    background: var(--blue-2);
+  }
+  .direction-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 520ms cubic-bezier(.16, .84, .24, 1);
+  }
+  .direction-card:hover .direction-card-media img {
+    transform: scale(1.07);
+  }
+
+  /* Number badge — large, warm, sits on image */
+  .direction-card-number {
+    position: absolute;
+    top: 20px;
+    left: 20px;
     font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
-    font-size: 15px;
+    font-size: 56px;
     font-weight: 400;
-    color: rgba(30, 31, 30, 0.20);
-    line-height: 1.6;
-    letter-spacing: 0.02em;
-    padding-top: 2px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  .direction-card:hover .direction-card-number {
+    color: #fff;
+    transform: scale(1.05);
   }
 
-  /* Body */
-  .direction-body {
-    max-width: 720px;
+  /* Card body */
+  .direction-card-body {
+    padding: 28px 28px 32px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
-  .direction-label {
+  .direction-card-label {
     display: block;
     font-family: var(--font-body);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.10em;
     text-transform: uppercase;
-    color: rgba(30, 31, 30, 0.40);
-    margin-bottom: 14px;
+    color: rgba(30, 31, 30, 0.42);
+    margin-bottom: 12px;
   }
-  .direction-title {
+  .direction-card-title {
     font-family: var(--font-title);
-    font-size: clamp(28px, 3.6vw, 46px);
+    font-size: clamp(22px, 2vw, 30px);
     font-weight: 400;
-    line-height: 1.12;
-    letter-spacing: -0.025em;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
     color: var(--ink);
     margin: 0 0 14px;
-    transition: color 0.35s ease;
   }
-  .direction-entry:hover .direction-title {
-    color: var(--blue);
-  }
-  .direction-desc {
+  .direction-card-desc {
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.65;
     color: var(--muted);
-    margin: 0 0 20px;
-    max-width: 560px;
+    margin: 0 0 22px;
+    flex: 1;
   }
-  .direction-meta {
-    display: flex;
-    gap: 28px;
-    font-family: var(--font-body);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(30, 31, 30, 0.30);
+  .direction-card-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(30, 31, 30, 0.08);
+    color: var(--ink);
+    font-size: 18px;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  }
+  .direction-card:hover .direction-card-arrow {
+    background: var(--ink);
+    color: #f4e5c7;
+    transform: translateX(4px);
   }
 
   /* Responsive */
+  @media (max-width: 1024px) {
+    .directions-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
   @media (max-width: 720px) {
     .collection-hero {
-      padding: 110px 0 36px;
+      padding: 110px 0 48px;
     }
     .collection-title {
-      font-size: 32px;
-      letter-spacing: -0.025em;
+      font-size: clamp(36px, 10vw, 52px);
+      letter-spacing: -0.03em;
     }
-    .collection-lede {
-      font-size: 16px;
-    }
-    .direction-entry-inner {
+    .directions-grid {
       grid-template-columns: 1fr;
-      gap: 6px;
-      padding: 40px 0;
+      gap: 24px;
     }
-    .direction-number {
-      font-size: 13px;
-      color: rgba(30, 31, 30, 0.15);
+    .direction-card-number {
+      font-size: 44px;
+      top: 16px;
+      left: 16px;
     }
-    .direction-title {
-      font-size: 24px;
+    .direction-card-body {
+      padding: 22px 22px 26px;
     }
-    .direction-desc {
-      font-size: 15px;
+    .direction-card-title {
+      font-size: 22px;
     }
   }
 </style>

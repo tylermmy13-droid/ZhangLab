@@ -1,6 +1,6 @@
 ---
 title: "Nrf3-Mediated Mitochondrial Superoxide Promotes Cardiomyocyte Apoptosis and Impairs Cardiac Functions by Suppressing Pitx2"
-description: "This study reveals that Nrf3 promotes injury-induced cardiomyocyte apoptosis and deteriorates cardiac function by increasing mitochondrial ROS production through suppression of Pitx2 expression, identifying the Nrf3–Pitx2–mitochondrial ROS signaling axis as a potential therapeutic target for myocardial infarction."
+description: "Nrf3 is elevated in post-MI hearts and promotes cardiomyocyte apoptosis through increased mitochondrial ROS. It suppresses Pitx2 via promoter methylation, recruiting the hnRNPK–DNMT1 complex."
 pubDate: 2025-03-18
 venue: "Circulation"
 authors:
@@ -27,10 +27,6 @@ paperSite: "nrf3-circulation"
 draft: false
 ---
 
-This study published in *Circulation* (Volume 151, Number 14) reveals a novel mechanism by which Nrf3 promotes injury-induced cardiomyocyte apoptosis and deteriorates cardiac function. The key findings include:
+Published in *Circulation* (Volume 151, Number 14). Nrf3 is primarily expressed in cardiomyocytes of healthy human hearts and is elevated in the border zone of infarcted hearts and post-MI mouse hearts.
 
-- Nrf3 is primarily expressed in cardiomyocytes of healthy human hearts and elevated in the border zone of infarcted human hearts and post-MI mouse hearts.
-- Both global and cardiomyocyte-specific Nrf3 knockout significantly reduce injury-induced mitochondrial ROS production, cardiomyocyte apoptosis, and pathological cardiac remodeling.
-- Nrf3 promotes cardiomyocyte apoptosis by increasing mitochondrial ROS production across multiple species (mouse, rat, and human iPSC-derived cardiomyocytes).
-- Mechanistically, Nrf3 binds to the Pitx2 promoter and recruits the hnRNPK–DNMT1 complex to increase DNA methylation, thereby suppressing Pitx2 expression.
-- Targeting the Nrf3–Pitx2–mitochondrial ROS signaling axis represents a novel therapeutic approach for myocardial infarction.
+Both global and cardiomyocyte-specific Nrf3 knockout reduce injury-induced mitochondrial ROS production, cardiomyocyte apoptosis, and pathological remodeling after myocardial infarction. The effect is conserved across mouse, rat, and human iPSC-derived cardiomyocytes. Mechanistically, Nrf3 binds to the Pitx2 promoter and recruits the hnRNPK–DNMT1 complex to increase DNA methylation, thereby suppressing Pitx2 expression and downstream mitochondrial homeostasis.

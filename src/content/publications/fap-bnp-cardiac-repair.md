@@ -1,6 +1,6 @@
 ---
 title: "Inhibition of Fap Promotes Cardiac Repair by Stabilizing BNP"
-description: "This study reveals that inhibition of fibroblast activation protein (Fap) promotes cardiac repair after myocardial infarction by stabilizing B-type natriuretic peptide (BNP), identifying the Fap–BNP axis as a novel therapeutic target for heart failure."
+description: "Fibroblast activation protein (Fap) cleaves B-type natriuretic peptide (BNP) in the infarcted heart. Inhibition of Fap stabilizes BNP, reduces infarct size, and improves post-MI cardiac function."
 pubDate: 2023-02-10
 venue: "Circulation Research"
 authors:
@@ -37,9 +37,6 @@ paperUrl: "https://doi.org/10.1161/CIRCRESAHA.122.320933"
 draft: false
 ---
 
-This study published in *Circulation Research* demonstrates that inhibition of fibroblast activation protein (Fap) promotes cardiac repair after myocardial infarction by stabilizing BNP. The key findings include:
+Published in *Circulation Research*. This study demonstrates that fibroblast activation protein (Fap) is upregulated in the infarcted heart and cleaves B-type natriuretic peptide (BNP), reducing its bioavailability.
 
-- Fap expression is significantly upregulated in the infarcted heart and cleaves BNP, reducing its bioavailability.
-- Pharmacological inhibition or genetic deletion of Fap increases BNP levels and enhances its cardioprotective effects.
-- Fap inhibition reduces infarct size, improves cardiac function, and attenuates adverse remodeling.
-- The Fap–BNP axis represents a novel therapeutic target for heart failure after myocardial infarction.
+Pharmacological inhibition or genetic deletion of Fap increases BNP levels and enhances its cardioprotective effects, reducing infarct size and improving cardiac function after myocardial infarction. The Fap–BNP axis represents a potential target for post-MI cardiac repair.

@@ -16,7 +16,7 @@ const date = item.data.pubDate.toLocaleDateString('en-US', {
 });
 ---
 
-<!-- ===== Research Direction Detail — Thesis page, clean editorial ===== -->
+<!-- ===== Research Direction Detail — Warm, editorial, unified ===== -->
 <BaseLayout title={`${item.data.title} | Research`} description={item.data.description} headerMode="glass" bodyClass="home-warm">
   <main class="collection-detail">
     <section class="detail-hero">
@@ -30,7 +30,6 @@ const date = item.data.pubDate.toLocaleDateString('en-US', {
           <span class="detail-meta-sep">·</span>
           <span>{item.data.tags?.join(' · ') || 'Research'}</span>
         </div>
-        <div class="detail-rule" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -53,12 +52,12 @@ const date = item.data.pubDate.toLocaleDateString('en-US', {
 <style>
   .detail-hero {
     padding-top: 150px;
-    padding-bottom: 48px;
+    padding-bottom: 56px;
   }
   .detail-back {
     display: inline-block;
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 15px;
     color: var(--muted);
     text-decoration: none;
     margin-bottom: 64px;
@@ -69,84 +68,86 @@ const date = item.data.pubDate.toLocaleDateString('en-US', {
   }
   .detail-label {
     font-family: var(--font-body);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.10em;
     text-transform: uppercase;
     color: rgba(30, 31, 30, 0.40);
-    margin: 0 0 18px;
+    margin: 0 0 20px;
   }
   .detail-hero h1 {
     font-family: var(--font-title);
-    font-size: clamp(36px, 5.5vw, 68px);
+    font-size: clamp(40px, 6vw, 72px);
     font-weight: 400;
-    line-height: 1.08;
-    letter-spacing: -0.035em;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
     color: var(--ink);
     margin: 0 0 24px;
-    max-width: 840px;
+    max-width: 900px;
   }
   .detail-description {
     font-family: var(--font-body);
-    font-size: 19px;
+    font-size: clamp(17px, 1.4vw, 21px);
     line-height: 1.65;
     color: var(--muted);
-    max-width: 640px;
-    margin: 0 0 18px;
+    max-width: 680px;
+    margin: 0 0 20px;
   }
   .detail-meta {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     align-items: center;
     font-family: var(--font-body);
-    font-size: 13px;
+    font-size: 14px;
     color: rgba(30, 31, 30, 0.40);
-    margin-bottom: 32px;
   }
   .detail-meta-sep {
     font-size: 14px;
-    opacity: 0.6;
-  }
-  .detail-rule {
-    width: 100%;
-    height: 1px;
-    background: var(--line);
+    opacity: 0.5;
   }
 
   .detail-cover-section {
     padding-top: 0;
-    padding-bottom: 72px;
+    padding-bottom: 80px;
   }
   .detail-cover {
     width: 100%;
     overflow: hidden;
-    border-radius: 2px;
+    border-radius: 24px;
+    background: var(--blue-2);
   }
   .detail-cover img {
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 520ms cubic-bezier(.16, .84, .24, 1);
+  }
+  .detail-cover:hover img {
+    transform: scale(1.03);
   }
 
   .detail-body {
     padding-top: 0;
-    padding-bottom: 120px;
+    padding-bottom: 140px;
   }
 
   @media (max-width: 720px) {
     .detail-hero {
       padding-top: 110px;
-      padding-bottom: 36px;
+      padding-bottom: 40px;
     }
     .detail-back {
       margin-bottom: 48px;
     }
     .detail-hero h1 {
-      font-size: 30px;
-      letter-spacing: -0.025em;
+      font-size: 32px;
+      letter-spacing: -0.03em;
     }
     .detail-description {
       font-size: 16px;
+    }
+    .detail-cover {
+      border-radius: 16px;
     }
   }
 </style>

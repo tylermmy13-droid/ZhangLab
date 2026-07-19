@@ -291,8 +291,7 @@ img { max-width: 100%; display: block; }
 .collection-hero,
 .publication-hero {
   position: relative;
-  min-height: 420px;
-  padding: 128px 0 56px;
+  padding: 100px 0 32px;
   overflow: hidden;
   background: transparent;
 }
@@ -304,7 +303,7 @@ img { max-width: 100%; display: block; }
   display: grid;
   justify-items: center;
   text-align: center;
-  padding-top: 58px;
+  padding-top: 28px;
 }
 
 .collection-title,
@@ -854,9 +853,9 @@ img { max-width: 100%; display: block; }
   .button.section-cta { margin-top: 18px; }
   .card-grid { grid-template-columns: 1fr; }
   .collection-hero,
-  .publication-hero { min-height: 360px; padding-top: 100px; padding-bottom: 32px; }
+  .publication-hero { padding-top: 88px; padding-bottom: 24px; }
   .collection-hero-inner,
-  .publication-hero-inner { padding-top: 20px; }
+  .publication-hero-inner { padding-top: 16px; }
   .collection-title,
   .publication-title { font-size: clamp(40px, 9vw, 60px); }
   .collection-lede,

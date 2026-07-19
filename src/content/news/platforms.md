@@ -1,10 +1,10 @@
 ---
 title: "Integrated cardiovascular research platforms"
-description: "The group integrates clinical cardiology, vascular biology, organoid-chip models, bioinformatics, and AI-enabled health research."
+description: "The group integrates clinical cardiology, vascular biology, organoid-chip models, bioinformatics, and computational health research."
 pubDate: 2026-06-20
 tags: ["platform"]
 image: "/assets/cards/publication-sky.png"
-draft: false
+draft: true
 ---
 
-Zhang Lab develops a clinical and translational ecosystem linking cardiovascular care with experimental platforms and computational tools.
+Zhang Lab works across clinical cardiology, experimental models, and computational methods to address cardiovascular disease.

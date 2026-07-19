@@ -1,22 +1,19 @@
 ---
-title: "Myocardial infarction, ventricular remodeling and heart failure"
-titleZh: "心肌梗死、心室重构和心力衰竭的病理机制及转化研究"
-description: "Pathological mechanisms and translational research on myocardial infarction, ventricular remodeling, and heart failure, focusing on cardiomyocyte apoptosis, mitochondrial dysfunction, and cardiac regeneration strategies."
-descriptionZh: "聚焦心肌梗死、心室重构与心力衰竭的病理机制及转化研究，涵盖心肌细胞凋亡、线粒体功能障碍及心肌再生策略等方向。"
+title: "Myocardial injury, ventricular remodeling, and heart failure"
+titleZh: "心肌损伤、心室重构与心力衰竭"
+description: "Studies of the cellular and molecular mechanisms that drive myocardial injury, adverse remodeling, and progression to heart failure, with emphasis on mitochondrial biology."
+descriptionZh: "驱动心肌损伤、不良重构及心力衰竭进展的细胞与分子机制研究，侧重线粒体生物学。"
 pubDate: 2026-07-02
-platform: "Research Direction"
+platform: "Research Area"
 platformZh: "研究方向"
 tags: ["Heart Failure", "Cardiomyopathy", "Mitochondria"]
 image: "/assets/cards/nrf3-cover.png"
 accentColor: "#d97757"
 ---
 
-## Research Focus
+We examine how cardiac injury initiates pathological remodeling and why some hearts recover while others progress to failure. A major focus is mitochondrial biology—how reactive oxygen species production, mitochondrial dynamics, and cardiomyocyte death interact to determine post-injury outcomes. We also ask how cardiac fibroblasts and the extracellular matrix contribute to remodeling.
 
-We investigate the molecular mechanisms driving myocardial injury, adverse ventricular remodeling, and the progression to heart failure. Our work bridges basic discoveries with clinical translational applications, with particular emphasis on mitochondrial biology and cardiac cell fate regulation.
-
-### Key Areas:
 - **Mitochondrial superoxide and cardiomyocyte apoptosis**: Nrf3-mediated mitochondrial dysfunction in cardiac injury
-- **Ventricular remodeling**: Mechanisms of pathological cardiac remodeling post-infarction
-- **Cardiac regeneration**: Strategies to promote cardiomyocyte survival and cardiac repair
-- **Translational therapeutics**: From molecular targets to interventional cardiology applications
+- **Ventricular remodeling**: Cellular mechanisms of pathological remodeling after infarction
+- **Cardiac repair**: Strategies to promote cardiomyocyte survival and limit adverse remodeling
+- **Fibroblast activation**: The Fap–BNP axis and matrix remodeling after myocardial infarction

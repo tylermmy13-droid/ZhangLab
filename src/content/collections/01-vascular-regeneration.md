@@ -1,22 +1,19 @@
 ---
-title: "Vascular regeneration, repair and remodeling mechanisms"
-titleZh: "血管再生修复和重构机制及干预研究"
-description: "Mechanistic and translational research on vascular injury, repair, regeneration, and remodeling, including endothelial progenitor cell biology, smooth muscle cell plasticity, and neointimal hyperplasia interventions."
-descriptionZh: "围绕血管损伤后再生修复与病理性重构的关键机制及干预策略开展研究，包括内皮祖细胞生物学、平滑肌细胞可塑性及内膜增生干预等方向。"
+title: "Vascular injury, repair, and remodeling"
+titleZh: "血管损伤、修复与重构"
+description: "Mechanistic studies of vascular injury response, endothelial repair, smooth muscle cell plasticity, and pathological remodeling."
+descriptionZh: "血管损伤反应、内皮修复、平滑肌细胞可塑性及病理性重构的机制研究。"
 pubDate: 2026-07-01
-platform: "Research Direction"
+platform: "Research Area"
 platformZh: "研究方向"
-tags: ["Regeneration", "Vascular Biology", "Intervention"]
+tags: ["Vascular Biology", "Endothelial Repair", "Smooth Muscle Cell"]
 image: "/assets/cards/publication-blue.png"
 accentColor: "#6a9bcc"
 ---
 
-## Research Focus
+We study how blood vessels respond to injury and how repair can go awry. The work centers on endothelial progenitor cell biology, smooth muscle cell phenotypic switching, and the mechanisms that drive neointimal hyperplasia after arterial damage. We use in vivo injury models, vascular organoids, and single-cell approaches to trace cellular dynamics and test candidate pathways.
 
-Our laboratory investigates the fundamental mechanisms governing vascular injury response, regeneration, and pathological remodeling. We employ multi-omics approaches, vascular organoid platforms, and in vivo injury models to dissect the cellular and molecular events that determine vascular repair outcomes.
-
-### Key Areas:
-- **Endothelial progenitor cell biology**: CD34+ cell-mediated vascular repair and endothelial regeneration
+- **Endothelial progenitor cells**: CD34+ cell-mediated re-endothelialization after vascular injury
 - **Smooth muscle cell plasticity**: Phenotypic switching and its role in vascular remodeling
-- **Neointimal hyperplasia**: Mechanisms and therapeutic interventions for restenosis
-- **Vascularized organoid systems**: Patient-derived models for disease modeling and drug screening
+- **Neointimal hyperplasia**: Cellular and molecular mechanisms underlying restenosis
+- **Vascular organoid models**: Patient-derived systems for disease modeling and screening
