@@ -1,26 +1,198 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import CollectionCard from '../../components/CollectionCard.astro';
 
 const collectionItems = (await getCollection('collections'))
   .filter((item) => !item.data.draft)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 ---
-<!-- ===== 研究方向列表页 ===== -->
-<BaseLayout title="Research | Zhang Lab" description="Our research directions." headerMode="glass" bodyClass="home-warm">
+
+<!-- ===== Research Directions — Editorial, thesis-driven ===== -->
+<BaseLayout title="Research | Zhang Lab" description="Our five core research directions in cardiovascular medicine." headerMode="glass" bodyClass="home-warm">
   <main class="collection-archive">
     <section class="collection-hero">
       <div class="container collection-hero-inner">
-        <h1 class="collection-title" data-en="Research directions" data-zh="研究方向">Research directions</h1>
-        <p class="collection-lede" data-en="We are dedicated to multiple research directions." data-zh="张力课题组致力于多个研究方向。">We are dedicated to multiple research directions.</p>
+        <h1 class="collection-title" data-en="Research <em>Directions</em>" data-zh="研究<em>方向</em>">Research <em>Directions</em></h1>
+        <p class="collection-lede" data-en="Five integrated research programs spanning from basic vascular biology to AI-enabled clinical innovation." data-zh="五大集成研究项目，涵盖从血管基础生物学至AI赋能临床创新的广泛领域。">Five integrated research programs spanning from basic vascular biology to AI-enabled clinical innovation.</p>
+        <div class="hero-rule" aria-hidden="true"></div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section directions-section">
       <div class="container">
-        <div class="card-grid">{collectionItems.map((item) => <CollectionCard item={item} />)}</div>
+        <div class="directions-list">
+          {collectionItems.map((item, index) => {
+            const num = String(index + 1).padStart(2, '0');
+            return (
+              <a class="direction-entry" href={`/collections/${item.id}/`}>
+                <div class="direction-entry-inner">
+                  <span class="direction-number" aria-hidden="true">{num}</span>
+                  <div class="direction-body">
+                    <span class="direction-label" data-en={item.data.platform} data-zh={item.data.platformZh}>{item.data.platform}</span>
+                    <h2 class="direction-title" data-en={item.data.title} data-zh={item.data.titleZh}>{item.data.title}</h2>
+                    <p class="direction-desc" data-en={item.data.description} data-zh={item.data.descriptionZh}>{item.data.description}</p>
+                    <div class="direction-meta" aria-hidden="true">
+                      <span>{item.data.tags?.[0] || 'Research'}</span>
+                      <span>{item.data.pubDate.toLocaleDateString('en-US', { year: 'numeric' })}</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            );
+          })}
+        </div>
       </div>
     </section>
   </main>
 </BaseLayout>
+
+<style>
+  /* ===== Hero — Thesis-driven, typographically bold ===== */
+  .collection-hero {
+    padding: 140px 0 48px;
+  }
+  .collection-title {
+    font-family: var(--font-title);
+    font-size: clamp(42px, 7vw, 80px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin: 0 0 24px;
+    max-width: 840px;
+  }
+  .collection-title em {
+    font-style: italic;
+  }
+  .collection-lede {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--muted);
+    max-width: 580px;
+    margin: 0 0 40px;
+  }
+  .hero-rule {
+    width: 100%;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ===== Directions — Editorial list, generous spacing ===== */
+  .directions-section {
+    padding-top: 0;
+    padding-bottom: 120px;
+  }
+  .directions-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .direction-entry {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-top: 1px solid var(--line);
+    transition: background 0.5s ease;
+  }
+  .direction-entry:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .direction-entry:hover {
+    background: rgba(30, 31, 30, 0.012);
+  }
+
+  .direction-entry-inner {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 48px;
+    padding: 56px 0;
+    align-items: start;
+  }
+
+  /* Number — minimal, like a chapter mark in a book */
+  .direction-number {
+    font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(30, 31, 30, 0.20);
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    padding-top: 2px;
+  }
+
+  /* Body */
+  .direction-body {
+    max-width: 720px;
+  }
+  .direction-label {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(30, 31, 30, 0.40);
+    margin-bottom: 14px;
+  }
+  .direction-title {
+    font-family: var(--font-title);
+    font-size: clamp(28px, 3.6vw, 46px);
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 0 0 14px;
+    transition: color 0.35s ease;
+  }
+  .direction-entry:hover .direction-title {
+    color: var(--blue);
+  }
+  .direction-desc {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--muted);
+    margin: 0 0 20px;
+    max-width: 560px;
+  }
+  .direction-meta {
+    display: flex;
+    gap: 28px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(30, 31, 30, 0.30);
+  }
+
+  /* Responsive */
+  @media (max-width: 720px) {
+    .collection-hero {
+      padding: 110px 0 36px;
+    }
+    .collection-title {
+      font-size: 32px;
+      letter-spacing: -0.025em;
+    }
+    .collection-lede {
+      font-size: 16px;
+    }
+    .direction-entry-inner {
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding: 40px 0;
+    }
+    .direction-number {
+      font-size: 13px;
+      color: rgba(30, 31, 30, 0.15);
+    }
+    .direction-title {
+      font-size: 24px;
+    }
+    .direction-desc {
+      font-size: 15px;
+    }
+  }
+</style>

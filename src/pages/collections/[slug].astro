@@ -15,25 +15,138 @@ const date = item.data.pubDate.toLocaleDateString('en-US', {
   day: 'numeric'
 });
 ---
-<!-- ===== 研究方向详情页 ===== -->
-<BaseLayout title={`${item.data.title} | Collections`} description={item.data.description} headerMode="glass" bodyClass="home-warm">
+
+<!-- ===== Research Direction Detail — Thesis page, clean editorial ===== -->
+<BaseLayout title={`${item.data.title} | Research`} description={item.data.description} headerMode="glass" bodyClass="home-warm">
   <main class="collection-detail">
     <section class="detail-hero">
       <div class="container">
-        <a class="detail-back" href="/collections/" data-en="← Collections" data-zh="← 返回">← Collections</a>
-        <p class="detail-kicker-pill">{item.data.platform}</p>
-        <h1>{item.data.title}</h1>
-        <p class="detail-description">{item.data.description}</p>
+        <a class="detail-back" href="/collections/" data-en="← Research Directions" data-zh="← 研究方向">← Research Directions</a>
+        <p class="detail-label" data-en={item.data.platform} data-zh={item.data.platformZh}>{item.data.platform}</p>
+        <h1 data-en={item.data.title} data-zh={item.data.titleZh}>{item.data.title}</h1>
+        <p class="detail-description" data-en={item.data.description} data-zh={item.data.descriptionZh}>{item.data.description}</p>
         <div class="detail-meta">
           <span>{date}</span>
+          <span class="detail-meta-sep">·</span>
+          <span>{item.data.tags?.join(' · ') || 'Research'}</span>
         </div>
-        <div class="detail-cover-wide">
+        <div class="detail-rule" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="section detail-cover-section">
+      <div class="container">
+        <div class="detail-cover">
           <img src={item.data.image} alt="" />
         </div>
       </div>
     </section>
-    <section class="section">
-      <div class="prose"><Content /></div>
+
+    <section class="section detail-body">
+      <div class="container">
+        <div class="prose"><Content /></div>
+      </div>
     </section>
   </main>
 </BaseLayout>
+
+<style>
+  .detail-hero {
+    padding-top: 150px;
+    padding-bottom: 48px;
+  }
+  .detail-back {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 64px;
+    transition: color 0.25s ease;
+  }
+  .detail-back:hover {
+    color: var(--ink);
+  }
+  .detail-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(30, 31, 30, 0.40);
+    margin: 0 0 18px;
+  }
+  .detail-hero h1 {
+    font-family: var(--font-title);
+    font-size: clamp(36px, 5.5vw, 68px);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin: 0 0 24px;
+    max-width: 840px;
+  }
+  .detail-description {
+    font-family: var(--font-body);
+    font-size: 19px;
+    line-height: 1.65;
+    color: var(--muted);
+    max-width: 640px;
+    margin: 0 0 18px;
+  }
+  .detail-meta {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: rgba(30, 31, 30, 0.40);
+    margin-bottom: 32px;
+  }
+  .detail-meta-sep {
+    font-size: 14px;
+    opacity: 0.6;
+  }
+  .detail-rule {
+    width: 100%;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .detail-cover-section {
+    padding-top: 0;
+    padding-bottom: 72px;
+  }
+  .detail-cover {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .detail-cover img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .detail-body {
+    padding-top: 0;
+    padding-bottom: 120px;
+  }
+
+  @media (max-width: 720px) {
+    .detail-hero {
+      padding-top: 110px;
+      padding-bottom: 36px;
+    }
+    .detail-back {
+      margin-bottom: 48px;
+    }
+    .detail-hero h1 {
+      font-size: 30px;
+      letter-spacing: -0.025em;
+    }
+    .detail-description {
+      font-size: 16px;
+    }
+  }
+</style>

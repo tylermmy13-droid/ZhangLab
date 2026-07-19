@@ -35,14 +35,18 @@ const collectionItems = defineCollection({
   }),
   schema: z.object({
     title: z.string(),
+    titleZh: z.string(),
     description: z.string(),
+    descriptionZh: z.string(),
     pubDate: z.coerce.date(),
     platform: z.string(),
+    platformZh: z.string(),
     tags: z.array(z.string()).default([]),
     image: z.string(),
     githubUrl: z.string().url().optional(),
     huggingfaceUrl: z.string().url().optional(),
-    draft: z.boolean().default(false)
+    draft: z.boolean().default(false),
+    accentColor: z.string().optional()
   })
 });
 
