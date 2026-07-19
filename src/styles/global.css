@@ -902,7 +902,8 @@ img { max-width: 100%; display: block; }
 }
 
 .home-warm > main {
-  overflow: hidden;
+  /* The homepage campaign scene uses a sticky full-viewport panel. */
+  overflow: visible;
 }
 
 .home-warm > main > section,
@@ -1260,4 +1261,3 @@ img { max-width: 100%; display: block; }
     right: 12px;
   }
 }
-
