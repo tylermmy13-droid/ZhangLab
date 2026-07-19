@@ -16,12 +16,12 @@ const date = item.data.pubDate.toLocaleDateString('en-US', {
 });
 ---
 
-<!-- ===== Research Direction Detail — Warm, editorial, unified ===== -->
+<!-- ===== Research Area Detail — Warm, editorial, unified ===== -->
 <BaseLayout title={`${item.data.title} | Research`} description={item.data.description} headerMode="glass" bodyClass="home-warm">
   <main class="collection-detail">
     <section class="detail-hero">
       <div class="container">
-        <a class="detail-back" href="/collections/" data-en="← Research Directions" data-zh="← 研究方向">← Research Directions</a>
+        <a class="detail-back" href="/collections/" data-en="← Research Areas" data-zh="← 研究方向">← Research Areas</a>
         <p class="detail-label" data-en={item.data.platform} data-zh={item.data.platformZh}>{item.data.platform}</p>
         <h1 data-en={item.data.title} data-zh={item.data.titleZh}>{item.data.title}</h1>
         <p class="detail-description" data-en={item.data.description} data-zh={item.data.descriptionZh}>{item.data.description}</p>

@@ -10,7 +10,7 @@ const accentColor = item.data.accentColor || '#6a9bcc';
     <img class="card-image" src={item.data.image} alt="" loading="lazy" />
   </span>
   <div class="collection-card-body">
-    <span class="tag-pill collection-tag">{item.data.platform}</span>
+    <span class="tag-pill collection-tag" data-en={item.data.platform} data-zh={item.data.platformZh}>{item.data.platform}</span>
     <h3 class="collection-card-title" data-en={item.data.title} data-zh={item.data.titleZh}>{item.data.title}</h3>
     <p data-en={item.data.description} data-zh={item.data.descriptionZh}>{item.data.description}</p>
     <span class="card-meta">{pubDate}</span>
