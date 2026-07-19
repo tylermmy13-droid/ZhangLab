@@ -22,15 +22,17 @@
   }
 
   .home-hero-content {
+    position: relative;
+    top: -64px;
     display: grid;
     grid-template-columns: minmax(0, 1.28fr) minmax(280px, 0.72fr);
-    align-items: end;
+    align-items: center;
     gap: clamp(48px, 9vw, 160px);
     width: min(calc(100% - 96px), 1520px);
     min-height: 100vh;
     min-height: 100dvh;
     margin: 0 auto;
-    padding: clamp(150px, 22vh, 260px) 0 clamp(116px, 14vh, 176px);
+    padding: clamp(132px, 16vh, 180px) 0 clamp(156px, 19vh, 208px);
     animation: homeHeroFadeIn 0.9s ease-out both;
   }
 
@@ -44,6 +46,13 @@
     line-height: 1;
     letter-spacing: -0.04em;
     text-align: left;
+  }
+
+  :global(html[lang="zh-CN"]) .home-hero-title {
+    max-width: 980px;
+    font-size: clamp(54px, 6.45vw, 106px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
   }
 
   .home-hero-summary {
@@ -69,7 +78,7 @@
     gap: 8px;
     color: var(--ink);
     font-family: var(--font-body);
-    font-size: 12px;
+    font-size: 24px;
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -81,8 +90,8 @@
   }
 
   .home-hero-scroll svg {
-    width: 22px;
-    height: 22px;
+    width: 40px;
+    height: 40px;
   }
 
   .home-hero-scroll:hover {
@@ -96,6 +105,7 @@
 
   @media (max-width: 900px) {
     .home-hero-content {
+      top: 0;
       grid-template-columns: 1fr;
       align-content: end;
       gap: 36px;
@@ -107,6 +117,11 @@
     .home-hero-title {
       max-width: 760px;
       font-size: clamp(44px, 8vw, 72px);
+    }
+
+    :global(html[lang="zh-CN"]) .home-hero-title {
+      font-size: clamp(48px, 9vw, 78px);
+      line-height: 1.12;
     }
 
     .home-hero-summary {
@@ -136,7 +151,12 @@
 
     .home-hero-scroll {
       bottom: 22px;
-      font-size: 11px;
+      font-size: 15px;
+    }
+
+    .home-hero-scroll svg {
+      width: 30px;
+      height: 30px;
     }
   }
 </style>
