@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@astrojs/mdx": "latest",
-    "astro": "latest",
-    "mapbox-gl": "^3.23.0"
+    "astro": "latest"
   }
 }

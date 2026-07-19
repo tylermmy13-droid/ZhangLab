@@ -2,7 +2,7 @@
 // 获取最新新闻、论文、研究方向各3条（排除草稿，按日期倒序）
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import GlobeMap from '../components/GlobeMap.astro';
+import HomeHero from '../components/HomeHero.astro';
 import NewsCard from '../components/NewsCard.astro';
 import PublicationCard from '../components/PublicationCard.astro';
 import CollectionCard from '../components/CollectionCard.astro';
@@ -12,10 +12,10 @@ const publications = (await getCollection('publications')).filter((item) => !ite
 const collectionItems = (await getCollection('collections')).filter((item) => !item.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
 ---
 <!-- ===== 首页 ===== -->
-<!-- 展示地球 + 最新三条新闻/研究方向/论文 -->
+<!-- 展示首页首屏与最新三条新闻、研究方向、论文 -->
 <BaseLayout title="Zhang Lab" description="Clinical cardiology, vascular biology, and translational research at Xinhua Hospital." headerMode="glass" bodyClass="home-warm">
   <main>
-    <GlobeMap />
+    <HomeHero />
 
     <!-- ===== 最新动态 ===== -->
     <section class="section" id="news">
