@@ -102,6 +102,11 @@
     letter-spacing: -0.025em;
   }
 
+  /* Chinese title occupies two taller lines; lift both columns together. */
+  :global(html[lang="zh-CN"]) .home-hero-content {
+    transform: translateY(clamp(-100px, -7vh, -64px));
+  }
+
   .home-hero-summary {
     align-self: end;
     max-width: 510px;
@@ -150,6 +155,10 @@
       width: min(calc(100% - 56px), 760px);
       padding-top: 150px;
       padding-bottom: 180px;
+    }
+
+    :global(html[lang="zh-CN"]) .home-hero-content {
+      transform: none;
     }
 
     .home-hero-title {
