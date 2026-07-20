@@ -28,7 +28,7 @@
       const progress = Math.min(rawProgress / 0.68, 1);
       const eased = progress * progress * (3 - 2 * progress);
       const startInset = Math.min(48, Math.max(20, window.innerWidth * 0.025));
-      const startTop = viewportHeight - Math.max(96, Math.min(132, viewportHeight * 0.12));
+      const startTop = viewportHeight - Math.max(180, Math.min(300, viewportHeight * 0.24));
       const startHeight = Math.max(viewportHeight * 0.72, 430);
 
       hero.style.setProperty('--hero-media-top', `${startTop * (1 - eased)}px`);
@@ -71,19 +71,20 @@
   .home-hero-content {
     position: relative;
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(0, 1.28fr) minmax(280px, 0.72fr);
+    align-items: end;
+    gap: clamp(48px, 9vw, 160px);
     width: min(calc(100% - 96px), 1520px);
     height: 100%;
     margin: 0 auto;
-    padding: clamp(170px, 20vh, 238px) 0 clamp(188px, 23vh, 270px);
+    padding: clamp(176px, 22vh, 260px) 0 clamp(250px, 29vh, 360px);
     opacity: var(--hero-copy-opacity, 1);
     transition: opacity 80ms linear;
   }
 
   .home-hero-title {
+    align-self: end;
     max-width: 950px;
     margin: 0;
     color: var(--ink);
@@ -97,18 +98,24 @@
   :global(html[lang="zh-CN"]) .home-hero-title {
     max-width: 980px;
     font-size: clamp(54px, 6.45vw, 106px);
-    line-height: 1.12;
+    line-height: 1.18;
     letter-spacing: -0.025em;
   }
 
+  /* Chinese title occupies two taller lines; lift both columns together. */
+  :global(html[lang="zh-CN"]) .home-hero-content {
+    transform: translateY(clamp(-100px, -7vh, -64px));
+  }
+
   .home-hero-summary {
-    max-width: 1080px;
+    align-self: end;
+    max-width: 510px;
     margin: 0;
     color: var(--ink);
     font-family: var(--font-body);
-    font-size: clamp(19px, 1.7vw, 28px);
+    font-size: clamp(18px, 1.55vw, 25px);
     font-weight: 500;
-    line-height: 1.48;
+    line-height: 1.55;
     letter-spacing: -0.01em;
   }
 
@@ -142,9 +149,16 @@
 
   @media (max-width: 900px) {
     .home-hero-content {
+      grid-template-columns: 1fr;
+      align-content: end;
+      gap: 30px;
       width: min(calc(100% - 56px), 760px);
       padding-top: 150px;
       padding-bottom: 180px;
+    }
+
+    :global(html[lang="zh-CN"]) .home-hero-content {
+      transform: none;
     }
 
     .home-hero-title {
@@ -154,7 +168,7 @@
 
     :global(html[lang="zh-CN"]) .home-hero-title {
       font-size: clamp(48px, 9vw, 78px);
-      line-height: 1.12;
+      line-height: 1.16;
     }
 
     .home-hero-summary {
