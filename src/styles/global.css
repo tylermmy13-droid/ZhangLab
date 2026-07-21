@@ -46,15 +46,6 @@ html[lang="en"] {
 }
 
 @font-face {
-  font-family: "DM Serif Display";
-  src: url("/assets/fonts/dm-serif-display-latin-400-italic.ttf") format("truetype"),
-       url("/assets/fonts/dm-serif-display-latin-400-italic.woff2") format("woff2");
-  font-display: optional;
-  font-style: italic;
-  font-weight: 400;
-}
-
-@font-face {
   font-family: "Source Han Serif CN Bold";
   src: url("/assets/fonts/SourceHanSerifCN-Bold.otf") format("opentype");
   font-display: swap;
@@ -63,6 +54,7 @@ html[lang="en"] {
 }
 
 * { box-sizing: border-box; }
+em { font-style: normal; }
 
 html { scroll-behavior: smooth; }
 
@@ -269,7 +261,6 @@ img { max-width: 100%; display: block; }
 
 .section-title em {
   color: inherit;
-  font-style: italic;
 }
 
 .section {
@@ -811,7 +802,6 @@ img { max-width: 100%; display: block; }
 .about-copy h1 em {
   display: block;
   margin-bottom: 8px;
-  font-style: italic;
 }
 
 .about-copy h1 span {
@@ -930,7 +920,6 @@ img { max-width: 100%; display: block; }
 
 .home-warm .section-title em {
   color: #141413;
-  font-style: italic;
 }
 
 .home-warm .section-copy {
@@ -1081,7 +1070,7 @@ img { max-width: 100%; display: block; }
 
 .collection-title em,
 .publication-title em {
-  font-style: italic;
+  font-style: normal;
 }
 
 .collection-lede,

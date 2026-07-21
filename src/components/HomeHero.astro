@@ -98,13 +98,18 @@
   :global(html[lang="zh-CN"]) .home-hero-title {
     max-width: 980px;
     font-size: clamp(54px, 6.45vw, 106px);
-    line-height: 1.18;
+    line-height: 1.25;
     letter-spacing: -0.025em;
+  }
+
+  :global(html[lang="zh-CN"]) .home-hero-summary {
+    line-height: 1.7;
+    max-width: 540px;
   }
 
   /* Chinese title occupies two taller lines; lift both columns together. */
   :global(html[lang="zh-CN"]) .home-hero-content {
-    transform: translateY(clamp(-100px, -7vh, -64px));
+    transform: translateY(clamp(-80px, -5vh, -40px));
   }
 
   .home-hero-summary {
