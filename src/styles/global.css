@@ -122,7 +122,7 @@ img { max-width: 100%; display: block; }
 
 .site-header {
   position: fixed;
-  top: 16px;
+  top: 24px;
   left: 50%;
   width: min(calc(100% - 120px), 1180px);
   z-index: 20;
@@ -830,7 +830,7 @@ img { max-width: 100%; display: block; }
 
 /* 手机 (≤860px) — 导航折叠为3列，卡片单列 */
 @media (max-width: 860px) {
-  .site-header { top: 16px; width: calc(100% - 28px); }
+  .site-header { top: 20px; width: calc(100% - 28px); }
   .nav {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     min-height: 66px;
