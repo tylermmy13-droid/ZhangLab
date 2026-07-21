@@ -160,6 +160,9 @@ const collectionItems = (await getCollection('collections'))
     color: var(--ink);
     margin: 0 0 14px;
   }
+  :global(html[lang="en"]) .direction-card-title {
+    letter-spacing: 0.01em;
+  }
   .direction-card-desc {
     font-family: var(--font-body);
     font-size: 15px;
