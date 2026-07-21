@@ -28,8 +28,8 @@
       const progress = Math.min(rawProgress / 0.68, 1);
       const eased = progress * progress * (3 - 2 * progress);
       const startInset = Math.min(48, Math.max(20, window.innerWidth * 0.025));
-      const startTop = viewportHeight - Math.max(180, Math.min(300, viewportHeight * 0.24)) + 12;
-      const startHeight = Math.max(viewportHeight * 0.72, 430) - 12;
+      const startTop = viewportHeight - Math.max(150, Math.min(230, viewportHeight * 0.18));
+      const startHeight = Math.max(viewportHeight * 0.72, 430);
 
       hero.style.setProperty('--hero-media-top', `${startTop * (1 - eased)}px`);
       hero.style.setProperty('--hero-media-inset', `${startInset * (1 - eased)}px`);
@@ -108,7 +108,7 @@
   }
 
   :global(html[lang="zh-CN"]) .home-hero-content {
-    transform: translateY(clamp(-48px, -3vh, -20px));
+    transform: translateY(clamp(-84px, -6vh, -42px));
   }
 
   .home-hero-summary {
