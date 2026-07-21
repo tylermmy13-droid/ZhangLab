@@ -28,7 +28,8 @@
       const progress = Math.min(rawProgress / 0.68, 1);
       const eased = progress * progress * (3 - 2 * progress);
       const startInset = Math.min(48, Math.max(20, window.innerWidth * 0.025));
-      const startTop = viewportHeight - Math.max(150, Math.min(230, viewportHeight * 0.18));
+      const initialExposure = Math.max(150, Math.min(230, viewportHeight * 0.18));
+      const startTop = viewportHeight - initialExposure * 0.6;
       const startHeight = Math.max(viewportHeight * 0.72, 430);
 
       hero.style.setProperty('--hero-media-top', `${startTop * (1 - eased)}px`);
