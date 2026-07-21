@@ -168,6 +168,13 @@ img { max-width: 100%; display: block; }
     backdrop-filter 400ms ease;
 }
 
+html[lang="zh-CN"] .nav {
+  letter-spacing: -0.005em;
+}
+html[lang="en"] .nav {
+  letter-spacing: 0.015em;
+}
+
 /* ===== 深色/浅色模式变体 ===== */
 /* ─── Dark mode ─── */
 .site-header.on-dark .nav {
