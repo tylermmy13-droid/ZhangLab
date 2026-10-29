@@ -1,213 +1,69 @@
-<!-- ===== 首页首屏与滚动宣传图 ===== -->
-<section class="home-hero" data-home-hero>
-  <div class="home-hero-sticky">
-    <div class="home-hero-content">
+<!-- ===== 首页首屏：标题在左，图在右，不使用滚动动画 ===== -->
+<section class="home-hero">
+  <div class="container home-hero-grid">
+    <div class="home-hero-copy">
       <h1 class="home-hero-title" data-en="Cardiovascular research,&lt;br /&gt;grounded in clinical questions." data-zh="从临床问题出发的&lt;br /&gt;心血管医学研究">Cardiovascular research,<br />grounded in clinical questions.</h1>
       <p class="home-hero-tagline" data-en="The Zhang Li and Qishan Chen Research Group at Xinhua Hospital." data-zh="上海交通大学医学院附属新华医院张力/陈齐山课题组">The Zhang Li and Qishan Chen Research Group at Xinhua Hospital.</p>
-      <div class="home-hero-actions">
-        <a class="button" href="/collections/"><span data-en="Explore our research" data-zh="了解研究方向">Explore our research</span> <span aria-hidden="true">&rarr;</span></a>
-        <a class="button is-secondary" href="/our-team/" data-en="Meet the team" data-zh="认识团队">Meet the team</a>
-      </div>
+      <p class="home-hero-links">
+        <a class="button" href="/collections/"><span data-en="Research Areas" data-zh="研究方向">Research Areas</span> <span aria-hidden="true">&rarr;</span></a>
+        <a class="button is-secondary" href="/our-team/"><span data-en="Team" data-zh="团队">Team</span> <span aria-hidden="true">&rarr;</span></a>
+      </p>
     </div>
-
-    <div class="home-hero-media" data-home-hero-media>
-      <img src="/assets/home/cardiovascular-figure.jpg" alt="Cardiovascular fluorescence microscopy image" />
-      <div class="home-hero-media-shade" aria-hidden="true"></div>
-    </div>
+    <img class="home-hero-figure" src="/assets/home/cardiovascular-figure.jpg" alt="Cardiovascular fluorescence microscopy image" />
   </div>
 </section>
 
-<script>
-  const hero = document.querySelector<HTMLElement>('[data-home-hero]');
-
-  if (hero) {
-    let frame = 0;
-
-    const updateHero = () => {
-      frame = 0;
-      const viewportHeight = window.innerHeight;
-      const sceneLength = Math.max(hero.offsetHeight - viewportHeight, 1);
-      const rawProgress = Math.min(Math.max(-hero.getBoundingClientRect().top / sceneLength, 0), 1);
-      const progress = Math.min(rawProgress / 0.68, 1);
-      const eased = progress * progress * (3 - 2 * progress);
-      const startInset = Math.min(48, Math.max(20, window.innerWidth * 0.025));
-      const initialExposure = Math.max(150, Math.min(230, viewportHeight * 0.18));
-      const startTop = viewportHeight - initialExposure * 0.6;
-      const startHeight = Math.max(viewportHeight * 0.72, 430);
-
-      hero.style.setProperty('--hero-media-top', `${startTop * (1 - eased)}px`);
-      hero.style.setProperty('--hero-media-inset', `${startInset * (1 - eased)}px`);
-      hero.style.setProperty('--hero-media-height', `${startHeight + (viewportHeight - startHeight) * eased}px`);
-      hero.style.setProperty('--hero-media-radius', `${Math.max(0, 32 * (1 - eased))}px`);
-      hero.style.setProperty('--hero-copy-opacity', `${Math.max(0, 1 - rawProgress * 2.8)}`);
-      hero.style.setProperty('--hero-media-shade', `${Math.max(0, 0.86 - progress * 1.35)}`);
-    };
-
-    const requestUpdate = () => {
-      if (!frame) frame = window.requestAnimationFrame(updateHero);
-    };
-
-    updateHero();
-    window.addEventListener('scroll', requestUpdate, { passive: true });
-    window.addEventListener('resize', requestUpdate);
-  }
-</script>
-
 <style>
   .home-hero {
-    position: relative;
-    z-index: 2;
-    height: 200vh;
-    height: 200dvh;
-    /* Slide under the sticky header so the scroll scene still measures a full viewport. */
-    margin-top: calc(var(--header-h) * -1);
-    background: var(--ivory);
+    padding: clamp(48px, 7vw, 96px) 0 clamp(40px, 5vw, 64px);
   }
 
-  .home-hero-sticky {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    height: 100dvh;
-    overflow: hidden;
-  }
-
-  .home-hero-content {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
+  .home-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: clamp(32px, 5vw, 72px);
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: min(calc(100% - 96px), 1520px);
-    height: 100%;
-    margin: 0 auto;
-    padding: calc(var(--header-h) + clamp(24px, 4vh, 56px)) 0 clamp(240px, 26vh, 340px);
-    opacity: var(--hero-copy-opacity, 1);
-    transition: opacity 80ms linear;
   }
 
   .home-hero-title {
-    max-width: 1100px;
     margin: 0;
-    color: var(--ink);
     font-family: var(--font-title);
-    font-size: clamp(44px, 5.4vw, 88px);
+    font-size: clamp(40px, 4.8vw, 70px);
     font-weight: 400;
-    line-height: 1.04;
-    letter-spacing: -0.03em;
+    line-height: 1.07;
+    letter-spacing: -0.02em;
   }
 
-  /* ===== 中文排版优化 ===== */
   :global(html[lang="zh-CN"]) .home-hero-title {
-    max-width: 1100px;
-    font-size: clamp(46px, 5.4vw, 86px);
+    font-size: clamp(38px, 4.4vw, 64px);
     line-height: 1.3;
-    letter-spacing: 0.02em;
-    hanging-punctuation: first allow-end;
-  }
-
-  :global(html[lang="zh-CN"]) .home-hero-tagline {
     letter-spacing: 0.02em;
   }
 
   .home-hero-tagline {
-    margin: clamp(24px, 3vh, 36px) 0 0;
+    max-width: 520px;
+    margin: 26px 0 0;
     color: var(--muted);
-    font-family: var(--font-body);
-    font-size: clamp(18px, 1.5vw, 23px);
-    line-height: 1.55;
+    font-size: clamp(18px, 1.5vw, 21px);
+    line-height: 1.6;
   }
 
-  .home-hero-actions {
+  .home-hero-links {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-top: clamp(28px, 4vh, 40px);
+    gap: 14px 32px;
+    margin: 32px 0 0;
   }
 
-  .home-hero-media {
-    position: absolute;
-    z-index: 3;
-    top: var(--hero-media-top, calc(100dvh - 112px));
-    right: var(--hero-media-inset, 48px);
-    left: var(--hero-media-inset, 48px);
-    height: var(--hero-media-height, 72dvh);
-    overflow: hidden;
-    border-radius: var(--hero-media-radius, 32px);
-    background: var(--ink);
-    will-change: top, left, right, height, border-radius;
-  }
-
-  .home-hero-media img {
+  .home-hero-figure {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: saturate(0.72) brightness(0.88);
-  }
-
-  .home-hero-media-shade {
-    position: absolute;
-    inset: 0;
+    height: auto;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
     background: var(--ink);
-    opacity: var(--hero-media-shade, 0.86);
-    pointer-events: none;
   }
 
-  @media (max-width: 900px) {
-    .home-hero-content {
-      width: min(calc(100% - 56px), 760px);
-      padding-bottom: clamp(180px, 22vh, 280px);
-    }
-
-    .home-hero-title {
-      max-width: 760px;
-      font-size: clamp(42px, 8vw, 70px);
-    }
-
-    :global(html[lang="zh-CN"]) .home-hero-title {
-      font-size: clamp(44px, 9vw, 76px);
-      line-height: 1.26;
-    }
-
-    .home-hero-tagline {
-      font-size: clamp(17px, 2.8vw, 21px);
-    }
-  }
-
-  @media (max-width: 640px) {
-    .home-hero {
-      height: 185svh;
-    }
-
-    .home-hero-content {
-      width: calc(100% - 40px);
-      padding-bottom: 150px;
-    }
-
-    .home-hero-title {
-      font-size: clamp(36px, 10.5vw, 54px);
-      line-height: 1.06;
-      letter-spacing: -0.03em;
-    }
-
-    .home-hero-tagline {
-      font-size: 16px;
-      line-height: 1.5;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .home-hero { height: 100dvh; }
-    .home-hero-media {
-      top: auto;
-      right: 20px;
-      bottom: 0;
-      left: 20px;
-      height: 112px;
-      border-radius: 24px 24px 0 0;
-    }
+  @media (max-width: 860px) {
+    .home-hero-grid { grid-template-columns: 1fr; }
   }
 </style>

@@ -17,7 +17,7 @@ const pubDate = item.data.pubDate.toISOString().split('T')[0];
     <section class="publication-hero">
       <div class="container">
         <a class="detail-back" href="/news/" data-en="← News" data-zh="← 新闻">← News</a>
-        <span class="tag-pill">{pubDate}</span>
+        <span class="label">{pubDate}</span>
         <h1 class="publication-title news-detail-title" data-en={item.data.title} data-zh={item.data.titleZh || item.data.title}>{item.data.title}</h1>
       </div>
     </section>
