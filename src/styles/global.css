@@ -1,15 +1,16 @@
 /* ==========================================================================
    Zhang Lab — global styles
-   Design language: a printed letter. Warm paper, dark ink, hairline rules,
-   serif text, small sans labels. No boxes, no pills, no shadows, no colored
-   side bars. One muted red-brown accent, used only on hover and on links.
+   Design language: a printed academic letter on parchment. Warm paper with a
+   faint grain, dark ink, hairline rules, one serif family throughout, letter-
+   spaced capitals for labels, images mounted like plates. No boxes, no pills,
+   no shadows, no colored side bars. One red-brown accent, for links and hover.
    ========================================================================== */
 
 :root {
   /* Paper and ink */
-  --paper: #f6f1e6;        /* page */
-  --paper-deep: #ece4d2;   /* footer, image placeholders */
-  --ink: #1f1b16;
+  --paper: #f4eedf;        /* page */
+  --paper-deep: #e9dfc9;   /* image placeholders */
+  --ink: #221c15;
   --slate: #3f3930;
   --muted: #5f574b;        /* 6.3:1 on paper */
   --faint: #6f6453;        /* 5.1:1 on paper, for small labels */
@@ -28,7 +29,8 @@
      DM Serif Display is self-hosted and only serves as an offline fallback. */
   --font-title: "DM Serif Display", "Source Han Serif CN Bold", "Noto Serif SC", "Songti SC", "STSong", Georgia, "Times New Roman", serif;
   --font-body: "Newsreader", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, "Times New Roman", serif;
-  --font-ui: "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", -apple-system, "Segoe UI", sans-serif;
+  /* Labels, navigation and links share the text serif, set in spaced capitals. */
+  --font-ui: var(--font-body);
 }
 
 @font-face {
@@ -58,10 +60,15 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--ink);
-  background: var(--paper);
+  /* Faint paper grain, drawn inline so no image request is needed. */
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .22 0 0 0 0 .12 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    var(--paper);
   font-family: var(--font-body);
   font-size: 18px;
   line-height: 1.7;
+  font-variant-numeric: oldstyle-nums;
+  font-kerning: normal;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -114,9 +121,10 @@ img { max-width: 100%; display: block; }
   margin: 0 0 8px;
   color: var(--faint);
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 500;
-  letter-spacing: 0.09em;
+  font-variant-numeric: lining-nums;
+  letter-spacing: 0.14em;
   line-height: 1.4;
   text-transform: uppercase;
 }
@@ -126,8 +134,9 @@ img { max-width: 100%; display: block; }
   position: sticky;
   top: 0;
   z-index: 30;
-  background: var(--paper);
-  border-bottom: 1px solid var(--rule);
+  background: inherit;
+  background-color: var(--paper);
+  border-bottom: 3px double var(--ink);
 }
 
 .header-inner {
@@ -143,10 +152,11 @@ img { max-width: 100%; display: block; }
 .brand {
   color: var(--ink);
   font-family: var(--font-title);
-  font-size: 30px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
   line-height: 1;
+  text-transform: uppercase;
 }
 
 .nav {
@@ -162,7 +172,7 @@ img { max-width: 100%; display: block; }
   font-family: var(--font-ui);
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.12em;
   line-height: 1.2;
   text-transform: uppercase;
   white-space: nowrap;
@@ -187,10 +197,11 @@ img { max-width: 100%; display: block; }
   background: none;
   color: var(--ink);
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.12em;
   line-height: 1.4;
+  text-transform: uppercase;
   white-space: nowrap;
   transition: color 180ms ease, border-color 180ms ease;
 }
@@ -417,6 +428,13 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius);
 }
 
+/* Long reading text is justified: English only in articles (with hyphenation),
+   Chinese wherever paragraphs run long, as in print. */
+@media (min-width: 720px) {
+  html[lang="en"] .prose p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+  html[lang="zh-CN"] :where(.prose p, .about-overview-copy p, .member-desc) { text-align: justify; }
+}
+
 /* Quotes are set as indented italic text, with no bar beside them. */
 .prose blockquote {
   margin: 36px 0;
@@ -470,15 +488,14 @@ img { max-width: 100%; display: block; }
   text-align: left;
   vertical-align: top;
 }
-.prose th { color: var(--ink); font-family: var(--font-ui); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.prose th { color: var(--ink); font-family: var(--font-ui); font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
 .prose tr:last-child td { border-bottom: 0; }
 
 /* ===== Footer: affiliation and address, set like the foot of a letter ===== */
 .footer {
   margin-top: 0;
-  padding: 40px 0 36px;
-  border-top: 1px solid var(--rule);
-  background: var(--paper-deep);
+  padding: 44px 0 36px;
+  border-top: 3px double var(--ink);
   color: var(--muted);
 }
 .footer-grid {
@@ -486,7 +503,7 @@ img { max-width: 100%; display: block; }
   grid-template-columns: 1.2fr 1fr;
   gap: 24px 64px;
 }
-.footer .brand { display: inline-block; font-size: 26px; }
+.footer .brand { display: inline-block; margin-bottom: 6px; font-size: 20px; }
 .footer p,
 .footer address { margin: 0; font-style: normal; font-size: 16px; line-height: 1.65; }
 .footer address p + p { margin-top: 8px; }
@@ -503,8 +520,27 @@ img { max-width: 100%; display: block; }
   padding-top: 18px;
   border-top: 1px solid var(--rule);
   font-family: var(--font-ui);
-  font-size: 12px;
-  letter-spacing: 0.04em;
+  font-size: 12.5px;
+  font-variant-numeric: lining-nums;
+  letter-spacing: 0.08em;
+}
+
+/* ===== Images are mounted like plates: a paper margin inside a hairline frame ===== */
+:where(
+  .card-media,
+  .detail-cover,
+  .home-hero-figure,
+  .direction-card-media,
+  .member-card-photo,
+  .member-photo,
+  .leadership-card img,
+  .pub-thumb,
+  .prose img
+) {
+  padding: 5px;
+  border: 1px solid var(--rule) !important;
+  border-radius: 0 !important;
+  background: var(--paper) !important;
 }
 
 /* ===== Chinese typography ===== */
@@ -517,7 +553,8 @@ html[lang="zh-CN"] .card p,
 html[lang="zh-CN"] .prose p,
 html[lang="zh-CN"] .prose li { line-height: 1.9; }
 html[lang="zh-CN"] .card h3 { font-weight: 600; letter-spacing: 0.005em; }
-html[lang="zh-CN"] :where(.nav a, .label, .tag-pill) { letter-spacing: 0.04em; }
+html[lang="zh-CN"] :where(.nav a, .label, .tag-pill, .button) { letter-spacing: 0.06em; }
+html[lang="zh-CN"] .brand { letter-spacing: 0.1em; }
 
 /* Chinese display type needs a firmer weight than the Latin serif face. */
 html[lang="zh-CN"] :where(
