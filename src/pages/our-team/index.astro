@@ -32,7 +32,7 @@ const getInitials = (name: string) => {
 ---
 <!-- ===== 团队成员列表页 ===== -->
 <!-- 分层次展示 PI、高级职称、主治医师、住院医师及在培学生 -->
-<BaseLayout title="Team | Zhang Lab" description="Meet the Zhang Lab team." headerMode="glass" bodyClass="home-warm">
+<BaseLayout title="Team | Zhang Lab" description="Meet the Zhang Lab team." bodyClass="home-warm">
   <main class="publication-archive">
     <section class="publication-hero">
       <div class="container publication-hero-inner">
@@ -169,25 +169,26 @@ const getInitials = (name: string) => {
     display: flex;
     flex-direction: column;
     width: 290px;
-    border-radius: 20px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
     overflow: hidden;
-    background: #e4dbcd;
+    background: var(--surface);
     text-decoration: none;
     transition: all 0.3s ease;
     cursor: pointer;
     flex-shrink: 0;
   }
   .member-card:hover {
-    background: #f4e5c7;
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(20, 20, 19, 0.08);
+    background: var(--card-hover);
+    border-color: var(--line-strong);
+    transform: translateY(-2px);
   }
 
   .member-card-photo {
     width: 100%;
     aspect-ratio: 1 / 1.02;
     overflow: hidden;
-    background: #e8e6dc;
+    background: var(--oat);
     display: flex;
     align-items: center;
     justify-content: center;

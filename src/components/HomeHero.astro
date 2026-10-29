@@ -4,6 +4,10 @@
     <div class="home-hero-content">
       <h1 class="home-hero-title" data-en="Cardiovascular research,&lt;br /&gt;grounded in clinical questions." data-zh="从临床问题出发的&lt;br /&gt;心血管医学研究">Cardiovascular research,<br />grounded in clinical questions.</h1>
       <p class="home-hero-tagline" data-en="The Zhang Li and Qishan Chen Research Group at Xinhua Hospital." data-zh="上海交通大学医学院附属新华医院张力/陈齐山课题组">The Zhang Li and Qishan Chen Research Group at Xinhua Hospital.</p>
+      <div class="home-hero-actions">
+        <a class="button" href="/collections/"><span data-en="Explore our research" data-zh="了解研究方向">Explore our research</span> <span aria-hidden="true">&rarr;</span></a>
+        <a class="button is-secondary" href="/our-team/" data-en="Meet the team" data-zh="认识团队">Meet the team</a>
+      </div>
     </div>
 
     <div class="home-hero-media" data-home-hero-media>
@@ -15,7 +19,6 @@
 
 <script>
   const hero = document.querySelector<HTMLElement>('[data-home-hero]');
-  const header = document.querySelector<HTMLElement>('[data-scroll-header]');
 
   if (hero) {
     let frame = 0;
@@ -35,11 +38,9 @@
       hero.style.setProperty('--hero-media-top', `${startTop * (1 - eased)}px`);
       hero.style.setProperty('--hero-media-inset', `${startInset * (1 - eased)}px`);
       hero.style.setProperty('--hero-media-height', `${startHeight + (viewportHeight - startHeight) * eased}px`);
-      hero.style.setProperty('--hero-media-radius', `${Math.max(0, 38 * (1 - eased))}px`);
+      hero.style.setProperty('--hero-media-radius', `${Math.max(0, 32 * (1 - eased))}px`);
       hero.style.setProperty('--hero-copy-opacity', `${Math.max(0, 1 - rawProgress * 2.8)}`);
       hero.style.setProperty('--hero-media-shade', `${Math.max(0, 0.86 - progress * 1.35)}`);
-      header?.classList.toggle('on-dark', rawProgress > 0.46 && rawProgress < 0.96);
-      header?.classList.toggle('on-light', !(rawProgress > 0.46 && rawProgress < 0.96));
     };
 
     const requestUpdate = () => {
@@ -58,7 +59,9 @@
     z-index: 2;
     height: 200vh;
     height: 200dvh;
-    background: var(--cream);
+    /* Slide under the sticky header so the scroll scene still measures a full viewport. */
+    margin-top: calc(var(--header-h) * -1);
+    background: var(--ivory);
   }
 
   .home-hero-sticky {
@@ -80,46 +83,49 @@
     width: min(calc(100% - 96px), 1520px);
     height: 100%;
     margin: 0 auto;
-    padding: clamp(140px, 16vh, 200px) 0 clamp(240px, 26vh, 340px);
+    padding: calc(var(--header-h) + clamp(24px, 4vh, 56px)) 0 clamp(240px, 26vh, 340px);
     opacity: var(--hero-copy-opacity, 1);
     transition: opacity 80ms linear;
   }
 
   .home-hero-title {
-    max-width: 950px;
+    max-width: 1100px;
     margin: 0;
     color: var(--ink);
     font-family: var(--font-title);
-    font-size: clamp(48px, 6.2vw, 104px);
+    font-size: clamp(44px, 5.4vw, 88px);
     font-weight: 400;
-    line-height: 1;
-    letter-spacing: -0.025em;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
   }
 
   /* ===== 中文排版优化 ===== */
-  /* 中文 hero 标题用 700（Noto Serif SC Bold），与英文衬线体相称 */
   :global(html[lang="zh-CN"]) .home-hero-title {
-    max-width: 980px;
-    font-size: clamp(52px, 6.3vw, 102px);
-    font-weight: 700;
-    line-height: 1.32;
+    max-width: 1100px;
+    font-size: clamp(46px, 5.4vw, 86px);
+    line-height: 1.3;
     letter-spacing: 0.02em;
     hanging-punctuation: first allow-end;
   }
 
   :global(html[lang="zh-CN"]) .home-hero-tagline {
-    font-weight: 500;
     letter-spacing: 0.02em;
   }
 
   .home-hero-tagline {
-    margin: clamp(26px, 3vh, 40px) 0 0;
-    color: var(--ink);
+    margin: clamp(24px, 3vh, 36px) 0 0;
+    color: var(--muted);
     font-family: var(--font-body);
-    font-size: clamp(19px, 1.5vw, 26px);
-    font-weight: 500;
+    font-size: clamp(18px, 1.5vw, 23px);
     line-height: 1.55;
-    letter-spacing: -0.01em;
+  }
+
+  .home-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: clamp(28px, 4vh, 40px);
   }
 
   .home-hero-media {
@@ -130,8 +136,8 @@
     left: var(--hero-media-inset, 48px);
     height: var(--hero-media-height, 72dvh);
     overflow: hidden;
-    border-radius: var(--hero-media-radius, 38px);
-    background: #050505;
+    border-radius: var(--hero-media-radius, 32px);
+    background: var(--ink);
     will-change: top, left, right, height, border-radius;
   }
 
@@ -145,7 +151,7 @@
   .home-hero-media-shade {
     position: absolute;
     inset: 0;
-    background: #000;
+    background: var(--ink);
     opacity: var(--hero-media-shade, 0.86);
     pointer-events: none;
   }
@@ -158,16 +164,16 @@
 
     .home-hero-title {
       max-width: 760px;
-      font-size: clamp(44px, 8vw, 72px);
+      font-size: clamp(42px, 8vw, 70px);
     }
 
     :global(html[lang="zh-CN"]) .home-hero-title {
-      font-size: clamp(48px, 9vw, 78px);
+      font-size: clamp(44px, 9vw, 76px);
       line-height: 1.26;
     }
 
     .home-hero-tagline {
-      font-size: clamp(18px, 2.8vw, 23px);
+      font-size: clamp(17px, 2.8vw, 21px);
     }
   }
 
@@ -178,17 +184,17 @@
 
     .home-hero-content {
       width: calc(100% - 40px);
-      padding-bottom: 140px;
+      padding-bottom: 150px;
     }
 
     .home-hero-title {
-      font-size: clamp(38px, 10.5vw, 56px);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
+      font-size: clamp(36px, 10.5vw, 54px);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
     }
 
     .home-hero-tagline {
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.5;
     }
   }

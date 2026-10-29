@@ -13,7 +13,7 @@ const collectionItems = (await getCollection('collections')).filter((item) => !i
 ---
 <!-- ===== 首页 ===== -->
 <!-- 展示首页首屏与最新三条新闻、研究方向、论文 -->
-<BaseLayout title="Zhang Lab | Xinhua Hospital" description="The Zhang Li and Qishan Chen Research Group conducts cardiovascular and translational research at Xinhua Hospital." headerMode="glass" bodyClass="home-warm">
+<BaseLayout title="Zhang Lab | Xinhua Hospital" description="The Zhang Li and Qishan Chen Research Group conducts cardiovascular and translational research at Xinhua Hospital." bodyClass="home-warm">
   <main class="home-page">
     <HomeHero />
 
@@ -32,7 +32,7 @@ const collectionItems = (await getCollection('collections')).filter((item) => !i
     </section>
 
     <!-- ===== 研究方向 ===== -->
-    <section class="section" id="collections">
+    <section class="section is-band" id="collections">
       <div class="container">
         <div class="section-head">
           <div class="section-head-top">

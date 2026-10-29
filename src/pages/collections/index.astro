@@ -8,7 +8,7 @@ const collectionItems = (await getCollection('collections'))
 ---
 
 <!-- ===== Research Areas — Warm editorial cards, unified with site ===== -->
-<BaseLayout title="Research Areas | Zhang Lab" description="Five research areas in cardiovascular medicine." headerMode="glass" bodyClass="home-warm">
+<BaseLayout title="Research Areas | Zhang Lab" description="Five research areas in cardiovascular medicine." bodyClass="home-warm">
   <main class="collection-archive">
     <section class="collection-hero">
       <div class="container collection-hero-inner">
@@ -45,9 +45,6 @@ const collectionItems = (await getCollection('collections'))
 
 <style>
   /* ===== Hero — Bold, warm, editorial ===== */
-  .collection-hero {
-    padding: 140px 0 64px;
-  }
   /* ===== Direction Cards — Warm, rounded, unified with site ===== */
   .directions-section {
     padding-top: 0;
@@ -64,15 +61,16 @@ const collectionItems = (await getCollection('collections'))
     flex-direction: column;
     text-decoration: none;
     color: inherit;
-    background: #e4dbcd;
-    border-radius: 24px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
     overflow: hidden;
     transition: background 0.45s ease, transform 0.45s cubic-bezier(.16, .84, .24, 1), box-shadow 0.45s ease;
   }
   .direction-card:hover {
-    background: #f4e5c7;
-    transform: translateY(-6px);
-    box-shadow: 0 24px 60px rgba(30, 31, 30, 0.10);
+    background: var(--card-hover);
+    border-color: var(--line-strong);
+    transform: translateY(-2px);
   }
 
   /* Media area */
@@ -80,8 +78,7 @@ const collectionItems = (await getCollection('collections'))
     position: relative;
     overflow: hidden;
     aspect-ratio: 4 / 3;
-    border-radius: 24px 24px 0 0;
-    background: var(--blue-2);
+    background: var(--oat);
   }
   .direction-card-media img {
     width: 100%;
@@ -126,7 +123,7 @@ const collectionItems = (await getCollection('collections'))
     font-weight: 500;
     letter-spacing: 0.10em;
     text-transform: uppercase;
-    color: rgba(30, 31, 30, 0.42);
+    color: var(--faint);
     margin-bottom: 12px;
   }
   .direction-card-title {
@@ -166,7 +163,7 @@ const collectionItems = (await getCollection('collections'))
   }
   .direction-card:hover .direction-card-arrow {
     background: var(--ink);
-    color: #f4e5c7;
+    color: var(--ivory);
     transform: translateX(4px);
   }
 
@@ -177,9 +174,6 @@ const collectionItems = (await getCollection('collections'))
     }
   }
   @media (max-width: 720px) {
-    .collection-hero {
-      padding: 110px 0 48px;
-    }
     .directions-grid {
       grid-template-columns: 1fr;
       gap: 24px;

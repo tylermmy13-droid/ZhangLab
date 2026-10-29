@@ -21,7 +21,7 @@ const getInitials = (name: string) => {
 };
 ---
 <!-- ===== 团队成员详情页 ===== -->
-<BaseLayout title={`${member.name} | Zhang Lab`} description={`Zhang Lab profile page of ${member.name}.`} headerMode="glass" bodyClass="home-warm">
+<BaseLayout title={`${member.name} | Zhang Lab`} description={`Zhang Lab profile page of ${member.name}.`} bodyClass="home-warm">
   <main class="publication-archive">
     <section class="section member-page">
       <div class="container">
@@ -98,7 +98,7 @@ const getInitials = (name: string) => {
   .member-page { padding-top: 120px; min-height: 80vh; }
   .member-back {
     display: inline-block;
-    color: #b0aea5;
+    color: var(--faint);
     font-size: 14px;
     text-decoration: none;
     margin-bottom: 32px;
@@ -114,8 +114,7 @@ const getInitials = (name: string) => {
   .member-photo {
     flex-shrink: 0; width: 280px;
     border-radius: 16px; overflow: hidden;
-    border: 4px solid #e8e6dc;
-    box-shadow: 0 4px 20px rgba(20, 20, 19, 0.1);
+    border: 1px solid var(--line);
     aspect-ratio: 1;
   }
   .member-photo img { width: 100%; height: 100%; display: block; object-fit: cover; }
@@ -124,7 +123,7 @@ const getInitials = (name: string) => {
     display: flex; align-items: center; justify-content: center;
     font-size: 72px; font-weight: 600;
     color: rgba(20, 20, 19, 0.12);
-    background: #e8e6dc;
+    background: var(--oat);
     font-family: "Inter", sans-serif; user-select: none;
   }
   .member-info {
@@ -137,8 +136,8 @@ const getInitials = (name: string) => {
     font-size: clamp(30px, 3.5vw, 44px); font-weight: 600;
     letter-spacing: -0.005em;
   }
-  .member-role { margin: 0; color: #191919; font-size: 16px; line-height: 1.6; white-space: pre-line; }
-  .member-desc { margin: 8px 0 0; color: #191919; font-size: 17px; line-height: 1.7; white-space: pre-line; }
+  .member-role { margin: 0; color: var(--slate); font-size: 16px; line-height: 1.6; white-space: pre-line; }
+  .member-desc { margin: 8px 0 0; color: var(--slate); font-size: 17px; line-height: 1.7; white-space: pre-line; }
   .member-social { display: flex; gap: 14px; margin-top: 16px; }
   .member-social-link {
     display: flex; align-items: center; justify-content: center;
@@ -160,17 +159,17 @@ const getInitials = (name: string) => {
   .pub-count {
     display: inline-flex; align-items: center; justify-content: center;
     min-width: 24px; height: 24px; padding: 0 8px; border-radius: 12px;
-    background: rgba(20, 20, 19, 0.06); color: #b0aea5;
+    background: rgba(20, 20, 19, 0.06); color: var(--faint);
     font-size: 13px; font-weight: 500;
   }
   .pub-list { display: flex; flex-direction: column; gap: 20px; }
   .pub-item {
     display: flex; gap: 20px; padding: 18px; border-radius: 14px;
-    background: #e4dbcd; border: 1px solid rgba(20, 20, 19, 0.06);
+    background: var(--surface); border: 1px solid var(--line);
     transition: background 0.2s;
   }
-  .pub-item:hover { background: #f4e5c7; }
-  .pub-thumb { flex-shrink: 0; width: 160px; height: 100px; border-radius: 8px; overflow: hidden; background: #e8e6dc; }
+  .pub-item:hover { background: var(--card-hover); }
+  .pub-thumb { flex-shrink: 0; width: 160px; height: 100px; border-radius: 8px; overflow: hidden; background: var(--oat); }
   .pub-thumb img { width: 100%; height: 100%; object-fit: cover; }
   .pub-info { display: flex; flex-direction: column; gap: 6px; justify-content: center; flex: 1; }
   .pub-title {
@@ -185,24 +184,24 @@ const getInitials = (name: string) => {
     letter-spacing: 0.02em; line-height: 1.6; white-space: nowrap;
   }
   .pub-role-first {
-    background: rgba(217, 119, 87, 0.1); color: #d97757;
+    background: rgba(217, 119, 87, 0.1); color: var(--clay-deep);
     border: 1px solid rgba(217, 119, 87, 0.25);
   }
   .pub-role-cofirst {
-    background: rgba(106, 155, 204, 0.1); color: #6a9bcc;
+    background: rgba(106, 155, 204, 0.1); color: #3f6a99;
     border: 1px solid rgba(106, 155, 204, 0.25);
   }
   .pub-role-corresponding {
-    background: rgba(120, 140, 93, 0.1); color: #788c5d;
+    background: rgba(120, 140, 93, 0.1); color: #5a6b43;
     border: 1px solid rgba(120, 140, 93, 0.25);
   }
-  .pub-authors { margin: 0; color: #b0aea5; font-size: 13px; line-height: 1.5; }
-  .pub-venue { margin: 0; color: #b0aea5; font-size: 13px; }
+  .pub-authors { margin: 0; color: var(--faint); font-size: 13px; line-height: 1.5; }
+  .pub-venue { margin: 0; color: var(--faint); font-size: 13px; }
   .pub-links { display: flex; gap: 12px; margin-top: 4px; }
-  .pub-link { color: #6a9bcc; font-size: 13px; text-decoration: none; transition: color 0.2s; }
+  .pub-link { color: var(--clay-deep); font-size: 13px; text-decoration: none; transition: color 0.2s; }
   .pub-link:hover { color: #141413; }
   .member-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-  .member-list li { color: #b0aea5; font-size: 15px; line-height: 1.6; }
+  .member-list li { color: var(--muted); font-size: 15px; line-height: 1.6; }
   @media (max-width: 640px) {
     .member-header { flex-direction: column; align-items: center; text-align: center; }
     .member-photo { width: 220px; }

@@ -8,7 +8,7 @@ const newsItems = (await getCollection('news'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 <!-- ===== 新闻动态列表页 ===== -->
-<BaseLayout title="News | Zhang Lab" description="Latest news and updates from Zhang Lab." headerMode="glass" bodyClass="home-warm">
+<BaseLayout title="News | Zhang Lab" description="Latest news and updates from Zhang Lab." bodyClass="home-warm">
   <main class="news-archive publication-archive">
     <section class="publication-hero">
       <div class="container publication-hero-inner">

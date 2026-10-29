@@ -5,7 +5,7 @@ const linkUrl = item.data.linkUrl;
 const href = linkUrl ?? `/news/${item.id}/`;
 const isExternal = !!linkUrl;
 ---
-<!-- ===== 新闻卡片组件 ===== -->
+<!-- ===== 新闻卡片组件（样式见 global.css 的 .card） ===== -->
 <a
   class="card news-card"
   href={href}
@@ -22,48 +22,3 @@ const isExternal = !!linkUrl;
     {item.data.tags?.[0] && <span class="card-meta">{item.data.tags[0]}</span>}
   </div>
 </a>
-
-<style>
-  .news-card {
-    text-decoration: none;
-    display: block;
-    border-radius: 18px;
-    overflow: hidden;
-    background: #e4dbcd;
-    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
-  .news-card:hover {
-    background: #f4e5c7;
-    border-color: rgba(106, 155, 204, 0.3);
-    box-shadow: 0 8px 32px rgba(106, 155, 204, 0.08);
-    transform: translateY(-3px);
-  }
-  .news-card :global(.card-media) { margin: 0; border-radius: 0; }
-  .news-card :global(.card-image) { transition: transform 0.4s ease; }
-  .news-card:hover :global(.card-image) { transform: scale(1.07); }
-  .news-card-body { padding: 22px 24px 26px; }
-  .news-card :global(h3) {
-    font-family: var(--font-title);
-    font-weight: 400;
-    font-size: clamp(18px, 1.5vw, 23px);
-    line-height: 1.35;
-    letter-spacing: -0.01em;
-    color: #141413;
-    margin: 0 0 10px;
-  }
-  :global(html[lang="zh-CN"]) .news-card :global(h3) {
-    font-weight: 600;
-  }
-  :global(html[lang="en"]) .news-card :global(h3) {
-    letter-spacing: 0.01em;
-  }
-  .news-card :global(.tag-pill) {
-    background: rgba(106, 155, 204, 0.12);
-    color: #6a9bcc;
-    border: 1px solid rgba(106, 155, 204, 0.15);
-    margin: 0 0 14px;
-  }
-  .news-card :global(.card-meta) { color: #b0aea5; font-size: 12px; }
-  .news-card :global(p) { color: #171715; font-size: 14px; line-height: 1.55; margin: 0 0 10px; }
-</style>

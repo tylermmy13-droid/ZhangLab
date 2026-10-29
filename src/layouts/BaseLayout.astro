@@ -5,7 +5,6 @@ import LangSwitch from '../components/LangSwitch.astro';
 const {
   title = 'Zhang Lab',
   description = 'Zhang Lab at Xinhua Hospital, Shanghai Jiao Tong University School of Medicine.',
-  headerMode = 'auto',
   bodyClass = ''
 } = Astro.props;
 ---
@@ -17,28 +16,23 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f2f0e9" />
+    <meta name="theme-color" content="#faf9f5" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="Zhang Lab" />
     <title>{title}</title>
 
-    <!-- DNS prefetch & preconnect for Google Fonts (CJK subset delivery) -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Google Fonts: Noto Serif SC (Chinese titles, multi-weight) + Noto Sans SC (Chinese body) + Inter (English body) -->
+    <!-- Google Fonts: Newsreader (English headings), Inter (English body), Noto Serif SC and Noto Sans SC (Chinese) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..500&family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Preload critical fonts -->
-    <link rel="preload" href="/assets/fonts/dm-serif-display-latin-400-normal.ttf" as="font" type="font/ttf" crossorigin />
-    <link rel="preload" href="/assets/fonts/SourceHanSerifCN-Bold.otf" as="font" type="font/otf" crossorigin />
 
     <script is:inline src="/assets/js/i18n.js" defer></script>
   </head>
@@ -46,53 +40,88 @@ const {
     <!-- Skip-to-content for keyboard accessibility -->
     <a class="skip-link" href="#main-content" data-en="Skip to main content" data-zh="跳至主要内容">Skip to main content</a>
 
-    <header class={`site-header ${headerMode === 'glass' ? 'is-visible' : ''}`} data-scroll-header data-header-mode={headerMode}>
-      <nav class="nav" aria-label="Main navigation" role="navigation">
-        <a href="/" data-route="home" data-en="Home" data-zh="首页">Home</a>
-        <a href="/about/" data-route="about" data-en="About" data-zh="关于">About</a>
-        <a href="/news/" data-route="news" data-en="News" data-zh="动态">News</a>
-        <a href="/collections/" data-route="collections" data-en="Research" data-zh="研究方向">Research</a>
-        <a href="/our-team/" data-route="our-team" data-en="Team" data-zh="团队">Team</a>
-        <a href="/publications/" data-route="publications" data-en="Publications" data-zh="论文">Publications</a>
-        <a href="/contact/" data-route="contact" data-en="Contact" data-zh="联系我们">Contact</a>
-      </nav>
+    <header class="site-header" data-scroll-header>
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="Zhang Lab">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <circle cx="16" cy="16" r="16" fill="currentColor" />
+            <path d="M5 17h6l3-7 4 13 3-6h6" fill="none" stroke="#faf9f5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span>Zhang Lab</span>
+        </a>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="/" data-route="home" data-en="Home" data-zh="首页">Home</a>
+          <a href="/about/" data-route="about" data-en="About" data-zh="关于">About</a>
+          <a href="/news/" data-route="news" data-en="News" data-zh="动态">News</a>
+          <a href="/collections/" data-route="collections" data-en="Research" data-zh="研究方向">Research</a>
+          <a href="/our-team/" data-route="our-team" data-en="Team" data-zh="团队">Team</a>
+          <a href="/publications/" data-route="publications" data-en="Publications" data-zh="论文">Publications</a>
+          <a href="/contact/" data-route="contact" data-en="Contact" data-zh="联系我们">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <LangSwitch />
+        </div>
+      </div>
     </header>
+
     <div id="main-content">
       <slot />
     </div>
-    <div class="floating-lang">
-      <LangSwitch />
-    </div>
+
     <footer class="footer" role="contentinfo">
-      <div class="container footer-inner">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand" href="/" aria-label="Zhang Lab">
+            <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+              <circle cx="16" cy="16" r="16" fill="currentColor" />
+              <path d="M5 17h6l3-7 4 13 3-6h6" fill="none" stroke="#141413" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span>Zhang Lab</span>
+          </a>
+          <p class="footer-tagline" data-en="The Zhang Li and Qishan Chen Research Group at Xinhua Hospital." data-zh="上海交通大学医学院附属新华医院张力/陈齐山课题组">The Zhang Li and Qishan Chen Research Group at Xinhua Hospital.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <h2 class="footer-heading" data-en="Explore" data-zh="浏览">Explore</h2>
+          <ul class="footer-links">
+            <li><a href="/about/" data-en="About" data-zh="关于">About</a></li>
+            <li><a href="/news/" data-en="News" data-zh="动态">News</a></li>
+            <li><a href="/collections/" data-en="Research" data-zh="研究方向">Research</a></li>
+            <li><a href="/our-team/" data-en="Team" data-zh="团队">Team</a></li>
+            <li><a href="/publications/" data-en="Publications" data-zh="论文">Publications</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2 class="footer-heading" data-en="Contact" data-zh="联系我们">Contact</h2>
+          <address>
+            <p data-en="1665 Kongjiang Road, Yangpu District, Shanghai 200092, China" data-zh="上海市杨浦区控江路1665号，邮编200092">1665 Kongjiang Road, Yangpu District, Shanghai 200092, China</p>
+            <a href="/contact/" data-en="Contact the lab →" data-zh="联系课题组 →">Contact the lab →</a>
+          </address>
+        </div>
+      </div>
+      <div class="container footer-bottom">
         <span>© 2026 Zhang Lab</span>
-        <span class="footer-note" data-en="Xinhua Hospital Affiliated to Shanghai Jiao Tong University School of Medicine" data-zh="上海交通大学医学院附属新华医院">
-          Xinhua Hospital Affiliated to Shanghai Jiao Tong University School of Medicine
-        </span>
-        <a class="footer-credit" href="/contact/" data-en="Contact" data-zh="联系我们">Contact</a>
+        <span data-en="Xinhua Hospital Affiliated to Shanghai Jiao Tong University School of Medicine" data-zh="上海交通大学医学院附属新华医院">Xinhua Hospital Affiliated to Shanghai Jiao Tong University School of Medicine</span>
       </div>
     </footer>
+
     <script>
-      /* ---- Active nav capsule based on path segment ---- */
+      /* ---- Active nav item based on path segment ---- */
       const segs = window.location.pathname.split('/').filter(Boolean);
       const pageSeg = segs[0] === 'ZhangLab'
         ? (segs[1] || 'home')
         : (segs[0] || 'home');
       document.querySelectorAll<HTMLAnchorElement>('.nav a').forEach(a => {
-        if ((a.dataset.route || '') === pageSeg) a.classList.add('active');
+        if ((a.dataset.route || '') === pageSeg) {
+          a.classList.add('active');
+          a.setAttribute('aria-current', 'page');
+        }
       });
 
-      /* ---- Default navigation contrast; the home hero adjusts it on scroll ---- */
+      /* ---- Hairline under the header once the page scrolls ---- */
       const header = document.querySelector<HTMLElement>('[data-scroll-header]');
-      header?.classList.add('on-light');
-
-      /* ---- Scroll-driven header visibility ---- */
-      const updateHeaderVisibility = () => {
-        const fixedGlass = header?.dataset.headerMode === 'glass';
-        header?.classList.toggle('is-visible', fixedGlass || window.scrollY > 80);
-      };
-      updateHeaderVisibility();
-      window.addEventListener('scroll', updateHeaderVisibility, { passive: true });
+      const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 8);
+      updateHeader();
+      window.addEventListener('scroll', updateHeader, { passive: true });
 
       /* ---- Reveal animations ---- */
       const revealScenes = document.querySelectorAll('[data-reveal-scene]');
