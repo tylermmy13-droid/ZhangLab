@@ -22,7 +22,7 @@
 
   /* Geometry */
   --max: 1120px;
-  --header-h: 84px;
+  --header-h: 96px;
   --radius: 2px;
 
   /* Type. Latin glyphs come from the first family; CJK glyphs fall through.
@@ -143,7 +143,7 @@ img { max-width: 100%; display: block; }
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 12px 32px;
+  gap: 12px 48px;
   width: min(calc(100% - 48px), var(--max));
   min-height: var(--header-h);
   margin-inline: auto;
@@ -152,7 +152,7 @@ img { max-width: 100%; display: block; }
 .brand {
   color: var(--ink);
   font-family: var(--font-title);
-  font-size: 24px;
+  font-size: 27px;
   font-weight: 400;
   letter-spacing: 0.1em;
   line-height: 1;
@@ -163,14 +163,14 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   justify-self: end;
-  gap: 26px;
+  gap: 34px;
 }
 .nav a {
-  padding: 6px 0;
+  padding: 8px 0 7px;
   border-bottom: 1px solid transparent;
-  color: var(--slate);
+  color: var(--muted);
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.12em;
   line-height: 1.2;
@@ -181,10 +181,7 @@ img { max-width: 100%; display: block; }
 .nav a:hover { color: var(--ink); border-bottom-color: var(--rule); }
 .nav a.active { color: var(--ink); border-bottom-color: var(--ink); }
 
-.header-actions {
-  padding-left: 24px;
-  border-left: 1px solid var(--rule);
-}
+.header-actions { display: flex; align-items: center; }
 
 /* ===== Links that act as buttons: underlined text, nothing else ===== */
 .button {
@@ -553,7 +550,9 @@ html[lang="zh-CN"] .card p,
 html[lang="zh-CN"] .prose p,
 html[lang="zh-CN"] .prose li { line-height: 1.9; }
 html[lang="zh-CN"] .card h3 { font-weight: 600; letter-spacing: 0.005em; }
-html[lang="zh-CN"] :where(.nav a, .label, .tag-pill, .button) { letter-spacing: 0.06em; }
+html[lang="zh-CN"] :where(.label, .tag-pill, .button) { letter-spacing: 0.06em; }
+/* Chinese navigation is set larger: CJK glyphs read small next to Latin capitals. */
+html[lang="zh-CN"] .nav a { font-size: 17px; letter-spacing: 0.1em; }
 html[lang="zh-CN"] .brand { letter-spacing: 0.1em; }
 
 /* Chinese display type needs a firmer weight than the Latin serif face. */
@@ -595,12 +594,12 @@ html[lang="zh-CN"] :where(
     min-height: 0;
     padding-top: 12px;
   }
-  .brand { grid-area: brand; font-size: 25px; }
-  .header-actions { grid-area: actions; padding-left: 16px; }
+  .brand { grid-area: brand; font-size: 23px; }
+  .header-actions { grid-area: actions; }
   .nav {
     grid-area: nav;
     justify-self: stretch;
-    gap: 20px;
+    gap: 24px;
     margin: 8px 0 0;
     padding-bottom: 8px;
     overflow-x: auto;

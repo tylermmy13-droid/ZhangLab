@@ -7,31 +7,33 @@
 </div>
 
 <style>
+  /* Set like "中文 / EN": the current language in ink, the other one muted. */
   .lang-switch {
     display: flex;
-    align-items: center;
-    gap: 14px;
+    align-items: baseline;
     flex-shrink: 0;
+    font-family: var(--font-ui);
   }
   .lang-option {
-    padding: 6px 0;
+    padding: 8px 0 7px;
     border: 0;
     border-bottom: 1px solid transparent;
     background: none;
     color: var(--faint);
-    font-family: var(--font-ui);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.07em;
+    font: inherit;
+    font-size: 15px;
+    letter-spacing: 0.08em;
     cursor: pointer;
     transition: color 180ms ease, border-color 180ms ease;
   }
-  .lang-option:hover { color: var(--ink); border-bottom-color: var(--rule); }
-  .lang-option.active {
-    color: var(--ink);
-    border-bottom-color: var(--ink);
-    pointer-events: none;
+  .lang-option + .lang-option::before {
+    content: "/";
+    display: inline-block;
+    margin: 0 10px;
+    color: var(--rule);
   }
+  .lang-option:hover { color: var(--ink); }
+  .lang-option.active { color: var(--ink); pointer-events: none; }
   /* The old sliding highlight is not used; the element stays so the script keeps working. */
   .lang-slider { display: none; }
 </style>
