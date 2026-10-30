@@ -339,10 +339,10 @@ img { max-width: 100%; display: block; }
 
 .card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 200px;
-  gap: 0 36px;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 0 44px;
   align-items: start;
-  padding: 28px 0;
+  padding: 36px 0;
   border-bottom: 1px solid var(--rule);
 }
 .card > div { grid-column: 1; grid-row: 1; padding: 0; }
@@ -355,7 +355,7 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius);
   background: var(--paper-deep);
 }
-.card-image { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.card-image { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
 
 .card h3 {
   margin: 0 0 8px;
@@ -616,6 +616,6 @@ html[lang="zh-CN"] :where(
 
 @media (max-width: 640px) {
   .container { width: calc(100% - 32px); }
-  .card { grid-template-columns: minmax(0, 1fr) 104px; gap: 0 18px; padding: 22px 0; }
+  .card { grid-template-columns: minmax(0, 1fr) 132px; gap: 0 18px; padding: 24px 0; }
   .card p { font-size: 16px; }
 }

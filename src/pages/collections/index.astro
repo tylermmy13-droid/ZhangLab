@@ -47,10 +47,10 @@ const collectionItems = (await getCollection('collections'))
 
   .direction-card {
     display: grid;
-    grid-template-columns: 72px minmax(0, 1fr) 220px;
+    grid-template-columns: 72px minmax(0, 1fr) 360px;
     gap: 0 32px;
     align-items: start;
-    padding: 32px 0;
+    padding: 40px 0;
     border-bottom: 1px solid var(--rule);
   }
 
@@ -101,11 +101,11 @@ const collectionItems = (await getCollection('collections'))
   :global(html[lang="zh-CN"]) .direction-card-title { font-weight: 600; }
 
   @media (max-width: 860px) {
-    .direction-card { grid-template-columns: 44px minmax(0, 1fr) 120px; gap: 0 18px; padding: 24px 0; }
+    .direction-card { grid-template-columns: 44px minmax(0, 1fr) 170px; gap: 0 18px; padding: 24px 0; }
     .direction-card-number { font-size: 24px; }
   }
   @media (max-width: 560px) {
-    .direction-card { grid-template-columns: minmax(0, 1fr) 96px; }
+    .direction-card { grid-template-columns: minmax(0, 1fr) 132px; }
     .direction-card-number { display: none; }
   }
 </style>
