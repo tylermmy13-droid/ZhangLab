@@ -32,7 +32,7 @@ tags:
   - "BNP"
   - "Fibroblast Activation Protein"
   - "Heart Failure"
-image: "/assets/cards/publication-sky.png"
+image: "/assets/cards/art-glass.jpg"
 paperUrl: "https://doi.org/10.1161/CIRCRESAHA.122.320781"
 draft: false
 ---

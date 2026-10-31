@@ -12,7 +12,7 @@ tags:
   - "Inflammation"
   - "Cardiovascular Disease"
   - "Review"
-image: "/assets/cards/publication-sky.png"
+image: "/assets/cards/art-network.jpg"
 paperUrl: "https://doi.org/10.3389/fimmu.2022.971416"
 draft: false
 ---

@@ -7,7 +7,7 @@ pubDate: 2026-07-03
 platform: "Research Area"
 platformZh: "研究方向"
 tags: ["Multi-organ", "Cardiometabolic", "Kidney"]
-image: "/assets/cards/ATVB-cover.png"
+image: "/assets/cards/art-cells.jpg"
 accentColor: "#788c5d"
 ---
 

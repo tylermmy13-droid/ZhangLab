@@ -5,7 +5,7 @@ description: "The group integrates clinical cardiology, vascular biology, organo
 descriptionZh: "课题组整合临床心脏病学、血管生物学、类器官芯片模型、生物信息学与计算健康研究。"
 pubDate: 2026-06-20
 tags: ["platform"]
-image: "/assets/cards/publication-sky.png"
+image: "/assets/cards/art-glass.jpg"
 draft: true
 ---
 

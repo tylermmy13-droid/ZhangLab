@@ -7,7 +7,7 @@ pubDate: 2026-07-04
 platform: "Research Area"
 platformZh: "研究方向"
 tags: ["Wearables", "Digital Health", "Signal Processing"]
-image: "/assets/cards/publication-sky.png"
+image: "/assets/cards/art-glass.jpg"
 accentColor: "#b0a07a"
 ---
 

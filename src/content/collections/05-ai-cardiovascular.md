@@ -7,7 +7,7 @@ pubDate: 2026-07-05
 platform: "Research Area"
 platformZh: "研究方向"
 tags: ["Machine Learning", "Imaging", "Multi-omics"]
-image: "/assets/cards/publication-sky.png"
+image: "/assets/cards/art-network.jpg"
 accentColor: "#8b7ab0"
 ---
 

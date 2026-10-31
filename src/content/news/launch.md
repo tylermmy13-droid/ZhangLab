@@ -5,7 +5,7 @@ description: "The updated site introduces the team, research areas, publications
 descriptionZh: "更新后的网站介绍了团队、研究方向、论文与联系方式。"
 pubDate: 2026-06-25
 tags: ["announcement"]
-image: "/assets/cards/publication-blue.png"
+image: "/assets/cards/art-flow.jpg"
 draft: false
 ---
 

@@ -27,7 +27,7 @@ tags:
   - "Progenitor Cells"
   - "Neointimal Formation"
   - "Arterial Repair"
-image: "/assets/cards/publication-blue.png"
+image: "/assets/cards/art-vessel.jpg"
 paperUrl: "https://doi.org/10.1161/CIRCRESAHA.121.319494"
 draft: false
 ---

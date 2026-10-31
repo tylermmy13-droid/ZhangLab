@@ -27,7 +27,7 @@ tags:
   - "CCL11/CCR3"
   - "PI3K/AKT"
   - "Fibroblast"
-image: "/assets/cards/publication-sky.png"
+image: "/assets/cards/art-flow.jpg"
 paperUrl: "https://doi.org/10.7150/thno.104650"
 draft: false
 ---

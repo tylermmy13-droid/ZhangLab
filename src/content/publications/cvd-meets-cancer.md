@@ -15,7 +15,7 @@ tags:
   - "Cardio-oncology"
   - "Epidemiology"
   - "Review"
-image: "/assets/cards/publication-sky.png"
+image: "/assets/cards/art-glass.jpg"
 paperUrl: "https://doi.org/10.1002/advs.202501820"
 draft: false
 ---

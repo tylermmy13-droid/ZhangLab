@@ -22,7 +22,7 @@ tags:
   - "Neointimal Hyperplasia"
   - "Vascular Remodeling"
   - "Proliferation"
-image: "/assets/cards/publication-sky.png"
+image: "/assets/cards/art-glass.jpg"
 paperUrl: "https://doi.org/10.1093/cvr/cvaf084"
 draft: false
 ---

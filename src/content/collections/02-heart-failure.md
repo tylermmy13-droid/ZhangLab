@@ -7,7 +7,7 @@ pubDate: 2026-07-02
 platform: "Research Area"
 platformZh: "研究方向"
 tags: ["Heart Failure", "Cardiomyopathy", "Mitochondria"]
-image: "/assets/cards/nrf3-cover.png"
+image: "/assets/cards/art-fluid.jpg"
 accentColor: "#d97757"
 ---
 

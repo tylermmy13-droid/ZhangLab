@@ -7,7 +7,7 @@ pubDate: 2026-07-01
 platform: "Research Area"
 platformZh: "研究方向"
 tags: ["Vascular Biology", "Endothelial Repair", "Smooth Muscle Cell"]
-image: "/assets/cards/publication-blue.png"
+image: "/assets/cards/art-vessel.jpg"
 accentColor: "#6a9bcc"
 ---
 

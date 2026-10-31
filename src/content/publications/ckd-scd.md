@@ -24,7 +24,7 @@ tags:
   - "Epidemiology"
   - "Proteomics"
   - "Risk Stratification"
-image: "/assets/cards/publication-sky.png"
+image: "/assets/cards/art-waves.jpg"
 paperUrl: "https://doi.org/10.1038/s41467-025-64254-9"
 draft: false
 ---

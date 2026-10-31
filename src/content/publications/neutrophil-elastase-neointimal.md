@@ -21,7 +21,7 @@ tags:
   - "Neointimal Hyperplasia"
   - "Smooth Muscle Cell"
   - "TLR4"
-image: "/assets/cards/publication-blue.png"
+image: "/assets/cards/art-network.jpg"
 paperUrl: "https://doi.org/10.1111/bph.15583"
 draft: false
 ---
