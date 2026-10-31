@@ -5,7 +5,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HomeHero from '../components/HomeHero.astro';
 import NewsCard from '../components/NewsCard.astro';
 import PublicationCard from '../components/PublicationCard.astro';
-import CollectionCard from '../components/CollectionCard.astro';
 
 const newsItems = (await getCollection('news')).filter((item) => !item.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
 const publications = (await getCollection('publications')).filter((item) => !item.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
@@ -41,7 +40,17 @@ const collectionItems = (await getCollection('collections')).filter((item) => !i
           </div>
           <p class="section-copy" data-en="Our current research directions." data-zh="我们目前的研究方向。">Our current research directions.</p>
         </div>
-        <div class="card-grid">{collectionItems.map((item) => <CollectionCard item={item} />)}</div>
+        <div class="area-row">
+          {collectionItems.map((item, index) => (
+            <a class="area" href={`/collections/${item.id}/`}>
+              <span class="area-media"><img src={item.data.image} alt={item.data.titleZh} loading="lazy" /></span>
+              <span class="area-index" aria-hidden="true">{String(index + 1).padStart(2, '0')} / {String(collectionItems.length).padStart(2, '0')}</span>
+              <span class="label" data-en={item.data.platform} data-zh={item.data.platformZh}>{item.data.platform}</span>
+              <h3 data-en={item.data.title} data-zh={item.data.titleZh}>{item.data.title}</h3>
+              <p data-en={item.data.description} data-zh={item.data.descriptionZh}>{item.data.description}</p>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
 
@@ -60,3 +69,73 @@ const collectionItems = (await getCollection('collections')).filter((item) => !i
     </section>
   </main>
 </BaseLayout>
+
+<style>
+  /* Research areas: three columns, each opened by a hairline, like a row of index entries. */
+  .area-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 32px;
+  }
+  .area {
+    display: block;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+  }
+  .area-media {
+    display: block;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: var(--paper-deep);
+  }
+  .area-media img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    transition: transform 500ms ease;
+  }
+  .area:hover .area-media img { transform: scale(1.03); }
+
+  .area-index {
+    display: block;
+    margin: 18px 0 10px;
+    color: var(--faint);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+  .area h3 {
+    margin: 0 0 10px;
+    font-family: var(--font-title);
+    font-size: clamp(22px, 2vw, 28px);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+    transition: text-decoration-color 180ms ease;
+  }
+  .area:hover h3 { text-decoration-color: currentColor; }
+  .area p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.6; }
+
+  :global(html[lang="zh-CN"]) .area h3 { font-weight: 600; }
+
+  /* On narrow screens the row scrolls sideways, one entry at a time. */
+  @media (max-width: 860px) {
+    .area-row {
+      grid-template-columns: none;
+      grid-auto-flow: column;
+      grid-auto-columns: 78%;
+      gap: 0 20px;
+      margin-right: -16px;
+      padding-right: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+    .area-row::-webkit-scrollbar { display: none; }
+    .area { scroll-snap-align: start; }
+  }
+</style>
