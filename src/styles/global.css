@@ -315,6 +315,14 @@ img { max-width: 100%; display: block; }
   letter-spacing: -0.02em;
 }
 
+.news-detail-title {
+  font-family: var(--font-title);
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
 .detail-description {
   max-width: 700px;
   margin: 20px 0 0;
@@ -563,7 +571,7 @@ html[lang="zh-CN"] :where(.collection-lede, .publication-lede, .section-copy, .d
 html[lang="zh-CN"] .card p,
 html[lang="zh-CN"] .prose p,
 html[lang="zh-CN"] .prose li { line-height: 1.9; }
-html[lang="zh-CN"] .card h3 { font-weight: 600; letter-spacing: 0.005em; }
+html[lang="zh-CN"] .news-detail-title { font-weight: 500 !important; }
 html[lang="zh-CN"] :where(.label, .tag-pill) { letter-spacing: 0.04em; }
 /* Chinese navigation is set larger: CJK glyphs read small next to Latin capitals. */
 html[lang="zh-CN"] .nav a { font-size: 16px; letter-spacing: 0.04em; }
