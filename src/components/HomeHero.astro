@@ -5,7 +5,7 @@
       <h1 class="home-hero-title" data-en="Cardiovascular research,&lt;br /&gt;grounded in clinical questions." data-zh="从临床问题出发的&lt;br /&gt;心血管医学研究">Cardiovascular research,<br />grounded in clinical questions.</h1>
       <p class="home-hero-tagline" data-en="The Zhang Li and Qishan Chen Research Group at Xinhua Hospital." data-zh="上海交通大学医学院附属新华医院张力/陈齐山课题组">The Zhang Li and Qishan Chen Research Group at Xinhua Hospital.</p>
       <p class="home-hero-links">
-        <a class="button" href="/collections/"><span data-en="Research Areas" data-zh="研究方向">Research Areas</span> <span aria-hidden="true">&rarr;</span></a>
+        <a class="button is-primary" href="/collections/"><span data-en="Research Areas" data-zh="研究方向">Research Areas</span> <span aria-hidden="true">&rarr;</span></a>
         <a class="button is-secondary" href="/our-team/"><span data-en="Team" data-zh="团队">Team</span> <span aria-hidden="true">&rarr;</span></a>
       </p>
     </div>
@@ -115,9 +115,26 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px 32px;
-    margin: clamp(18px, 2.6vh, 30px) 0 0;
+    gap: 12px 14px;
+    margin: clamp(22px, 3vh, 36px) 0 0;
   }
+
+  /* One filled button on the page, the single use of the accent color as a block. */
+  .home-hero-links .button {
+    padding: 12px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+  }
+  .home-hero-links .button.is-primary {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #fff;
+  }
+  .home-hero-links .button.is-primary:hover { border-color: #7f1626; background: #7f1626; color: #fff; }
+  .home-hero-links .button.is-secondary { color: var(--ink); }
+  .home-hero-links .button.is-secondary:hover { border-color: var(--ink); color: var(--ink); }
 
   .home-hero-media {
     position: absolute;

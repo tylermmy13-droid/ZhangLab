@@ -64,7 +64,7 @@ body {
   color: var(--ink);
   background: var(--paper);
   font-family: var(--font-body);
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.7;
   font-kerning: normal;
   -webkit-font-smoothing: antialiased;
@@ -202,15 +202,15 @@ img { max-width: 100%; display: block; }
 /* ===== Sections ===== */
 .section {
   position: relative;
-  padding: clamp(56px, 7vw, 88px) 0;
+  padding: clamp(64px, 8vw, 112px) 0;
 }
 
 .section-head {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 8px;
-  padding-top: 18px;
+  margin-bottom: 12px;
+  padding-top: 22px;
   border-top: 1px solid var(--ink);
 }
 .section-head-top {
@@ -224,9 +224,9 @@ img { max-width: 100%; display: block; }
   max-width: 920px;
   margin: 0;
   font-family: var(--font-title);
-  font-size: clamp(30px, 3.4vw, 44px);
+  font-size: clamp(32px, 3.8vw, 52px);
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.12;
   letter-spacing: -0.015em;
 }
 
@@ -381,7 +381,7 @@ img { max-width: 100%; display: block; }
 /* ===== Prose (articles and research-area bodies) ===== */
 .prose {
   font-family: var(--font-read);
-  width: min(calc(100% - 48px), 700px);
+  width: min(calc(100% - 48px), 720px);
   margin: 0 auto 112px;
   color: var(--ink);
 }
