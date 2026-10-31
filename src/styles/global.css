@@ -1,24 +1,24 @@
 /* ==========================================================================
    Zhang Lab — global styles
-   Design language: a printed academic letter on parchment. Warm paper with a
-   faint grain, dark ink, hairline rules, one serif family throughout, letter-
-   spaced capitals for labels, images mounted like plates. No boxes, no pills,
-   no shadows, no colored side bars. One red-brown accent, for links and hover.
+   Design language: a modern academic book. Pale stone paper, near-black ink,
+   hairline rules, one serif family, spaced capitals for labels, large clean
+   imagery. No boxes, no pills, no shadows, no colored side bars. One crimson
+   accent (Harvard-like), for the header rule, links and hover.
    ========================================================================== */
 
 :root {
   /* Paper and ink */
-  --paper: #f4eedf;        /* page */
-  --paper-deep: #e9dfc9;   /* image placeholders */
-  --ink: #221c15;
-  --slate: #3f3930;
-  --muted: #5f574b;        /* 6.3:1 on paper */
-  --faint: #6f6453;        /* 5.1:1 on paper, for small labels */
-  --accent: #9a3f24;       /* 6.0:1 on paper, for links and hover */
+  --paper: #f7f6f3;        /* page */
+  --paper-deep: #eceae5;   /* image placeholders, footer */
+  --ink: #1e1e1e;
+  --slate: #3a3a3a;
+  --muted: #575552;        /* 7:1 on paper */
+  --faint: #6b6864;        /* 5:1 on paper, for small labels */
+  --accent: #a51c30;       /* crimson, 6.5:1 on paper */
 
   /* Rules */
-  --rule: rgba(45, 34, 20, 0.30);
-  --rule-soft: rgba(45, 34, 20, 0.15);
+  --rule: rgba(30, 30, 30, 0.28);
+  --rule-soft: rgba(30, 30, 30, 0.13);
 
   /* Geometry */
   --max: 1120px;
@@ -60,14 +60,10 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--ink);
-  /* Faint paper grain, drawn inline so no image request is needed. */
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .22 0 0 0 0 .12 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
-    var(--paper);
+  background: var(--paper);
   font-family: var(--font-body);
   font-size: 18px;
   line-height: 1.7;
-  font-variant-numeric: oldstyle-nums;
   font-kerning: normal;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -134,9 +130,8 @@ img { max-width: 100%; display: block; }
   position: sticky;
   top: 0;
   z-index: 30;
-  background: inherit;
-  background-color: var(--paper);
-  border-bottom: 3px double var(--ink);
+  background: var(--paper);
+  border-bottom: 2px solid var(--accent);
 }
 
 .header-inner {
@@ -179,7 +174,7 @@ img { max-width: 100%; display: block; }
   transition: color 180ms ease, border-color 180ms ease;
 }
 .nav a:hover { color: var(--ink); border-bottom-color: var(--rule); }
-.nav a.active { color: var(--ink); border-bottom-color: var(--ink); }
+.nav a.active { color: var(--ink); border-bottom-color: var(--accent); }
 
 .header-actions { display: flex; align-items: center; }
 
@@ -425,10 +420,8 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius);
 }
 
-/* Long reading text is justified: English only in articles (with hyphenation),
-   Chinese wherever paragraphs run long, as in print. */
+/* Chinese reading text is justified, as in a printed book; English stays ragged-right. */
 @media (min-width: 720px) {
-  html[lang="en"] .prose p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
   html[lang="zh-CN"] :where(.prose p, .about-overview-copy p, .member-desc) { text-align: justify; }
 }
 
@@ -492,7 +485,8 @@ img { max-width: 100%; display: block; }
 .footer {
   margin-top: 0;
   padding: 44px 0 36px;
-  border-top: 3px double var(--ink);
+  border-top: 1px solid var(--rule);
+  background: var(--paper-deep);
   color: var(--muted);
 }
 .footer-grid {
@@ -522,11 +516,10 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.08em;
 }
 
-/* ===== Images are mounted like plates: a paper margin inside a hairline frame ===== */
+/* ===== Images stand on their own: no frame, a slight corner ===== */
 :where(
   .card-media,
   .detail-cover,
-  .home-hero-figure,
   .direction-card-media,
   .member-card-photo,
   .member-photo,
@@ -534,10 +527,9 @@ img { max-width: 100%; display: block; }
   .pub-thumb,
   .prose img
 ) {
-  padding: 5px;
-  border: 1px solid var(--rule) !important;
-  border-radius: 0 !important;
-  background: var(--paper) !important;
+  border: 0 !important;
+  border-radius: 2px !important;
+  background: var(--paper-deep) !important;
 }
 
 /* ===== Chinese typography ===== */
