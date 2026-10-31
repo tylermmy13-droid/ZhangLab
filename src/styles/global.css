@@ -1,7 +1,8 @@
 /* ==========================================================================
    Zhang Lab — global styles
    Design language: a modern academic book. Pale stone paper, near-black ink,
-   hairline rules, one serif family, spaced capitals for labels, large clean
+   hairline rules. Serif for headlines and long reading, sans for everything
+   that is read at a glance (navigation, labels, descriptions). Large clean
    imagery. No boxes, no pills, no shadows, no colored side bars. One crimson
    accent (Harvard-like), for the header rule, links and hover.
    ========================================================================== */
@@ -23,13 +24,14 @@
   /* Geometry */
   --max: 1120px;
   --header-h: 96px;
-  --radius: 2px;
+  --radius: 4px;
 
   /* Type. Latin glyphs come from the first family; CJK glyphs fall through.
      DM Serif Display is self-hosted and only serves as an offline fallback. */
   --font-title: "DM Serif Display", "Source Han Serif CN Bold", "Noto Serif SC", "Songti SC", "STSong", Georgia, "Times New Roman", serif;
-  --font-body: "Newsreader", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, "Times New Roman", serif;
-  /* Labels, navigation and links share the text serif, set in spaced capitals. */
+  --font-body: "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", -apple-system, "Segoe UI", sans-serif;
+  /* Long-form reading (articles) keeps a book serif. */
+  --font-read: "Newsreader", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, "Times New Roman", serif;
   --font-ui: var(--font-body);
 }
 
@@ -62,7 +64,7 @@ body {
   color: var(--ink);
   background: var(--paper);
   font-family: var(--font-body);
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.7;
   font-kerning: normal;
   -webkit-font-smoothing: antialiased;
@@ -117,10 +119,9 @@ img { max-width: 100%; display: block; }
   margin: 0 0 8px;
   color: var(--faint);
   font-family: var(--font-ui);
-  font-size: 12.5px;
-  font-weight: 500;
-  font-variant-numeric: lining-nums;
-  letter-spacing: 0.14em;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   line-height: 1.4;
   text-transform: uppercase;
 }
@@ -147,18 +148,17 @@ img { max-width: 100%; display: block; }
 .brand {
   color: var(--ink);
   font-family: var(--font-title);
-  font-size: 27px;
+  font-size: 28px;
   font-weight: 400;
-  letter-spacing: 0.1em;
+  letter-spacing: -0.01em;
   line-height: 1;
-  text-transform: uppercase;
 }
 
 .nav {
   display: flex;
   align-items: center;
   justify-self: end;
-  gap: 34px;
+  gap: 30px;
 }
 .nav a {
   padding: 8px 0 7px;
@@ -167,9 +167,8 @@ img { max-width: 100%; display: block; }
   font-family: var(--font-ui);
   font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0;
   line-height: 1.2;
-  text-transform: uppercase;
   white-space: nowrap;
   transition: color 180ms ease, border-color 180ms ease;
 }
@@ -189,11 +188,10 @@ img { max-width: 100%; display: block; }
   background: none;
   color: var(--ink);
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0;
   line-height: 1.4;
-  text-transform: uppercase;
   white-space: nowrap;
   transition: color 180ms ease, border-color 180ms ease;
 }
@@ -350,7 +348,8 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius);
   background: var(--paper-deep);
 }
-.card-image { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.card-image { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; transition: transform 500ms ease; }
+.card:hover .card-image { transform: scale(1.03); }
 
 .card h3 {
   margin: 0 0 8px;
@@ -375,12 +374,13 @@ img { max-width: 100%; display: block; }
 }
 .card-meta {
   color: var(--faint);
-  font-size: 15px;
+  font-size: 14px;
   font-style: italic;
 }
 
 /* ===== Prose (articles and research-area bodies) ===== */
 .prose {
+  font-family: var(--font-read);
   width: min(calc(100% - 48px), 700px);
   margin: 0 auto 112px;
   color: var(--ink);
@@ -420,9 +420,9 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius);
 }
 
-/* Chinese reading text is justified, as in a printed book; English stays ragged-right. */
+/* Chinese article text is justified, as in a printed book; English stays ragged-right. */
 @media (min-width: 720px) {
-  html[lang="zh-CN"] :where(.prose p, .about-overview-copy p, .member-desc) { text-align: justify; }
+  html[lang="zh-CN"] .prose p { text-align: justify; }
 }
 
 /* Quotes are set as indented italic text, with no bar beside them. */
@@ -478,7 +478,7 @@ img { max-width: 100%; display: block; }
   text-align: left;
   vertical-align: top;
 }
-.prose th { color: var(--ink); font-family: var(--font-ui); font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+.prose th { color: var(--ink); font-family: var(--font-ui); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .prose tr:last-child td { border-bottom: 0; }
 
 /* ===== Footer: affiliation and address, set like the foot of a letter ===== */
@@ -494,7 +494,7 @@ img { max-width: 100%; display: block; }
   grid-template-columns: 1.2fr 1fr;
   gap: 24px 64px;
 }
-.footer .brand { display: inline-block; margin-bottom: 6px; font-size: 20px; }
+.footer .brand { display: inline-block; margin-bottom: 6px; font-size: 24px; }
 .footer p,
 .footer address { margin: 0; font-style: normal; font-size: 16px; line-height: 1.65; }
 .footer address p + p { margin-top: 8px; }
@@ -528,7 +528,7 @@ img { max-width: 100%; display: block; }
   .prose img
 ) {
   border: 0 !important;
-  border-radius: 2px !important;
+  border-radius: var(--radius) !important;
   background: var(--paper-deep) !important;
 }
 
@@ -542,10 +542,10 @@ html[lang="zh-CN"] .card p,
 html[lang="zh-CN"] .prose p,
 html[lang="zh-CN"] .prose li { line-height: 1.9; }
 html[lang="zh-CN"] .card h3 { font-weight: 600; letter-spacing: 0.005em; }
-html[lang="zh-CN"] :where(.label, .tag-pill, .button) { letter-spacing: 0.06em; }
+html[lang="zh-CN"] :where(.label, .tag-pill) { letter-spacing: 0.04em; }
 /* Chinese navigation is set larger: CJK glyphs read small next to Latin capitals. */
-html[lang="zh-CN"] .nav a { font-size: 17px; letter-spacing: 0.1em; }
-html[lang="zh-CN"] .brand { letter-spacing: 0.1em; }
+html[lang="zh-CN"] .nav a { font-size: 16px; letter-spacing: 0.04em; }
+html[lang="zh-CN"] .button { letter-spacing: 0.04em; }
 
 /* Chinese display type needs a firmer weight than the Latin serif face. */
 html[lang="zh-CN"] :where(
