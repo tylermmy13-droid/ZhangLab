@@ -1,7 +1,7 @@
 ---
 title: "Novel Roles of Nrf3-Trim5 Axis in Vascular Smooth Muscle Cell Dysfunctions and Neointimal Hyperplasia"
 description: "Nrf3 regulates vascular smooth muscle cell phenotypic switching and proliferation through transcriptional control of Trim5. Targeting the Nrf3-Trim5 pathway attenuates neointimal hyperplasia after vascular injury."
-pubDate: 2025-01-01
+pubDate: 2025-05-16
 venue: "Cardiovascular Research"
 authors:
   - "Qishan Chen"

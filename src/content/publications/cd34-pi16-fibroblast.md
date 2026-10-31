@@ -1,24 +1,24 @@
 ---
 title: "CD34+ PI16+ Fibroblast Progenitors Aggravate Neointimal Lesions of Allograft Arteries via CCL11/CCR3-PI3K/AKT Pathway"
 description: "CD34+ PI16+ fibroblast progenitors are recruited to allograft arteries via CCL11/CCR3 and drive neointimal hyperplasia through PI3K/AKT signaling, suggesting a targetable mechanism in transplant vasculopathy."
-pubDate: 2025-02-01
+pubDate: 2025-01-20
 venue: "Theranostics"
 authors:
-  - "Xiaodong Xu, MD"
-  - "Pengwei Zhu, MD"
-  - "Han Wang, MD"
-  - "Kai Chen, MD"
-  - "Liang Liu, MD"
-  - "Luping Du, MD"
-  - "Liujun Jiang, MD"
-  - "Yanhua Hu, MD"
-  - "Xuhao Zhou, MD"
-  - "Bohuan Zhang, MD"
-  - "Xiangyuan Pu, MD"
-  - "Xiaosheng Hu, MD"
-  - "Qingbo Xu, MD, PhD"
-  - "Li Zhang, MD, PhD"
-  - "Weidong Li, MD"
+  - "Xiaodong Xu"
+  - "Pengwei Zhu"
+  - "Han Wang"
+  - "Kai Chen"
+  - "Liang Liu"
+  - "Luping Du"
+  - "Liujun Jiang"
+  - "Yanhua Hu"
+  - "Xuhao Zhou"
+  - "Bohuan Zhang"
+  - "Xiangyuan Pu"
+  - "Xiaosheng Hu"
+  - "Qingbo Xu"
+  - "Li Zhang"
+  - "Weidong Li"
 tags:
   - "CD34+ PI16+ Progenitors"
   - "Neointimal Lesions"
@@ -28,7 +28,7 @@ tags:
   - "PI3K/AKT"
   - "Fibroblast"
 image: "/assets/cards/publication-sky.png"
-paperUrl: "https://doi.org/10.7150/thno.104153"
+paperUrl: "https://doi.org/10.7150/thno.104650"
 draft: false
 ---
 

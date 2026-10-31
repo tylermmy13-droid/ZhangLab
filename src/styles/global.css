@@ -3,8 +3,8 @@
    Design language: a modern academic book. Pale stone paper, near-black ink,
    hairline rules. Serif for headlines and long reading, sans for everything
    that is read at a glance (navigation, labels, descriptions). Large clean
-   imagery. No boxes, no pills, no shadows, no colored side bars. One crimson
-   accent (Harvard-like), for the header rule, links and hover.
+   imagery. No boxes, no pills, no shadows, no colored side bars. One deep blue
+   accent, for the header rule, links and hover.
    ========================================================================== */
 
 :root {
@@ -15,7 +15,7 @@
   --slate: #3a3a3a;
   --muted: #575552;        /* 7:1 on paper */
   --faint: #6b6864;        /* 5:1 on paper, for small labels */
-  --accent: #a51c30;       /* crimson, 6.5:1 on paper */
+  --accent: #003f87;       /* deep academic blue, 10:1 on paper */
 
   /* Rules */
   --rule: rgba(30, 30, 30, 0.28);
@@ -26,21 +26,42 @@
   --header-h: 96px;
   --radius: 4px;
 
-  /* Type. Latin glyphs come from the first family; CJK glyphs fall through.
-     DM Serif Display is self-hosted and only serves as an offline fallback. */
-  --font-title: "DM Serif Display", "Source Han Serif CN Bold", "Noto Serif SC", "Songti SC", "STSong", Georgia, "Times New Roman", serif;
-  --font-body: "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", -apple-system, "Segoe UI", sans-serif;
+  /* Type. Latin glyphs come from the first family; Chinese glyphs fall through.
+     Charter (serif) for headlines and articles, Manrope (sans) for the rest. */
+  --font-title: "Charter", "Source Han Serif CN Bold", "Noto Serif SC", "Songti SC", "STSong", Georgia, "Times New Roman", serif;
+  --font-body: "Manrope", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", -apple-system, "Segoe UI", sans-serif;
   /* Long-form reading (articles) keeps a book serif. */
-  --font-read: "Newsreader", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, "Times New Roman", serif;
+  --font-read: "Charter", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, "Times New Roman", serif;
   --font-ui: var(--font-body);
 }
 
 @font-face {
-  font-family: "DM Serif Display";
-  src: url("/assets/fonts/dm-serif-display-latin-400-normal.ttf") format("truetype");
+  font-family: "Charter";
+  src: url("/assets/fonts/charter-regular.woff") format("woff");
   font-display: swap;
   font-style: normal;
   font-weight: 400;
+}
+@font-face {
+  font-family: "Charter";
+  src: url("/assets/fonts/charter-italic.woff") format("woff");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Charter";
+  src: url("/assets/fonts/charter-bold.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("/assets/fonts/manrope-variable.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 200 800;
 }
 
 @font-face {
@@ -374,7 +395,8 @@ img { max-width: 100%; display: block; }
 }
 .card-meta {
   color: var(--faint);
-  font-size: 14px;
+  font-family: var(--font-read);
+  font-size: 15px;
   font-style: italic;
 }
 

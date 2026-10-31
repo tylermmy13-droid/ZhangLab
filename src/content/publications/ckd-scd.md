@@ -1,17 +1,22 @@
 ---
 title: "Chronic Kidney Disease Is Associated with Increased Risk of Sudden Cardiac Death"
 description: "Chronic kidney disease is independently associated with increased sudden cardiac death risk. Proteomic profiling identifies circulating biomarkers that may mediate the heart–kidney axis in risk stratification."
-pubDate: 2025-06-04
+pubDate: 2025-10-16
 venue: "Nature Communications"
 authors:
-  - "Yalan Li, MSc"
-  - "Ruchao Jiang, PhD"
-  - "Chenxi Ouyang, MD"
-  - "Jie Wang, MD"
-  - "Qingwei Yu, MD"
-  - "Jingjing Cai, MD, PhD"
-  - "Li Zhang, MD, PhD"
-  - "Yao Lu, PhD"
+  - "Yalan Li"
+  - "Ruchao Jiang"
+  - "Chenxi Ouyang"
+  - "Jie Wang"
+  - "Qingwei Yu"
+  - "Jun Lu"
+  - "Wei Hong"
+  - "Shiqi Liu"
+  - "Yan Chen"
+  - "Jingjing Cai"
+  - "Hong Yuan"
+  - "Li Zhang"
+  - "Yao Lu"
 tags:
   - "Chronic Kidney Disease"
   - "Sudden Cardiac Death"
