@@ -63,8 +63,7 @@
     z-index: 2;
     height: 220vh;
     height: 220dvh;
-    background: var(--accent-deep);
-    color: #fff;
+    background: var(--paper);
   }
 
   .home-hero-sticky {
@@ -93,8 +92,8 @@
   .home-hero-eyebrow {
     margin: 0 0 clamp(16px, 2.6vh, 28px);
     padding-top: 14px;
-    border-top: 1px solid rgba(255, 255, 255, 0.4);
-    color: rgba(255, 255, 255, 0.78);
+    border-top: 2px solid var(--accent);
+    color: var(--accent);
     font-family: var(--font-ui);
     font-size: 12px;
     font-weight: 600;
@@ -121,7 +120,7 @@
   .home-hero-tagline {
     max-width: 640px;
     margin: clamp(16px, 2.4vh, 28px) 0 0;
-    color: rgba(255, 255, 255, 0.82);
+    color: var(--muted);
     font-size: clamp(16px, 1.3vw, 20px);
     line-height: 1.55;
   }
@@ -134,10 +133,9 @@
   }
 
   /* Plain underlined links, the same voice as every other link on the site. */
-  .home-hero-links .button { color: #fff; border-bottom-color: rgba(255, 255, 255, 0.85); font-size: 16px; }
-  .home-hero-links .button:hover { color: #fff; border-bottom-color: #9cc4ff; }
-  .home-hero-links .button.is-secondary { color: rgba(255, 255, 255, 0.78); border-bottom-color: rgba(255, 255, 255, 0.4); }
-  .home-hero-links .button.is-secondary:hover { color: #fff; border-bottom-color: #9cc4ff; }
+  .home-hero-links .button { font-size: 16px; }
+  .home-hero-links .button:not(.is-secondary) { color: var(--accent); border-bottom-color: var(--accent); }
+  .home-hero-links .button:not(.is-secondary):hover { color: var(--accent-deep); border-bottom-color: var(--accent-deep); }
 
   .home-hero-media {
     position: absolute;
