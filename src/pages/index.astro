@@ -71,6 +71,8 @@ const collectionItems = (await getCollection('collections')).filter((item) => !i
 </BaseLayout>
 
 <style>
+  /* One pale blue band between the paper sections. */
+  #collections { background: var(--tint); }
   /* Research areas: three columns, each opened by a hairline, like a row of index entries. */
   .area-row {
     display: grid;
@@ -99,7 +101,7 @@ const collectionItems = (await getCollection('collections')).filter((item) => !i
   .area-index {
     display: block;
     margin: 18px 0 10px;
-    color: var(--faint);
+    color: var(--accent);
     font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     font-size: 13px;
     letter-spacing: 0.04em;
