@@ -30,7 +30,7 @@
 
   /* Type. Latin glyphs come from the first family; Chinese glyphs fall through.
      Charter (serif) for headlines and articles, Manrope (sans) for the rest. */
-  --font-title: "Charter", "Source Han Serif CN Bold", "Noto Serif SC", "Songti SC", "STSong", Georgia, "Times New Roman", serif;
+  --font-title: "Charter", "Source Han Serif CN", "Noto Serif SC", "Songti SC", "STSong", Georgia, "Times New Roman", serif;
   --font-body: "Manrope", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", -apple-system, "Segoe UI", sans-serif;
   /* Long-form reading (articles) keeps a book serif. */
   --font-read: "Charter", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, "Times New Roman", serif;
@@ -66,9 +66,17 @@
   font-weight: 200 800;
 }
 
+/* Chinese display face: Medium matches the stroke weight of Charter Regular. Subset to GB2312 plus the characters used on the site; anything rarer falls back to the system serif. */
 @font-face {
-  font-family: "Source Han Serif CN Bold";
-  src: url("/assets/fonts/SourceHanSerifCN-Bold.otf") format("opentype");
+  font-family: "Source Han Serif CN";
+  src: url("/assets/fonts/SourceHanSerifCN-Medium.subset.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Source Han Serif CN";
+  src: url("/assets/fonts/SourceHanSerifCN-Bold.subset.woff") format("woff");
   font-display: swap;
   font-style: normal;
   font-weight: 700;
@@ -578,7 +586,7 @@ html[lang="zh-CN"] :where(.label, .tag-pill) { letter-spacing: 0.04em; }
 html[lang="zh-CN"] .nav a { font-size: 16px; letter-spacing: 0.04em; }
 html[lang="zh-CN"] .button { letter-spacing: 0.04em; }
 
-/* Chinese display type needs a firmer weight than the Latin serif face. */
+/* Chinese display type is set one step heavier than the Latin serif so the two read at the same weight. */
 html[lang="zh-CN"] :where(
   .home-hero-title,
   .section-title,
@@ -603,7 +611,7 @@ html[lang="zh-CN"] :where(
   .prose h3,
   .prose h4
 ) {
-  font-weight: 600 !important;
+  font-weight: 500 !important;
 }
 
 /* ===== Responsive ===== */
