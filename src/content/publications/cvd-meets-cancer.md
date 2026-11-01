@@ -10,7 +10,7 @@ authors:
   - "Jing Wang"
   - "Meng Luo"
   - "Jiaojiao Zhou"
-  - "Qishan Chen"
+  - "CHEN Qishan"
 tags:
   - "Cardio-oncology"
   - "Epidemiology"

@@ -4,9 +4,9 @@ description: "A review of a decade of work on the Hippo–YAP pathway in myocard
 pubDate: 2022-08-18
 venue: "Frontiers in Immunology"
 authors:
-  - "Ancheng Zheng"
-  - "Qishan Chen"
-  - "Li Zhang"
+  - "ZHENG Ancheng"
+  - "CHEN Qishan"
+  - "ZHANG Li"
 tags:
   - "Hippo-YAP"
   - "Inflammation"

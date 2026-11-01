@@ -17,7 +17,7 @@ authors:
   - "Xiangyuan Pu"
   - "Xiaosheng Hu"
   - "Qingbo Xu"
-  - "Li Zhang"
+  - "ZHANG Li"
   - "Weidong Li"
 tags:
   - "CD34+ PI16+ Progenitors"

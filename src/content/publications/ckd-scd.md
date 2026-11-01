@@ -15,7 +15,7 @@ authors:
   - "Yan Chen"
   - "Jingjing Cai"
   - "Hong Yuan"
-  - "Li Zhang"
+  - "ZHANG Li"
   - "Yao Lu"
 tags:
   - "Chronic Kidney Disease"

@@ -4,10 +4,10 @@ description: "Fibroblast activation protein (Fap) cleaves B-type natriuretic pep
 pubDate: 2023-02-09
 venue: "Circulation Research"
 authors:
-  - "Yuxi Sun"
+  - "SUN Yuxi"
   - "Mengqiu Ma"
   - "Dandan Cao"
-  - "Ancheng Zheng"
+  - "ZHENG Ancheng"
   - "Yiying Zhang"
   - "Yang Su"
   - "Jianfang Wang"
@@ -22,7 +22,7 @@ authors:
   - "Jiachen Qin"
   - "Chunyang Mo"
   - "Yawei Xu"
-  - "Li Zhang"
+  - "ZHANG Li"
   - "Dachun Xu"
   - "Rui Yue"
 tags:

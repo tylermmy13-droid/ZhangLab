@@ -4,11 +4,11 @@ description: "Neutrophil elastase drives thoracic aortic dissection in mice. Def
 pubDate: 2023-08-17
 venue: "Arteriosclerosis, Thrombosis, and Vascular Biology"
 authors:
-  - "Mei Yang"
+  - "YANG Mei"
   - "Xinmiao Zhou"
   - "Stuart W. A. Pearce"
   - "Zhisheng Yang"
-  - "Qishan Chen"
+  - "CHEN Qishan"
   - "Kaiyuan Niu"
   - "Chenxin Liu"
   - "Jun Luo"
@@ -20,7 +20,7 @@ authors:
   - "Pedro R. Cutillas"
   - "Lin Zhao"
   - "Qingzhong Xiao"
-  - "Li Zhang"
+  - "ZHANG Li"
 tags:
   - "Thoracic Aortic Dissection"
   - "Neutrophil Elastase"

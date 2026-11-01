@@ -4,8 +4,8 @@ description: "Neutrophil elastase drives vascular smooth muscle cell migration, 
 pubDate: 2021-07-06
 venue: "British Journal of Pharmacology"
 authors:
-  - "Mei Yang"
-  - "Qishan Chen"
+  - "YANG Mei"
+  - "CHEN Qishan"
   - "Li Mei"
   - "Guanmei Wen"
   - "Weiwei An"
@@ -15,7 +15,7 @@ authors:
   - "Meixia Ren"
   - "Kun Sun"
   - "Qingzhong Xiao"
-  - "Li Zhang"
+  - "ZHANG Li"
 tags:
   - "Neutrophil Elastase"
   - "Neointimal Hyperplasia"
