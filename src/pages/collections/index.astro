@@ -57,19 +57,20 @@ const collectionItems = (await getCollection('collections'))
   .direction-card-number {
     color: var(--faint);
     font-family: var(--font-title);
-    font-size: 34px;
-    line-height: 1.1;
-  }
+    font-size: var(--fs-h3);
+    line-height: var(--lh-snug);
+  font-weight: var(--w-title);
+}
 
   .direction-card-body { min-width: 0; }
 
   .direction-card-title {
     margin: 0 0 10px;
     font-family: var(--font-title);
-    font-size: clamp(24px, 2.4vw, 34px);
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.015em;
+    font-size: var(--fs-h3);
+    font-weight: var(--w-title);
+    line-height: var(--lh-snug);
+    letter-spacing: var(--ls-sub);
     text-decoration: underline;
     text-decoration-color: transparent;
     text-decoration-thickness: 1px;
@@ -82,7 +83,7 @@ const collectionItems = (await getCollection('collections'))
     max-width: 640px;
     margin: 0;
     color: var(--muted);
-    font-size: 17px;
+    font-size: var(--fs-body);
     line-height: 1.65;
   }
 
@@ -98,11 +99,11 @@ const collectionItems = (await getCollection('collections'))
     object-fit: cover;
   }
 
-  :global(html[lang="zh-CN"]) .direction-card-title { font-weight: 500; }
-
   @media (max-width: 860px) {
     .direction-card { grid-template-columns: 44px minmax(0, 1fr) 170px; gap: 0 18px; padding: 24px 0; }
-    .direction-card-number { font-size: 24px; }
+    .direction-card-number { font-size: var(--fs-h3);
+  font-weight: var(--w-title);
+}
   }
   @media (max-width: 560px) {
     .direction-card { grid-template-columns: minmax(0, 1fr) 132px; }

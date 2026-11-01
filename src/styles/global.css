@@ -28,6 +28,25 @@
   --header-h: 96px;
   --radius: 4px;
 
+  /* ===== Type scale: every page takes its sizes, weights and spacing from here. ===== */
+  --fs-display: clamp(38px, 4.6vw, 64px);  /* home hero */
+  --fs-h1: clamp(36px, 4.4vw, 60px);     /* page titles */
+  --fs-h2: clamp(28px, 3vw, 40px);       /* section titles */
+  --fs-h3: clamp(21px, 1.9vw, 26px);     /* entry titles, names */
+  --fs-h4: 19px;                         /* small titles */
+  --fs-lede: clamp(18px, 1.4vw, 20px);   /* standfirst under a title */
+  --fs-body: 17px;
+  --fs-prose: 19px;                      /* long reading text */
+  --fs-small: 15px;                      /* meta, links, nav */
+  --fs-meta: 12px;                       /* uppercase labels */
+  --fs-nav: 15px;
+  --w-title: 400;                        /* Charter Regular */
+  --w-label: 600;
+  --lh-tight: 1.1;
+  --lh-snug: 1.25;
+  --ls-title: -0.02em;
+  --ls-sub: -0.01em;
+
   /* Type. Latin glyphs come from the first family; Chinese glyphs fall through.
      Charter (serif) for headlines and articles, Manrope (sans) for the rest. */
   --font-title: "Charter", "Source Han Serif CN", "Noto Serif SC", "Songti SC", "STSong", Georgia, "Times New Roman", serif;
@@ -80,6 +99,26 @@
   font-display: swap;
   font-style: normal;
   font-weight: 700;
+}
+
+/* Chinese is set a step smaller (CJK glyphs fill the em box) and one weight heavier (Source Han Serif Medium
+   matches Charter Regular), with looser lines. Nothing else in the site overrides these per language. */
+html[lang="zh-CN"] {
+  --fs-display: clamp(36px, 4.2vw, 58px);
+  --fs-h1: clamp(32px, 4vw, 54px);
+  --fs-h2: clamp(26px, 2.8vw, 36px);
+  --fs-h3: clamp(20px, 1.8vw, 24px);
+  --fs-h4: 18px;
+  --fs-lede: clamp(17px, 1.3vw, 19px);
+  --fs-prose: 18px;
+  --fs-meta: 13px;
+  --fs-nav: 16px;
+  --w-title: 500;
+  --w-label: 500;
+  --lh-tight: 1.3;
+  --lh-snug: 1.4;
+  --ls-title: 0.02em;
+  --ls-sub: 0.01em;
 }
 
 /* ===== Base ===== */
@@ -150,8 +189,8 @@ img { max-width: 100%; display: block; }
   margin: 0 0 8px;
   color: var(--accent);
   font-family: var(--font-ui);
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-meta);
+  font-weight: var(--w-label);
   letter-spacing: 0.08em;
   line-height: 1.4;
   text-transform: uppercase;
@@ -196,7 +235,7 @@ img { max-width: 100%; display: block; }
   border-bottom: 1px solid transparent;
   color: var(--muted);
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: var(--fs-nav);
   font-weight: 500;
   letter-spacing: 0;
   line-height: 1.2;
@@ -219,7 +258,7 @@ img { max-width: 100%; display: block; }
   background: none;
   color: var(--ink);
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: var(--fs-small);
   font-weight: 500;
   letter-spacing: 0;
   line-height: 1.4;
@@ -255,17 +294,17 @@ img { max-width: 100%; display: block; }
   max-width: 920px;
   margin: 0;
   font-family: var(--font-title);
-  font-size: clamp(32px, 3.8vw, 52px);
-  font-weight: 400;
-  line-height: 1.12;
-  letter-spacing: -0.015em;
+  font-size: var(--fs-h2);
+  font-weight: var(--w-title);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-title);
 }
 
 .section-copy {
   max-width: 560px;
   margin: 0;
   color: var(--muted);
-  font-size: 17px;
+  font-size: var(--fs-body);
   line-height: 1.6;
 }
 
@@ -288,10 +327,10 @@ img { max-width: 100%; display: block; }
   max-width: 960px;
   margin: 0 0 18px;
   font-family: var(--font-title);
-  font-size: clamp(42px, 5.6vw, 76px);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-size: var(--fs-h1);
+  font-weight: var(--w-title);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-title);
 }
 
 .collection-lede,
@@ -299,7 +338,7 @@ img { max-width: 100%; display: block; }
   max-width: 660px;
   margin: 0;
   color: var(--muted);
-  font-size: clamp(18px, 1.5vw, 21px);
+  font-size: var(--fs-lede);
   line-height: 1.6;
   white-space: pre-line;
 }
@@ -310,7 +349,7 @@ img { max-width: 100%; display: block; }
   margin-bottom: 36px;
   color: var(--faint);
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--fs-small);
   transition: color 180ms ease;
 }
 .detail-back:hover { color: var(--accent); }
@@ -319,25 +358,25 @@ img { max-width: 100%; display: block; }
   max-width: 920px;
   margin: 0;
   font-family: var(--font-title);
-  font-size: clamp(38px, 5vw, 66px);
-  font-weight: 400;
-  line-height: 1.07;
-  letter-spacing: -0.02em;
+  font-size: var(--fs-h1);
+  font-weight: var(--w-title);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-title);
 }
 
 .news-detail-title {
   font-family: var(--font-title);
-  font-size: clamp(22px, 2vw, 28px);
-  font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  font-size: var(--fs-h3);
+  font-weight: var(--w-title);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-sub);
 }
 
 .detail-description {
   max-width: 700px;
   margin: 20px 0 0;
   color: var(--muted);
-  font-size: 19px;
+  font-size: var(--fs-lede);
   line-height: 1.65;
 }
 
@@ -350,7 +389,7 @@ img { max-width: 100%; display: block; }
 .detail-meta span {
   color: var(--faint);
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--fs-meta);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -393,10 +432,10 @@ img { max-width: 100%; display: block; }
 .card h3 {
   margin: 0 0 8px;
   font-family: var(--font-title);
-  font-size: clamp(22px, 2vw, 28px);
-  font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  font-size: var(--fs-h3);
+  font-weight: var(--w-title);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-sub);
   text-decoration: underline;
   text-decoration-color: transparent;
   text-decoration-thickness: 1px;
@@ -408,13 +447,13 @@ img { max-width: 100%; display: block; }
   max-width: 640px;
   margin: 0 0 8px;
   color: var(--muted);
-  font-size: 17px;
+  font-size: var(--fs-body);
   line-height: 1.6;
 }
 .card-meta {
   color: var(--faint);
   font-family: var(--font-read);
-  font-size: 15px;
+  font-size: var(--fs-small);
   font-style: italic;
 }
 
@@ -430,16 +469,24 @@ img { max-width: 100%; display: block; }
 .prose h3,
 .prose h4 {
   font-family: var(--font-title);
-  font-weight: 400;
-  letter-spacing: -0.015em;
+  font-weight: var(--w-title);
+  letter-spacing: var(--ls-sub);
 }
-.prose h1 { margin: 0 0 28px; font-size: clamp(40px, 4.6vw, 58px); line-height: 1.08; }
-.prose h2 { margin: 60px 0 20px; font-size: clamp(30px, 3vw, 40px); line-height: 1.15; }
-.prose h3 { margin: 44px 0 16px; font-size: clamp(24px, 2.1vw, 30px); line-height: 1.2; }
-.prose h4 { margin: 34px 0 12px; font-size: clamp(20px, 1.6vw, 24px); line-height: 1.25; }
+.prose h1 { margin: 0 0 28px; font-size: var(--fs-h1); line-height: var(--lh-tight);
+  font-weight: var(--w-title);
+}
+.prose h2 { margin: 60px 0 20px; font-size: var(--fs-h2); line-height: var(--lh-tight);
+  font-weight: var(--w-title);
+}
+.prose h3 { margin: 44px 0 16px; font-size: var(--fs-h3); line-height: var(--lh-snug);
+  font-weight: var(--w-title);
+}
+.prose h4 { margin: 34px 0 12px; font-size: var(--fs-h4); line-height: var(--lh-snug);
+  font-weight: var(--w-title);
+}
 
 .prose p,
-.prose li { color: var(--slate); font-size: 19px; line-height: 1.75; }
+.prose li { color: var(--slate); font-size: var(--fs-prose); line-height: 1.75; }
 .prose p { margin: 0 0 22px; }
 .prose ul,
 .prose ol { margin: 0 0 28px; padding-left: 1.3em; }
@@ -474,9 +521,10 @@ img { max-width: 100%; display: block; }
   margin: 0;
   color: var(--ink);
   font-family: var(--font-title);
-  font-size: clamp(21px, 1.9vw, 26px);
+  font-size: var(--fs-h3);
   font-style: italic;
-  line-height: 1.45;
+  line-height: var(--lh-snug);
+  font-weight: var(--w-title);
 }
 
 .prose pre {
@@ -573,46 +621,13 @@ img { max-width: 100%; display: block; }
 
 /* ===== Chinese typography ===== */
 html[lang="zh-CN"] body { font-weight: 400; }
-html[lang="zh-CN"] :where(.section-title, .collection-title, .publication-title, .detail-hero h1, .prose h1, .prose h2, .prose h3, .prose h4) {
-  letter-spacing: 0.01em;
-}
 html[lang="zh-CN"] :where(.collection-lede, .publication-lede, .section-copy, .detail-description) { line-height: 1.8; }
 html[lang="zh-CN"] .card p,
 html[lang="zh-CN"] .prose p,
 html[lang="zh-CN"] .prose li { line-height: 1.9; }
-html[lang="zh-CN"] .news-detail-title { font-weight: 500 !important; }
 html[lang="zh-CN"] :where(.label, .tag-pill) { letter-spacing: 0.04em; }
-/* Chinese navigation is set larger: CJK glyphs read small next to Latin capitals. */
-html[lang="zh-CN"] .nav a { font-size: 16px; letter-spacing: 0.04em; }
+html[lang="zh-CN"] .nav a { letter-spacing: 0.04em; }
 html[lang="zh-CN"] .button { letter-spacing: 0.04em; }
-
-/* Chinese display type is set one step heavier than the Latin serif so the two read at the same weight. */
-html[lang="zh-CN"] :where(
-  .home-hero-title,
-  .section-title,
-  .collection-title,
-  .publication-title,
-  .detail-hero h1,
-  .about-heading,
-  .leadership-name,
-  .about-research-card h3,
-  .direction-card-title,
-  .level-label,
-  .students-section-title,
-  .student-group-label,
-  .member-card-name,
-  .student-card-name,
-  .member-name,
-  .pub-title,
-  .contact-pill-name,
-  .institution-card h2,
-  .prose h1,
-  .prose h2,
-  .prose h3,
-  .prose h4
-) {
-  font-weight: 500 !important;
-}
 
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
@@ -648,5 +663,5 @@ html[lang="zh-CN"] :where(
 @media (max-width: 640px) {
   .container { width: calc(100% - 32px); }
   .card { grid-template-columns: minmax(0, 1fr) 132px; gap: 0 18px; padding: 24px 0; }
-  .card p { font-size: 16px; }
+  .card p { font-size: var(--fs-body); }
 }

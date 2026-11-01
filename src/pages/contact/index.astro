@@ -72,9 +72,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .contact-pill:first-child { border-top: 1px solid var(--rule); }
   .contact-pill-name {
     font-family: var(--font-title);
-    font-size: 26px;
-    font-weight: 500;
-    line-height: 1.25;
+    font-size: var(--fs-h3);
+    font-weight: var(--w-title);
+    line-height: var(--lh-snug);
     text-decoration: underline;
     text-decoration-color: transparent;
     text-decoration-thickness: 1px;
@@ -88,7 +88,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     gap: 10px;
     color: var(--slate);
     font-family: var(--font-ui);
-    font-size: 16px;
+    font-size: var(--fs-body);
     transition: color 180ms ease;
   }
   .contact-pill:hover .contact-pill-email { color: var(--accent); }
@@ -104,30 +104,32 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     margin: 0 0 12px;
     color: var(--faint);
     font-family: var(--font-ui);
-    font-size: 12px;
-    font-weight: 500;
+    font-size: var(--fs-meta);
+    font-weight: var(--w-label);
     letter-spacing: 0.09em;
     text-transform: uppercase;
   }
   .institution-card h2 {
     margin: 0 0 14px;
     font-family: var(--font-title);
-    font-size: clamp(24px, 2.6vw, 34px);
-    font-weight: 400;
-    line-height: 1.25;
+    font-size: var(--fs-h3);
+    font-weight: var(--w-title);
+    line-height: var(--lh-snug);
   }
-  .institution-card p:not(.institution-label) { margin: 6px 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
+  .institution-card p:not(.institution-label) { margin: 6px 0; color: var(--muted); font-size: var(--fs-body); line-height: 1.6; }
   .institution-card a {
     display: inline-flex;
     margin-top: 16px;
     border-bottom: 1px solid currentColor;
     color: var(--accent);
     font-family: var(--font-ui);
-    font-size: 14px;
+    font-size: var(--fs-small);
     font-weight: 500;
   }
   @media (max-width: 640px) {
     .contact-pill { grid-template-columns: 1fr; }
-    .contact-pill-name { font-size: 22px; }
+    .contact-pill-name { font-size: var(--fs-h3);
+  font-weight: var(--w-title);
+}
   }
 </style>

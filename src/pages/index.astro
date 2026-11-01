@@ -103,16 +103,16 @@ const collectionItems = (await getCollection('collections')).filter((item) => !i
     margin: 18px 0 10px;
     color: var(--accent);
     font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-    font-size: 13px;
+    font-size: var(--fs-meta);
     letter-spacing: 0.04em;
   }
   .area h3 {
     margin: 0 0 10px;
     font-family: var(--font-title);
-    font-size: clamp(22px, 2vw, 28px);
-    font-weight: 500;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
+    font-size: var(--fs-h3);
+    font-weight: var(--w-title);
+    line-height: var(--lh-snug);
+    letter-spacing: var(--ls-sub);
     text-decoration: underline;
     text-decoration-color: transparent;
     text-decoration-thickness: 1px;
@@ -120,9 +120,7 @@ const collectionItems = (await getCollection('collections')).filter((item) => !i
     transition: text-decoration-color 180ms ease;
   }
   .area:hover h3 { text-decoration-color: currentColor; }
-  .area p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.6; }
-
-  :global(html[lang="zh-CN"]) .area h3 { font-weight: 500; }
+  .area p { margin: 0; color: var(--muted); font-size: var(--fs-body); line-height: 1.6; }
 
   /* On narrow screens the row scrolls sideways, one entry at a time. */
   @media (max-width: 860px) {
