@@ -24,12 +24,13 @@
   --rule-soft: rgba(30, 30, 30, 0.13);
 
   /* Geometry */
-  --max: 1120px;
+  --max: 1680px;
+  --gutter: clamp(16px, 7.5vw, 180px);  /* side margins grow with the window, as on anthropic.com */
   --header-h: 96px;
   --radius: 4px;
 
   /* ===== Type scale: every page takes its sizes, weights and spacing from here. ===== */
-  --fs-display: clamp(38px, 4.6vw, 64px);  /* home hero */
+  --fs-display: clamp(38px, 4.4vw, 84px);  /* home hero */
   --fs-h1: clamp(36px, 4.4vw, 60px);     /* page titles */
   --fs-h2: clamp(28px, 3vw, 40px);       /* section titles */
   --fs-h3: clamp(21px, 1.9vw, 26px);     /* entry titles, names */
@@ -104,7 +105,7 @@
 /* Chinese is set a step smaller (CJK glyphs fill the em box) and one weight heavier (Source Han Serif Medium
    matches Charter Regular), with looser lines. Nothing else in the site overrides these per language. */
 html[lang="zh-CN"] {
-  --fs-display: clamp(36px, 4.2vw, 58px);
+  --fs-display: clamp(36px, 4vw, 76px);
   --fs-h1: clamp(32px, 4vw, 54px);
   --fs-h2: clamp(26px, 2.8vw, 36px);
   --fs-h3: clamp(20px, 1.8vw, 24px);
@@ -148,7 +149,7 @@ img { max-width: 100%; display: block; }
 ::selection { background: var(--accent); color: #fff; }
 
 .container {
-  width: min(calc(100% - 48px), var(--max));
+  width: min(calc(100% - 2 * var(--gutter)), var(--max));
   margin-inline: auto;
 }
 
@@ -210,7 +211,7 @@ img { max-width: 100%; display: block; }
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 12px 48px;
-  width: min(calc(100% - 48px), var(--max));
+  width: min(calc(100% - 2 * var(--gutter)), var(--max));
   min-height: var(--header-h);
   margin-inline: auto;
 }
@@ -410,7 +411,7 @@ img { max-width: 100%; display: block; }
 
 .card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.55fr);
   gap: 0 44px;
   align-items: start;
   padding: 36px 0;
