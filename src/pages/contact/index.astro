@@ -60,16 +60,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 <style>
   .contact-section { padding-top: 32px; }
-  .contact-list { display: block; }
+  .contact-list {
+    display: block;
+    max-width: 1000px;
+    padding: 12px 40px 40px;
+    border: 1px solid var(--rule-soft);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow-paper);
+  }
   .contact-pill {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: baseline;
     gap: 6px 32px;
-    padding: 24px 0;
-    border-bottom: 1px solid var(--rule);
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule-soft);
   }
-  .contact-pill:first-child { border-top: 1px solid var(--rule); }
   .contact-pill-name {
     font-family: var(--font-title);
     font-size: var(--fs-h3);
@@ -96,7 +103,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .institution-card {
     max-width: 720px;
-    margin-top: 56px;
+    margin-top: 40px;
     padding-top: 24px;
     border-top: 1px solid var(--ink);
   }
@@ -127,9 +134,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     font-weight: 500;
   }
   @media (max-width: 640px) {
-    .contact-pill { grid-template-columns: 1fr; }
-    .contact-pill-name { font-size: var(--fs-h3);
-  font-weight: var(--w-title);
-}
+    .contact-list { padding: 4px 20px 28px; }
+    .contact-pill { grid-template-columns: 1fr; padding: 24px 0; }
+    .contact-pill-name { font-size: var(--fs-h3); font-weight: var(--w-title); }
+    .contact-pill-email { font-size: 14px; overflow-wrap: anywhere; }
   }
 </style>

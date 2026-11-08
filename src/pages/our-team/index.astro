@@ -47,7 +47,7 @@ const studentGroups: Array<{ type: keyof typeof studentTypeConfig }> = [
                 <div class={`level-cards level-cols-${members.length}`}>
                   {members.map((member) => (
                     <a class="member-card" href={`/our-team/${member.slug}/`} data-slug={member.slug}>
-                      <div class="member-card-photo">
+                      <div class="member-card-photo" data-initial={member.nameZh.charAt(0)}>
                         {member.img && <img src={member.img} alt={member.nameZh} loading="lazy" />}
                       </div>
                       <div class="member-card-info">
@@ -129,9 +129,20 @@ const studentGroups: Array<{ type: keyof typeof studentTypeConfig }> = [
   .member-card-photo {
     aspect-ratio: 4 / 5;
     overflow: hidden;
-    background: var(--paper-deep);
+    border: 1px solid var(--rule-soft);
+    border-radius: var(--radius);
+    background: var(--surface) !important;
   }
   .member-card-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .member-card-photo:not(:has(img))::after {
+    content: attr(data-initial);
+    display: grid;
+    place-items: center;
+    height: 100%;
+    color: #8b968e;
+    font-family: var(--font-title);
+    font-size: clamp(36px, 4vw, 56px);
+  }
 
   .member-card-info { padding-top: 16px; }
 

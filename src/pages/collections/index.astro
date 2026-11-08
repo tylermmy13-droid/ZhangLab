@@ -43,70 +43,43 @@ const collectionItems = (await getCollection('collections'))
 </BaseLayout>
 
 <style>
-  .directions-section { padding-top: 0; padding-bottom: 96px; }
-
+  .directions-section { padding-top: 0; padding-bottom: 112px; }
+  .directions-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
   .direction-card {
-    display: grid;
-    grid-template-columns: 72px minmax(0, 1fr) 360px;
-    gap: 0 32px;
-    align-items: start;
-    padding: 40px 0;
-    border-bottom: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--rule-soft);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow-paper);
   }
-
-  .direction-card-number {
-    color: var(--faint);
-    font-family: var(--font-title);
-    font-size: var(--fs-h3);
-    line-height: var(--lh-snug);
-  font-weight: var(--w-title);
-}
-
-  .direction-card-body { min-width: 0; }
-
+  .direction-card-number { display: none; }
+  .direction-card-media { order: -1; overflow: hidden; }
+  .direction-card-media img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform 500ms ease; }
+  .direction-card:hover .direction-card-media img { transform: scale(1.025); }
+  .direction-card-body { display: flex; flex-direction: column; flex: 1; padding: 28px 30px 32px; }
   .direction-card-title {
-    margin: 0 0 10px;
+    margin: 0 0 12px;
     font-family: var(--font-title);
     font-size: var(--fs-h3);
     font-weight: var(--w-title);
     line-height: var(--lh-snug);
     letter-spacing: var(--ls-sub);
-    text-decoration: underline;
-    text-decoration-color: transparent;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 6px;
-    transition: text-decoration-color 180ms ease;
+    text-wrap: pretty;
+    transition: color 180ms ease;
   }
-  .direction-card:hover .direction-card-title { text-decoration-color: currentColor; }
-
-  .direction-card-desc {
-    max-width: 640px;
-    margin: 0;
-    color: var(--muted);
-    font-size: var(--fs-body);
-    line-height: 1.65;
-  }
-
-  .direction-card-media {
-    overflow: hidden;
-    border: 1px solid var(--rule-soft);
-    border-radius: var(--radius);
-    background: var(--paper-deep);
-  }
-  .direction-card-media img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-  }
-
-  @media (max-width: 860px) {
-    .direction-card { grid-template-columns: 44px minmax(0, 1fr) 170px; gap: 0 18px; padding: 24px 0; }
-    .direction-card-number { font-size: var(--fs-h3);
-  font-weight: var(--w-title);
-}
-  }
-  @media (max-width: 560px) {
-    .direction-card { grid-template-columns: minmax(0, 1fr) 132px; }
-    .direction-card-number { display: none; }
+  .direction-card:hover .direction-card-title { color: var(--accent); }
+  .direction-card-desc { margin: 0; color: var(--muted); font-size: var(--fs-body); line-height: 1.7; }
+  .direction-card:last-child { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr); }
+  .direction-card:last-child .direction-card-media { order: 0; }
+  .direction-card:last-child .direction-card-media img { height: 100%; aspect-ratio: auto; }
+  @media (max-width: 700px) {
+    .directions-list { grid-template-columns: 1fr; gap: 18px; }
+    .direction-card:last-child { display: flex; }
+    .direction-card:last-child .direction-card-media { order: -1; }
+    .direction-card:last-child .direction-card-media img { height: auto; aspect-ratio: 16 / 9; }
+    .direction-card-body { padding: 24px; }
   }
 </style>

@@ -98,9 +98,9 @@ const honorsZh = member.honorsZh;
 
   .member-header {
     display: flex;
-    gap: 48px;
+    gap: clamp(32px, 4vw, 64px);
     align-items: flex-start;
-    margin-bottom: 56px;
+    margin-bottom: 64px;
   }
   .member-photo {
     flex-shrink: 0;
@@ -124,13 +124,14 @@ const honorsZh = member.honorsZh;
   }
   .member-role { margin: 0; color: var(--muted); font-size: var(--fs-body); line-height: 1.6; white-space: pre-line; }
   .member-desc {
-    max-width: 680px;
-    margin: 20px 0 0;
-    padding-top: 20px;
+    max-width: 780px;
+    margin: 24px 0 0;
+    padding-top: 24px;
     border-top: 1px solid var(--rule);
     color: var(--slate);
-    font-size: var(--fs-lede);
-    line-height: 1.75;
+    font-family: var(--font-read);
+    font-size: var(--fs-prose);
+    line-height: 1.8;
     white-space: pre-line;
   }
   .member-social { margin-top: 20px; }
